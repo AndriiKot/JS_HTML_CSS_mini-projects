@@ -20,8 +20,8 @@ svg {
 
 /* Анимация + :hover */
 /* Animation plus :hover */
-.wrapper div:hover > a svg,
-.wrapper div:hover ~ div > a svg {         
+.wrapper div:hover svg,
+.wrapper div:hover ~ div svg {         
   animation: 0.3s anim-fill forwards 0s;
   /* New Style */
 }
