@@ -1,0 +1,35 @@
+﻿/* Positioning elements */
+/* Позиционирования елементов */
+.wrapper div{         /* задаём размер звезды через объвёртку div width: 15% и назначение элементу svg width: 100% */
+    width: 50%;
+    margin: 0.8vw;
+}
+svg {
+    width: 100%;
+    height: auto;
+    fill: rgba(128, 128, 128, 0.753);
+}
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Анимация + :hover */
+/* Animation plus :hover */
+.wrapper div:hover > a svg,
+.wrapper div:hover ~ div > a svg {         
+  animation: 0.3s anim-fill forwards 0s;
+  /* New Style */
+}
+
+@keyframes anim-fill{
+  to{
+    fill:  rgb(220, 238, 28);
+  }
+}
+
+
