@@ -43,11 +43,19 @@ for(const item of nodeListFromElementsStars){
 };
 
 function clickedOnStar() {
-  const regx = this.className;
-  const property_star = "clicked-on-star" 
-  if (regx.includes() != property_star){
-    this.classList.add(property_star);
+  const className = this.className;
+  const active_star = "clicked-on-star" 
+
+  if (className.includes() == active_star){
+    return;
   };
+  
+  for(const item of nodeListFromElementsStars){
+    item.classList.remove(active_star);
+  };
+
+    this.classList.add(active_star);
+
 };
 
 
