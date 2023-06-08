@@ -1,13 +1,13 @@
-﻿/* Positioning elements */
+﻿/* Positioning elements start code*/
 /* Позиционирования елементов */
-.wrapper div{         /* задаём размер звезды через объвёртку div width: 15% и назначение элементу svg width: 100% */
+.wrapper div{         /* задаём размер звезды через объвёртку div width: 50% и назначение элементу svg width: 100% */
     width: 50%;
     margin: 0.8vw;
 }
 svg {
     width: 100%;
     height: auto;
-    fill: rgba(128, 128, 128, 0.753);
+    fill: rgba(128, 128, 128, 0.753); /* задаём цвет неактивной звезды */
 }
 .wrapper {
     display: flex;
@@ -16,10 +16,11 @@ svg {
     justify-content: center;
     align-items: center;
 }
+/* end Positionig elements */
 
 
 /* Анимация + :hover */
-/* Animation plus :hover */
+/* Animation plus :hover star code*/
 .wrapper div:hover svg,
 .wrapper div:hover ~ div svg {         
   animation: 0.3s anim-fill forwards 0s;
@@ -31,5 +32,6 @@ svg {
     fill:  rgb(220, 238, 28);
   }
 }
+/* end code Animation  */
 
 
