@@ -31,8 +31,36 @@ for(let i = numberOfelem; i > 0; i--){
 `
 }
 
-divWrapper.dir = 'rtl'  // Изменения порядока элементов на обратный 
+divWrapper.dir = 'rtl';  // Изменения порядока элементов на обратный 
                         // для корректного отображения свойтсва :hover
+
+// New functional: click to element star return new state
+
+const nodeListFromElementsStars = document.querySelectorAll('[class^="star"]');
+
+for(const item of nodeListFromElementsStars){
+  item.addEventListener('click',clickedOnStar);
+};
+
+function clickedOnStar() {
+  const className = this.className;
+  const active_star = "clicked-on-star" 
+
+  if (className.includes() == active_star){
+    return;
+  };
+  
+  for(const item of nodeListFromElementsStars){
+    item.classList.remove(active_star);
+  };
+
+    this.classList.add(active_star);
+
+};
+
+
+
+
 
 
 
