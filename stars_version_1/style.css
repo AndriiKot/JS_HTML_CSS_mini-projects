@@ -21,8 +21,11 @@ svg {
 
 /* Анимация + :hover */
 /* Animation plus :hover star code*/
+/* Animation plus cliked on star */
 .wrapper div:hover svg,
-.wrapper div:hover ~ div svg {         
+.wrapper div:hover ~ div svg,
+.wrapper .clicked-on-star svg,
+.wrapper .clicked-on-star  ~ div svg{         
   animation: 0.3s anim-fill forwards 0s;
   /* New Style */
 }
