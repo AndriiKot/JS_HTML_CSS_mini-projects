@@ -39,13 +39,21 @@ divWrapper.dir = 'rtl';  // Изменения порядока элементо
 const nodeListFromElementsStars = document.querySelectorAll('[class^="star"]');
 
 for(const item of nodeListFromElementsStars){
-  console.log(item);
   item.addEventListener('click',clickedOnStar);
 };
 
 function clickedOnStar() {
-  this.classList.add("clicked-on-star");
+  const regx = this.className;
+  const property_star = "clicked-on-star" 
+  if (regx.includes() != property_star){
+    this.classList.add(property_star);
+  };
 };
+
+
+
+
+
 
 
 
