@@ -30,11 +30,33 @@ svg {
   /* New Style */
 }
 
+
 @keyframes anim-fill{
   to{
     fill:  rgb(220, 238, 28);
   }
 }
+
+/* .wrapper div:active svg .cls-2{
+  animation-name: anim-fill-active-star;
+  animation-duration: 2s;
+} */
+
+/* .wrapper div:active svg .cls-1{
+  animation-name: anim-fill-active-star;
+  animation-duration: 3s;
+} */
+
+
+/* @keyframes anim-fill-active-star {
+  
+    0% {fill: rgb(220, 238, 28);box-shadow: -0px -0px 500px red;}
+    20%{fill: rgb(202, 200, 38);}
+    40%{fill: rgb(177, 86, 29);}
+    60%{fill: rgb(239, 231, 88);}
+    100%{fill: rgb(227, 230, 188);}
+  
+} */
 /* end code Animation  */
 
 
