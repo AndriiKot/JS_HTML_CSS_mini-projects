@@ -1,16 +1,40 @@
 ﻿const body = document.body;
+const active_star = "clicked-on-star";
+const numberOfelem = 5;                     // количество елементов (кол-во звёзд)
+
 body.style.background = "#1b2637";                   // фон                                               
-                                                                                                                                              
+
+function remove_element(obj,delete_class){
+  for (const item of obj){
+    item.classList.remove(delete_class);
+  };
+};
 const createDiv = (class_name = '') => {         // Создание функции по созданию элементов 'div'                                      
   const div = document.createElement('div');     // которая принимает в качестве параметра строковый аргумент.
   div['className'] = class_name;                 // Аргумент будет использоваться функцией как значение атрибута 'class',
   return div;                                    // если аргумент не указан то атрибут класс остаётся без параметра
-}
+};
 
+const removeClassOfActiveStar = () =>{remove_element(nodeListFromElementsStars,active_star)};
+
+function clickedOnStar() {
+  const className = this.className;
+
+  if (className.includes() == active_star){
+    return;
+  };
+
+  removeClassOfActiveStar();
+  
+  this.classList.add(active_star);
+  return true;
+};
+
+
+                                                                                                                                             
+// Create Rating Stars 
 const divWrapper = createDiv('wrapper');         
 body.prepend(divWrapper);
-
-const numberOfelem = 5;                     // количество елементов (кол-во звёзд)
 
 for(let i = numberOfelem; i > 0; i--){
   const div = createDiv();
@@ -33,30 +57,26 @@ for(let i = numberOfelem; i > 0; i--){
 
 divWrapper.dir = 'rtl';  // Изменения порядока элементов на обратный 
                         // для корректного отображения свойтсва :hover
+// end Create Rating Stars
+
 
 // New functional: click to element star return new state
-
 const nodeListFromElementsStars = document.querySelectorAll('[class^="star"]');
 
 for(const item of nodeListFromElementsStars){
   item.addEventListener('click',clickedOnStar);
 };
 
-function clickedOnStar() {
-  const className = this.className;
-  const active_star = "clicked-on-star" 
 
-  if (className.includes() == active_star){
-    return;
-  };
-  
-  for(const item of nodeListFromElementsStars){
-    item.classList.remove(active_star);
-  };
+function clickedOnReset(){
+  removeClassOfActiveStar();
+  console.log('AAA')   /// !!!!
+}
 
-    this.classList.add(active_star);
 
-};
+
+
+
 
 
 
