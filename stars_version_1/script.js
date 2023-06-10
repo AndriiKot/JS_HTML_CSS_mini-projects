@@ -1,30 +1,42 @@
 ﻿const body = document.body;
 const main_active_star = "main-active-star";
 const numberOfelem = 5;                     // количество елементов (кол-во звёзд)
+let is_main_active_star = false;
 
-
-body.style.background = "#1b2637";                   // фон                                               
 
 const remove_class_name = (obj,class_name) => {
   for (const item of obj){
     item.classList.remove(class_name);
   };
 };
+
+const removeClassNameActiveStar = () =>{
+  remove_class_name(nodeListFromElementsStars,main_active_star)
+};
+
+const AddClassNameActiveStar = (e) => {
+  e.currentTarget.classList.add(main_active_star)
+};
+
 const createDiv = (class_name = '') => {         // Создание функции по созданию элементов 'div'                                      
   const div = document.createElement('div');     // которая принимает в качестве параметра строковый аргумент.
   div['className'] = class_name;                 // Аргумент будет использоваться функцией как значение атрибута 'class',
   return div;                                    // если аргумент не указан то атрибут класс остаётся без параметра
 };
-const AddClassNameActiveStar = (e) => {
-  e.currentTarget.classList.add(main_active_star)
+
+const firstClickOnStar = (e) => {
+  AddClassNameActiveStar(e);
+  is_main_active_star = true
 };
-const removeClassNameActiveStar = () =>{remove_class_name(nodeListFromElementsStars,main_active_star)};
 
 const clickedOnStar = (e) => {
-
   const className = e.currentTarget.className;
+  if (className.includes(main_active_star)){
+    return;
+  };
 
-  if (className.includes() == main_active_star){
+  if (is_main_active_star == false){
+    firstClickOnStar(e);
     return;
   };
 
@@ -34,6 +46,7 @@ const clickedOnStar = (e) => {
 
                                                                                                                                              
 // Create html Elements of Rating Stars 
+
 const divWrapper = createDiv('wrapper');         
 body.prepend(divWrapper);
 
@@ -56,6 +69,7 @@ for(let i = numberOfelem; i > 0; i--){
 `
 };
 
+body.style.background = "#1b2637";                   // фон                                               
 divWrapper.dir = 'rtl';  // Изменения порядока элементов на обратный 
                         // для корректного отображения свойтсва :hover
 // end Create Rating Stars
@@ -68,10 +82,15 @@ for(const item of nodeListFromElementsStars){
     item.addEventListener('click',clickedOnStar);
 };
 
-function clickedOnButtonReset(){
+// Button RESET
+const  clickedOnButtonReset = () => {
+  if (is_main_active_star === false){ return};
   removeClassNameActiveStar();
-  console.log('AAA');  /// !!!!
-}
+  is_main_active_star = false;
+};
+
+const buttonReset = document.querySelector('button');
+buttonReset.addEventListener('click',clickedOnButtonReset);
 
 
 
