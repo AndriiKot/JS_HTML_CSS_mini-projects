@@ -17,7 +17,7 @@ const createDiv = (class_name = '') => {         // Создание функц�
 };
 const AddClassNameActiveStar = (e) => {
   e.currentTarget.classList.add(main_active_star)
-}
+};
 const removeClassNameActiveStar = () =>{remove_class_name(nodeListFromElementsStars,main_active_star)};
 
 const clickedOnStar = (e) => {
@@ -54,7 +54,7 @@ for(let i = numberOfelem; i > 0; i--){
       </svg>
     </a> 
 `
-}
+};
 
 divWrapper.dir = 'rtl';  // Изменения порядока элементов на обратный 
                         // для корректного отображения свойтсва :hover
@@ -70,7 +70,7 @@ for(const item of nodeListFromElementsStars){
 
 function clickedOnButtonReset(){
   removeClassNameActiveStar();
-  console.log('AAA')   /// !!!!
+  console.log('AAA');  /// !!!!
 }
 
 
