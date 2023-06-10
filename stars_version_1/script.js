@@ -1,12 +1,13 @@
 ﻿const body = document.body;
-const active_star = "clicked-on-star";
+const main_active_star = "main-active-star";
 const numberOfelem = 5;                     // количество елементов (кол-во звёзд)
+
 
 body.style.background = "#1b2637";                   // фон                                               
 
-function remove_element(obj,delete_class){
+const remove_class_name = (obj,class_name) => {
   for (const item of obj){
-    item.classList.remove(delete_class);
+    item.classList.remove(class_name);
   };
 };
 const createDiv = (class_name = '') => {         // Создание функции по созданию элементов 'div'                                      
@@ -14,25 +15,25 @@ const createDiv = (class_name = '') => {         // Создание функц�
   div['className'] = class_name;                 // Аргумент будет использоваться функцией как значение атрибута 'class',
   return div;                                    // если аргумент не указан то атрибут класс остаётся без параметра
 };
+const AddClassNameActiveStar = (e) => {
+  e.currentTarget.classList.add(main_active_star)
+};
+const removeClassNameActiveStar = () =>{remove_class_name(nodeListFromElementsStars,main_active_star)};
 
-const removeClassOfActiveStar = () =>{remove_element(nodeListFromElementsStars,active_star)};
+const clickedOnStar = (e) => {
 
-function clickedOnStar() {
-  const className = this.className;
+  const className = e.currentTarget.className;
 
-  if (className.includes() == active_star){
+  if (className.includes() == main_active_star){
     return;
   };
 
-  removeClassOfActiveStar();
-  
-  this.classList.add(active_star);
-  return true;
+  removeClassNameActiveStar();
+  AddClassNameActiveStar(e);
 };
 
-
                                                                                                                                              
-// Create Rating Stars 
+// Create html Elements of Rating Stars 
 const divWrapper = createDiv('wrapper');         
 body.prepend(divWrapper);
 
@@ -53,7 +54,7 @@ for(let i = numberOfelem; i > 0; i--){
       </svg>
     </a> 
 `
-}
+};
 
 divWrapper.dir = 'rtl';  // Изменения порядока элементов на обратный 
                         // для корректного отображения свойтсва :hover
@@ -64,13 +65,12 @@ divWrapper.dir = 'rtl';  // Изменения порядока элементо
 const nodeListFromElementsStars = document.querySelectorAll('[class^="star"]');
 
 for(const item of nodeListFromElementsStars){
-  item.addEventListener('click',clickedOnStar);
+    item.addEventListener('click',clickedOnStar);
 };
 
-
-function clickedOnReset(){
-  removeClassOfActiveStar();
-  console.log('AAA')   /// !!!!
+function clickedOnButtonReset(){
+  removeClassNameActiveStar();
+  console.log('AAA');  /// !!!!
 }
 
 
