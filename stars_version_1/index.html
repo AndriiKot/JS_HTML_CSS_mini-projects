@@ -9,6 +9,12 @@
 </head>
 <body>
   <button>Reset</button>
+  <form action="#" name="quantity-rang-stars" onsubmit="return quantityRangStars()">
+    <label for="quantity">Quantity (between 3 and 10):</label>
+    <input type="number" id="quantity" name="quantity" min="3" max="10" value="3">
+    <input type="submit" value="Submit">
+  </form>
+  
   <script src="script.js"></script>
 </body>
 </html>
