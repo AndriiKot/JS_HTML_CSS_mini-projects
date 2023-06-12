@@ -2,7 +2,7 @@
 body.style.background = "#1b2637";                   
 
 const main_active_star = "main-active-star";
-const DefaulValue = 5;                        
+let defaulValue = 5;                        
 let is_main_active_star = false;
 
 
@@ -18,7 +18,7 @@ const addElement = (parent,children) => {
 
 const reverseElements = (element) => {
   const dir = element.getAttribute('dir');
-  const expression = (dir == null || dir == undefined || dir == 'ltr');
+  const expression = (dir == null || dir == undefined || dir == 'ltr' || dir == '');
   expression ? element.dir = 'rtl' : element.dir = 'ltr';
 };
 
@@ -42,7 +42,7 @@ const createStar = (i = '') => {
   };
 
 
-const createStars = (wrapper,numberOfelem = DefaulValue) => {
+const createStars = (wrapper,numberOfelem = defaulValue) => {
   for(let i = numberOfelem; i > 0; i--){
     const star = createStar(i);
     addElement(wrapper,star);
@@ -105,9 +105,12 @@ const clickedOnStar = (e) => {
   AddClassNameActiveStar(e);
 };
 
-createStars(createDivWrapperStars());
-addEventOnStars(nodeListOfStars());
+const createFullElement = (arg) => {
+  createStars(createDivWrapperStars(),arg);
+  addEventOnStars(nodeListOfStars());
+};
 
+createFullElement();
 
 const  clickedOnButtonReset = () => {
   if (is_main_active_star === false){ return};
@@ -118,13 +121,17 @@ const  clickedOnButtonReset = () => {
 const buttonReset = document.querySelector('button');
 buttonReset.addEventListener('click',clickedOnButtonReset);
 
+const submitQuantity = document.forms["quantity-rang-stars"]
+submitQuantity.addEventListener("submit",quantityRangStars)
 
-function quantityRangStars() {
+function quantityRangStars(e) {
+  e.preventDefault();
   const quantity = document.forms["quantity-rang-stars"]["quantity"].value;
-  console.log(numberOfelem);
-
-  numberOfelem = quantity
-  console.log(numberOfelem);
+  defaulValue = Number(quantity);
+  element = document.querySelector('.wrapper')
+  element.remove();
+  console.log(defaulValue)
+  createFullElement(defaulValue);
 }
 
 
