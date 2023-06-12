@@ -121,18 +121,21 @@ const  clickedOnButtonReset = () => {
 const buttonReset = document.querySelector('button');
 buttonReset.addEventListener('click',clickedOnButtonReset);
 
-const submitQuantity = document.forms["quantity-rang-stars"]
-submitQuantity.addEventListener("submit",quantityRangStars)
-
-function quantityRangStars(e) {
+const quantityRangStars = (e) => {
   e.preventDefault();
-  const quantity = document.forms["quantity-rang-stars"]["quantity"].value;
+  console.log(e.target.quantity.value)
+  // const quantity = document.forms["quantity-rang-stars"]["quantity"].value;
+  const quantity = e.target.quantity.value
   defaulValue = Number(quantity);
   element = document.querySelector('.wrapper')
   element.remove();
   console.log(defaulValue)
   createFullElement(defaulValue);
-}
+};
+const submitQuantity = document.forms["quantity-rang-stars"]
+submitQuantity.addEventListener("submit",quantityRangStars)
+
+
 
 
 
