@@ -18,13 +18,12 @@ const addElement = (parent,children) => {
 
 const reverseElements = (element) => {
   const dir = element.getAttribute('dir');
-  const expression = (dir == null || dir == undefined || dir == 'ltr' || dir == '');
+  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
   expression ? element.dir = 'rtl' : element.dir = 'ltr';
 };
 
 const createStar = (i = '') => {
-  const divStar = createDiv();
-  divStar.className = `star-${i}`;
+  const divStar = createDiv(`star-${i}`);
   divStar.innerHTML = `
   <a href="#">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 59.93">
