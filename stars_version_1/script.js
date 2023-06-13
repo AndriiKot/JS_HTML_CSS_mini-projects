@@ -2,7 +2,7 @@
 body.style.background = "#1b2637";                   
 
 const main_active_star = "main-active-star";
-let defaulValue = 5;                        
+let quantityStarsDefault = 5;                        
 let is_main_active_star = false;
 
 
@@ -22,8 +22,13 @@ const reverseElements = (element) => {
   expression ? element.dir = 'rtl' : element.dir = 'ltr';
 };
 
-const createStar = (i = '') => {
-  const divStar = createDiv(`star-${i}`);
+const createDivWrapperStars = () => {
+  const divWrapper = createDiv('wrapper'); 
+  return divWrapper;
+};
+
+const createStar = (starNumber = '') => {
+  const divStar = createDiv(`star-${starNumber}`);
   divStar.innerHTML = `
   <a href="#">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 59.93">
@@ -41,19 +46,13 @@ const createStar = (i = '') => {
   };
 
 
-const createStars = (wrapper,numberOfelem = defaulValue) => {
+const createStars = (wrapper,numberOfelem = quantityStarsDefault) => {
   for(let i = numberOfelem; i > 0; i--){
     const star = createStar(i);
     addElement(wrapper,star);
   };
   reverseElements(wrapper);
   addElement(body,wrapper);
-};
-
-
-const createDivWrapperStars = () => {
-  const divWrapper = createDiv('wrapper'); 
-  return divWrapper;
 };
 
 
@@ -122,14 +121,11 @@ buttonReset.addEventListener('click',clickedOnButtonReset);
 
 const quantityRangStars = (e) => {
   e.preventDefault();
-  console.log(e.target.quantity.value)
-  // const quantity = document.forms["quantity-rang-stars"]["quantity"].value;
   const quantity = e.target.quantity.value
-  defaulValue = Number(quantity);
+  quantityStarsDefault = Number(quantity);
   element = document.querySelector('.wrapper')
   element.remove();
-  console.log(defaulValue)
-  createFullElement(defaulValue);
+  createFullElement(quantityStarsDefault);
 };
 const submitQuantity = document.forms["quantity-rang-stars"]
 submitQuantity.addEventListener("submit",quantityRangStars)
