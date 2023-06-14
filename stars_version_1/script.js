@@ -1,9 +1,12 @@
-﻿const body = document.body;
+﻿const body = document.body
 body.style.background = "#1b2637";                   
 
 const main_active_star = "main-active-star";
 let quantityStarsDefault = 5;                        
 let is_main_active_star = false;
+
+const buttonReset = document.querySelector('button');
+
 
 
 const createDiv = (class_name = '') => {                                   
@@ -35,27 +38,6 @@ const createStar = (starNumber = '') => {
    return divStar;
 };
 
-
-
-const addElement = (parent,children) => {
-  parent.appendChild(children);
-};
-
-const remove_class_name = (obj,class_name) => {
-  for (const item of obj){
-    item.classList.remove(class_name);
-  };
-};
-
-const reverseElements = (element) => {
-  const dir = element.getAttribute('dir');
-  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
-  expression ? element.dir = 'rtl' : element.dir = 'ltr';
-};
-
-
-
-
 const createStars = (wrapper,numberOfelem = quantityStarsDefault) => {
   for(let i = numberOfelem; i > 0; i--){
     const star = createStar(i);
@@ -65,12 +47,31 @@ const createStars = (wrapper,numberOfelem = quantityStarsDefault) => {
   addElement(body,wrapper);
 };
 
-
 const createNodeListOfStars = () => {
   const nodeListFromElementsStars = document.querySelectorAll('[class^="star"]');
   return nodeListFromElementsStars;
 };
 
+const createFullElement = (arg) => {
+  createStars(createDivWrapperStars(),arg);
+  addEventOnStars(createNodeListOfStars());
+};
+
+const addElement = (parent,children) => {
+  parent.appendChild(children);
+};
+
+const reverseElements = (element) => {
+  const dir = element.getAttribute('dir');
+  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
+  expression ? element.dir = 'rtl' : element.dir = 'ltr';
+};
+
+const remove_class_name = (obj,class_name) => {
+  for (const item of obj){
+    item.classList.remove(class_name);
+  };
+};
 
 const addEventOnStars = (nodeList) => {
   for(const item of nodeList){
@@ -82,18 +83,17 @@ const removeClassNameActiveStar = () =>{
   remove_class_name(createNodeListOfStars(),main_active_star)
 };
 
-const AddClassNameActiveStar = (e) => {
-  e.currentTarget.classList.add(main_active_star)
+const AddClassNameActiveStar = (event) => {
+  event.currentTarget.classList.add(main_active_star)
 };
 
-
-const firstClickOnStar = (e) => {
-  AddClassNameActiveStar(e);
+const firstClickOnStar = (event) => {
+  AddClassNameActiveStar(event);
   is_main_active_star = true
 };
 
-const clickedOnStar = (e) => {
-  const className = e.currentTarget.className;
+const clickedOnStar = (event) => {
+  const className = event.currentTarget.className;
   if (className.includes(main_active_star)){
     return;
   };
@@ -107,10 +107,7 @@ const clickedOnStar = (e) => {
   AddClassNameActiveStar(e);
 };
 
-const createFullElement = (arg) => {
-  createStars(createDivWrapperStars(),arg);
-  addEventOnStars(createNodeListOfStars());
-};
+
 
 createFullElement();
 
@@ -120,7 +117,6 @@ const  clickedOnButtonReset = () => {
   is_main_active_star = false;
 };
 
-const buttonReset = document.querySelector('button');
 buttonReset.addEventListener('click',clickedOnButtonReset);
 
 const quantityRangStars = (e) => {
