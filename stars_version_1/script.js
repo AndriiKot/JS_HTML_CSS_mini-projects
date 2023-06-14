@@ -12,16 +12,6 @@ const createDiv = (class_name = '') => {
   return div;                                    
 };
 
-const addElement = (parent,children) => {
-  parent.appendChild(children);
-};
-
-const reverseElements = (element) => {
-  const dir = element.getAttribute('dir');
-  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
-  expression ? element.dir = 'rtl' : element.dir = 'ltr';
-};
-
 const createDivWrapperStars = () => {
   const divWrapper = createDiv('wrapper'); 
   return divWrapper;
@@ -43,7 +33,27 @@ const createStar = (starNumber = '') => {
    </a> 
    `;
    return divStar;
+};
+
+
+
+const addElement = (parent,children) => {
+  parent.appendChild(children);
+};
+
+const remove_class_name = (obj,class_name) => {
+  for (const item of obj){
+    item.classList.remove(class_name);
   };
+};
+
+const reverseElements = (element) => {
+  const dir = element.getAttribute('dir');
+  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
+  expression ? element.dir = 'rtl' : element.dir = 'ltr';
+};
+
+
 
 
 const createStars = (wrapper,numberOfelem = quantityStarsDefault) => {
@@ -56,7 +66,7 @@ const createStars = (wrapper,numberOfelem = quantityStarsDefault) => {
 };
 
 
-const nodeListOfStars = () => {
+const createNodeListOfStars = () => {
   const nodeListFromElementsStars = document.querySelectorAll('[class^="star"]');
   return nodeListFromElementsStars;
 };
@@ -66,16 +76,10 @@ const addEventOnStars = (nodeList) => {
   for(const item of nodeList){
       item.addEventListener('click',clickedOnStar);
   };
-  };
-
-const remove_class_name = (obj,class_name) => {
-  for (const item of obj){
-    item.classList.remove(class_name);
-  };
 };
 
 const removeClassNameActiveStar = () =>{
-  remove_class_name(nodeListOfStars(),main_active_star)
+  remove_class_name(createNodeListOfStars(),main_active_star)
 };
 
 const AddClassNameActiveStar = (e) => {
@@ -105,7 +109,7 @@ const clickedOnStar = (e) => {
 
 const createFullElement = (arg) => {
   createStars(createDivWrapperStars(),arg);
-  addEventOnStars(nodeListOfStars());
+  addEventOnStars(createNodeListOfStars());
 };
 
 createFullElement();
