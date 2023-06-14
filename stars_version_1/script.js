@@ -2,24 +2,14 @@
 body.style.background = "#1b2637";                   
 
 const main_active_star = "main-active-star";
-let quantityStarsDefault = 5;                        
+let quantityStarsDefault = 7;                        
 let is_main_active_star = false;
 
 
-const createDiv = (class_name = '') => {                                   
+const createDiv = (class_name) => {                                   
   const div = document.createElement('div');     
   div['className'] = class_name;  
   return div;                                    
-};
-
-const addElement = (parent,children) => {
-  parent.appendChild(children);
-};
-
-const reverseElements = (element) => {
-  const dir = element.getAttribute('dir');
-  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
-  expression ? element.dir = 'rtl' : element.dir = 'ltr';
 };
 
 const createDivWrapperStars = () => {
@@ -43,8 +33,7 @@ const createStar = (starNumber = '') => {
    </a> 
    `;
    return divStar;
-  };
-
+};
 
 const createStars = (wrapper,numberOfelem = quantityStarsDefault) => {
   for(let i = numberOfelem; i > 0; i--){
@@ -55,18 +44,48 @@ const createStars = (wrapper,numberOfelem = quantityStarsDefault) => {
   addElement(body,wrapper);
 };
 
+const createFullElement = (arg) => {
+  createStars(createDivWrapperStars(),arg);
+  addEventOnStars('click',clickedOnStar,createNodeListOfStars('[class^="star"]'));
+};
 
-const nodeListOfStars = () => {
-  const nodeListFromElementsStars = document.querySelectorAll('[class^="star"]');
+const createNodeListOfStars = (element) => {
+  const nodeListFromElementsStars = document.querySelectorAll(element);
   return nodeListFromElementsStars;
 };
 
+const addElement = (parent,children) => {
+  parent.appendChild(children);
+};
 
-const addEventOnStars = (nodeList) => {
+const addEvent = (event,fn,element) => {
+  const elem = document.querySelector(element);
+  elem.addEventListener(event,fn);
+};
+
+const addEventOnStars = (event,fn,nodeList) => {
   for(const item of nodeList){
-      item.addEventListener('click',clickedOnStar);
+      item.addEventListener(event,fn);
   };
-  };
+};
+
+const addEventOnButtonReset = (event,fn,element) => {
+  addEvent(event,fn,element);
+};
+
+const addEventSubmitQuantity = (event,fn,element) => {
+  addEvent(event,fn,element);
+};
+
+const AddClassNameActiveStar = (event) => {
+  event.currentTarget.classList.add(main_active_star)
+};
+
+const reverseElements = (element) => {
+  const dir = element.getAttribute('dir');
+  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
+  expression ? element.dir = 'rtl' : element.dir = 'ltr';
+};
 
 const remove_class_name = (obj,class_name) => {
   for (const item of obj){
@@ -74,14 +93,9 @@ const remove_class_name = (obj,class_name) => {
   };
 };
 
-const removeClassNameActiveStar = () =>{
-  remove_class_name(nodeListOfStars(),main_active_star)
+const removeClassNameActiveStar = () => {
+  remove_class_name(createNodeListOfStars('[class^="star"]'),main_active_star)
 };
-
-const AddClassNameActiveStar = (e) => {
-  e.currentTarget.classList.add(main_active_star)
-};
-
 
 const firstClickOnStar = (e) => {
   AddClassNameActiveStar(e);
@@ -103,21 +117,11 @@ const clickedOnStar = (e) => {
   AddClassNameActiveStar(e);
 };
 
-const createFullElement = (arg) => {
-  createStars(createDivWrapperStars(),arg);
-  addEventOnStars(nodeListOfStars());
-};
-
-createFullElement();
-
 const  clickedOnButtonReset = () => {
-  if (is_main_active_star === false){ return};
+  if (is_main_active_star === false){return};
   removeClassNameActiveStar();
   is_main_active_star = false;
 };
-
-const buttonReset = document.querySelector('button');
-buttonReset.addEventListener('click',clickedOnButtonReset);
 
 const quantityRangStars = (e) => {
   e.preventDefault();
@@ -127,8 +131,14 @@ const quantityRangStars = (e) => {
   element.remove();
   createFullElement(quantityStarsDefault);
 };
-const submitQuantity = document.forms["quantity-rang-stars"]
-submitQuantity.addEventListener("submit",quantityRangStars)
+
+createFullElement();
+addEventOnButtonReset('click',clickedOnButtonReset,'.reset');
+addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
+
+
+
+
 
 
 

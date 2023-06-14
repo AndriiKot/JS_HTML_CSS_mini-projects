@@ -8,12 +8,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button>Reset</button>
-  <form action="#" name="quantity-rang-stars" onsubmit="return quantityRangStars()">
-    <label for="quantity">Quantity (between 3 and 10):</label>
-    <input type="number"  name="quantity" min="3" max="10" value="5">
-    <input type="submit" value="Submit">
-  </form>
+  <div class="wrapper-controls">
+    <form action="#" class="quantity-rang-stars">
+      <label for="quantity">Quantity (between 3 and 10):</label>
+      <input type="number"  name="quantity" min="3" max="10" value="7">
+      <input type="submit" value="Submit">
+    </form>
+    <button class="reset">Reset</button>
+  </div>
   
   <script src="script.js"></script>
 </body>
