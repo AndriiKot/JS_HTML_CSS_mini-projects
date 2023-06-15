@@ -127,9 +127,26 @@ const quantityRangStars = (e) => {
   e.preventDefault();
   const quantity = e.target.quantity.value
   quantityStarsDefault = Number(quantity);
-  element = document.querySelector('.wrapper')
-  element.remove();
-  createFullElement(quantityStarsDefault);
+
+  const bbb = document.querySelector('.main-active-star');
+  if(!bbb){ console.log("Exit!!!");return}
+
+  const re = /star-./
+  const num = Number(bbb.className.match(re).at(0).at(-1)); 
+
+  if(num <= quantityStarsDefault){
+    console.log("Звёзды равны или меньше")
+    element = document.querySelector('.wrapper')
+    element.remove();
+    createFullElement(quantityStarsDefault);
+    const nodeList = createNodeListOfStars('[class^="star"]');
+    console.log(nodeList.length - num);
+    nodeList[nodeList.length - num].classList.add(main_active_star)
+  };
+
+  
+  
+  // console.log(typeof(quantityStarsDefault));
 };
 
 createFullElement();
