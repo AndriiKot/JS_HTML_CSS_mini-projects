@@ -140,12 +140,10 @@ const quantityRangStars = (e) => {
 
 
   if(nodeList.length === quantityStarsDefault){ 
-    console.log(`nodeList.length === quantityStarsDefault)`);
     return
   };
 
   if(is_main_active_star === false) {
-        console.log(`is_main_active_star === false`)
         const element = document.querySelector('.wrapper');
         element.remove()
         createFullElement();
@@ -159,38 +157,28 @@ const quantityRangStars = (e) => {
    let num = active_star.className.match(re1).at(0); 
    num = Number(num.match(re2));
  
- 
-   console.log(`num: ${num}`);
-   console.log(`nodeList: ${nodeList.length}`);
-   console.log(`quantityStarsDefault: ${quantityStarsDefault}`);
- 
-
   if(is_main_active_star === true && nodeList.length < quantityStarsDefault) {
-    console.log(`is_main_active_star === true && nodeList.length < quantityStarsDefault`)
     element.remove();
     createFullElement();
     nodeList = getNodeListOfStars();
     nodeList[nodeList.length - num].classList.add(main_active_star);
     return;
-};
-    if(is_main_active_star === true && nodeList.length > quantityStarsDefault && quantityStarsDefault >= num){
-      console.log("is_main_active_star === true && nodeList.length > quantityStarsDefault && quantityStarsDefault >= num");
-      element.remove();
-      createFullElement();
-      nodeList = getNodeListOfStars();
-      nodeList[nodeList.length - num].classList.add(main_active_star);  
-      return
-    };
-    if(is_main_active_star === true && quantityStarsDefault < num && nodeList.length > quantityStarsDefault){
-      console.log("is_main_active_star === true && quantityStarsDefault < num && nodeList.length > quantityStarsDefault");
-      element.remove();
-      createFullElement();
-      nodeList = getNodeListOfStars();
-      nodeList[0].classList.add(main_active_star);  
-      console.log('LAST')
-      return;
-    };
-
+  };
+  if(is_main_active_star === true && nodeList.length > quantityStarsDefault && quantityStarsDefault >= num){
+    element.remove();
+    createFullElement();
+    nodeList = getNodeListOfStars();
+    nodeList[nodeList.length - num].classList.add(main_active_star);  
+    return;
+  };
+    
+  if(is_main_active_star === true && quantityStarsDefault < num && nodeList.length > quantityStarsDefault){
+    element.remove();
+    createFullElement();
+    nodeList = getNodeListOfStars();
+    nodeList[0].classList.add(main_active_star);  
+    return;
+  };
 };
 
 addEventOnButtonReset('click',clickedOnButtonReset,'.reset');
