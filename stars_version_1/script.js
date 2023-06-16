@@ -137,25 +137,36 @@ const quantityRangStars = (e) => {
   e.preventDefault();
   const quantity = e.target.quantity.value;
   quantityStarsDefault = Number(quantity);
-  
-  if(nodeList.length === quantityStarsDefault){ console.log("Exit!!!");return};
+
+
+  if(nodeList.length === quantityStarsDefault){ 
+    console.log(`nodeList.length === quantityStarsDefault)`);
+    return
+  };
 
   if(is_main_active_star === false) {
+        console.log(`is_main_active_star === false`)
         const element = document.querySelector('.wrapper');
         element.remove()
         createFullElement();
         return;
   };
 
-   const validNodeList =  nodeList.length < quantityStarsDefault;
    const element = document.querySelector('.wrapper');
    const active_star = getMainActiveStar();
-   const re = /star-./;
-   const num = Number(active_star.className.match(re).at(0).at(-1)); 
-   console.log(num);
-  if(is_main_active_star === true && validNodeList) {
+   const re1 = /star-\d+/;
+   const re2 = /\d+/;
+   let num = active_star.className.match(re1).at(0); 
+   num = Number(num.match(re2));
+ 
+ 
+   console.log(`num: ${num}`);
+   console.log(`nodeList: ${nodeList.length}`);
+   console.log(`quantityStarsDefault: ${quantityStarsDefault}`);
+ 
 
-
+  if(is_main_active_star === true && nodeList.length < quantityStarsDefault) {
+    console.log(`is_main_active_star === true && nodeList.length < quantityStarsDefault`)
     element.remove();
     createFullElement();
     nodeList = getNodeListOfStars();
@@ -163,16 +174,15 @@ const quantityRangStars = (e) => {
     return;
 };
     if(is_main_active_star === true && nodeList.length > quantityStarsDefault && quantityStarsDefault >= num){
-      console.log("EEEnd!!");
+      console.log("is_main_active_star === true && nodeList.length > quantityStarsDefault && quantityStarsDefault >= num");
       element.remove();
       createFullElement();
       nodeList = getNodeListOfStars();
       nodeList[nodeList.length - num].classList.add(main_active_star);  
       return
     };
-
-    if(is_main_active_star === true && nodeList.length > quantityStarsDefault && quantityStarsDefault < num){
-      console.log("exkuzuv!!");
+    if(is_main_active_star === true && quantityStarsDefault < num && nodeList.length > quantityStarsDefault){
+      console.log("is_main_active_star === true && quantityStarsDefault < num && nodeList.length > quantityStarsDefault");
       element.remove();
       createFullElement();
       nodeList = getNodeListOfStars();
