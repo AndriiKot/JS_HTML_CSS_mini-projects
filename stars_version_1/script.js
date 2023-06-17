@@ -50,15 +50,25 @@ const createFullElement = (quantityStars = quantityStarsDefault) => {
   addEventOnStars('click',clickedOnStar,getNodeListOfStars());
 };
 
+const createNewFullElement = () => {
+  getElementWrapperStars().remove();
+  createFullElement();
+};
+
 const getNodeListOfStars = () => {
   const nodeListFromElementsStars = document.querySelectorAll(selecte_stars);
   return nodeListFromElementsStars;
 };
 
 const getMainActiveStar = () => {
-  const mainActiveStar = document.querySelector(`.${main_active_star}`)
+  const mainActiveStar = document.querySelector(`.${main_active_star}`);
   return mainActiveStar;
-}
+};
+
+const getElementWrapperStars = () => {
+  const elementWrapperStars = document.querySelector('.wrapper');
+  return elementWrapperStars;
+};
 
 const addElement = (parent,children) => {
   parent.appendChild(children);
@@ -131,12 +141,13 @@ const  clickedOnButtonReset = () => {
 
 createFullElement();
 
-const elementWrapper = document.querySelector('.wrapper');
+
+let nodeList = getNodeListOfStars();
 
 
-const quantityRangStars = (event,elementWrapperStars = elementWrapper) => {
-  let nodeList = getNodeListOfStars();
+const quantityRangStars = (event) => {
   event.preventDefault();
+
 
   const quantity = event.target.quantity.value;
   quantityStarsDefault = Number(quantity);
@@ -147,9 +158,8 @@ const quantityRangStars = (event,elementWrapperStars = elementWrapper) => {
   };
 
   if(is_main_active_star === false) {
-        elementWrapperStars.remove()
-        createFullElement();
-        return;
+    createNewFullElement();
+    return;
   };
 
    const element = document.querySelector('.wrapper');
@@ -160,8 +170,7 @@ const quantityRangStars = (event,elementWrapperStars = elementWrapper) => {
    num = Number(num.match(re2));
  
   if(is_main_active_star === true && nodeList.length < quantityStarsDefault) {
-    element.remove();
-    createFullElement();
+    createNewFullElement();
     nodeList = getNodeListOfStars();
     nodeList[nodeList.length - num].classList.add(main_active_star);
     return;
