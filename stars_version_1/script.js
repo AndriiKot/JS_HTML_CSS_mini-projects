@@ -131,11 +131,14 @@ const  clickedOnButtonReset = () => {
 
 createFullElement();
 
+const elementWrapper = document.querySelector('.wrapper');
 
-const quantityRangStars = (e) => {
+
+const quantityRangStars = (event,elementWrapperStars = elementWrapper) => {
   let nodeList = getNodeListOfStars();
-  e.preventDefault();
-  const quantity = e.target.quantity.value;
+  event.preventDefault();
+
+  const quantity = event.target.quantity.value;
   quantityStarsDefault = Number(quantity);
 
 
@@ -144,8 +147,7 @@ const quantityRangStars = (e) => {
   };
 
   if(is_main_active_star === false) {
-        const element = document.querySelector('.wrapper');
-        element.remove()
+        elementWrapperStars.remove()
         createFullElement();
         return;
   };
