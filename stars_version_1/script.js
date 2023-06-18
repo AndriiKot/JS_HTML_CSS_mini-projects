@@ -50,9 +50,9 @@ const createFullElement = (quantityStars = quantityStarsDefault) => {
   addEventOnStars('click',clickedOnStar,getNodeListOfStars());
 };
 
-const createNewFullElement = () => {
-  getElementWrapperStars().remove();
-  createFullElement();
+const createNewFullElement = (oldElement,newSegmentsElement = 0) => {
+  oldElement.remove();
+  createFullElement(newSegmentsElement);
 };
 
 const getNodeListOfStars = () => {
@@ -141,28 +141,24 @@ const  clickedOnButtonReset = () => {
 
 createFullElement();
 
-
-let nodeList = getNodeListOfStars();
-
-
 const quantityRangStars = (event) => {
   event.preventDefault();
 
-
-  const quantity = event.target.quantity.value;
-  quantityStarsDefault = Number(quantity);
-
-
-  if(nodeList.length === quantityStarsDefault){ 
+  const quantityStars = Number(event.target.quantity.value);
+  const oldElementOfStars = getElementWrapperStars();
+  const previousQuantityStars = getNodeListOfStars().length;
+  
+  if(previousQuantityStars === quantityStars){ 
+    console.log(1);
     return
   };
 
   if(is_main_active_star === false) {
-    createNewFullElement();
+    console.log(2);
+    createNewFullElement(oldElementOfStars,quantityStars);
     return;
   };
 
-   const element = document.querySelector('.wrapper');
    const active_star = getMainActiveStar();
    const re1 = /star-\d+/;
    const re2 = /\d+/;
@@ -171,25 +167,24 @@ const quantityRangStars = (event) => {
  
   if(is_main_active_star === true && nodeList.length < quantityStarsDefault) {
     createNewFullElement();
-    nodeList = getNodeListOfStars();
     nodeList[nodeList.length - num].classList.add(main_active_star);
     return;
   };
+
+  /*
+
   if(is_main_active_star === true && nodeList.length > quantityStarsDefault && quantityStarsDefault >= num){
-    element.remove();
-    createFullElement();
-    nodeList = getNodeListOfStars();
+    createNewFullElement();
     nodeList[nodeList.length - num].classList.add(main_active_star);  
     return;
   };
     
   if(is_main_active_star === true && quantityStarsDefault < num && nodeList.length > quantityStarsDefault){
-    element.remove();
-    createFullElement();
-    nodeList = getNodeListOfStars();
+    createNewFullElement();
     nodeList[0].classList.add(main_active_star);  
     return;
   };
+  */
 };
 
 addEventOnButtonReset('click',clickedOnButtonReset,'.reset');
