@@ -144,18 +144,18 @@ createFullElement();
 const quantityRangStars = (event) => {
   event.preventDefault();
 
-  const quantityStars = Number(event.target.quantity.value);
-  const oldElementOfStars = getElementWrapperStars();
-  const previousQuantityStars = getNodeListOfStars().length;
+  const NewQuantityStars = Number(event.target.quantity.value);
+  const OldQuantityStars = getNodeListOfStars().length;
+  const OldElementOfStars = getElementWrapperStars();
   
-  if(previousQuantityStars === quantityStars){ 
+  if(OldQuantityStars === NewQuantityStars){ 
     console.log(1);
     return
   };
 
   if(is_main_active_star === false) {
     console.log(2);
-    createNewFullElement(oldElementOfStars,quantityStars);
+    createNewFullElement(OldElementOfStars,NewQuantityStars);
     return;
   };
 
