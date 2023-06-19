@@ -154,12 +154,10 @@ const quantityRangStars = (event) => {
   };
   
   if(OldQuantityStars === NewQuantityStars){ 
-    console.log(1);
     return;
   };
 
   if(!is_main_active_star) {
-    console.log(2);
     NewFullElement();
     return;
   };
