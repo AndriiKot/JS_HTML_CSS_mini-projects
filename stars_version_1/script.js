@@ -148,43 +148,44 @@ const quantityRangStars = (event) => {
   const OldQuantityStars = getNodeListOfStars().length;
   const OldElementOfStars = getElementWrapperStars();
   
+  
+  const NewFullElement = () => {
+    return createNewFullElement(OldElementOfStars,NewQuantityStars);
+  };
+  
   if(OldQuantityStars === NewQuantityStars){ 
     console.log(1);
-    return
+    return;
   };
 
-  if(is_main_active_star === false) {
+  if(!is_main_active_star) {
     console.log(2);
-    createNewFullElement(OldElementOfStars,NewQuantityStars);
+    NewFullElement();
     return;
   };
 
-   const active_star = getMainActiveStar();
-   const re1 = /star-\d+/;
-   const re2 = /\d+/;
-   let num = active_star.className.match(re1).at(0); 
-   num = Number(num.match(re2));
- 
-  if(is_main_active_star === true && nodeList.length < quantityStarsDefault) {
-    createNewFullElement();
-    nodeList[nodeList.length - num].classList.add(main_active_star);
-    return;
-  };
+  if(is_main_active_star) {
+     const active_star = getMainActiveStar();
+     const re1 = /star-\d+/;
+     const re2 = /\d+/;
+     let numberOfMainStar = active_star.className.match(re1).at(0); 
+     numberOfMainStar = Number(numberOfMainStar.match(re2));
+     const EventsActiveSatars = (NewQuantityStars < numberOfMainStar);
 
-  /*
-
-  if(is_main_active_star === true && nodeList.length > quantityStarsDefault && quantityStarsDefault >= num){
-    createNewFullElement();
-    nodeList[nodeList.length - num].classList.add(main_active_star);  
-    return;
-  };
-    
-  if(is_main_active_star === true && quantityStarsDefault < num && nodeList.length > quantityStarsDefault){
-    createNewFullElement();
-    nodeList[0].classList.add(main_active_star);  
-    return;
-  };
-  */
+   
+    if(!EventsActiveSatars) {
+      NewFullElement();
+      const nodeList = getNodeListOfStars();
+      nodeList[nodeList.length - numberOfMainStar].classList.add(main_active_star);
+      return;
+    };
+      if(EventsActiveSatars){
+      NewFullElement();
+      const nodeList = getNodeListOfStars();
+      nodeList[0].classList.add(main_active_star);  
+      return;
+    }; 
+  }; 
 };
 
 addEventOnButtonReset('click',clickedOnButtonReset,'.reset');
