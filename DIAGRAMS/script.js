@@ -1,5 +1,6 @@
 ﻿const body = document.querySelector('body');
 const label = document.querySelector('label');
+const forms = document.querySelector('.rang')
 
 const RGBToHSL = (red, green, blue) => {
     red /= 255; 
@@ -22,5 +23,15 @@ const RGBToHSL = (red, green, blue) => {
     ];
   };
   
-  const b = RGBToHSL(255, 0, 0)
-  h2.style.color = `hsl(${String(b[0]+180)} ${String(b[1])}% ${String(b[2])}%)`
+  // const b = RGBToHSL(255, 0, 0);
+  // h2.style.color = `hsl(${String(b[0]+180)} ${String(b[1])}% ${String(b[2])}%)`;
+
+  const colorRang = (event) => {
+    event.preventDefault();
+    console.log(red.value,green.value,blue.value);
+    RGBToHSL(red.value,green.value,blue.value)
+  };
+
+  forms.addEventListener('submit',colorRang);
+
+  
