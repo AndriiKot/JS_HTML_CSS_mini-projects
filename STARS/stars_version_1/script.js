@@ -1,5 +1,5 @@
 ﻿const body = document.body;
-body.style.background = "#1b2637";                   
+body.style.background = "#1b2637";    
 
 const main_active_star = "main-active-star";
 const selecte_stars = '[class^="star"]';
