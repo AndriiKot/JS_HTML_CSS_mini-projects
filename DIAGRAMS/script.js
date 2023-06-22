@@ -1,7 +1,6 @@
-﻿"use strict"
+﻿'use strict'
 
 const body = document.querySelector('body');
-const label = document.querySelector('label');
 const forms = document.querySelector('.rang');
 
 
@@ -24,7 +23,7 @@ const RGBToHSL = (red, green, blue) => {
       100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
       (100 * (2 * l - s)) / 2,
     ];
-  };
+};
 
 const activeBackground = (r,g,b) => {
   Object.assign(document.documentElement, {
@@ -34,7 +33,7 @@ const activeBackground = (r,g,b) => {
       --rgb-blue: ${b};   
     `
   });
-}
+};
 
 const colorText = (element,r,g,b) => {
   const hsl = RGBToHSL(r,g,b);
@@ -43,13 +42,12 @@ const colorText = (element,r,g,b) => {
   const s = String(hsl[1]) + '%';
   const l = String(hsl[2]) + '%';
   element.style.color = `hsl(${h} ${s} ${l})`;
-}
+};
 
-const colorValid = (element,color) => {
+const colorValid = (color) => {
   if(color >= 10 && color <= 255) {
     return color;
-  } 
-  element.setAttribute('value','0');
+  };
   return '0';
 };
 
@@ -63,4 +61,4 @@ const colorRang = (event) => {
 };
 
 forms.addEventListener('submit',colorRang);
-  
+
