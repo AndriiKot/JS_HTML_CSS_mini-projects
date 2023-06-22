@@ -1,0 +1,15 @@
+﻿:root {
+    --color-default-value: 100;
+    --red: red;
+    ;
+}
+body {
+    background-color: rgb(var(--rgb-red,var(--color-default-value)),
+                          var(--rgb-green,var(--color-default-value)),
+                          var(--rgb-blue,var(--color-default-value)));
+}
+
+label {
+    color: hsl(var(--textColor);
+}
+
