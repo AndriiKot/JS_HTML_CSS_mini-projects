@@ -24,37 +24,41 @@ const RGBToHSL = (red, green, blue) => {
     ];
   };
 
-  const activeBackground = (r,g,b) => {
-    Object.assign(document.documentElement, {
-      style: `
-        --rgb-red: ${r};
-        --rgb-green: ${g};
-        --rgb-blue: ${b};   
-      `
-    })
-  }
-  
-  
-  // const b = RGBToHSL(255, 0, 0);
-  // h2.style.color = `hsl(${String(b[0]+180)} ${String(b[1])}% ${String(b[2])}%)`;
+const activeBackground = (r,g,b) => {
+  Object.assign(document.documentElement, {
+    style: `
+      --rgb-red: ${r};
+      --rgb-green: ${g};
+      --rgb-blue: ${b};   
+    `
+  });
+}
 
-  const colorValid = (color) => {
-    if(color >= 10 && color <= 255) {
-      return color;
-    } 
-    return '0';
-  }
-  const colorRang = (event) => {
-    event.preventDefault();
-    const r = colorValid(red.value);
-    const g = colorValid(green.value);
-    const b = colorValid(blue.value);
+const colorText = (element,r,g,b) => {
+  const hsl = RGBToHSL(r,g,b);
+  hsl[2] = hsl[2] > 50 ? 0 : 100;
+  const h = String(hsl[0]);
+  const s = String(hsl[1]) + '%';
+  const l = String(hsl[2]) + '%';
+  element.style.color = `hsl(${h} ${s} ${l})`;
+}
 
-    console.log(r,g,b);
-    // RGBToHSL(r,g,b);
-    activeBackground(r,g,b)
-  };
+const colorValid = (color) => {
+  if(color >= 10 && color <= 255) {
+    return color;
+  } 
+  return '0';
+};
 
-  forms.addEventListener('submit',colorRang);
+const colorRang = (event) => {
+  event.preventDefault();
+  const r = colorValid(red.value);
+  const g = colorValid(green.value);
+  const b = colorValid(blue.value);
+  activeBackground(r,g,b);
+  colorText(body,r,g,b);
+};
+
+forms.addEventListener('submit',colorRang);
 
   

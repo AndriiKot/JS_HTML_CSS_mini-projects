@@ -1,5 +1,6 @@
 ﻿:root {
     --color-default-value: 100;
+    --red: red;
     ;
 }
 body {
@@ -8,5 +9,7 @@ body {
                           var(--rgb-blue,var(--color-default-value)));
 }
 
-
+label {
+    color: hsl(var(--textColor);
+}
 
