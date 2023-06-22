@@ -1,4 +1,6 @@
-﻿const body = document.querySelector('body');
+﻿"use strict"
+
+const body = document.querySelector('body');
 const label = document.querySelector('label');
 const forms = document.querySelector('.rang');
 
@@ -43,10 +45,11 @@ const colorText = (element,r,g,b) => {
   element.style.color = `hsl(${h} ${s} ${l})`;
 }
 
-const colorValid = (color) => {
+const colorValid = (element,color) => {
   if(color >= 10 && color <= 255) {
     return color;
   } 
+  element.setAttribute('value','0');
   return '0';
 };
 
@@ -60,5 +63,4 @@ const colorRang = (event) => {
 };
 
 forms.addEventListener('submit',colorRang);
-
   
