@@ -4,6 +4,7 @@ const body = document.querySelector('body');
 const forms = document.querySelector('.rang');
 
 
+
 const RGBToHSL = (red, green, blue) => {
     red /= 255; 
     green /= 255; 
@@ -61,4 +62,42 @@ const colorRang = (event) => {
 };
 
 forms.addEventListener('submit',colorRang);
+
+// Canvas
+
+diagramCanvas.width = 500;
+diagramCanvas.height = 500;
+
+console.dir(diagramCanvas)
+const ctx = diagramCanvas.getContext('2d');
+
+const drawLine = (startX,startY,endX,endY,ctx) => {
+  ctx.beginPath();
+  ctx.moveTo(startX,startY);
+  ctx.lineTo(endX,endY);
+  ctx.stroke();
+};
+
+const drawArc = (centerX,centerY,startAngle,endAngle,radius,ctx) => {
+  ctx.beginPath();
+  ctx.arc(centerX,centerY,startAngle,endAngle,radius);
+  ctx.stroke();
+};
+
+const drawSlice = (centerX,centerY,startAngle,endAngle,radius,ctx,color) => {
+  ctx.beginPath();
+  ctx.fillStyle = color;
+  ctx.moveTo(centerX,centerY);
+  ctx.arc(centerX,centerY,startAngle,endAngle,radius);
+  ctx.closePath();
+  ctx.fill();
+};
+
+const Diagrams = {
+  red: 100,
+  green: 100,
+  blue: 100,
+};
+
+drawLine(100,100,200,200,ctx);
 
