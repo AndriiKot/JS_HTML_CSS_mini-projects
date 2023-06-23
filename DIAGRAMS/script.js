@@ -85,10 +85,10 @@ const drawArc = (centerX,centerY,startAngle,endAngle,radius,ctx) => {
 };
 
 const drawSlice = (centerX,centerY,startAngle,endAngle,radius,ctx,color) => {
-  ctx.beginPath();
   ctx.fillStyle = color;
+  ctx.beginPath();
   ctx.moveTo(centerX,centerY);
-  ctx.arc(centerX,centerY,startAngle,endAngle,radius);
+  ctx.arc(centerX,centerY,radius,startAngle,endAngle);
   ctx.closePath();
   ctx.fill();
 };
@@ -100,4 +100,7 @@ const Diagrams = {
 };
 
 drawLine(100,100,200,200,ctx);
+drawArc(150,150,150,0,Math.PI*2,ctx);
+drawSlice(150,150,Math.PI/2,(Math.PI + Math.PI/2),150,ctx,'blue');
+drawSlice(150,150,Math.PI,(Math.PI*1.5),150,ctx,'red')
 
