@@ -67,7 +67,7 @@ const getColorsValuesToInteger = () => {
   blue: Number(blue.value) || 0,
   };
   return values;
-}
+};
 
 forms.addEventListener('submit',colorRang);
 
@@ -76,7 +76,6 @@ forms.addEventListener('submit',colorRang);
 diagramCanvas.width = 500;
 diagramCanvas.height = 500;
 
-// const ctx = diagramCanvas.getContext('2d');
 
 const drawLine = (startX,startY,endX,endY,ctx) => {
   ctx.beginPath();
@@ -99,12 +98,6 @@ const drawSlice = (centerX,centerY,startAngle,endAngle,radius,ctx,color) => {
   ctx.closePath();
   ctx.fill();
 };
-
-
-// drawLine(100,100,200,200,ctx);
-// drawArc(150,150,150,0,Math.PI*2,ctx);
-// drawSlice(150,150,Math.PI/2,(Math.PI + Math.PI/2),150,ctx,'blue');
-// drawSlice(150,150,Math.PI,(Math.PI*1.5),150,ctx,'red');
 
 class Diagram {
   constructor(options){
@@ -136,21 +129,38 @@ class Diagram {
               start_angle + slice_angle,
               Math.min(this.canvas.width/2,this.canvas.height/2),
               this.ctx,
-              this.colors[color_index%this.colors.length]
+              this.colors[color_index%this.colors.length],
           );
           start_angle += slice_angle;
           color_index++;
-
-      }   
- 
-    }
-}
+        };  
+    };
+};
 
 const myDiagram = new Diagram({
   canvas: diagramCanvas,
   data: getColorsValuesToInteger,
   colors: ['red','green','blue'],
 });
+
+const defaultColorValue = () => {
+  const defaultColorValue = getColorsValuesToInteger(); 
+  defaultColorValue.white = 1;
+  return defaultColorValue;
+};
+
+const defaultDiagram = new Diagram({
+  canvas: diagramCanvas,
+  data: defaultColorValue,
+  colors: ['white'],
+});
+
+defaultDiagram.draw();
+
+
+
+
+
 
 
 

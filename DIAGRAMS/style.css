@@ -8,6 +8,19 @@ body {
     color: white;
 }
 
+@media (orientation: landscape) {
+    canvas{
+        max-width: 90vh;
+    }
+}
+
+@media (orientation: portrait) {
+    canvas {
+        max-width: 93vw;
+    }    
+}
+ 
+
 
 
 
