@@ -57,6 +57,11 @@ const colorRang = (event) => {
   const b = colorValid(blue.value);
   activeBackground(r,g,b);
   colorText(body,r,g,b);
+  const myDiagram = new Diagram({
+    canvas: diagramCanvas,
+    data: getColorsValuesToInteger,
+    colors: colorShade(),
+  });
   myDiagram.draw();
 };
 
@@ -68,6 +73,17 @@ const getColorsValuesToInteger = () => {
   };
   return values;
 };
+
+const colorShade = () => {
+  const arrColorsValue = Object.values(getColorsValuesToInteger());
+  const arrColorShade = [];
+  const red = `rgb(${arrColorsValue[0]},0,0)`;
+  const green = `rgb(0,${arrColorsValue[1]},0)`;
+  const blue = `rgb(0,0,${arrColorsValue[2]})`;
+  arrColorShade.push(red,green,blue);
+  return arrColorShade;
+};
+
 
 forms.addEventListener('submit',colorRang);
 
@@ -137,12 +153,6 @@ class Diagram {
     };
 };
 
-const myDiagram = new Diagram({
-  canvas: diagramCanvas,
-  data: getColorsValuesToInteger,
-  colors: ['red','green','blue'],
-});
-
 const defaultColorValue = () => {
   const defaultColorValue = getColorsValuesToInteger(); 
   defaultColorValue.white = 1;
@@ -156,6 +166,13 @@ const defaultDiagram = new Diagram({
 });
 
 defaultDiagram.draw();
+
+
+
+
+
+
+
 
 
 
