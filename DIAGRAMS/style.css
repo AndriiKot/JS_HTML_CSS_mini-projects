@@ -8,17 +8,28 @@ body {
     color: white;
 }
 
-@media (orientation: landscape) {
-    canvas{
-        max-width: 90vh;
-    }
+form {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 5%;
+    background-color: #2196F3;  
+    padding: 1% 2%;
+    margin-bottom: 1%;
+    font-size: 2rem;
+    text-align: center; 
+    min-width: 100%;
 }
 
-@media (orientation: portrait) {
-    canvas {
-        max-width: 93vw;
-    }    
+label {
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
+
+#diagramCanvas {
+    min-width: 100vw;
+    min-height: auto;
+}
+
  
 
 
