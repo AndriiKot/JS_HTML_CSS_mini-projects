@@ -89,10 +89,6 @@ forms.addEventListener('submit',colorRang);
 
 // Canvas
 
-diagramCanvas.width = 500;
-diagramCanvas.height = 500;
-
-
 const drawLine = (startX,startY,endX,endY,ctx) => {
   ctx.beginPath();
   ctx.moveTo(startX,startY);
@@ -166,6 +162,8 @@ const defaultDiagram = new Diagram({
 });
 
 defaultDiagram.draw();
+
+
 
 
 
