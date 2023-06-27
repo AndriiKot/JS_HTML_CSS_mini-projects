@@ -2,6 +2,25 @@
 
 const body = document.querySelector('body');
 const forms = document.querySelector('.rang');
+const buttonRandom = document.querySelector('.button-random');
+const buttonReset = document.querySelector('.button-reset');
+
+
+buttonRandom.addEventListener('click',randomValues);
+buttonReset.addEventListener('click',resetValues);
+
+function randomValues() {
+  red.value = randomInteger(0,255);
+  green.value = randomInteger(0,255);
+  blue.value = randomInteger(0,255);
+};
+
+function resetValues() {
+  red.value = '';
+  green.value = '';
+  blue.value = '';
+  defaultDiagram.draw();
+};
 
 const RGBToHSL = (red, green, blue) => {
     red /= 255; 
@@ -23,6 +42,12 @@ const RGBToHSL = (red, green, blue) => {
       (100 * (2 * l - s)) / 2,
     ];
 };
+
+const randomInteger = (min,max) =>{
+  let rand = min + Math.random() * (max + 1 - min);
+  return Math.floor(rand);
+}
+
 
 const activeBackground = (r,g,b) => {
   Object.assign(document.documentElement, {
