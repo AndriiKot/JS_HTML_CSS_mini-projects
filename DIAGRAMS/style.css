@@ -54,6 +54,17 @@ input, button {
     color: rgba(255, 255, 255, 0.821);  
 }
   
+.colors-red {
+    background-color: rgb(var(--rgb-red,var(--color-default-value)),0,0);
+}
+
+.colors-green {
+    background-color: rgb(0,var(--rgb-green,var(--color-default-value)),0);
+}
+
+.colors-blue {
+    background-color: rgb(0,0,var(--rgb-blue,var(--color-default-value)));
+}
 
  
 
