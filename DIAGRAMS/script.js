@@ -4,22 +4,51 @@ const body = document.querySelector('body');
 const forms = document.querySelector('.rang');
 const buttonRandom = document.querySelector('.button-random');
 const buttonReset = document.querySelector('.button-reset');
-
+const buttonRedColor = document.querySelector(".colors-red");
+const buttonGreenColor = document.querySelector('.colors-green');
+const buttonBlueColor = document.querySelector('.colors-blue');
+const arrayInputsVariables = [red,green,blue];
 
 buttonRandom.addEventListener('click',randomValues);
 buttonReset.addEventListener('click',resetValues);
+buttonRedColor.addEventListener('click',buttonColorValueSave(red));
+buttonGreenColor.addEventListener('click',buttonColorValueSave(green));
+buttonBlueColor.addEventListener('click',buttonColorValueSave(blue));
 
-function randomValues() {
-  red.value = randomInteger(0,255);
-  green.value = randomInteger(0,255);
-  blue.value = randomInteger(0,255);
+function randomValues(e) {
+  if(red.disabled === true && green.disabled === true && blue.disabled == true){
+    e.target.disabled = true;
+    return;
+  };
+  randomValuesVALID();
+};
+
+function randomValuesVALID(red,green,blue) {
+  for(let i = 0; i < arrayInputsVariables.length; i++){
+    if(!arrayInputsVariables[i].disabled){ 
+      arrayInputsVariables[i].value = randomInteger(0,255);
+    };
+  };
 };
 
 function resetValues() {
-  red.value = '';
-  green.value = '';
-  blue.value = '';
+for(let i = 0; i < arrayInputsVariables.length; i++){
+  arrayInputsVariables[i].value = '';
+  arrayInputsVariables[i].disabled = false;
+  buttonRandom.disabled = false;
+}
   defaultDiagram.draw();
+};
+
+function buttonColorValueSave(buttonColor) {
+ const fn = function (_e,arg = buttonColor) {
+  if(arg.value){
+  arg.disabled = true;
+  } else {
+    return;
+  }
+ };
+ return fn;
 };
 
 const RGBToHSL = (red, green, blue) => {
