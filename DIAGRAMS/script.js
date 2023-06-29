@@ -15,6 +15,8 @@ buttonRedColor.addEventListener('click',buttonColorValueSave(red));
 buttonGreenColor.addEventListener('click',buttonColorValueSave(green));
 buttonBlueColor.addEventListener('click',buttonColorValueSave(blue));
 
+
+
 function randomValues(e) {
   randomValuesVALID();
 };
@@ -84,7 +86,7 @@ const activeBackground = (r,g,b) => {
     style: `
       --rgb-red: ${r};
       --rgb-green: ${g};
-      --rgb-blue: ${b};   
+      --rgb-blue: ${b};  
     `
   });
 };
