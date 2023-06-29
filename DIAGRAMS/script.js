@@ -16,10 +16,6 @@ buttonGreenColor.addEventListener('click',buttonColorValueSave(green));
 buttonBlueColor.addEventListener('click',buttonColorValueSave(blue));
 
 function randomValues(e) {
-  if(red.disabled === true && green.disabled === true && blue.disabled == true){
-    e.target.disabled = true;
-    return;
-  };
   randomValuesVALID();
 };
 
@@ -44,6 +40,11 @@ function buttonColorValueSave(buttonColor) {
  const fn = function (_e,arg = buttonColor) {
   if(arg.value){
   arg.disabled = true;
+  if(red.disabled === true && green.disabled === true && blue.disabled == true){
+    buttonRandom.disabled = true;
+    return;
+  };
+
   } else {
     return;
   }
