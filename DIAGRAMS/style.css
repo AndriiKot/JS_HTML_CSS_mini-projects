@@ -1,11 +1,11 @@
 ﻿:root {
     --color-default-value: 100;
-    
 }
 
 * {
     box-sizing: border-box;
 }
+
 body {
     min-height: 100vh;
     background-color: rgb(var(--rgb-red,var(--color-default-value)),
@@ -71,7 +71,35 @@ input, button {
     cursor: not-allowed;
 }
 
- 
+[class^='colors']{
+    position: relative;
+    padding-right: 20%;
+}
+
+[class^='colors'] svg{
+    position: absolute;
+    transform: scale(0.55);
+    top: -20%;
+    fill: rgba(255,255,255,0.82);
+}
+
+.colors-green svg {
+    transform: scale(.7506);
+    top: -3%;
+}
+
+.colors-blue svg {
+    transform: scale(.6159);
+    top: -17%;
+}
+
+
+
+
+
+
+
+
 
 
 
