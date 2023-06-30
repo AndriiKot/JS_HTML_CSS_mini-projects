@@ -7,15 +7,37 @@ const buttonReset = document.querySelector('.button-reset');
 const buttonRedColor = document.querySelector(".colors-red");
 const buttonGreenColor = document.querySelector('.colors-green');
 const buttonBlueColor = document.querySelector('.colors-blue');
+
 const arrayInputsVariables = [red,green,blue];
+const arrayButtonsColors = [buttonRedColor,buttonGreenColor,buttonBlueColor];
+const nodeListSVGunclock = document.querySelectorAll('.unclock');
+const nodeListSVGclock = document.querySelectorAll('.clock');
 
 buttonRandom.addEventListener('click',randomValues);
 buttonReset.addEventListener('click',resetValues);
-buttonRedColor.addEventListener('click',buttonColorValueSave(red));
-buttonGreenColor.addEventListener('click',buttonColorValueSave(green));
-buttonBlueColor.addEventListener('click',buttonColorValueSave(blue));
 
 
+for(let i = 0; i < arrayButtonsColors.length; i++){
+  arrayButtonsColors[i].addEventListener('click',buttonColorValueSave(arrayInputsVariables[i]));
+  arrayButtonsColors[i].addEventListener('click',closeAndOpenClock);
+}
+
+function closeAndOpenClock(e) {
+  const upclock = e.currentTarget.children[0];
+  const clock = e.currentTarget.children[1];
+  if (getComputedStyle(upclock).display == 'inline-block' || getComputedStyle(upclock).display == 'block' ) {
+    upclock.style.display = 'none';
+    console.log(getComputedStyle(upclock).display)
+  } else {
+   upclock.style.display = 'inline-block';
+  };
+
+  if (getComputedStyle(clock).display == 'inline-block' || getComputedStyle(clock).display == 'block') {
+    clock.style.display = 'none';
+  } else {
+    clock.style.display = 'inline-block';
+  };
+};
 
 function randomValues(e) {
   randomValuesVALID();
