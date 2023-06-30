@@ -22,14 +22,27 @@ for(let i = 0; i < arrayButtonsColors.length; i++){
   arrayButtonsColors[i].addEventListener('click',closeAndOpenClock);
 }
 
+function defaultClockValue() {
+  for(let i = 0; arrayButtonsColors.length > i; i++){
+    arrayButtonsColors[i].children[1].style.display = 'none';
+    arrayButtonsColors[i].children[0].style.display = 'inline-block';
+  };
+}
+
+
+
 function closeAndOpenClock(e) {
   const upclock = e.currentTarget.children[0];
   const clock = e.currentTarget.children[1];
+  if(validInputColor() === false) {
+    return;
+  };
+
   if (getComputedStyle(upclock).display == 'inline-block' || getComputedStyle(upclock).display == 'block' ) {
     upclock.style.display = 'none';
-    console.log(getComputedStyle(upclock).display)
   } else {
    upclock.style.display = 'inline-block';
+   arrayInputsVariables[arrayButtonsColors.indexOf(e.currentTarget)].disabled = false;
   };
 
   if (getComputedStyle(clock).display == 'inline-block' || getComputedStyle(clock).display == 'block') {
@@ -43,7 +56,7 @@ function randomValues(e) {
   randomValuesVALID();
 };
 
-function randomValuesVALID(red,green,blue) {
+function randomValuesVALID() {
   for(let i = 0; i < arrayInputsVariables.length; i++){
     if(!arrayInputsVariables[i].disabled){ 
       arrayInputsVariables[i].value = randomInteger(0,255);
@@ -56,8 +69,14 @@ for(let i = 0; i < arrayInputsVariables.length; i++){
   arrayInputsVariables[i].value = '';
   arrayInputsVariables[i].disabled = false;
   buttonRandom.disabled = false;
+  defaultClockValue();
 }
   defaultDiagram.draw();
+  if(validInputColor() === false) {
+    return;
+  } else {
+  defaultClockValue();
+  }
 };
 
 function buttonColorValueSave(buttonColor) {
@@ -75,6 +94,13 @@ function buttonColorValueSave(buttonColor) {
  };
  return fn;
 };
+
+function validInputColor() {
+  if(red.value == false && green.value == false && blue.value == false){
+    return false;
+  };
+  return true;
+}; 
 
 const RGBToHSL = (red, green, blue) => {
     red /= 255; 
