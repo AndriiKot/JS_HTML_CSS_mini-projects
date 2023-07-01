@@ -23,6 +23,7 @@ body {
     margin-bottom: 1%;
 }
 
+
 form {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -32,6 +33,7 @@ form {
     font-size: 2rem;
     text-align: center; 
     min-width: 100%;
+    margin-bottom: 5%;
 }
 
 label {
@@ -92,6 +94,7 @@ input, button {
     transform: scale(.6159);
     top: -17%;
 }
+
 
 
 
