@@ -38,6 +38,17 @@ const createStar = (starNumber = '') => {
    return divStar;
 };
 
+const addElement = (parent,children) => {
+  parent.appendChild(children);
+};
+
+const reverseElements = (element) => {
+  const dir = element.getAttribute('dir');
+  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
+  expression ? element.dir = 'rtl' : element.dir = 'ltr';
+};
+
+
 const createStars = (wrapper,numberOfelem) => {
   for(let i = numberOfelem; i > 0; i--){
     const star = createStar(i);
@@ -45,6 +56,17 @@ const createStars = (wrapper,numberOfelem) => {
   };
   reverseElements(wrapper);
   addElement(body,wrapper);
+};
+
+const addEventOnStars = (event,fn,nodeList) => {
+  for(const item of nodeList){
+      item.addEventListener(event,fn);
+  };
+};
+
+const getNodeListOfStars = () => {
+  const nodeListFromElementsStars = document.querySelectorAll(selecte_stars);
+  return nodeListFromElementsStars;
 };
 
 const createFullElement = (quantityStars = quantityStarsDefault) => {
@@ -57,11 +79,6 @@ const createNewFullElement = (oldElement,newSegmentsElement = 0) => {
   createFullElement(newSegmentsElement);
 };
 
-const getNodeListOfStars = () => {
-  const nodeListFromElementsStars = document.querySelectorAll(selecte_stars);
-  return nodeListFromElementsStars;
-};
-
 const getMainActiveStar = () => {
   const mainActiveStar = document.querySelector(`.${main_active_star}`);
   return mainActiveStar;
@@ -72,19 +89,9 @@ const getElementWrapperStars = () => {
   return elementWrapperStars;
 };
 
-const addElement = (parent,children) => {
-  parent.appendChild(children);
-};
-
 const addEvent = (event,fn,element) => {
   const elem = document.querySelector(element);
   elem.addEventListener(event,fn);
-};
-
-const addEventOnStars = (event,fn,nodeList) => {
-  for(const item of nodeList){
-      item.addEventListener(event,fn);
-  };
 };
 
 const addEventOnButtonReset = (event,fn,element) => {
@@ -97,12 +104,6 @@ const addEventSubmitQuantity = (event,fn,element) => {
 
 const AddClassNameActiveStar = (event) => {
   event.currentTarget.classList.add(main_active_star)
-};
-
-const reverseElements = (element) => {
-  const dir = element.getAttribute('dir');
-  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
-  expression ? element.dir = 'rtl' : element.dir = 'ltr';
 };
 
 const remove_class_name = (obj,class_name) => {
