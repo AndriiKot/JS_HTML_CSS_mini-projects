@@ -1,3 +1,45 @@
-﻿body {
-    background-color: red;
+﻿*{
+    box-sizing: border-box;
 }
+
+:root {
+    font-family: 'Agdasima', sans-serif;
+}
+
+body {
+    background-color: red;
+    display: grid;
+    min-height: 100vh;
+    min-width: 100vw;
+    grid-template-areas: 
+        "color-1 color-1"
+        "color-2 color-3"
+        "color-2 color-4"
+        "color-2 color-5"
+    ;
+}
+
+div {
+    border: 1px solid black;
+}
+.color-1{
+    grid-area: color-1 
+}
+
+.color-2{
+    grid-area: color-2  
+}
+  
+.color-3{
+    grid-area: color-3  
+}
+
+.color-4{
+    grid-area: color-4 
+}
+  
+.color-5{
+    grid-area: color-5  
+}
+        
+  
