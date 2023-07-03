@@ -11,11 +11,12 @@ body {
     display: grid;
     min-height: 100vh;
     min-width: 100vw;
+    grid-template-columns: 25% 1fr;
     grid-template-areas: 
         "color-1 color-1"
         "color-2 color-3"
         "color-2 color-4"
-        "color-2 color-5"
+        "color-5 color-5"
     ;
 }
 
