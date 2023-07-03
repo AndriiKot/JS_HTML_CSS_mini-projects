@@ -11,19 +11,24 @@ body {
     display: grid;
     min-height: 100vh;
     min-width: 100vw;
-    grid-template-columns: 25% 1fr;
-    grid-template-areas: 
+    position: relative;
+    /* grid-template-columns: 25% 1fr; */
+    /* grid-template-areas: 
         "color-1 color-1"
         "color-2 color-3"
         "color-2 color-4"
         "color-5 color-5"
-    ;
+    ; */
+}
+
+forms {
+    position: absolute;
 }
 
 div {
     border: 1px solid black;
 }
-.color-1{
+/* .color-1{
     grid-area: color-1 
 }
 
@@ -42,5 +47,5 @@ div {
 .color-5{
     grid-area: color-5  
 }
-        
+         */
   
