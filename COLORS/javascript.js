@@ -5,18 +5,12 @@ const forms = document.querySelector('.createRandomGridElements');
 
 forms.addEventListener('submit',callsubmit);
 
-// let divColors = [];
-
-// const arrayN = 8;
-// let gridContainers = Array.from(Array(arrayN),(_,index) => index++);
-// let newGridContainers = Array.from(Array(arrayN));
-
 
 function callsubmit(event){
     event.preventDefault();
     deleteDivWrapperToBody();
     addDivWrapperToBody();
-}
+};
 
 function getAsisXandY(){
     const x = Number(gridAxisX.value) || 0;
@@ -77,7 +71,7 @@ function addDivWrapperToBody() {
 
 function deleteDivWrapperToBody(){
     const divWrapper = document.querySelector('.wrapper');
-    if(!divWrapper){ return}
+    if(!divWrapper){ return};
     const parent = divWrapper.parentNode;
     parent.removeChild(divWrapper);
 };
@@ -85,6 +79,19 @@ function deleteDivWrapperToBody(){
 function randomInteger(min,max){
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
+};
+
+function XXX(){
+    const nodelist = getNodeListDivColors();
+    for(let i = 0; i < nodelist.length; i++){
+        const element = nodelist[i];
+        const reg = /\d+/;
+        const str = element.className;
+        const int = parseInt(str.match(reg));
+        element.style = `grid-row-start: ${int}`;
+        // element.style.gridRowEnd = `${int+1}`
+        console.log(getComputedStyle(element,null).getPropertyValue('grid-row-start'));
+    };
 };
 
 
