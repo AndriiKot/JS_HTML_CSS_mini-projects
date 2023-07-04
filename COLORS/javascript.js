@@ -88,8 +88,11 @@ function XXX(){
         const reg = /\d+/;
         const str = element.className;
         const int = parseInt(str.match(reg));
-        element.style = `grid-row-start: ${int}`;
-        // element.style.gridRowEnd = `${int+1}`
+        element.style = `grid-row-start: ${int};`;
+        element.style = `grid-row-end: ${int + 1};`;
+        element.style = `grid-column-start:  ${int};`;
+        element.style = `grid-column-end: ${int + 1};`;
+        console.dir(element);
         console.log(getComputedStyle(element,null).getPropertyValue('grid-row-start'));
     };
 };
