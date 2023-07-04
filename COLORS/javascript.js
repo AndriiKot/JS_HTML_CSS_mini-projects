@@ -60,6 +60,9 @@ function createGtidElements(e,numberOfElements) {
    return fullElements;
 };
 
+function addFullElementsToBody(){
+    body.innerHTML += addFullElementsToBody();
+};
 
 // console.log(divColors)
 
