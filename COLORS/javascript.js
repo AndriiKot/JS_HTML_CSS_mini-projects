@@ -4,17 +4,29 @@ const body = document.querySelector('body');
 const forms = document.querySelector('.createRandomGridElements');
 
 forms.addEventListener('submit',createGtidElements)
-let divColors = [];
 
-const arrayN = 8;
-let gridContainers = Array.from(Array(arrayN),(_,index) => index++);
-let newGridContainers = Array.from(Array(arrayN));
+// let divColors = [];
+
+// const arrayN = 8;
+// let gridContainers = Array.from(Array(arrayN),(_,index) => index++);
+// let newGridContainers = Array.from(Array(arrayN));
 
 
 function randomInteger(min,max){
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
 };
+
+function getNumberOfElements() {
+    const x = Number(gridAxisX.value) || 0;
+    const y = Number(gridAxisY.value) || 0;
+    return (x * y)
+};
+
+function getNodeListDivColors(){
+    const nodeListGridElements = document.querySelectorAll("[class^='color-']");
+};
+
 
 function createGridElement(number = 0) {
     const gridElement = `
@@ -26,31 +38,28 @@ function createGridElement(number = 0) {
     return gridElement;
 };
 
-function createGtidElements(e) {
+// Удаление элемента
+// const h1 = document.querySelector('h1')
+
+// const parent = h1.parentNode
+
+// parent.removeChild(h1)
+// 
+
+function createGtidElements(e,numberOfElements) {
    e.preventDefault();
-   divColors = [];
-   gridAxisX.value = '';
-   gridAxisY.value = '';
-   const nodeListDivColors = document.querySelectorAll("[class^='color-']");
-   for(let i = 0; i < nodeListDivColors.length; i++){
-    console.log(nodeListDivColors[0].remove());
-   }
-   createGridViewDefault();
-   const x = gridAxisX.value;
-   const y = gridAxisY.value;
-   const quantityElements =  x * y;
-   for(let i = 1; i <= quantityElements; i++){
+   numberOfElements = getNumberOfElements();
+//    for(let i = 0; i < nodeListDivColors.length; i++){
+//     // console.log(nodeListDivColors[0].remove());
+//    }
+   let fullElements = '';
+   for(let i = 1; i <= numberOfElements; i++){
     const element = createGridElement(i);
-    divColors.push(element);
-    body.innerHTML += element;
+    fullElements += element;
    };
-   createGridViewDefault();
+   return fullElements;
 };
 
-function createGridViewDefault(){
-    const nodeListGridElements = document.querySelectorAll("[class^='color-']")
-    console.log(nodeListGridElements);
-}
 
 // console.log(divColors)
 
