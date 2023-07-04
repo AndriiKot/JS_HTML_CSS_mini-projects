@@ -8,7 +8,6 @@
 
 body {
     background-color: red;
-    display: grid;
     min-height: 100vh;
     min-width: 100vw;
     position: relative;
@@ -29,6 +28,12 @@ form {
 
 div {
     border: 1px solid black;
+}
+
+div.wrapper {
+    display: grid;
+    min-width: 100wv;
+    min-height: 100hv;
 }
 
 
