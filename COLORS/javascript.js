@@ -3,7 +3,7 @@
 const body = document.querySelector('body');
 const forms = document.querySelector('.createRandomGridElements');
 
-forms.addEventListener('submit',createGtidElements)
+forms.addEventListener('submit',callsubmit);
 
 // let divColors = [];
 
@@ -12,19 +12,22 @@ forms.addEventListener('submit',createGtidElements)
 // let newGridContainers = Array.from(Array(arrayN));
 
 
-function randomInteger(min,max){
-    let rand = min + Math.random() * (max + 1 - min);
-    return Math.floor(rand);
-};
+
+function callsubmit(event){
+    event.preventDefault();
+    deleteDivWrapperToBody();
+    return addDivWrapperToBody();
+}
 
 function getNumberOfElements() {
     const x = Number(gridAxisX.value) || 0;
     const y = Number(gridAxisY.value) || 0;
-    return (x * y)
+    return (x * y);
 };
 
 function getNodeListDivColors(){
     const nodeListGridElements = document.querySelectorAll("[class^='color-']");
+    return nodeListGridElements;
 };
 
 
@@ -34,24 +37,12 @@ function createGridElement(number = 0) {
         <h3>Text ${number}</h3>
         <button>Lock</button>
       </div>
-`
+    `;   
     return gridElement;
 };
 
-// Удаление элемента
-// const h1 = document.querySelector('h1')
-
-// const parent = h1.parentNode
-
-// parent.removeChild(h1)
-// 
-
-function createGtidElements(e,numberOfElements) {
-   e.preventDefault();
+function createGridElements(numberOfElements) {
    numberOfElements = getNumberOfElements();
-//    for(let i = 0; i < nodeListDivColors.length; i++){
-//     // console.log(nodeListDivColors[0].remove());
-//    }
    let fullElements = '';
    for(let i = 1; i <= numberOfElements; i++){
     const element = createGridElement(i);
@@ -60,9 +51,34 @@ function createGtidElements(e,numberOfElements) {
    return fullElements;
 };
 
-function addFullElementsToBody(){
-    body.innerHTML += addFullElementsToBody();
+function createDivWrapper(nameClass='wrapper'){
+    const wrapper = document.createElement('div');
+    wrapper.className = nameClass;
+    return wrapper;
 };
+
+function addFullElementsToContainer(){
+     const div = createDivWrapper();
+     div.innerHTML= createGridElements();
+     return div;
+};
+
+function addDivWrapperToBody() {
+    body.append(addFullElementsToContainer());
+};
+
+function deleteDivWrapperToBody(){
+    const divWrapper = document.querySelector('.wrapper');
+    if(!divWrapper){ return}
+    const parent = divWrapper.parentNode;
+    parent.removeChild(divWrapper);
+};
+
+function randomInteger(min,max){
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
+};
+
 
 // console.log(divColors)
 
