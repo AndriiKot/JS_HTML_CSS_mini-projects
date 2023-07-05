@@ -29,7 +29,7 @@ div[class^='color-']{
 
 div[class^='color-'] h3,
 div[class^='color-'] button{
-    color:aquamarine;
+    color: inherit;
     padding: 8px;
     border-radius: 8px;
     transition: background-color 0.4s;
@@ -46,6 +46,7 @@ div[class^='color-'] button{
     background: transparent;
     font-size: 150%;
 }
+
 div.wrapper {
     display: grid;
 }
