@@ -83,21 +83,27 @@ function randomInteger(min,max){
 
 function XXX(){
     const nodelist = getNodeListDivColors();
+    let statrIntRow = 1;
+    let statrIntColumn = 1;
+
     for(let i = 0; i < nodelist.length; i++){
-        const element = nodelist[i];
-        let statrIntRow = 1;
-        let statrIntColumn = 1;
         const [column,row] = getAsisXandY();
-        for(let i = 0; i < row; i++){
-            element.style.gridRowStart = `${statrIntRow}`;
-            element.style.gridRowEnd = `${statrIntRow+1}`;
-            statrIntRow += 1;
-        };
-        for(let i = 0; i < column; i++){
-            element.style.gridColumnStart = `${statrIntColumn}`;
-            element.style.gridColumnEnd = `${statrIntColumn+1}` ;  
-            statrIntColumn += 1; 
-        }
+
+            nodelist[i].style.gridRowStart = `${statrIntRow}`;
+            nodelist[i].style.gridRowEnd = `${statrIntRow+1}`;
+            if (statrIntRow === row) {
+                statrIntRow = 1;
+            } else {
+                statrIntRow += 1
+            };
+
+            nodelist[i].style.gridColumnStart = `${statrIntColumn}`;
+            nodelist[i].style.gridColumnEnd = `${statrIntColumn+1}`;  
+            if (statrIntColumn === column) {
+                statrIntColumn = 1; 
+            } else {
+                statrIntColumn += 1;
+            };
     };
 };
 
