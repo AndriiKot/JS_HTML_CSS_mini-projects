@@ -27,14 +27,16 @@ div[class^='color-']{
     flex-direction: column;
 }
 
-h3 {
+div[class^='color-'] h3,
+div[class^='color-'] button{
     color:aquamarine;
     padding: 8px;
     border-radius: 8px;
     transition: background-color 0.4s;
 }
 
-h3:hover {
+div[class^='color-'] h3:hover,
+div[class^='color-'] button:hover {
     cursor: pointer;
     background-color: rgba(0,0,0,0.13);
 }
@@ -42,6 +44,7 @@ h3:hover {
 div[class^='color-'] button{
     border: none;
     background: transparent;
+    font-size: 150%;
 }
 div.wrapper {
     display: grid;
