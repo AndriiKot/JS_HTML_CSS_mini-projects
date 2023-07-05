@@ -29,8 +29,6 @@ div[class^='color-']{
 
 div.wrapper {
     display: grid;
-    min-width: 100wv;
-    min-height: 100hv;
 }
 
 

@@ -38,7 +38,9 @@ function createGridElement(number = 0) {
     const gridElement = `
       <div class="color-${number}">
         <h3>Text ${number}</h3>
-        <button>Lock</button>
+        <button>
+            <i class="fa-solid fa-lock"></i>
+        </button>
       </div>
     `;  
     return gridElement;
