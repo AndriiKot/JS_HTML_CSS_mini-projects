@@ -10,6 +10,7 @@ function callsubmit(event){
     event.preventDefault();
     deleteDivWrapperToBody();
     addDivWrapperToBody();
+    createGridVIEW();
 };
 
 function getAsisXandY(){
@@ -81,10 +82,9 @@ function randomInteger(min,max){
     return Math.floor(rand);
 };
 
-function XXX(){
+function createGridVIEW(){
     const nodelist = getNodeListDivColors();
     let statrIntRow = 1;
-    let statrIntColumn = 1;
 
     for(let i = 0; i < nodelist.length; i++){
         const [column,row] = getAsisXandY();
@@ -95,14 +95,6 @@ function XXX(){
                 statrIntRow = 1;
             } else {
                 statrIntRow += 1
-            };
-
-            nodelist[i].style.gridColumnStart = `${statrIntColumn}`;
-            nodelist[i].style.gridColumnEnd = `${statrIntColumn+1}`;  
-            if (statrIntColumn === column) {
-                statrIntColumn = 1; 
-            } else {
-                statrIntColumn += 1;
             };
     };
 };
