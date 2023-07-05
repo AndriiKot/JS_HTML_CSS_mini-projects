@@ -85,13 +85,19 @@ function XXX(){
     const nodelist = getNodeListDivColors();
     for(let i = 0; i < nodelist.length; i++){
         const element = nodelist[i];
-        const reg = /\d+/;
-        const str = element.className;
-        const int = parseInt(str.match(reg));
-        element.style.gridRowStart = `${int}`;
-        element.style.gridRowEnd = `${(int+1)}`;
-        element.style.gridColumnStart = `${int}`;
-        element.style.gridColumnEnd = `${(int+1)}`
+        let statrIntRow = 1;
+        let statrIntColumn = 1;
+        const [column,row] = getAsisXandY();
+        for(let i = 0; i < row; i++){
+            element.style.gridRowStart = `${statrIntRow}`;
+            element.style.gridRowEnd = `${statrIntRow+1}`;
+            statrIntRow += 1;
+        };
+        for(let i = 0; i < column; i++){
+            element.style.gridColumnStart = `${statrIntColumn}`;
+            element.style.gridColumnEnd = `${statrIntColumn+1}` ;  
+            statrIntColumn += 1; 
+        }
     };
 };
 
