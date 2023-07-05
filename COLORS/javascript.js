@@ -10,6 +10,7 @@ function callsubmit(event){
     event.preventDefault();
     deleteDivWrapperToBody();
     addDivWrapperToBody();
+    createGridVIEW();
 };
 
 function getAsisXandY(){
@@ -81,17 +82,20 @@ function randomInteger(min,max){
     return Math.floor(rand);
 };
 
-function XXX(){
+function createGridVIEW(){
     const nodelist = getNodeListDivColors();
+    let statrIntRow = 1;
+
     for(let i = 0; i < nodelist.length; i++){
-        const element = nodelist[i];
-        const reg = /\d+/;
-        const str = element.className;
-        const int = parseInt(str.match(reg));
-        element.style.gridRowStart = `${int}`;
-        element.style.gridRowEnd = `${(int+1)}`;
-        element.style.gridColumnStart = `${int}`;
-        element.style.gridColumnEnd = `${(int+1)}`
+        const [column,row] = getAsisXandY();
+
+            nodelist[i].style.gridRowStart = `${statrIntRow}`;
+            nodelist[i].style.gridRowEnd = `${statrIntRow+1}`;
+            if (statrIntRow === row) {
+                statrIntRow = 1;
+            } else {
+                statrIntRow += 1
+            };
     };
 };
 
