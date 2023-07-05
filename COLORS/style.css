@@ -27,6 +27,18 @@ div[class^='color-']{
     flex-direction: column;
 }
 
+h3 {
+    color:aquamarine;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.4s;
+}
+
+h3:hover {
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.13);
+}
+
 div.wrapper {
     display: grid;
 }
