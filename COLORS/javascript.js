@@ -11,6 +11,7 @@ function callsubmit(event){
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
+    setRandomColors();
 };
 
 function getAsisXandY(){
@@ -38,7 +39,9 @@ function createGridElement(number = 0) {
     const gridElement = `
       <div class="color-${number}">
         <h3>Text ${number}</h3>
-        <button>Lock</button>
+        <button>
+            <i class="fa-solid fa-lock"></i>
+        </button>
       </div>
     `;  
     return gridElement;
@@ -77,11 +80,6 @@ function deleteDivWrapperToBody(){
     parent.removeChild(divWrapper);
 };
 
-function randomInteger(min,max){
-    let rand = min + Math.random() * (max + 1 - min);
-    return Math.floor(rand);
-};
-
 function createGridVIEW(){
     const nodelist = getNodeListDivColors();
     let statrIntRow = 1;
@@ -98,6 +96,65 @@ function createGridVIEW(){
             };
     };
 };
+
+function randomInteger(min,max){
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
+};
+
+function randomValueRange(){
+   return randomInteger(0,255);
+};
+
+function getRandomColros(){
+    const r = randomValueRange();
+    const g = randomValueRange();
+    const b = randomValueRange();
+    return [r,g,b];
+}
+
+function setRandomColors(){
+    getNodeListDivColors().forEach((col) => {
+        const [r,g,b] = getRandomColros();
+        col.style.background = `rgb(${r},${g},${b})`;
+        colorText(col,r,g,b);
+    });
+};
+
+function colorText(element,r,g,b) {
+    const hsl = RGBToHSL(r,g,b);
+    hsl[2] = hsl[2] > 50 ? 20 : 100;
+    const h = String(hsl[0]);
+    const s = String(hsl[1]) + '%';
+    const l = String(hsl[2]) + '%';
+    element.style.color = `hsl(${h} ${s} ${l})`;
+};
+
+function RGBToHSL(red, green, blue) {
+    red /= 255; 
+    green /= 255; 
+    blue /= 255;
+
+    const l = Math.max(red, green, blue);
+    const s = l - Math.min(red, green, blue);
+    const h = s
+      ? l === red
+        ? (green - blue) / s
+        : l === green
+        ? 2 + (blue - red) / s
+        : 4 + (red - green) / s
+      : 0;
+    return [
+      60 * h < 0 ? 60 * h + 360 : 60 * h,
+      100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
+      (100 * (2 * l - s)) / 2,
+    ];
+};
+
+  
+
+
+
 
 
 
