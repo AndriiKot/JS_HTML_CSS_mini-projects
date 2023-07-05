@@ -39,6 +39,10 @@ h3:hover {
     background-color: rgba(0,0,0,0.13);
 }
 
+div[class^='color-'] button{
+    border: none;
+    background: transparent;
+}
 div.wrapper {
     display: grid;
 }
