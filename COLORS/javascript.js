@@ -116,6 +116,8 @@ function getRandomColros(){
 function setRandomColors(){
     getNodeListDivColors().forEach((col) => {
         const [r,g,b] = getRandomColros();
+        const valueTextRGB = col.querySelector('h3');
+        valueTextRGB.innerText = rgbToHex(rgbComponentsToHex(r,g,b))
         col.style.background = `rgb(${r},${g},${b})`;
         colorText(col,r,g,b);
     });
@@ -150,6 +152,20 @@ function RGBToHSL(red, green, blue) {
       (100 * (2 * l - s)) / 2,
     ];
 };
+
+function rgbComponentsToHex(red,green,blue) {
+    const r = red.toString(16);
+    const g = green.toString(16);
+    const b = blue.toString(16);
+    return [r.length == 1 ? "0" + r : r,
+            g.length == 1 ? "0" + g : g,
+            b.length == 1 ? "0" + b : b];
+};
+
+function rgbToHex(arrayColorsRGB) {
+    return "#" + arrayColorsRGB[0] + arrayColorsRGB[1] + arrayColorsRGB[2];
+};
+
 
   
 
