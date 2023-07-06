@@ -111,7 +111,7 @@ function getRandomColros(){
     const g = randomValueRange();
     const b = randomValueRange();
     return [r,g,b];
-}
+};
 
 function setRandomColors(){
     getNodeListDivColors().forEach((col) => {
