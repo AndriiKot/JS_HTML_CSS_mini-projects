@@ -30,7 +30,9 @@ form * {
 }
 
 input[type='number'],
-input[type='submit'] {
+input[type='submit'],
+button,
+select {
     color:rgba(0,0,0,0.7);
 }
 
