@@ -3,6 +3,7 @@
 const body = document.querySelector('body');
 const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
+const select = colorModel;
 
 
 forms.addEventListener('submit',callsubmit);
@@ -125,7 +126,7 @@ function setRandomColors(){
     getNodeListDivColors().forEach((col) => {
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
-        valueTextRGB.innerText = rgbToHex(rgbComponentsToHex(r,g,b))
+        valueTextRGB.innerText = rgbToHex(rgbComponentsToHex(r,g,b));
         col.style.background = `rgb(${r},${g},${b})`;
         colorText(col,r,g,b);
     });
@@ -173,6 +174,8 @@ function rgbComponentsToHex(red,green,blue) {
 function rgbToHex(arrayColorsRGB) {
     return "" + arrayColorsRGB[0] + arrayColorsRGB[1] + arrayColorsRGB[2];
 };
+
+
 
 
 
