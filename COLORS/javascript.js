@@ -133,22 +133,19 @@ function setRandomColors(){
 };
 
 function setColorModel(_,element){
-    const value = select.value
+    const indexSelectColorModel = select.options.selectedIndex;
+    const value = select.options[indexSelectColorModel].value;
+    console.log(indexSelectColorModel);
+    console.log(value);
     if(value === 'HEX') {
         console.log("HEX")
     };
 };
 
-function getSelectValuesArrString(){
-    const arr = []
-    for(let i = 0; i < select.length; i++){
-        arr.push(select[i].value);
-    }
-    return arr;
-};
 
 console.dir(typeof(select[0].value))
-console.log(select.length)
+console.dir(select.options.selectedIndex)
+console.dir(select.options[1].value)
 
 function colorText(element,r,g,b) {
     const hsl = RGBToHSL(r,g,b);
