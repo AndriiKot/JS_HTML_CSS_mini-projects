@@ -126,26 +126,21 @@ function setRandomColors(){
     getNodeListDivColors().forEach((col) => {
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
-        valueTextRGB.innerText = rgbToHex(rgbComponentsToHex(r,g,b));
+        setColorModel(null,valueTextRGB,r,g,b);
+        // valueTextRGB.innerText = rgbToHex(rgbComponentsToHex(r,g,b));
         col.style.background = `rgb(${r},${g},${b})`;
         colorText(col,r,g,b);
     });
 };
 
-function setColorModel(_,element){
+function setColorModel(_,element,red,green,blue){
     const indexSelectColorModel = select.options.selectedIndex;
     const value = select.options[indexSelectColorModel].value;
-    console.log(indexSelectColorModel);
-    console.log(value);
     if(value === 'HEX') {
-        console.log("HEX")
+        return element.innerText = rgbToHex(rgbComponentsToHex(red,green,blue));
     };
 };
 
-
-console.dir(typeof(select[0].value))
-console.dir(select.options.selectedIndex)
-console.dir(select.options[1].value)
 
 function colorText(element,r,g,b) {
     const hsl = RGBToHSL(r,g,b);
