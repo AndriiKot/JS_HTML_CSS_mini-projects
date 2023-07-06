@@ -1,10 +1,19 @@
 ﻿'use strict'
 
 const body = document.querySelector('body');
-const forms = document.querySelector('.createRandomGridElements');
+const forms = createRandomGridElements;
+const resetButton = document.querySelector('.reset');
+const select = colorModel;
+
 
 forms.addEventListener('submit',callsubmit);
+resetButton.addEventListener('click',reset);
 
+function reset(){
+    gridAxisX.value = '';
+    gridAxisY.value = '';
+    deleteDivWrapperToBody();
+};
 
 function callsubmit(event){
     event.preventDefault();
@@ -117,11 +126,31 @@ function setRandomColors(){
     getNodeListDivColors().forEach((col) => {
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
-        valueTextRGB.innerText = rgbToHex(rgbComponentsToHex(r,g,b))
+        setColorModel(null,valueTextRGB,r,g,b);
+        // valueTextRGB.innerText = rgbToHex(rgbComponentsToHex(r,g,b));
         col.style.background = `rgb(${r},${g},${b})`;
         colorText(col,r,g,b);
     });
 };
+
+function setColorModel(_,element,red,green,blue){
+    const indexSelectColorModel = select.options.selectedIndex;
+    const value = select.options[indexSelectColorModel].value;
+    if(value === 'HEX') {
+        return element.innerText = rgbToHex(rgbComponentsToHex(red,green,blue));
+    };
+    if(value === 'RGB') {
+        return element.innerText = `rgb(${red},${green},${blue})`;
+    };
+    if(value === 'HSL') {
+        let [h,s,l] = RGBToHSL(red,green,blue);
+        h = Math.round(h);
+        s = Math.round(s);
+        l = Math.round(l);
+        return element.innerText = `hsl(${h},${s}%,${l}%)`;
+    };
+};
+
 
 function colorText(element,r,g,b) {
     const hsl = RGBToHSL(r,g,b);
@@ -163,8 +192,12 @@ function rgbComponentsToHex(red,green,blue) {
 };
 
 function rgbToHex(arrayColorsRGB) {
-    return "#" + arrayColorsRGB[0] + arrayColorsRGB[1] + arrayColorsRGB[2];
+    return "" + arrayColorsRGB[0] + arrayColorsRGB[1] + arrayColorsRGB[2];
 };
+
+
+
+
 
 
   
