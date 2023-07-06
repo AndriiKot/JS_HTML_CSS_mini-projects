@@ -2,9 +2,17 @@
 
 const body = document.querySelector('body');
 const forms = createRandomGridElements;
+const resetButton = document.querySelector('.reset');
+
 
 forms.addEventListener('submit',callsubmit);
+resetButton.addEventListener('click',reset);
 
+function reset(){
+    gridAxisX.value = '';
+    gridAxisY.value = '';
+    deleteDivWrapperToBody();
+};
 
 function callsubmit(event){
     event.preventDefault();
