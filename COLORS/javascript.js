@@ -139,6 +139,16 @@ function setColorModel(_,element,red,green,blue){
     if(value === 'HEX') {
         return element.innerText = rgbToHex(rgbComponentsToHex(red,green,blue));
     };
+    if(value === 'RGB') {
+        return element.innerText = `rgb(${red},${green},${blue})`;
+    };
+    if(value === 'HSL') {
+        let [h,s,l] = RGBToHSL(red,green,blue);
+        h = Math.round(h);
+        s = Math.round(s);
+        l = Math.round(l);
+        return element.innerText = `hsl(${h},${s}%,${l}%)`;
+    };
 };
 
 
