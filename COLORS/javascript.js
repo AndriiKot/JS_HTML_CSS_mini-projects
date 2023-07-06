@@ -1,7 +1,7 @@
 ﻿'use strict'
 
 const body = document.querySelector('body');
-const forms = document.querySelector('.createRandomGridElements');
+const forms = document.querySelector('.');
 
 forms.addEventListener('submit',callsubmit);
 
@@ -165,6 +165,8 @@ function rgbComponentsToHex(red,green,blue) {
 function rgbToHex(arrayColorsRGB) {
     return "#" + arrayColorsRGB[0] + arrayColorsRGB[1] + arrayColorsRGB[2];
 };
+
+
 
 
   
