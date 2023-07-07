@@ -146,15 +146,19 @@ function isDivWrapperContainer(){
   }
 };
 
+function getIndexSelectColorModel(){
+    const indexSelectColorModel = select.options.selectedIndex;
+    return indexSelectColorModel;
+};
+
 
 
 function isNewValueColorModel(){
 
-}
+};
 
 function setColorModel(_,element,red,green,blue){
-    const indexSelectColorModel = select.options.selectedIndex;
-    const value = select.options[indexSelectColorModel].value;
+    const value = select.options[getIndexSelectColorModel()].value;
     if(value === 'HEX') {
         return element.innerText = rgbToHex(rgbComponentsToHex(red,green,blue));
     };
