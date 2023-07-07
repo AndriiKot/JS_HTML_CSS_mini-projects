@@ -57,7 +57,7 @@ function createGridElement(number = 0) {
 
 function createGridElements(numberOfElements) {
    numberOfElements = getNumberOfElements();
-   let fullElements = '';
+   let fullElements = '';  
    for(let i = 1; i <= numberOfElements; i++){
     const element = createGridElement(i);
     fullElements += element;
@@ -131,9 +131,23 @@ function setRandomColors(){
     });
 };
 
-function getOldColors(nodeList = []){
-    nodeList().forEach((element) => {
-        element;
+function getRGBColorString(element) {
+    const stringRGBValue = element.style.background;
+    return stringRGBValue;
+};
+
+function getComponentsRGBColorsArray(element = ''){
+  const array = []
+  const reg = (/(-?\d+(\.\d+)?)/g) 
+  const newString = element.match(reg);
+  const [r,g,b] = [newString[0],newString[1],newString[2]];
+  array.push(r,g,b);
+  return array;
+};
+
+function getRGBColorsToNodeListDivColors(){
+    getNodeListDivColors().forEach((element) =>{
+        getComponentsRGBColorsArray(getRGBColorString(element));
     });
 };
 
@@ -161,11 +175,6 @@ function isOldValueSelectColorModelEqualsNew(old = 1){
     return (old === newValue);
 };
 
-
-
-function isNewValueColorModel(){
-
-};
 
 function setColorModel(_,element,red,green,blue){
     const value = select.options[getIndexSelectColorModel()].value;
