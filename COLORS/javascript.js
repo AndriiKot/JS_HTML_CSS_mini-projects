@@ -16,20 +16,27 @@ function reset(){
 
 function callsubmit(event){
     event.preventDefault();
+    noRESTARBackground(); 
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
     setRandomColors();
 };
 
-function getAsisXandY(){
+function getNumberAsisXandY(){
     const x = Number(gridAxisX.value) || 0;
     const y = Number(gridAxisY.value) || 0;
     return [x,y];
 };
 
+function getArrayStringAsisXandY(){
+    const x = gridAxisX.value;
+    const y = gridAxisY.value;
+    return [x,y];
+};
+
 function getNumberOfElements() {
-    const [x,y] = getAsisXandY();
+    const [x,y] = getNumberAsisXandY();
     return (x * y);
 };
 
@@ -71,6 +78,7 @@ function createDivWrapper(nameClass='wrapper'){
     return wrapper;
 };
 
+
 function addFullElementsToContainer(){
      const div = createDivWrapper();
      div.innerHTML= createGridElements();
@@ -93,7 +101,7 @@ function createGridVIEW(){
     let statrIntRow = 1;
 
     for(let i = 0; i < nodelist.length; i++){
-        const [column,row] = getAsisXandY();
+        const [column,row] = getNumberAsisXandY();
 
             nodelist[i].style.gridRowStart = `${statrIntRow}`;
             nodelist[i].style.gridRowEnd = `${statrIntRow+1}`;
@@ -136,6 +144,14 @@ function getRGBColorString(element) {
     return stringRGBValue;
 };
 
+function noRESTARBackground(){
+    if(isDivWrapperContainer() && isValidValuesXandY()){
+        
+    } else {
+        return;
+    };
+};
+
 function getComponentsRGBColorsArray(element = ''){
   const array = []
   const reg = (/(-?\d+(\.\d+)?)/g) 
@@ -166,13 +182,22 @@ function getIndexSelectColorModel(){
 };
 
 function isOldVauleAsisXandYeaylasNew(old = []){
-    const newValue = getAsisXandY();
+    const newValue = getNumberAsisXandY();
     return (old.toString() === newValue.toString());
 };
 
 function isOldValueSelectColorModelEqualsNew(old = 1){
     const newValue = getIndexSelectColorModel();
     return (old === newValue);
+};
+
+function isValidValuesXandY(){
+    const [validX,validY] = getArrayStringAsisXandY();
+    if(validX && validY){
+        return true;
+    } else {
+        return false;
+    };
 };
 
 
