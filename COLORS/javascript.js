@@ -151,6 +151,11 @@ function getIndexSelectColorModel(){
     return indexSelectColorModel;
 };
 
+function isOldValueSelectColorModelEqualsNew(old = 1,){
+    const newValue = getIndexSelectColorModel();
+    return (old === newValue);
+};
+
 
 
 function isNewValueColorModel(){
