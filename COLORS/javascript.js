@@ -5,7 +5,6 @@ const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const select = colorModel;
 
-
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
 
@@ -49,7 +48,7 @@ function createGridElement(number = 0) {
       <div class="color-${number}">
         <h3>Text ${number}</h3>
         <button>
-            <i class="fa-solid fa-lock"></i>
+            <i class="fa-solid fa-lock-open"></i>
         </button>
       </div>
     `;  
@@ -58,7 +57,7 @@ function createGridElement(number = 0) {
 
 function createGridElements(numberOfElements) {
    numberOfElements = getNumberOfElements();
-   let fullElements = '';
+   let fullElements = '';  
    for(let i = 1; i <= numberOfElements; i++){
     const element = createGridElement(i);
     fullElements += element;
@@ -127,15 +126,58 @@ function setRandomColors(){
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
         setColorModel(null,valueTextRGB,r,g,b);
-        // valueTextRGB.innerText = rgbToHex(rgbComponentsToHex(r,g,b));
         col.style.background = `rgb(${r},${g},${b})`;
         colorText(col,r,g,b);
     });
 };
 
-function setColorModel(_,element,red,green,blue){
+function getRGBColorString(element) {
+    const stringRGBValue = element.style.background;
+    return stringRGBValue;
+};
+
+function getComponentsRGBColorsArray(element = ''){
+  const array = []
+  const reg = (/(-?\d+(\.\d+)?)/g) 
+  const newString = element.match(reg);
+  const [r,g,b] = [newString[0],newString[1],newString[2]];
+  array.push(r,g,b);
+  return array;
+};
+
+function getRGBColorsToNodeListDivColors(){
+    getNodeListDivColors().forEach((element) =>{
+        getComponentsRGBColorsArray(getRGBColorString(element));
+    });
+};
+
+function isDivWrapperContainer(){
+  const boolean = getDivContainerWrapper();
+  if(boolean === null  || boolean === undefined){
+    return false
+  } else {
+    return true
+  }
+};
+
+function getIndexSelectColorModel(){
     const indexSelectColorModel = select.options.selectedIndex;
-    const value = select.options[indexSelectColorModel].value;
+    return indexSelectColorModel;
+};
+
+function isOldVauleAsisXandYeaylasNew(old = []){
+    const newValue = getAsisXandY();
+    return (old.toString() === newValue.toString());
+};
+
+function isOldValueSelectColorModelEqualsNew(old = 1){
+    const newValue = getIndexSelectColorModel();
+    return (old === newValue);
+};
+
+
+function setColorModel(_,element,red,green,blue){
+    const value = select.options[getIndexSelectColorModel()].value;
     if(value === 'HEX') {
         return element.innerText = rgbToHex(rgbComponentsToHex(red,green,blue));
     };
