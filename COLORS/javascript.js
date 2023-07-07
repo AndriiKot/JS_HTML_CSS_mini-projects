@@ -48,7 +48,7 @@ function createGridElement(number = 0) {
       <div class="color-${number}">
         <h3>Text ${number}</h3>
         <button>
-            <i class="fa-solid fa-lock"></i>
+            <i class="fa-solid fa-lock-open"></i>
         </button>
       </div>
     `;  
@@ -151,7 +151,12 @@ function getIndexSelectColorModel(){
     return indexSelectColorModel;
 };
 
-function isOldValueSelectColorModelEqualsNew(old = 1,){
+function isOldVauleAsisXandYeaylasNew(old = []){
+    const newValue = getAsisXandY();
+    return (old.toString() === newValue.toString());
+};
+
+function isOldValueSelectColorModelEqualsNew(old = 1){
     const newValue = getIndexSelectColorModel();
     return (old === newValue);
 };
