@@ -5,7 +5,6 @@ const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const select = colorModel;
 
-
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
 
@@ -127,11 +126,31 @@ function setRandomColors(){
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
         setColorModel(null,valueTextRGB,r,g,b);
-        // valueTextRGB.innerText = rgbToHex(rgbComponentsToHex(r,g,b));
         col.style.background = `rgb(${r},${g},${b})`;
         colorText(col,r,g,b);
     });
 };
+
+function getOldColors(nodeList = []){
+    nodeList().forEach((element) => {
+        element;
+    });
+};
+
+function isDivWrapperContainer(){
+  const boolean = getDivContainerWrapper();
+  if(boolean === null  || boolean === undefined){
+    return false
+  } else {
+    return true
+  }
+};
+
+
+
+function isNewValueColorModel(){
+
+}
 
 function setColorModel(_,element,red,green,blue){
     const indexSelectColorModel = select.options.selectedIndex;
