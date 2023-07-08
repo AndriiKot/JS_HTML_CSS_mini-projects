@@ -5,6 +5,8 @@ const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const select = colorModel;
 let saveValues = null;
+let returnCallSubmit = false;
+
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
@@ -16,9 +18,9 @@ function reset(){
 };
 
 function callsubmit(event){
+    console.log(returnCallSubmit);
     event.preventDefault();
-    let returnCallSubmit = false;
-    returnCallSubmit = noRESTARBackground(saveValues,returnCallSubmit); 
+    noRESTARBackground(saveValues); 
     if(returnCallSubmit){ return };
     noRESTARBackground();
     deleteDivWrapperToBody();
@@ -26,6 +28,7 @@ function callsubmit(event){
     createGridVIEW();
     setRandomColors();
     saveValues = saveAllValues();
+    returnCallSubmit = false;
 };
 
 function getNumberAsisXandY(){
@@ -149,22 +152,23 @@ function getRGBColorString(element) {
     return stringRGBValue;
 };
 
-function noRESTARBackground(fn,isREST){
-    if(!fn) { return };
-    let isRESTAR = isREST;
+function noRESTARBackground(fn){
+    if(!fn) { returnCallSubmit = false; return };
     const oldColorModel = fn[0];
     const oldAsisXandY = fn[1];
     if(isDivWrapperContainer() && isValidValuesXandY()){
         if(!(isOldValueSelectColorModelEqualsNew(oldColorModel)) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
-            isRESTAR = true;
             getRGBColorsToNodeListDivColors();
-            return isRESTAR;
+            returnCallSubmit = true;
+            return returnCallSubmit;
         }
         if(isOldValueSelectColorModelEqualsNew(oldColorModel) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
-            return isRESTAR;
+            returnCallSubmit = false ;
+            return returnCallSubmit;
         }
     };
-    return isRESTAR;
+
+    return returnCallSubmit;
 };
 
 function getComponentsRGBColorsArray(element = ''){
