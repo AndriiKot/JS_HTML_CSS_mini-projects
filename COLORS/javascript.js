@@ -4,6 +4,7 @@ const body = document.querySelector('body');
 const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const select = colorModel;
+let saveValues = null;
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
@@ -16,11 +17,14 @@ function reset(){
 
 function callsubmit(event){
     event.preventDefault();
-    noRESTARBackground(); 
+    console.log("Star: "+ `${saveValues}`)
+    noRESTARBackground(saveValues || [1,[0,0]]); 
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
     setRandomColors();
+    saveValues = saveAllValues();
+    console.log("End: " + `${saveValues}`);
 };
 
 function getNumberAsisXandY(){
@@ -144,21 +148,25 @@ function getRGBColorString(element) {
     return stringRGBValue;
 };
 
-function noRESTARBackground(){
+function noRESTARBackground(fn){
+    const oldColorModel = fn[0];
+    const oldAsisXandY = fn[1]
     if(isDivWrapperContainer() && isValidValuesXandY()){
-        
+        if(isOldValueSelectColorModelEqualsNew(oldColorModel) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
+            console.log('Evrika!!!')
+        }
     } else {
         return;
     };
 };
 
 function getComponentsRGBColorsArray(element = ''){
-  const array = []
-  const reg = (/(-?\d+(\.\d+)?)/g) 
-  const newString = element.match(reg);
-  const [r,g,b] = [newString[0],newString[1],newString[2]];
-  array.push(r,g,b);
-  return array;
+    const array = []
+    const reg = (/(-?\d+(\.\d+)?)/g) 
+    const newString = element.match(reg);
+    const [r,g,b] = [newString[0],newString[1],newString[2]];
+    array.push(r,g,b);
+    return array;
 };
 
 function getRGBColorsToNodeListDivColors(){
@@ -173,7 +181,7 @@ function isDivWrapperContainer(){
     return false
   } else {
     return true
-  }
+  };
 };
 
 function getIndexSelectColorModel(){
@@ -198,6 +206,14 @@ function isValidValuesXandY(){
     } else {
         return false;
     };
+};
+
+function saveAllValues(){
+    const arrAllValues = [];
+    const saveIndexSelect = getIndexSelectColorModel();
+    const saveArrStrXandY = getArrayStringAsisXandY();
+    arrAllValues.push(saveIndexSelect,saveArrStrXandY);
+    return arrAllValues;
 };
 
 
