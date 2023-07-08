@@ -5,6 +5,8 @@ const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const select = colorModel;
 let saveValues = null;
+let returnCallSubmit = false;
+
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
@@ -16,11 +18,11 @@ function reset(){
 };
 
 function callsubmit(event){
+    returnCallSubmit = false
     event.preventDefault();
-    let returnCallSubmit = false;
-    returnCallSubmit = noRESTARBackground(saveValues,returnCallSubmit); 
+    noRESTARBackground(saveValues); 
+    saveValues = saveAllValues();
     if(returnCallSubmit){ return };
-    noRESTARBackground();
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
@@ -149,22 +151,22 @@ function getRGBColorString(element) {
     return stringRGBValue;
 };
 
-function noRESTARBackground(fn,isREST){
-    if(!fn) { return };
-    let isRESTAR = isREST;
+function noRESTARBackground(fn){
+    if(!fn) { return; };
+    if(!(isDivWrapperContainer() && isValidValuesXandY())) { return; };
     const oldColorModel = fn[0];
-    const oldAsisXandY = fn[1];
-    if(isDivWrapperContainer() && isValidValuesXandY()){
-        if(!(isOldValueSelectColorModelEqualsNew(oldColorModel)) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
-            isRESTAR = true;
-            getRGBColorsToNodeListDivColors();
-            return isRESTAR;
-        }
-        if(isOldValueSelectColorModelEqualsNew(oldColorModel) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
-            return isRESTAR;
-        }
-    };
-    return isRESTAR;
+    if(isOldValueSelectColorModelEqualsNew(oldColorModel)) { return; };
+        if(!(isOldValueSelectColorModelEqualsNew(oldColorModel))){
+            getRGBColorsToNodeListDivColors();     
+        };
+
+        if(returnCallSubmit === true){
+            returnCallSubmit = false;
+        } else {
+            returnCallSubmit = true
+        };
+        
+        return returnCallSubmit;
 };
 
 function getComponentsRGBColorsArray(element = ''){
@@ -179,16 +181,17 @@ function getComponentsRGBColorsArray(element = ''){
 function getRGBColorsToNodeListDivColors(){
     getNodeListDivColors().forEach((element) => {
         const [red,green,blue] = getComponentsRGBColorsArray(getRGBColorString(element));
-        setColorModel(null,element,red,green,blue);
+        const valueTextRGB = element.querySelector('h3');
+        setColorModel(null,valueTextRGB,red,green,blue);
     });
 };
 
 function isDivWrapperContainer(){
   const boolean = getDivContainerWrapper();
   if(boolean === null  || boolean === undefined){
-    return false
+    return false;
   } else {
-    return true
+    return true;
   };
 };
 
@@ -231,7 +234,7 @@ function setColorModel(_,element,red,green,blue){
         return element.innerText = rgbToHex(rgbComponentsToHex(red,green,blue));
     };
     if(value === 'RGB') {
-        return element.innerText = `rgb(${red},${green},${blue})`;
+        return element.textContent = `rgb(${red},${green},${blue})`;
     };
     if(value === 'HSL') {
         let [h,s,l] = RGBToHSL(red,green,blue);
@@ -274,9 +277,9 @@ function RGBToHSL(red, green, blue) {
 };
 
 function rgbComponentsToHex(red,green,blue) {
-    const r = red.toString(16);
-    const g = green.toString(16);
-    const b = blue.toString(16);
+    const r = Number(red).toString(16);
+    const g = Number(green).toString(16);
+    const b = Number(blue).toString(16);
     return [r.length == 1 ? "0" + r : r,
             g.length == 1 ? "0" + g : g,
             b.length == 1 ? "0" + b : b];
