@@ -16,16 +16,16 @@
         <input type="number" id="gridAxisX"  min="1" max="6" required autofocus placeholder="1 - 6">
         <span>X</span>
         <input type="number" id="gridAxisY"  min="1" max="6" required placeholder="1 - 6">
-        <button class="start">Start</button>
-        <button class="reset">Reset</button>
         <div class="choose-color-model">
             <label for="colorModel">Choose Color Model:</label>
             <select id="colorModel" name="color-model-list" form="createRandomGridElements">
                 <option value="RGB">RGB</option>
                 <option value="HEX" selected>HEX</option>
                 <option value="HSL">HSL</option>
+            </select>
         </div>
-        </select>
+        <button class="start">Start</button>
+        <button class="reset">Reset</button>       
     </form>
     <script src="javascript.js"></script>
 </body>
