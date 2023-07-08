@@ -12,19 +12,20 @@
 </head>
 <body>
     <form action="#" class="createRandomGridElements" id="createRandomGridElements">
-        <label for="rang">Quantity (between 1 and 6):</label>
+        <label>Quantity (between 1 and 6):</label>
         <input type="number" id="gridAxisX"  min="1" max="6" required autofocus placeholder="1 - 6">
         <span>X</span>
         <input type="number" id="gridAxisY"  min="1" max="6" required placeholder="1 - 6">
         <button class="start">Start</button>
         <button class="reset">Reset</button>
-        <label for="colorModel">Choose Color Model:</label>
-        <select id="colorModel" name="color-model-list" form="createRandomGridElements">
-          <option value="RGB">RGB</option>
-          <option value="HEX" selected>HEX</option>
-          <option value="HSL">HSL</option>
+        <div class="choose-color-model">
+            <label for="colorModel">Choose Color Model:</label>
+            <select id="colorModel" name="color-model-list" form="createRandomGridElements">
+                <option value="RGB">RGB</option>
+                <option value="HEX" selected>HEX</option>
+                <option value="HSL">HSL</option>
+        </div>
         </select>
-        <input type="submit" value="Submit">
     </form>
     <script src="javascript.js"></script>
 </body>
