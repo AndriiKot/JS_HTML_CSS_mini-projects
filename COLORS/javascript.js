@@ -17,8 +17,10 @@ function reset(){
 
 function callsubmit(event){
     event.preventDefault();
-    let returnCallSubmit = noRESTARBackground(saveValues); 
+    let returnCallSubmit = false;
+    returnCallSubmit = noRESTARBackground(saveValues,returnCallSubmit); 
     if(returnCallSubmit){ return };
+    noRESTARBackground();
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
@@ -147,14 +149,16 @@ function getRGBColorString(element) {
     return stringRGBValue;
 };
 
-function noRESTARBackground(fn){
+function noRESTARBackground(fn,isREST){
     if(!fn) { return };
-    let isRESTAR = false;
+    let isRESTAR = isREST;
     const oldColorModel = fn[0];
     const oldAsisXandY = fn[1];
     if(isDivWrapperContainer() && isValidValuesXandY()){
         if(!(isOldValueSelectColorModelEqualsNew(oldColorModel)) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
             isRESTAR = true;
+            getRGBColorsToNodeListDivColors();
+            return isRESTAR;
         }
         if(isOldValueSelectColorModelEqualsNew(oldColorModel) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
             return isRESTAR;
@@ -174,7 +178,8 @@ function getComponentsRGBColorsArray(element = ''){
 
 function getRGBColorsToNodeListDivColors(){
     getNodeListDivColors().forEach((element) => {
-        getComponentsRGBColorsArray(getRGBColorString(element));
+        const [red,green,blue] = getComponentsRGBColorsArray(getRGBColorString(element));
+        setColorModel(null,element,red,green,blue);
     });
 };
 
