@@ -18,17 +18,15 @@ function reset(){
 };
 
 function callsubmit(event){
-    console.log(returnCallSubmit);
+    returnCallSubmit = false
     event.preventDefault();
     noRESTARBackground(saveValues); 
     if(returnCallSubmit){ return };
-    noRESTARBackground();
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
     setRandomColors();
     saveValues = saveAllValues();
-    returnCallSubmit = false;
 };
 
 function getNumberAsisXandY(){
@@ -153,22 +151,29 @@ function getRGBColorString(element) {
 };
 
 function noRESTARBackground(fn){
-    if(!fn) { returnCallSubmit = false; return };
+    if(!fn) { return; };
+    if(!(isDivWrapperContainer() && isValidValuesXandY())) { return; };
     const oldColorModel = fn[0];
-    const oldAsisXandY = fn[1];
-    if(isDivWrapperContainer() && isValidValuesXandY()){
-        if(!(isOldValueSelectColorModelEqualsNew(oldColorModel)) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
-            getRGBColorsToNodeListDivColors();
-            returnCallSubmit = true;
-            return returnCallSubmit;
-        }
-        if(isOldValueSelectColorModelEqualsNew(oldColorModel) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
-            returnCallSubmit = false ;
-            return returnCallSubmit;
-        }
-    };
+    // const oldAsisXandY = fn[1];
+    if(isOldValueSelectColorModelEqualsNew(oldColorModel)) { return; };
+    console.log("Conataine wrapper and  X and Y Valid");
+        if(!(isOldValueSelectColorModelEqualsNew(oldColorModel))){
+            getRGBColorsToNodeListDivColors();     
+            console.log("Goo!!!");
+            // getRGBColorsToNodeListDivColors();
+            // returnCallSubmit = true;
+            // console.log("nOt lod = new Model")
+            // return returnCallSubmit;
+        };
+        
+        if(returnCallSubmit === true){
+            returnCallSubmit = false;
+        } else {
+            returnCallSubmit = true
+        };
 
-    return returnCallSubmit;
+        console.log(returnCallSubmit);
+        return returnCallSubmit;
 };
 
 function getComponentsRGBColorsArray(element = ''){
@@ -183,16 +188,17 @@ function getComponentsRGBColorsArray(element = ''){
 function getRGBColorsToNodeListDivColors(){
     getNodeListDivColors().forEach((element) => {
         const [red,green,blue] = getComponentsRGBColorsArray(getRGBColorString(element));
-        setColorModel(null,element,red,green,blue);
+        const valueTextRGB = element.querySelector('h3');
+        setColorModel(null,valueTextRGB,red,green,blue);
     });
 };
 
 function isDivWrapperContainer(){
   const boolean = getDivContainerWrapper();
   if(boolean === null  || boolean === undefined){
-    return false
+    return false;
   } else {
-    return true
+    return true;
   };
 };
 
@@ -235,7 +241,7 @@ function setColorModel(_,element,red,green,blue){
         return element.innerText = rgbToHex(rgbComponentsToHex(red,green,blue));
     };
     if(value === 'RGB') {
-        return element.innerText = `rgb(${red},${green},${blue})`;
+        return element.textContent = `rgb(${red},${green},${blue})`;
     };
     if(value === 'HSL') {
         let [h,s,l] = RGBToHSL(red,green,blue);
