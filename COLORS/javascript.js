@@ -17,14 +17,13 @@ function reset(){
 
 function callsubmit(event){
     event.preventDefault();
-    console.log("Star: "+ `${saveValues}`)
-    noRESTARBackground(saveValues || [1,[0,0]]); 
+    let returnCallSubmit = noRESTARBackground(saveValues); 
+    if(returnCallSubmit){ return };
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
     setRandomColors();
     saveValues = saveAllValues();
-    console.log("End: " + `${saveValues}`);
 };
 
 function getNumberAsisXandY(){
@@ -149,15 +148,19 @@ function getRGBColorString(element) {
 };
 
 function noRESTARBackground(fn){
+    if(!fn) { return };
+    let isRESTAR = false;
     const oldColorModel = fn[0];
-    const oldAsisXandY = fn[1]
+    const oldAsisXandY = fn[1];
     if(isDivWrapperContainer() && isValidValuesXandY()){
-        if(isOldValueSelectColorModelEqualsNew(oldColorModel) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
-            console.log('Evrika!!!')
+        if(!(isOldValueSelectColorModelEqualsNew(oldColorModel)) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
+            isRESTAR = true;
         }
-    } else {
-        return;
+        if(isOldValueSelectColorModelEqualsNew(oldColorModel) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
+            return isRESTAR;
+        }
     };
+    return isRESTAR;
 };
 
 function getComponentsRGBColorsArray(element = ''){
@@ -170,7 +173,7 @@ function getComponentsRGBColorsArray(element = ''){
 };
 
 function getRGBColorsToNodeListDivColors(){
-    getNodeListDivColors().forEach((element) =>{
+    getNodeListDivColors().forEach((element) => {
         getComponentsRGBColorsArray(getRGBColorString(element));
     });
 };
