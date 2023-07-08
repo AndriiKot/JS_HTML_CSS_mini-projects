@@ -21,6 +21,7 @@ function callsubmit(event){
     returnCallSubmit = false
     event.preventDefault();
     noRESTARBackground(saveValues); 
+    saveValues = saveAllValues();
     if(returnCallSubmit){ return };
     deleteDivWrapperToBody();
     addDivWrapperToBody();
@@ -154,25 +155,17 @@ function noRESTARBackground(fn){
     if(!fn) { return; };
     if(!(isDivWrapperContainer() && isValidValuesXandY())) { return; };
     const oldColorModel = fn[0];
-    // const oldAsisXandY = fn[1];
     if(isOldValueSelectColorModelEqualsNew(oldColorModel)) { return; };
-    console.log("Conataine wrapper and  X and Y Valid");
         if(!(isOldValueSelectColorModelEqualsNew(oldColorModel))){
             getRGBColorsToNodeListDivColors();     
-            console.log("Goo!!!");
-            // getRGBColorsToNodeListDivColors();
-            // returnCallSubmit = true;
-            // console.log("nOt lod = new Model")
-            // return returnCallSubmit;
         };
-        
+
         if(returnCallSubmit === true){
             returnCallSubmit = false;
         } else {
             returnCallSubmit = true
         };
-
-        console.log(returnCallSubmit);
+        
         return returnCallSubmit;
 };
 
@@ -284,9 +277,9 @@ function RGBToHSL(red, green, blue) {
 };
 
 function rgbComponentsToHex(red,green,blue) {
-    const r = red.toString(16);
-    const g = green.toString(16);
-    const b = blue.toString(16);
+    const r = Number(red).toString(16);
+    const g = Number(green).toString(16);
+    const b = Number(blue).toString(16);
     return [r.length == 1 ? "0" + r : r,
             g.length == 1 ? "0" + g : g,
             b.length == 1 ? "0" + b : b];
