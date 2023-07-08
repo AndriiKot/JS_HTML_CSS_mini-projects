@@ -4,6 +4,7 @@ const body = document.querySelector('body');
 const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const select = colorModel;
+let saveValues = null;
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
@@ -16,11 +17,15 @@ function reset(){
 
 function callsubmit(event){
     event.preventDefault();
-    noRESTARBackground(); 
+    let returnCallSubmit = false;
+    returnCallSubmit = noRESTARBackground(saveValues,returnCallSubmit); 
+    if(returnCallSubmit){ return };
+    noRESTARBackground();
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
     setRandomColors();
+    saveValues = saveAllValues();
 };
 
 function getNumberAsisXandY(){
@@ -144,26 +149,37 @@ function getRGBColorString(element) {
     return stringRGBValue;
 };
 
-function noRESTARBackground(){
+function noRESTARBackground(fn,isREST){
+    if(!fn) { return };
+    let isRESTAR = isREST;
+    const oldColorModel = fn[0];
+    const oldAsisXandY = fn[1];
     if(isDivWrapperContainer() && isValidValuesXandY()){
-        
-    } else {
-        return;
+        if(!(isOldValueSelectColorModelEqualsNew(oldColorModel)) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
+            isRESTAR = true;
+            getRGBColorsToNodeListDivColors();
+            return isRESTAR;
+        }
+        if(isOldValueSelectColorModelEqualsNew(oldColorModel) && isOldVauleAsisXandYeaylasNew(oldAsisXandY)){
+            return isRESTAR;
+        }
     };
+    return isRESTAR;
 };
 
 function getComponentsRGBColorsArray(element = ''){
-  const array = []
-  const reg = (/(-?\d+(\.\d+)?)/g) 
-  const newString = element.match(reg);
-  const [r,g,b] = [newString[0],newString[1],newString[2]];
-  array.push(r,g,b);
-  return array;
+    const array = []
+    const reg = (/(-?\d+(\.\d+)?)/g) 
+    const newString = element.match(reg);
+    const [r,g,b] = [newString[0],newString[1],newString[2]];
+    array.push(r,g,b);
+    return array;
 };
 
 function getRGBColorsToNodeListDivColors(){
-    getNodeListDivColors().forEach((element) =>{
-        getComponentsRGBColorsArray(getRGBColorString(element));
+    getNodeListDivColors().forEach((element) => {
+        const [red,green,blue] = getComponentsRGBColorsArray(getRGBColorString(element));
+        setColorModel(null,element,red,green,blue);
     });
 };
 
@@ -173,7 +189,7 @@ function isDivWrapperContainer(){
     return false
   } else {
     return true
-  }
+  };
 };
 
 function getIndexSelectColorModel(){
@@ -198,6 +214,14 @@ function isValidValuesXandY(){
     } else {
         return false;
     };
+};
+
+function saveAllValues(){
+    const arrAllValues = [];
+    const saveIndexSelect = getIndexSelectColorModel();
+    const saveArrStrXandY = getArrayStringAsisXandY();
+    arrAllValues.push(saveIndexSelect,saveArrStrXandY);
+    return arrAllValues;
 };
 
 
