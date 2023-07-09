@@ -11,11 +11,6 @@ let returnCallSubmit = false;
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
 
-function handleClick(){
-    console.log("Work !!!");
-};
-
-
 function reset(){
     gridAxisX.value = '';
     gridAxisY.value = '';
@@ -41,7 +36,13 @@ function build() {
 };
 
 function clockEvent(){
-   const locks = document.querySelectorAll('.fa-solid') 
+   const locks = document.querySelectorAll('.lock');
+
+   function handleClick(event){
+     console.log(event.currentTarget)
+     console.log(event.target)
+   };
+
     locks.forEach(clock => {
         clock.addEventListener('click', handleClick);
         console.log(clock)
@@ -79,7 +80,7 @@ function createGridElement(number = 0) {
     const gridElement = `
       <div class="color-${number}">
         <h3>Text ${number}</h3>
-        <button>
+        <button class="lock">
             <i class="fa-solid fa-lock-open"></i>
         </button>
       </div>
