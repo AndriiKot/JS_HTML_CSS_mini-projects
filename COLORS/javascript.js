@@ -23,11 +23,33 @@ function callsubmit(event){
     noRESTARBackground(saveValues); 
     saveValues = saveAllValues();
     if(returnCallSubmit){ return };
+    build();
+    saveValues = saveAllValues();
+};
+
+function build() {
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
     setRandomColors();
-    saveValues = saveAllValues();
+    clockEvent();
+};
+
+function clockEvent(){
+   const locks = document.querySelectorAll('.lock');
+
+   function handleClick(event){
+     const lock = event.currentTarget.querySelector('.fa-solid');
+     if(lock.className.includes('open')){
+         lock.className = 'fa-solid fa-lock';
+     } else {
+         lock.className = 'fa-solid fa-lock-open'
+     };
+   };
+
+    locks.forEach(lock => {
+        lock.addEventListener('click', handleClick);
+    });
 };
 
 function getNumberAsisXandY(){
@@ -61,7 +83,7 @@ function createGridElement(number = 0) {
     const gridElement = `
       <div class="color-${number}">
         <h3>Text ${number}</h3>
-        <button>
+        <button class="lock">
             <i class="fa-solid fa-lock-open"></i>
         </button>
       </div>
