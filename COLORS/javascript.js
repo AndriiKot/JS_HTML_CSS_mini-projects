@@ -11,6 +11,11 @@ let returnCallSubmit = false;
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
 
+function handleClick(){
+    console.log("Work !!!");
+};
+
+
 function reset(){
     gridAxisX.value = '';
     gridAxisY.value = '';
@@ -23,11 +28,24 @@ function callsubmit(event){
     noRESTARBackground(saveValues); 
     saveValues = saveAllValues();
     if(returnCallSubmit){ return };
+    build();
+    saveValues = saveAllValues();
+};
+
+function build() {
     deleteDivWrapperToBody();
     addDivWrapperToBody();
     createGridVIEW();
     setRandomColors();
-    saveValues = saveAllValues();
+    clockEvent();
+};
+
+function clockEvent(){
+   const locks = document.querySelectorAll('.fa-solid') 
+    locks.forEach(clock => {
+        clock.addEventListener('click', handleClick);
+        console.log(clock)
+    });
 };
 
 function getNumberAsisXandY(){
