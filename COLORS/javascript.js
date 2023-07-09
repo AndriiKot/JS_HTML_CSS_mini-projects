@@ -39,13 +39,16 @@ function clockEvent(){
    const locks = document.querySelectorAll('.lock');
 
    function handleClick(event){
-     console.log(event.currentTarget)
-     console.log(event.target)
+     const lock = event.currentTarget.querySelector('.fa-solid');
+     if(lock.className.includes('open')){
+         lock.className = 'fa-solid fa-lock';
+     } else {
+         lock.className = 'fa-solid fa-lock-open'
+     };
    };
 
-    locks.forEach(clock => {
-        clock.addEventListener('click', handleClick);
-        console.log(clock)
+    locks.forEach(lock => {
+        lock.addEventListener('click', handleClick);
     });
 };
 
