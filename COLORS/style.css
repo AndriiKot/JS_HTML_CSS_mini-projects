@@ -72,4 +72,10 @@ div.wrapper {
     display: grid;
 }
 
+:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
 

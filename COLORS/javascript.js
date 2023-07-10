@@ -45,12 +45,28 @@ function clockEvent(){
      } else {
          lock.className = 'fa-solid fa-lock-open'
      };
+     isdisabledInput();
    };
 
     locks.forEach(lock => {
         lock.addEventListener('click', handleClick);
     });
+
+    function isdisabledInput(){
+        const lock = document.querySelectorAll('.fa-lock');
+        const disabled = document.querySelectorAll(['input[type="number"]']);
+        let isdisabled = false
+        if(!lock.length){ isdisabled = false 
+        } else {
+            isdisabled = true
+        };
+        for(let i = 0; i < disabled.length; i++){
+            disabled[i].disabled = isdisabled;
+        };
+    };
 };
+
+
 
 function getNumberAsisXandY(){
     const x = Number(gridAxisX.value) || 0;
@@ -191,8 +207,9 @@ function noRESTARBackground(fn){
         return returnCallSubmit;
 };
 
+
 function getComponentsRGBColorsArray(element = ''){
-    const array = []
+    const array = [];
     const reg = (/(-?\d+(\.\d+)?)/g) 
     const newString = element.match(reg);
     const [r,g,b] = [newString[0],newString[1],newString[2]];
