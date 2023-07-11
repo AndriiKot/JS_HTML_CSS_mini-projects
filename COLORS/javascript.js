@@ -33,12 +33,13 @@ function build() {
     createGridVIEW();
     setRandomColors();
     clockEvent();
+    isdisabledInput();   
 };
 
 function clockEvent(){
    const locks = document.querySelectorAll('.lock');
 
-   function handleClick(event){
+   function handleClickClock(event){
      const lock = event.currentTarget.querySelector('.fa-solid');
      if(lock.className.includes('open')){
          lock.className = 'fa-solid fa-lock';
@@ -49,23 +50,23 @@ function clockEvent(){
    };
 
     locks.forEach(lock => {
-        lock.addEventListener('click', handleClick);
+        lock.addEventListener('click', handleClickClock);
     });
 
-    function isdisabledInput(){
-        const lock = document.querySelectorAll('.fa-lock');
-        const disabled = document.querySelectorAll(['input[type="number"]']);
-        let isdisabled = false
-        if(!lock.length){ isdisabled = false 
-        } else {
-            isdisabled = true
-        };
-        for(let i = 0; i < disabled.length; i++){
-            disabled[i].disabled = isdisabled;
-        };
-    };
 };
 
+function isdisabledInput(){
+    const lock = document.querySelectorAll('.fa-lock');
+    const disabled = document.querySelectorAll(['input[type="number"]']);
+    let isdisabled = false
+    if(!lock.length){ isdisabled = false 
+    } else {
+        isdisabled = true
+    };
+    for(let i = 0; i < disabled.length; i++){
+        disabled[i].disabled = isdisabled;
+    };
+};
 
 
 function getNumberAsisXandY(){
