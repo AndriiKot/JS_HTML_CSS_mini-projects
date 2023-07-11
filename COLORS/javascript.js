@@ -4,7 +4,7 @@ const body = document.querySelector('body');
 const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const select = colorModel;
-let saveValues = null;
+let saveValues = [];
 let returnCallSubmit = false;
 
 
@@ -176,13 +176,23 @@ function getRandomColros(){
 };
 
 function setRandomColors(){
-    getNodeListDivColors().forEach((col) => {
+   const nodeList = getNodeListDivColors();
+   
+   for(let i = 0; i < nodeList.length; i++) {
+        if(saveValues[2][i]){
+            if(saveValues[2][i].classList.contains('fa-lock')){
+                return;
+            }
+            console.log("HI LoCK!!!");
+        };
+        const col = nodeList[i];
+        console.log(saveValues[2][i])
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
         setColorModel(null,valueTextRGB,r,g,b);
         col.style.background = `rgb(${r},${g},${b})`;
         colorText(col,r,g,b);
-    });
+    };
 };
 
 function getRGBColorString(element) {
@@ -202,7 +212,7 @@ function noRESTARBackground(fn){
         if(returnCallSubmit === true){
             returnCallSubmit = false;
         } else {
-            returnCallSubmit = true
+            returnCallSubmit = true;
         };
         
         return returnCallSubmit;
@@ -259,11 +269,17 @@ function isValidValuesXandY(){
     };
 };
 
+function getNodeListLock(){
+    const nodeList = document.querySelectorAll('.fa-solid');
+    return nodeList;
+};
+
 function saveAllValues(){
     const arrAllValues = [];
     const saveIndexSelect = getIndexSelectColorModel();
     const saveArrStrXandY = getArrayStringAsisXandY();
-    arrAllValues.push(saveIndexSelect,saveArrStrXandY);
+    const nodeListLock = getNodeListLock();
+    arrAllValues.push(saveIndexSelect,saveArrStrXandY,nodeListLock);
     return arrAllValues;
 };
 
