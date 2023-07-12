@@ -11,7 +11,7 @@ let returnCallSubmit = false;
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
-startButton.addEventListener('click' ,getNodeListClock())
+startButton.addEventListener('click' ,getNodeListClock());
 
 function reset(){
     gridAxisX.value = '';
@@ -20,7 +20,7 @@ function reset(){
 };
 
 function callsubmit(event){
-    returnCallSubmit = false
+    returnCallSubmit = false;
     event.preventDefault();
     noRESTARBackground(saveValues); 
     saveValues = saveAllValues();
@@ -206,7 +206,7 @@ function noRESTARBackground(fn){
         if(returnCallSubmit === true){
             returnCallSubmit = false;
         } else {
-            returnCallSubmit = true
+            returnCallSubmit = true;
         };
         
         return returnCallSubmit;
