@@ -3,6 +3,7 @@
 const body = document.querySelector('body');
 const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
+const startButton = document.querySelector('.start');
 const select = colorModel;
 let saveValues = null;
 let returnCallSubmit = false;
@@ -10,6 +11,7 @@ let returnCallSubmit = false;
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
+startButton.addEventListener('click' ,getNodeListClock())
 
 function reset(){
     gridAxisX.value = '';
@@ -175,6 +177,9 @@ function getRandomColros(){
 };
 
 function setRandomColors(){
+    // console.log(getNodeListDivColors().length)
+    // console.log(saveAllValues()[2]);
+    console.dir(startButton);
     getNodeListDivColors().forEach((col) => {
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
@@ -262,8 +267,15 @@ function saveAllValues(){
     const arrAllValues = [];
     const saveIndexSelect = getIndexSelectColorModel();
     const saveArrStrXandY = getArrayStringAsisXandY();
-    arrAllValues.push(saveIndexSelect,saveArrStrXandY);
+    const saveClockNodeList = getNodeListClock();
+    arrAllValues.push(saveIndexSelect,saveArrStrXandY,saveClockNodeList);
     return arrAllValues;
+};
+
+function getNodeListClock(){
+    const nodeList = document.querySelectorAll('.fa-solid');
+    console.log(nodeList);
+    return nodeList;
 };
 
 
