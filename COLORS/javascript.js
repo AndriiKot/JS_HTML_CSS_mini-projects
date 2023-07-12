@@ -177,8 +177,6 @@ function getRandomColros(){
 };
 
 function setRandomColors(){
-    // console.log(getNodeListDivColors().length)
-    // console.log(saveAllValues()[2]);
     console.dir(startButton);
     getNodeListDivColors().forEach((col) => {
         const [r,g,b] = getRandomColros();
@@ -274,7 +272,6 @@ function saveAllValues(){
 
 function getNodeListClock(){
     const nodeList = document.querySelectorAll('.fa-solid');
-    console.log(nodeList);
     return nodeList;
 };
 
