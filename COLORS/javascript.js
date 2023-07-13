@@ -3,6 +3,7 @@
 const body = document.querySelector('body');
 const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
+const startButton = document.querySelector('.start');
 const select = colorModel;
 let saveNodeListLock = null;
 let saveValues = null;
@@ -14,8 +15,10 @@ let isdisabled = false;
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
 
+
 function reset(){
     resetInputNumber();
+    startButton.disabled = false;
     gridAxisX.value = '';
     gridAxisY.value = '';
     deleteDivWrapperToBody();
@@ -51,6 +54,7 @@ function clockEvent(){
          lock.className = 'fa-solid fa-lock-open'
      };
      isdisabledInput();
+     isdisabledButtonStart();
    };
 
     locks.forEach(lock => {
@@ -72,7 +76,7 @@ function resetInputNumber(nodeList){
 
 function isdisabledInput(){
     const lock = document.querySelectorAll('.fa-lock');
-    const disabled = getInputNumberNodeList();
+    let disabled = getInputNumberNodeList();
     if(lock.length){ isdisabled = true; 
     } else {
         isdisabled = false;
@@ -80,11 +84,18 @@ function isdisabledInput(){
     for(let i = 0; i < disabled.length; i++){
         disabled[i].disabled = isdisabled;
     };
-    const [x,y] = getNumberAsisXandY();
-    if(x === 1 &&  y === 1){
-       return  startButton.disabled = isdisabled;
-    };
    return isdisabled = false;
+};
+
+function isdisabledButtonStart(){
+    const [x,y] = getNumberAsisXandY();
+    const disabled = document.querySelector('input[type="number"]').disabled;
+
+    if(x === 1 &&  y === 1  && disabled){
+       startButton.disabled = true;
+    } else {
+        startButton.disabled = false;
+    };
 };
 
 
@@ -196,14 +207,33 @@ function getRandomColros(){
 
 function setRandomColors(){
     const nodeList = getNodeListDivColors();
-    for(let i = 0;i < nodeList.length; i++) {
-        const [r,g,b] = getRandomColros();
-        const col = nodeList[i];
-        const valueTextRGB = col.querySelector('h3');
-        setColorModel(null,valueTextRGB,r,g,b);
-        col.style.background = `rgb(${r},${g},${b})`;
-        colorText(col,r,g,b);
-    };
+    console.log(saveNodeListLock);
+    if(saveNodeListLock.length === 0) {
+        for(let i = 0;i < nodeList.length; i++) {
+            const [r,g,b] = getRandomColros();
+            const col = nodeList[i];
+            const valueTextRGB = col.querySelector('h3');
+            setColorModel(null,valueTextRGB,r,g,b);
+            col.style.background = `rgb(${r},${g},${b})`;
+            colorText(col,r,g,b);
+        };
+    }  else {
+        for(let i = 0;i < nodeList.length; i++) {
+            console.log(saveNodeListLock[i])
+            if(saveNodeListLock[i].querySelector('.fa-lock')){
+
+                console.log(saveNodeListLock[i]);
+                // console.log(`fff ${saveNodeListLock[i].}`);
+            };
+            const [r,g,b] = getRandomColros();
+            const col = nodeList[i];
+            const valueTextRGB = col.querySelector('h3');
+            setColorModel(null,valueTextRGB,r,g,b);
+            col.style.background = `rgb(${r},${g},${b})`;
+            colorText(col,r,g,b);
+        };
+        console.log("Yes!!!")
+    }
 };
 
 function getRGBColorString(element) {
