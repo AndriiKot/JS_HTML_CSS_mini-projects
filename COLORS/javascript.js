@@ -178,8 +178,6 @@ function getRandomColros(){
 };
 
 function setRandomColors(){
-<<<<<<< HEAD
-<<<<<<< HEAD
    const nodeList = getNodeListDivColors();
    
    for(let i = 0; i < nodeList.length; i++) {
@@ -189,24 +187,15 @@ function setRandomColors(){
             }
             console.log("HI LoCK!!!");
         };
-        const col = nodeList[i];
-        console.log(saveValues[2][i])
-=======
-    // console.log(getNodeListDivColors().length)
-    // console.log(saveAllValues()[2]);
-    console.dir(startButton);
-=======
+    const col = nodeList[i];
     const hodeList = getNodeListClock();
-    console.log(hodeList)
->>>>>>> styles
     getNodeListDivColors().forEach((col) => {
->>>>>>> styles
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
         setColorModel(null,valueTextRGB,r,g,b);
         col.style.background = `rgb(${r},${g},${b})`;
         colorText(col,r,g,b);
-    };
+    }
 };
 
 function getRGBColorString(element) {
@@ -292,13 +281,10 @@ function saveAllValues(){
     const arrAllValues = [];
     const saveIndexSelect = getIndexSelectColorModel();
     const saveArrStrXandY = getArrayStringAsisXandY();
-<<<<<<< HEAD
     const nodeListLock = getNodeListLock();
     arrAllValues.push(saveIndexSelect,saveArrStrXandY,nodeListLock);
-=======
     const saveClockNodeList = getNodeListClock();
     arrAllValues.push(saveIndexSelect,saveArrStrXandY,saveClockNodeList);
->>>>>>> styles
     return arrAllValues;
 };
 
@@ -375,7 +361,6 @@ function rgbToHex(arrayColorsRGB) {
 
 
   
-
 
 
 
