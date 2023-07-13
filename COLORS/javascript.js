@@ -8,13 +8,14 @@ const select = colorModel;
 let saveNodeListLock = null;
 let saveValues = null;
 let returnCallSubmit = false;
-
+let isdisabled = false;
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
-startButton.addEventListener('click' ,getNodeListClock());
 
 function reset(){
+    resetInputNumber();
+    startButton.disabled = false;
     gridAxisX.value = '';
     gridAxisY.value = '';
     deleteDivWrapperToBody();
@@ -26,6 +27,7 @@ function callsubmit(event){
     noRESTARBackground(saveValues); 
     saveValues = saveAllValues();
     if(returnCallSubmit){ return };
+    saveNodeListLock = getNodeListClock();
     build();
     saveValues = saveAllValues();
 };
@@ -49,26 +51,49 @@ function clockEvent(){
          lock.className = 'fa-solid fa-lock-open'
      };
      isdisabledInput();
+     isdisabledButtonStart();
    };
 
     locks.forEach(lock => {
         lock.addEventListener('click', handleClick);
     });
-
-    function isdisabledInput(){
-        const lock = document.querySelectorAll('.fa-lock');
-        const disabled = document.querySelectorAll(['input[type="number"]']);
-        let isdisabled = false
-        if(!lock.length){ isdisabled = false 
-        } else {
-            isdisabled = true
-        };
-        for(let i = 0; i < disabled.length; i++){
-            disabled[i].disabled = isdisabled;
-        };
-    };
 };
 
+function getInputNumberNodeList(){
+    const input = document.querySelectorAll('input[type="number"]');
+    return input;
+};
+
+function resetInputNumber(nodeList){
+   nodeList = getInputNumberNodeList();
+   for(let i = 0; i < nodeList.length; i++){
+    nodeList[i].disabled = false;
+   };
+};
+
+function isdisabledInput(){
+    const lock = document.querySelectorAll('.fa-lock');
+    let disabled = getInputNumberNodeList();
+    if(lock.length){ isdisabled = true; 
+    } else {
+        isdisabled = false;
+    };
+    for(let i = 0; i < disabled.length; i++){
+        disabled[i].disabled = isdisabled;
+    };
+   return isdisabled = false;
+};
+
+function isdisabledButtonStart(){
+    const [x,y] = getNumberAsisXandY();
+    const disabled = document.querySelector('input[type="number"]').disabled;
+
+    if(x === 1 &&  y === 1  && disabled){
+       startButton.disabled = true;
+    } else {
+        startButton.disabled = false;
+    };
+};
 
 
 function getNumberAsisXandY(){
@@ -178,15 +203,36 @@ function getRandomColros(){
 };
 
 function setRandomColors(){
-    const hodeList = getNodeListClock();
-    console.log(hodeList)
-    getNodeListDivColors().forEach((col) => {
-        const [r,g,b] = getRandomColros();
-        const valueTextRGB = col.querySelector('h3');
-        setColorModel(null,valueTextRGB,r,g,b);
-        col.style.background = `rgb(${r},${g},${b})`;
-        colorText(col,r,g,b);
-    });
+    const nodeList = getNodeListDivColors();
+    if(saveNodeListLock.length === 0) {
+        for(let i = 0;i < nodeList.length; i++) {
+            const [r,g,b] = getRandomColros();
+            const col = nodeList[i];
+            const valueTextRGB = col.querySelector('h3');
+            setColorModel(null,valueTextRGB,r,g,b);
+            col.style.background = `rgb(${r},${g},${b})`;
+            colorText(col,r,g,b);
+        };
+    }  else {
+        for(let i = 0;i < nodeList.length; i++) {
+            if(saveNodeListLock[i].querySelector('i').className == 'fa-solid fa-lock'){
+                const col = nodeList[i];
+                // const valueTextRGB = col.querySelector('h3');
+                // setColorModel(null,valueTextRGB,r,g,b);
+                col.style.background =  saveNodeListLock[i].style.background  // `rgb(${r},${g},${b})`;
+                // colorText(col,r,g,b);
+            } else {
+            // console.dir(saveNodeListLock[i].querySelector('i').className == 'fa-solid fa-lock')
+            const [r,g,b] = getRandomColros();
+            const col = nodeList[i];
+            const valueTextRGB = col.querySelector('h3');
+            setColorModel(null,valueTextRGB,r,g,b);
+            col.style.background = `rgb(${r},${g},${b})`;
+            colorText(col,r,g,b);
+            };
+        };
+        // console.log("Yes!!!")
+    }
 };
 
 function getRGBColorString(element) {
@@ -267,13 +313,13 @@ function saveAllValues(){
     const arrAllValues = [];
     const saveIndexSelect = getIndexSelectColorModel();
     const saveArrStrXandY = getArrayStringAsisXandY();
-    const saveClockNodeList = getNodeListClock();
-    arrAllValues.push(saveIndexSelect,saveArrStrXandY,saveClockNodeList);
+    arrAllValues.push(saveIndexSelect,saveArrStrXandY);
     return arrAllValues;
 };
 
+
 function getNodeListClock(){
-    const nodeList = document.querySelectorAll('.fa-solid');
+    const nodeList = document.querySelectorAll('[class^="color"]');
     return nodeList;
 };
 
