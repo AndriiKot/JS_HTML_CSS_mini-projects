@@ -177,7 +177,8 @@ function getRandomColros(){
 };
 
 function setRandomColors(){
-    console.dir(startButton);
+    const hodeList = getNodeListClock();
+    console.log(hodeList)
     getNodeListDivColors().forEach((col) => {
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
