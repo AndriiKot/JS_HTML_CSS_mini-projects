@@ -1,4 +1,4 @@
 ﻿Project: Stars
   srars_version_1: ready
-  
+  diagrams:
  
