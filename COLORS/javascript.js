@@ -3,7 +3,6 @@
 const body = document.querySelector('body');
 const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
-const startButton = document.querySelector('.start');
 const select = colorModel;
 let saveNodeListLock = null;
 let saveValues = null;
@@ -14,7 +13,6 @@ let isdisabled = false;
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
-startButton.addEventListener('click' ,getNodeListClock());
 
 function reset(){
     resetInputNumber();
@@ -29,6 +27,7 @@ function callsubmit(event){
     noRESTARBackground(saveValues); 
     saveValues = saveAllValues();
     if(returnCallSubmit){ return };
+    saveNodeListLock = getNodeListClock();
     build();
     saveValues = saveAllValues();
 };
@@ -196,13 +195,15 @@ function getRandomColros(){
 };
 
 function setRandomColors(){
-    getNodeListDivColors().forEach((col) => {
+    const nodeList = getNodeListDivColors();
+    for(let i = 0;i < nodeList.length; i++) {
         const [r,g,b] = getRandomColros();
+        const col = nodeList[i];
         const valueTextRGB = col.querySelector('h3');
         setColorModel(null,valueTextRGB,r,g,b);
         col.style.background = `rgb(${r},${g},${b})`;
         colorText(col,r,g,b);
-    });
+    };
 };
 
 function getRGBColorString(element) {
