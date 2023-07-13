@@ -5,7 +5,7 @@ const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const startButton = document.querySelector('.start');
 const select = colorModel;
-let saveValues = [];
+let saveValues = null;
 let returnCallSubmit = false;
 
 
