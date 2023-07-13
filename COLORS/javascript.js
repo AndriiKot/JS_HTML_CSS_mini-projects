@@ -8,6 +8,8 @@ const select = colorModel;
 let saveNodeListLock = null;
 let saveValues = null;
 let returnCallSubmit = false;
+let isdisabled = false;
+
 
 
 forms.addEventListener('submit',callsubmit);
@@ -15,6 +17,7 @@ resetButton.addEventListener('click',reset);
 startButton.addEventListener('click' ,getNodeListClock());
 
 function reset(){
+    isdisabledInput();
     gridAxisX.value = '';
     gridAxisY.value = '';
     deleteDivWrapperToBody();
@@ -55,24 +58,29 @@ function clockEvent(){
         lock.addEventListener('click', handleClick);
     });
 
-    function isdisabledInput(){
-        const lock = document.querySelectorAll('.fa-lock');
-        const disabled = document.querySelectorAll(['input[type="number"]']);
-        let isdisabled = false
-        if(!lock.length){ isdisabled = false 
-        } else {
-            isdisabled = true
-        };
-        for(let i = 0; i < disabled.length; i++){
-            disabled[i].disabled = isdisabled;
-        };
-        const [x,y] = getNumberAsisXandY();
-        if(x === 1 &&  y === 1){
-            startButton.disabled = isdisabled;
-        };
-    };
 };
 
+function getInputNumberNodeList(){
+    const input = document.querySelectorAll('input[type="number"]');
+    return input;
+};
+
+function isdisabledInput(){
+    const lock = document.querySelectorAll('.fa-lock');
+    const disabled = getInputNumberNodeList();
+    if(lock.length){ isdisabled = true; 
+    } else {
+        isdisabled = false;
+    };
+    for(let i = 0; i < disabled.length; i++){
+        disabled[i].disabled = isdisabled;
+    };
+    const [x,y] = getNumberAsisXandY();
+    if(x === 1 &&  y === 1){
+       return  startButton.disabled = isdisabled;
+    };
+   return isdisabled = false;
+};
 
 
 function getNumberAsisXandY(){
@@ -182,8 +190,8 @@ function getRandomColros(){
 };
 
 function setRandomColors(){
-    const hodeList = getNodeListClock();
-    console.log(hodeList)
+    console.log(saveNodeListLock);
+    console.log(saveValues[2]);
     getNodeListDivColors().forEach((col) => {
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
@@ -271,8 +279,8 @@ function saveAllValues(){
     const arrAllValues = [];
     const saveIndexSelect = getIndexSelectColorModel();
     const saveArrStrXandY = getArrayStringAsisXandY();
-    const saveClockNodeList = getNodeListClock();
-    arrAllValues.push(saveIndexSelect,saveArrStrXandY,saveClockNodeList);
+    saveNodeListLock = getNodeListClock();
+    arrAllValues.push(saveIndexSelect,saveArrStrXandY,saveNodeListLock);
     return arrAllValues;
 };
 
