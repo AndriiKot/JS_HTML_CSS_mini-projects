@@ -68,7 +68,7 @@ function clockEvent(){
         };
         const [x,y] = getNumberAsisXandY();
         if(x === 1 &&  y === 1){
-            startButton.disabled = true;
+            startButton.disabled = isdisabled;
         };
     };
 };
