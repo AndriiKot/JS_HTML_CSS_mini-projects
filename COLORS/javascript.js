@@ -17,7 +17,7 @@ resetButton.addEventListener('click',reset);
 startButton.addEventListener('click' ,getNodeListClock());
 
 function reset(){
-    isdisabledInput();
+    resetInputNumber();
     gridAxisX.value = '';
     gridAxisY.value = '';
     deleteDivWrapperToBody();
@@ -57,12 +57,18 @@ function clockEvent(){
     locks.forEach(lock => {
         lock.addEventListener('click', handleClick);
     });
-
 };
 
 function getInputNumberNodeList(){
     const input = document.querySelectorAll('input[type="number"]');
     return input;
+};
+
+function resetInputNumber(nodeList){
+   nodeList = getInputNumberNodeList();
+   for(let i = 0; i < nodeList.length; i++){
+    nodeList[i].disabled = false;
+   };
 };
 
 function isdisabledInput(){
@@ -190,8 +196,6 @@ function getRandomColros(){
 };
 
 function setRandomColors(){
-    console.log(saveNodeListLock);
-    console.log(saveValues[2]);
     getNodeListDivColors().forEach((col) => {
         const [r,g,b] = getRandomColros();
         const valueTextRGB = col.querySelector('h3');
