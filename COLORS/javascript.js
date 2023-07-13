@@ -66,6 +66,10 @@ function clockEvent(){
         for(let i = 0; i < disabled.length; i++){
             disabled[i].disabled = isdisabled;
         };
+        const [x,y] = getNumberAsisXandY();
+        if(x === 1 &&  y === 1){
+            console.log("Hi!")
+        }
     };
 };
 
