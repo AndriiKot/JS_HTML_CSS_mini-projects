@@ -11,7 +11,7 @@ let returnCallSubmit = false;
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
-startButton.addEventListener('click' ,getNodeListClock())
+startButton.addEventListener('click' ,getNodeListClock());
 
 function reset(){
     gridAxisX.value = '';
@@ -20,7 +20,7 @@ function reset(){
 };
 
 function callsubmit(event){
-    returnCallSubmit = false
+    returnCallSubmit = false;
     event.preventDefault();
     noRESTARBackground(saveValues); 
     saveValues = saveAllValues();
@@ -179,6 +179,7 @@ function getRandomColros(){
 
 function setRandomColors(){
 <<<<<<< HEAD
+<<<<<<< HEAD
    const nodeList = getNodeListDivColors();
    
    for(let i = 0; i < nodeList.length; i++) {
@@ -194,6 +195,10 @@ function setRandomColors(){
     // console.log(getNodeListDivColors().length)
     // console.log(saveAllValues()[2]);
     console.dir(startButton);
+=======
+    const hodeList = getNodeListClock();
+    console.log(hodeList)
+>>>>>>> styles
     getNodeListDivColors().forEach((col) => {
 >>>>>>> styles
         const [r,g,b] = getRandomColros();
@@ -299,7 +304,6 @@ function saveAllValues(){
 
 function getNodeListClock(){
     const nodeList = document.querySelectorAll('.fa-solid');
-    console.log(nodeList);
     return nodeList;
 };
 
