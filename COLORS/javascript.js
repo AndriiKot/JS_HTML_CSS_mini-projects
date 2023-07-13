@@ -10,11 +10,8 @@ let saveValues = null;
 let returnCallSubmit = false;
 let isdisabled = false;
 
-
-
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
-
 
 function reset(){
     resetInputNumber();
@@ -219,10 +216,11 @@ function setRandomColors(){
         };
     }  else {
         for(let i = 0;i < nodeList.length; i++) {
-            console.log(saveNodeListLock[i])
-            if(saveNodeListLock[i].querySelector('.fa-lock')){
-
-                console.log(saveNodeListLock[i]);
+            // console.log(saveNodeListLock[i])
+            // console.log(saveNodeListLock[i].className == 'fa-solid fa-lock-open')
+            if(saveNodeListLock[i].className == 'fa-solid fa-lock'){
+                console.dir(saveNodeListLock[i])
+                // console.log(saveNodeListLock[i]);
                 // console.log(`fff ${saveNodeListLock[i].}`);
             };
             const [r,g,b] = getRandomColros();
@@ -231,8 +229,10 @@ function setRandomColors(){
             setColorModel(null,valueTextRGB,r,g,b);
             col.style.background = `rgb(${r},${g},${b})`;
             colorText(col,r,g,b);
+            console.dir(`Old functional ${nodeList[i]}`);
+            console.dir(nodeList)
         };
-        console.log("Yes!!!")
+        // console.log("Yes!!!")
     }
 };
 
@@ -314,15 +314,20 @@ function saveAllValues(){
     const arrAllValues = [];
     const saveIndexSelect = getIndexSelectColorModel();
     const saveArrStrXandY = getArrayStringAsisXandY();
-    saveNodeListLock = getNodeListClock();
-    arrAllValues.push(saveIndexSelect,saveArrStrXandY,saveNodeListLock);
+    arrAllValues.push(saveIndexSelect,saveArrStrXandY);
     return arrAllValues;
 };
 
+// function getNodeListClock(){
+//     const nodeList = document.querySelectorAll('.fa-solid');
+//     return nodeList;
+// };
+
 function getNodeListClock(){
-    const nodeList = document.querySelectorAll('.fa-solid');
+    const nodeList = document.querySelectorAll('[class^="color"]');
+    console.log(nodeList);
     return nodeList;
-};
+}
 
 
 function setColorModel(_,element,red,green,blue){
