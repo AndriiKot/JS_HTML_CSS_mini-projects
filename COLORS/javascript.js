@@ -216,13 +216,12 @@ function setRandomColors(){
     }  else {
         for(let i = 0;i < nodeList.length; i++) {
             if(saveNodeListLock[i].querySelector('i').className == 'fa-solid fa-lock'){
-                let n = nodeList[i];
-                console.log("NNNNNNNNNNNNNNNNNNNNNNNN")
-                console.log(n)
-                 n = saveNodeListLock[i];
-                 console.log(n);
-                 console.log("NNNNNNNNNNNNNNNNNNNNNNNN")
-            };
+                const col = nodeList[i];
+                // const valueTextRGB = col.querySelector('h3');
+                // setColorModel(null,valueTextRGB,r,g,b);
+                col.style.background =  saveNodeListLock[i].style.background  // `rgb(${r},${g},${b})`;
+                // colorText(col,r,g,b);
+            } else {
             // console.dir(saveNodeListLock[i].querySelector('i').className == 'fa-solid fa-lock')
             const [r,g,b] = getRandomColros();
             const col = nodeList[i];
@@ -230,6 +229,7 @@ function setRandomColors(){
             setColorModel(null,valueTextRGB,r,g,b);
             col.style.background = `rgb(${r},${g},${b})`;
             colorText(col,r,g,b);
+            };
         };
         // console.log("Yes!!!")
     }
