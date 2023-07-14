@@ -72,18 +72,30 @@ function resetInputNumber(nodeList){
    };
 };
 
-    function isdisabledInput(){
-        const lock = document.querySelectorAll('.fa-lock');
-        const disabled = document.querySelectorAll(['input[type="number"]']);
-        let isdisabled = false
-        if(!lock.length){ isdisabled = false 
-        } else {
-            isdisabled = true
-        };
-        for(let i = 0; i < disabled.length; i++){
-            disabled[i].disabled = isdisabled;
-        };
+function isdisabledInput(){
+    const lock = document.querySelectorAll('.fa-lock');
+    let disabled = getInputNumberNodeList();
+    if(lock.length){ isdisabled = true; 
+    } else {
+        isdisabled = false;
     };
+    for(let i = 0; i < disabled.length; i++){
+        disabled[i].disabled = isdisabled;
+    };
+   return isdisabled = false;
+};
+
+function isdisabledButtonStart(){
+    const [x,y] = getNumberAsisXandY();
+    const disabled = document.querySelector('input[type="number"]').disabled;
+
+    if(x === 1 &&  y === 1  && disabled){
+       startButton.disabled = true;
+    } else {
+        startButton.disabled = false;
+    };
+
+    if(openLock.length === 0){startButton.disabled = true};
 };
 
 
@@ -208,24 +220,19 @@ function setRandomColors(){
     }  else {
         for(let i = 0;i < nodeList.length; i++) {
             const oldElement =  saveNodeListLock[i];
+            const col = nodeList[i];
+            const valueTextRGB = col.querySelector('h3');
+
+
             if(oldElement.querySelector('i').className == 'fa-solid fa-lock'){
-                const col = nodeList[i];
                 const [r,g,b] = getComponentsRGBColorsArray(getRGBColorString(oldElement));
-                const lock = oldElement.querySelector('.fa-lock');
                 const colLock = col.querySelector('.fa-solid')
                 col.style.background =  saveNodeListLock[i].style.background;
-                // col.className =  'fa-solid fa-lock';
-                const valueTextRGB = col.querySelector('h3');
                 setColorModel(null,valueTextRGB,r,g,b);
                 colorText(col,r,g,b);
-                // col.className = 'fa-solid fa-lock';
-                console.log(colLock.className);
-                console.log(colLock);
                 colLock.className = 'fa-solid fa-lock';
             } else {
                 const [r,g,b] = getRandomColros();
-                const col = nodeList[i];
-                const valueTextRGB = col.querySelector('h3');
                 setColorModel(null,valueTextRGB,r,g,b);
                 col.style.background = `rgb(${r},${g},${b})`;
                 colorText(col,r,g,b);
@@ -250,10 +257,7 @@ function noRESTARBackground(fn){
 
         if(returnCallSubmit === true){
             returnCallSubmit = false;
-        } else {
-            returnCallSubmit = true;
-        };
-        
+        };       
         return returnCallSubmit;
 };
 
