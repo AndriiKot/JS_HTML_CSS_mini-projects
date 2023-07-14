@@ -84,15 +84,18 @@ function isdisabledInput(){
    return isdisabled = false;
 };
 
+
 function isdisabledButtonStart(){
     const [x,y] = getNumberAsisXandY();
     const disabled = document.querySelector('input[type="number"]').disabled;
-
+    const openLock = document.querySelectorAll('.fa-lock-open');
     if(x === 1 &&  y === 1  && disabled){
        startButton.disabled = true;
     } else {
         startButton.disabled = false;
     };
+
+    if(openLock.length === 0){startButton.disabled = true};
 };
 
 
@@ -216,24 +219,19 @@ function setRandomColors(){
     }  else {
         for(let i = 0;i < nodeList.length; i++) {
             const oldElement =  saveNodeListLock[i];
+            const col = nodeList[i];
+            const valueTextRGB = col.querySelector('h3');
+
+
             if(oldElement.querySelector('i').className == 'fa-solid fa-lock'){
-                const col = nodeList[i];
                 const [r,g,b] = getComponentsRGBColorsArray(getRGBColorString(oldElement));
-                const lock = oldElement.querySelector('.fa-lock');
                 const colLock = col.querySelector('.fa-solid')
                 col.style.background =  saveNodeListLock[i].style.background;
-                // col.className =  'fa-solid fa-lock';
-                const valueTextRGB = col.querySelector('h3');
                 setColorModel(null,valueTextRGB,r,g,b);
                 colorText(col,r,g,b);
-                // col.className = 'fa-solid fa-lock';
-                console.log(colLock.className);
-                console.log(colLock);
                 colLock.className = 'fa-solid fa-lock';
             } else {
                 const [r,g,b] = getRandomColros();
-                const col = nodeList[i];
-                const valueTextRGB = col.querySelector('h3');
                 setColorModel(null,valueTextRGB,r,g,b);
                 col.style.background = `rgb(${r},${g},${b})`;
                 colorText(col,r,g,b);
@@ -258,10 +256,7 @@ function noRESTARBackground(fn){
 
         if(returnCallSubmit === true){
             returnCallSubmit = false;
-        } else {
-            returnCallSubmit = true;
-        };
-        
+        };       
         return returnCallSubmit;
 };
 
