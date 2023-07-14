@@ -38,13 +38,12 @@ function build() {
     createGridVIEW();
     setRandomColors();
     clockEvent();
-    isdisabledInput();   
 };
 
 function clockEvent(){
    const locks = document.querySelectorAll('.lock');
 
-   function handleClickClock(event){
+   function handleClick(event){
      const lock = event.currentTarget.querySelector('.fa-solid');
      if(lock.className.includes('open')){
          lock.className = 'fa-solid fa-lock';
@@ -56,7 +55,7 @@ function clockEvent(){
    };
 
     locks.forEach(lock => {
-        lock.addEventListener('click', handleClickClock);
+        lock.addEventListener('click', handleClick);
     });
 };
 
@@ -85,10 +84,11 @@ function isdisabledInput(){
    return isdisabled = false;
 };
 
+
 function isdisabledButtonStart(){
     const [x,y] = getNumberAsisXandY();
     const disabled = document.querySelector('input[type="number"]').disabled;
-
+    const openLock = document.querySelectorAll('.fa-lock-open');
     if(x === 1 &&  y === 1  && disabled){
        startButton.disabled = true;
     } else {
@@ -97,8 +97,6 @@ function isdisabledButtonStart(){
 
     if(openLock.length === 0){startButton.disabled = true};
 };
-
-
 
 function getNumberAsisXandY(){
     const x = Number(gridAxisX.value) || 0;
