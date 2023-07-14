@@ -221,8 +221,8 @@ function setRandomColors(){
             const oldElement =  saveNodeListLock[i];
             const col = nodeList[i];
             const valueTextRGB = col.querySelector('h3');
-
-
+            
+        if (oldElement){
             if(oldElement.querySelector('i').className == 'fa-solid fa-lock'){
                 const [r,g,b] = getComponentsRGBColorsArray(getRGBColorString(oldElement));
                 const colLock = col.querySelector('.fa-solid')
@@ -236,6 +236,12 @@ function setRandomColors(){
                 col.style.background = `rgb(${r},${g},${b})`;
                 colorText(col,r,g,b);
             };
+        }  else {
+            const [r,g,b] = getRandomColros();
+            setColorModel(null,valueTextRGB,r,g,b);
+            col.style.background = `rgb(${r},${g},${b})`;
+            colorText(col,r,g,b);
+        };
         };
     }
 };
