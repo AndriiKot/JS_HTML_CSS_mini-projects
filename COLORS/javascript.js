@@ -219,11 +219,14 @@ function setRandomColors(){
             if(oldElement.querySelector('i').className == 'fa-solid fa-lock'){
                 const col = nodeList[i];
                 const [r,g,b] = getComponentsRGBColorsArray(getRGBColorString(oldElement));
+                const lock = oldElement.querySelector('.fa-lock');
                 col.style.background =  saveNodeListLock[i].style.background;
-                col.className =  'fa-solid fa-lock';
+                // col.className =  'fa-solid fa-lock';
                 const valueTextRGB = col.querySelector('h3');
                 setColorModel(null,valueTextRGB,r,g,b);
                 colorText(col,r,g,b);
+                lock.className = 'fa-solid fa-lock';
+                console.log(lock.className);
             } else {
                 const [r,g,b] = getRandomColros();
                 const col = nodeList[i];
