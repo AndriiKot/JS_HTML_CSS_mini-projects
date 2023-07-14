@@ -207,23 +207,30 @@ function setRandomColors(){
         };
     }  else {
         for(let i = 0;i < nodeList.length; i++) {
-            if(saveNodeListLock[i].querySelector('i').className == 'fa-solid fa-lock'){
+            const oldElement =  saveNodeListLock[i];
+            if(oldElement.querySelector('i').className == 'fa-solid fa-lock'){
                 const col = nodeList[i];
-                // const valueTextRGB = col.querySelector('h3');
-                // setColorModel(null,valueTextRGB,r,g,b);
-                col.style.background =  saveNodeListLock[i].style.background  // `rgb(${r},${g},${b})`;
-                // colorText(col,r,g,b);
+                const [r,g,b] = getComponentsRGBColorsArray(getRGBColorString(oldElement));
+                const lock = oldElement.querySelector('.fa-lock');
+                const colLock = col.querySelector('.fa-solid')
+                col.style.background =  saveNodeListLock[i].style.background;
+                // col.className =  'fa-solid fa-lock';
+                const valueTextRGB = col.querySelector('h3');
+                setColorModel(null,valueTextRGB,r,g,b);
+                colorText(col,r,g,b);
+                // col.className = 'fa-solid fa-lock';
+                console.log(colLock.className);
+                console.log(colLock);
+                colLock.className = 'fa-solid fa-lock';
             } else {
-            // console.dir(saveNodeListLock[i].querySelector('i').className == 'fa-solid fa-lock')
-            const [r,g,b] = getRandomColros();
-            const col = nodeList[i];
-            const valueTextRGB = col.querySelector('h3');
-            setColorModel(null,valueTextRGB,r,g,b);
-            col.style.background = `rgb(${r},${g},${b})`;
-            colorText(col,r,g,b);
+                const [r,g,b] = getRandomColros();
+                const col = nodeList[i];
+                const valueTextRGB = col.querySelector('h3');
+                setColorModel(null,valueTextRGB,r,g,b);
+                col.style.background = `rgb(${r},${g},${b})`;
+                colorText(col,r,g,b);
             };
         };
-        // console.log("Yes!!!")
     }
 };
 
