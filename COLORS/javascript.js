@@ -219,27 +219,20 @@ function setRandomColors(){
             if(oldElement.querySelector('i').className == 'fa-solid fa-lock'){
                 const col = nodeList[i];
                 const [r,g,b] = getComponentsRGBColorsArray(getRGBColorString(oldElement));
-                console.log(oldElement);
-                console.log(r,g,b);
-                // const valueTextRGB = col.querySelector('h3');
-                // setColorModel(null,valueTextRGB,r,g,b);
                 col.style.background =  saveNodeListLock[i].style.background;
+                col.className =  'fa-solid fa-lock';
                 const valueTextRGB = col.querySelector('h3');
                 setColorModel(null,valueTextRGB,r,g,b);
                 colorText(col,r,g,b);
-                 // `rgb(${r},${g},${b})`;
-                // colorText(col,r,g,b);
             } else {
-            // console.dir(saveNodeListLock[i].querySelector('i').className == 'fa-solid fa-lock')
-            const [r,g,b] = getRandomColros();
-            const col = nodeList[i];
-            const valueTextRGB = col.querySelector('h3');
-            setColorModel(null,valueTextRGB,r,g,b);
-            col.style.background = `rgb(${r},${g},${b})`;
-            colorText(col,r,g,b);
+                const [r,g,b] = getRandomColros();
+                const col = nodeList[i];
+                const valueTextRGB = col.querySelector('h3');
+                setColorModel(null,valueTextRGB,r,g,b);
+                col.style.background = `rgb(${r},${g},${b})`;
+                colorText(col,r,g,b);
             };
         };
-        // console.log("Yes!!!")
     }
 };
 
