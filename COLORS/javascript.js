@@ -98,7 +98,6 @@ function isdisabledButtonStart(){
     if(openLock.length === 0){startButton.disabled = true};
 };
 
-
 function getNumberAsisXandY(){
     const x = Number(gridAxisX.value) || 0;
     const y = Number(gridAxisY.value) || 0;
