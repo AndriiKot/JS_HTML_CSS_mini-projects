@@ -14,10 +14,16 @@ let isdisabled = false;
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
-allOpenLockButton.addEventListener('click', hello)
+allOpenLockButton.addEventListener('click', allOpenLock);
 
-function hello(){
-    console.log("Hello!!!");
+function allOpenLock(){
+    const nodeList = getNodeListLock();
+    if(nodeList.length === 0) { return };
+    for(let i = 0; i < nodeList.length; i++){
+        if(nodeList[i].className === 'fa-solid fa-lock'){
+            nodeList[i].className = 'fa-solid fa-lock-open';
+        };
+    };
 };
 
 function getNodeListLock(){
