@@ -4,14 +4,24 @@ const body = document.querySelector('body');
 const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const startButton = document.querySelector('.start');
+const allOpenLockButton = document.querySelector('.all-open-lock');
 const select = colorModel;
 let saveNodeListLock = null;
 let saveValues = null;
 let returnCallSubmit = false;
 let isdisabled = false;
 
+console.log(allOpenLockButton);
+
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
+allOpenLockButton.addEventListener('click', hello)
+
+function hello(){
+    console.log("Hello!!!");
+};
+
+getNodeListColorElement
 
 function reset(){
     resetInputNumber();
@@ -27,7 +37,7 @@ function callsubmit(event){
     noRESTARBackground(saveValues); 
     saveValues = saveAllValues();
     if(returnCallSubmit){ return };
-    saveNodeListLock = getNodeListClock();
+    saveNodeListLock = getNodeListColorElement();
     build();
     saveValues = saveAllValues();
 };
@@ -326,7 +336,7 @@ function saveAllValues(){
 };
 
 
-function getNodeListClock(){
+function getNodeListColorElement(){
     const nodeList = document.querySelectorAll('[class^="color"]');
     return nodeList;
 };
