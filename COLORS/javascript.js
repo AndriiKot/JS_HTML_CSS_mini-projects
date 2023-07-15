@@ -11,7 +11,6 @@ let saveValues = null;
 let returnCallSubmit = false;
 let isdisabled = false;
 
-console.log(allOpenLockButton);
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
@@ -21,7 +20,10 @@ function hello(){
     console.log("Hello!!!");
 };
 
-getNodeListColorElement
+function getNodeListLock(){
+    const nodeList = document.querySelectorAll('.fa-solid')
+    return nodeList;
+};
 
 function reset(){
     resetInputNumber();
@@ -37,7 +39,7 @@ function callsubmit(event){
     noRESTARBackground(saveValues); 
     saveValues = saveAllValues();
     if(returnCallSubmit){ return };
-    saveNodeListLock = getNodeListColorElement();
+    saveNodeListLock = getNodeListColorElements();
     build();
     saveValues = saveAllValues();
 };
@@ -336,7 +338,7 @@ function saveAllValues(){
 };
 
 
-function getNodeListColorElement(){
+function getNodeListColorElements(){
     const nodeList = document.querySelectorAll('[class^="color"]');
     return nodeList;
 };
