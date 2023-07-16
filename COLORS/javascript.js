@@ -359,15 +359,53 @@ function setColorModel(_,element,red,green,blue){
         return element.innerText = (rgbToHex(rgbComponentsToHex(red,green,blue)));
     };
     if(value === 'RGB') {
-        return element.textContent = `rgb(${red},${green},${blue})`;
+        return element.textContent = fixationDivColor(`rgb(${red},${green},${blue})`);
     };
     if(value === 'HSL') {
         let [h,s,l] = RGBToHSL(red,green,blue);
         h = Math.round(h);
         s = Math.round(s);
         l = Math.round(l);
-        return element.innerText = `hsl(${h},${s}%,${l}%)`;
+        return element.innerText = fixationDivColor(`hsl(${h},${s}%,${l}%)`) // `hsl(${h},${s}%,${l}%)`;
     };
+};
+
+function fixationDivColor(str = ''){
+    const length = str.length;
+    const maxLength = 18;
+    if(length === maxLength){ return };
+    return str;
+};
+
+function maxLengthMinusStrLength(max = maxLength,strLength = 0){
+    const result = max - strLength;
+    console.log(result);
+    return result;
+};
+
+function resaltDivTwo(result = 2){
+    console.log(`${result} % 2 = ${result % 2}`)
+    return (result % 2);
+};
+
+function isremainderOfTheDivisionTwo(result){
+    if(result === 0){
+        console.log(false)
+        return false;
+    };
+    console.log(true);
+    return true;
+};
+
+function evenNumberConcatString(result = 2,str = ''){
+    const divTwo = result / 2;
+    const concatStr = ' ' * divTwo;
+    str = concatStr + str + concatStr;
+    return str;
+};
+
+function oddNumberConcatString(result = 2,str = ''){
+
 };
 
 
