@@ -356,7 +356,7 @@ function getNodeListColorElements(){
 function setColorModel(_,element,red,green,blue){
     const value = select.options[getIndexSelectColorModel()].value;
     if(value === 'HEX') {
-        return element.innerText = (rgbToHex(rgbComponentsToHex(red,green,blue)));
+        return element.innerText = fixationDivColor((rgbToHex(rgbComponentsToHex(red,green,blue))));
     };
     if(value === 'RGB') {
         return element.textContent = fixationDivColor(`rgb(${red},${green},${blue})`);
@@ -374,38 +374,62 @@ function fixationDivColor(str = ''){
     const length = str.length;
     const maxLength = 18;
     if(length === maxLength){ return };
+
+    let maxMinusStrSize = maxLengthMinusStrLength(maxLength,length);
+    let divMode = resultDivModTwo(maxMinusStrSize);
+    if(isRemainderOfTheDivisionTwo(divMode)){
+        // console.log(`111${str}111`);
+        str =  evenNumberConcatString(length,str)
+        // console.log(`222${str}222`);
+    } else {
+        // console.log(`333${str}333`);
+        str = oddNumberConcatString(length,str);
+        // console.log(`444${str}444`);
+    };
+    
     return str;
 };
 
 function maxLengthMinusStrLength(max = maxLength,strLength = 0){
     const result = max - strLength;
-    console.log(result);
+    // console.log(result);
     return result;
 };
 
-function resaltDivTwo(result = 2){
-    console.log(`${result} % 2 = ${result % 2}`)
+function resultDivModTwo(result = 2){
+    // console.log(`${result} % 2 = ${result % 2}`)
     return (result % 2);
 };
 
-function isremainderOfTheDivisionTwo(result){
+function isRemainderOfTheDivisionTwo(result){
     if(result === 0){
-        console.log(false)
-        return false;
+        // console.log(true)
+        return true;
     };
-    console.log(true);
-    return true;
+    // console.log(false);
+    return false;
+};
+
+function evenDivTwo(result = 2){
+    return (result / 2);
 };
 
 function evenNumberConcatString(result = 2,str = ''){
     const divTwo = result / 2;
-    const concatStr = ' ' * divTwo;
+    const concatStr = ' '.repeat(divTwo);
+    console.dir(str.length)
     str = concatStr + str + concatStr;
+    console.dir(str.length)
     return str;
 };
 
 function oddNumberConcatString(result = 2,str = ''){
-
+    const divTwo = Math.floor(result / 2);
+    const concatStr = ' '.repeat(divTwo);
+    console.log(str.length);
+    str = concatStr + str + concatStr + ' ';
+    console.log(str.length);
+    return str;
 };
 
 
