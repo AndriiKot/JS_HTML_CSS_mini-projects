@@ -6,6 +6,10 @@
     font-family: 'Agdasima', sans-serif;
 }
 
+h3{
+    font-family: 'Roboto Mono', monospace;
+}
+
 body {
     background-color: rgb(147, 130, 130);
     min-height: 100vh;
