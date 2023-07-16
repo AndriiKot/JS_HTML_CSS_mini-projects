@@ -18,6 +18,9 @@ allOpenLockButton.addEventListener('click', allOpenLock);
 
 function allOpenLock(){
     const nodeList = getNodeListLock();
+    startButton.disabled = false;
+    resetInputNumber();
+
     if(nodeList.length === 0) { return };
     for(let i = 0; i < nodeList.length; i++){
         if(nodeList[i].className === 'fa-solid fa-lock'){
