@@ -356,17 +356,17 @@ function getNodeListColorElements(){
 function setColorModel(_,element,red,green,blue){
     const value = select.options[getIndexSelectColorModel()].value;
     if(value === 'HEX') {
-        return element.innerText = (rgbToHex(rgbComponentsToHex(red,green,blue))+'         ').substring(0,18);
+        return element.innerText = (rgbToHex(rgbComponentsToHex(red,green,blue)));
     };
     if(value === 'RGB') {
-        return element.textContent = `rgb(${red},${green},${blue})                `.substring(0,18);
+        return element.textContent = `rgb(${red},${green},${blue})`;
     };
     if(value === 'HSL') {
         let [h,s,l] = RGBToHSL(red,green,blue);
         h = Math.round(h);
         s = Math.round(s);
         l = Math.round(l);
-        return element.innerText = `hsl(${h},${s}%,${l}%)     `.substring(0,18);
+        return element.innerText = `hsl(${h},${s}%,${l}%)`;
     };
 };
 
