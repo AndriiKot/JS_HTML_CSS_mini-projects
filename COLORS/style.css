@@ -14,7 +14,7 @@ body {
     color:aliceblue;
 }
 
-form {
+.wrapper-forms {
     background-color: rgba(0,0,0,0.13);
     position: -webkit-sticky; 
     position: sticky;
@@ -22,7 +22,7 @@ form {
     text-align: center;
 }
 
-form * {
+.wrapper-forms * {
     margin: 1%;
     font-size: 1.3rem;
     border-radius: 8px;
@@ -62,7 +62,7 @@ div[class^='color-'] button:hover {
     background-color: rgba(0,0,0,0.13);
 }
 
-div[class^='color-'] button{
+div[class^='color-'] button {
     border: none;
     background: transparent;
     font-size: 150%;
