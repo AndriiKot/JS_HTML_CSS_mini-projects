@@ -378,13 +378,9 @@ function fixationDivColor(str = ''){
     let maxMinusStrSize = maxLengthMinusStrLength(maxLength,length);
     let divMode = resultDivModTwo(maxMinusStrSize);
     if(isRemainderOfTheDivisionTwo(divMode)){
-        // console.log(`111${str}111`);
         str =  evenNumberConcatString(maxMinusStrSize,str)
-        // console.log(`222${str}222`);
     } else {
-        // console.log(`333${str}333`);
         str = oddNumberConcatString(maxMinusStrSize,str);
-        // console.log(`444${str}444`);
     };
     
     return str;
@@ -392,21 +388,17 @@ function fixationDivColor(str = ''){
 
 function maxLengthMinusStrLength(max = maxLength,strLength = 0){
     const result = (max - strLength);
-    // console.log(result);
     return result;
 };
 
 function resultDivModTwo(result = 2){
-    // console.log(`${result} % 2 = ${result % 2}`)
     return (result % 2);
 };
 
 function isRemainderOfTheDivisionTwo(result){
     if(result === 0){
-        // console.log(true)
         return true;
     };
-    // console.log(false);
     return false;
 };
 
@@ -417,22 +409,14 @@ function evenDivTwo(result = 2){
 function evenNumberConcatString(result = 2,str = ''){
     const divTwo = result / 2;
     const concatStr = '_'.repeat(divTwo);
-    console.log('EVEN')
-    console.dir(str.length)
     str = concatStr + str + concatStr;
-    console.dir(str.length)
-    console.log('EVEN')
     return str;
 };
 
 function oddNumberConcatString(result = 2,str = ''){
     const divTwo = Math.floor(result / 2);
     const concatStr = '_'.repeat(divTwo);
-    console.log('ODD')
-    console.log(str.length);
     str = concatStr + str + concatStr + '_';
-    console.log(str.length);
-    console.log('ODD')
     return str;
 };
 
