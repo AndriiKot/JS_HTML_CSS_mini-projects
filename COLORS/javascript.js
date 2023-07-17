@@ -402,10 +402,6 @@ function isRemainderOfTheDivisionTwo(result){
     return false;
 };
 
-function evenDivTwo(result = 2){
-    return (result / 2);
-};
-
 function evenNumberConcatString(result = 2,str = ''){
     const divTwo = result / 2;
     const concatStr = '_'.repeat(divTwo);
