@@ -1,14 +1,18 @@
-﻿/* Positioning elements start code*/
-/* Позиционирования елементов */
-.wrapper div{         /* задаём размер звезды через объвёртку div width: 50% и назначение элементу svg width: 100% */
+﻿:root {
+  background-color: #2828c1;
+}
+
+.wrapper div{         
     width: 50%;
     margin: 0.8vw;
 }
+
 svg {
     width: 100%;
     height: auto;
-    fill: rgba(128, 128, 128, 0.753); /* задаём цвет неактивной звезды */
+    fill: rgba(128, 128, 128, 0.753); 
 }
+
 .wrapper {
     display: flex;
     width: 100%;
@@ -16,9 +20,6 @@ svg {
     justify-content: center;
     align-items: center;
 }
-/* end Positionig elements */
-
-
 
 .wrapper div:hover svg,
 .wrapper div:hover ~ div svg{
