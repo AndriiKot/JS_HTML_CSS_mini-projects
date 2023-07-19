@@ -49,10 +49,6 @@ const addEventOnStars = (event,fn) => {
   };
 };
 
-const getNodeListOfStars = () => {
-  const nodeListFromElementsStars = document.querySelectorAll('[class^="star"]');
-  return nodeListFromElementsStars;
-};
 
 const createFullElement = (quantityStars = quantityStarsDefault) => {
   const div = document.createElement('div');     
@@ -101,7 +97,7 @@ const remove_class_name = (obj,class_name) => {
 };
 
 const removeClassNameActiveStar = () => {
-  remove_class_name(getNodeListOfStars(),main_active_star);
+  remove_class_name(document.querySelectorAll('[class^="star"]'),main_active_star);
 };
 
 const firstClickOnStar = (e) => {
@@ -136,7 +132,7 @@ const quantityRangStars = (event) => {
   event.preventDefault();
 
   const NewQuantityStars = Number(event.target.quantity.value);
-  const OldQuantityStars = getNodeListOfStars().length;
+  const OldQuantityStars = document.querySelectorAll('[class^="star"]').length;
   const OldElementOfStars = getElementWrapperStars();
   
   
@@ -164,13 +160,13 @@ const quantityRangStars = (event) => {
    
     if(!EventsActiveSatars) {
       NewFullElement();
-      const nodeList = getNodeListOfStars();
+      const nodeList = document.querySelectorAll('[class^="star"]');
       nodeList[nodeList.length - numberOfMainStar].classList.add(main_active_star);
       return;
     };
       if(EventsActiveSatars){
       NewFullElement();
-      const nodeList = getNodeListOfStars();
+      const nodeList = document.querySelectorAll('[class^="star"]');
       nodeList[0].classList.add(main_active_star);  
       return;
     }; 
