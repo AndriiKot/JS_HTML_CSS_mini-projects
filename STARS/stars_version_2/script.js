@@ -49,7 +49,6 @@ const addEventOnStars = (event,fn) => {
   };
 };
 
-
 const createFullElement = (quantityStars = quantityStarsDefault) => {
   const div = document.createElement('div');     
   div.className = 'wrapper';  
@@ -64,7 +63,7 @@ const createNewFullElement = (oldElement,newSegmentsElement = 0) => {
 };
 
 const getMainActiveStar = () => {
-  const mainActiveStar = document.querySelector(`.${main_active_star}`);
+  const mainActiveStar = document.querySelector("main-active-star");
   return mainActiveStar;
 };
 
@@ -90,24 +89,15 @@ const AddClassNameActiveStar = (event) => {
   event.currentTarget.classList.add(main_active_star)
 };
 
-const remove_class_name = (obj,class_name) => {
-  for (const item of obj){
-    item.classList.remove(class_name);
-  };
-};
-
-const removeClassNameActiveStar = () => {
-  remove_class_name(document.querySelectorAll('[class^="star"]'),main_active_star);
-};
-
 const firstClickOnStar = (e) => {
   AddClassNameActiveStar(e);
   is_main_active_star = true
 };
 
 const clickedOnStar = (e) => {
+  const active_star = document.querySelector('.main-active-star');
   const className = e.currentTarget.className;
-  if (className.includes(main_active_star)){
+  if (className.includes("main-active-star")){
     return;
   };
 
@@ -116,13 +106,15 @@ const clickedOnStar = (e) => {
     return;
   };
 
-  removeClassNameActiveStar();
+  active_star.classList.remove('main-active-star');
   AddClassNameActiveStar(e);
 };
 
 const  clickedOnButtonReset = () => {
+  const active_star = document.querySelector('.main-active-star');
+
   if (is_main_active_star === false){return};
-  removeClassNameActiveStar();
+  active_star.classList.remove('main-active-star');
   is_main_active_star = false;
 };
 
@@ -150,7 +142,10 @@ const quantityRangStars = (event) => {
   };
 
   if(is_main_active_star) {
-     const active_star = getMainActiveStar();
+     const active_star = document.querySelector(".main-active-star");
+
+    //  console.log(active_star);
+    //  console.log(active_star1)
      const re1 = /star-\d+/;
      const re2 = /\d+/;
      let numberOfMainStar = active_star.className.match(re1).at(0); 
