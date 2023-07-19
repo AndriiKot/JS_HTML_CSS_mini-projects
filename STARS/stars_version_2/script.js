@@ -3,7 +3,6 @@
 const body = document.body;
 
 const main_active_star = "main-active-star";
-const selecte_stars = '[class^="star"]';
 let quantityStarsDefault = 7;                        
 let is_main_active_star = false;
 
@@ -43,14 +42,15 @@ const createStars = (wrapper,numberOfelem) => {
   body.appendChild(wrapper);
 };
 
-const addEventOnStars = (event,fn,nodeList) => {
+const addEventOnStars = (event,fn) => {
+  const nodeList = document.querySelectorAll('[class^="star"]');
   for(const item of nodeList){
       item.addEventListener(event,fn);
   };
 };
 
 const getNodeListOfStars = () => {
-  const nodeListFromElementsStars = document.querySelectorAll(selecte_stars);
+  const nodeListFromElementsStars = document.querySelectorAll('[class^="star"]');
   return nodeListFromElementsStars;
 };
 
@@ -59,7 +59,7 @@ const createFullElement = (quantityStars = quantityStarsDefault) => {
   div.className = 'wrapper';  
 
   createStars(div,quantityStars);
-  addEventOnStars('click',clickedOnStar,getNodeListOfStars());
+  addEventOnStars('click',clickedOnStar);
 };
 
 const createNewFullElement = (oldElement,newSegmentsElement = 0) => {
