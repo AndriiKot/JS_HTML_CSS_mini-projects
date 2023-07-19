@@ -29,7 +29,7 @@ const createStar = (starNumber = '') => {
 
 const reverseElements = (element) => {
   const dir = element.getAttribute('dir');
-  const expression = (dir === null || dir === undefined || dir === 'ltr' || dir === '' || dir === false);
+  const expression = ( !dir || dir === 'ltr');
   expression ? element.dir = 'rtl' : element.dir = 'ltr';
 };
 
