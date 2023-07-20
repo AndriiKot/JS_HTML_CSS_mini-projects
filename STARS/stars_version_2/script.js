@@ -25,20 +25,11 @@ const createStar = (starNumber = '') => {
    return div;
 };
 
-
-const reverseElements = (element) => {
-  const dir = element.getAttribute('dir');
-  const expression = ( !dir || dir === 'ltr');
-  expression ? element.dir = 'rtl' : element.dir = 'ltr';
-};
-
-
 const createStars = (wrapper,numberOfelem) => {
   for(let i = numberOfelem; i > 0; i--){
     const star = createStar(i);
     wrapper.appendChild(star);
   };
-  reverseElements(wrapper);
   body.appendChild(wrapper);
 };
 
