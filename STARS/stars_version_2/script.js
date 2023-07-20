@@ -53,10 +53,6 @@ const createNewFullElement = (oldElement,newSegmentsElement = 0) => {
   createFullElement(newSegmentsElement);
 };
 
-const getElementWrapperStars = () => {
-  const elementWrapperStars = document.querySelector('.wrapper');
-  return elementWrapperStars;
-};
 
 const addEvent = (event,fn,element) => {
   const elem = document.querySelector(element);
@@ -111,7 +107,7 @@ const quantityRangStars = (event) => {
 
   const NewQuantityStars = Number(event.target.quantity.value);
   const OldQuantityStars = document.querySelectorAll('[class^="star"]').length;
-  const OldElementOfStars = getElementWrapperStars();
+  const OldElementOfStars = document.querySelector('.wrapper');;
   
   
   const NewFullElement = () => {
