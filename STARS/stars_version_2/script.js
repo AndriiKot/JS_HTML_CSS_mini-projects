@@ -130,8 +130,6 @@ const quantityRangStars = (event) => {
   if(is_main_active_star) {
      const active_star = document.querySelector(".main-active-star");
 
-    //  console.log(active_star);
-    //  console.log(active_star1)
      const re1 = /star-\d+/;
      const re2 = /\d+/;
      let numberOfMainStar = active_star.className.match(re1).at(0); 
@@ -154,7 +152,6 @@ const quantityRangStars = (event) => {
   }; 
 };
 
-// addEventOnButtonReset('click',clickedOnButtonReset,'.reset');
 addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
 
 
