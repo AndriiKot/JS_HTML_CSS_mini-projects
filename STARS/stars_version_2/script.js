@@ -2,11 +2,16 @@
 
 const body = document.body;
 
+const buttonRESET = document.querySelector(".reset");
 const main_active_star = "main-active-star";
 let quantityStarsDefault = 7;                        
 let is_main_active_star = false;
 
-const createStar = (starNumber = '') => {
+console.log(buttonRESET);
+buttonRESET.addEventListener('click',clickedOnButtonReset);
+
+
+const createStar = (starNumber = 3) => {
   const div = document.createElement('div');     
   div.className = `star-${starNumber}`;
   div.innerHTML = `
@@ -25,20 +30,11 @@ const createStar = (starNumber = '') => {
    return div;
 };
 
-
-const reverseElements = (element) => {
-  const dir = element.getAttribute('dir');
-  const expression = ( !dir || dir === 'ltr');
-  expression ? element.dir = 'rtl' : element.dir = 'ltr';
-};
-
-
 const createStars = (wrapper,numberOfelem) => {
   for(let i = numberOfelem; i > 0; i--){
     const star = createStar(i);
     wrapper.appendChild(star);
   };
-  reverseElements(wrapper);
   body.appendChild(wrapper);
 };
 
@@ -60,16 +56,6 @@ const createFullElement = (quantityStars = quantityStarsDefault) => {
 const createNewFullElement = (oldElement,newSegmentsElement = 0) => {
   oldElement.remove();
   createFullElement(newSegmentsElement);
-};
-
-const getMainActiveStar = () => {
-  const mainActiveStar = document.querySelector("main-active-star");
-  return mainActiveStar;
-};
-
-const getElementWrapperStars = () => {
-  const elementWrapperStars = document.querySelector('.wrapper');
-  return elementWrapperStars;
 };
 
 const addEvent = (event,fn,element) => {
@@ -110,7 +96,7 @@ const clickedOnStar = (e) => {
   AddClassNameActiveStar(e);
 };
 
-const  clickedOnButtonReset = () => {
+function  clickedOnButtonReset() {
   const active_star = document.querySelector('.main-active-star');
 
   if (is_main_active_star === false){return};
@@ -125,7 +111,7 @@ const quantityRangStars = (event) => {
 
   const NewQuantityStars = Number(event.target.quantity.value);
   const OldQuantityStars = document.querySelectorAll('[class^="star"]').length;
-  const OldElementOfStars = getElementWrapperStars();
+  const OldElementOfStars = document.querySelector('.wrapper');;
   
   
   const NewFullElement = () => {
@@ -144,8 +130,6 @@ const quantityRangStars = (event) => {
   if(is_main_active_star) {
      const active_star = document.querySelector(".main-active-star");
 
-    //  console.log(active_star);
-    //  console.log(active_star1)
      const re1 = /star-\d+/;
      const re2 = /\d+/;
      let numberOfMainStar = active_star.className.match(re1).at(0); 
@@ -168,7 +152,6 @@ const quantityRangStars = (event) => {
   }; 
 };
 
-addEventOnButtonReset('click',clickedOnButtonReset,'.reset');
 addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
 
 
