@@ -2,9 +2,14 @@
 
 const body = document.body;
 
+const buttonRESET = document.querySelector(".reset");
 const main_active_star = "main-active-star";
 let quantityStarsDefault = 7;                        
 let is_main_active_star = false;
+
+console.log(buttonRESET);
+buttonRESET.addEventListener('click',clickedOnButtonReset);
+
 
 const createStar = (starNumber = 3) => {
   const div = document.createElement('div');     
@@ -53,7 +58,6 @@ const createNewFullElement = (oldElement,newSegmentsElement = 0) => {
   createFullElement(newSegmentsElement);
 };
 
-
 const addEvent = (event,fn,element) => {
   const elem = document.querySelector(element);
   elem.addEventListener(event,fn);
@@ -92,7 +96,7 @@ const clickedOnStar = (e) => {
   AddClassNameActiveStar(e);
 };
 
-const  clickedOnButtonReset = () => {
+function  clickedOnButtonReset() {
   const active_star = document.querySelector('.main-active-star');
 
   if (is_main_active_star === false){return};
@@ -150,7 +154,7 @@ const quantityRangStars = (event) => {
   }; 
 };
 
-addEventOnButtonReset('click',clickedOnButtonReset,'.reset');
+// addEventOnButtonReset('click',clickedOnButtonReset,'.reset');
 addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
 
 
