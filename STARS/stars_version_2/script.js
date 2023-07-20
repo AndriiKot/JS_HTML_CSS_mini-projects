@@ -6,7 +6,7 @@ const main_active_star = "main-active-star";
 let quantityStarsDefault = 7;                        
 let is_main_active_star = false;
 
-const createStar = (starNumber = '') => {
+const createStar = (starNumber = 3) => {
   const div = document.createElement('div');     
   div.className = `star-${starNumber}`;
   div.innerHTML = `
@@ -51,11 +51,6 @@ const createFullElement = (quantityStars = quantityStarsDefault) => {
 const createNewFullElement = (oldElement,newSegmentsElement = 0) => {
   oldElement.remove();
   createFullElement(newSegmentsElement);
-};
-
-const getMainActiveStar = () => {
-  const mainActiveStar = document.querySelector("main-active-star");
-  return mainActiveStar;
 };
 
 const getElementWrapperStars = () => {
