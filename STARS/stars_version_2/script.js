@@ -157,16 +157,14 @@ const quantityRangStars = (event) => {
 
 addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
 let FullElement;
+let inputValue;
 console.log(FullElement);
 
-function clickDEMOButton() {
-  console.log("Hello!");
-  const wrapper = document.querySelector('.wrapper')
-  const child = wrapper.childNodes
-  console.log(wrapper);
-  console.log(child);
+function clickDEMOButton(event) {
+  FullElement = document.querySelector('.wrapper').childNodes;
+  inputValue = document.querySelector("input[type='number']").value;
+  console.log(inputValue);
 
-  FullElement = document.getElementsByName("[class^='star']")
   console.log(FullElement);
   for(let i = 0; i < 3; i++){
     FullElement[i].remove()
