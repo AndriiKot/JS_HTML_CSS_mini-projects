@@ -11,6 +11,7 @@ let is_main_active_star = false;
 console.log(buttonDEMO);
 
 buttonRESET.addEventListener('click',clickedOnButtonReset);
+buttonDEMO.addEventListener('click',clickDEMOButton);
 
 function  clickedOnButtonReset() {
   const active_star = document.querySelector('.main-active-star');
@@ -155,8 +156,24 @@ const quantityRangStars = (event) => {
 };
 
 addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
-let FullElement = document.querySelectorAll("[class^='star']");
+let FullElement;
 console.log(FullElement);
+
+function clickDEMOButton() {
+  console.log("Hello!");
+  const wrapper = document.querySelector('.wrapper')
+  const child = wrapper.childNodes
+  console.log(wrapper);
+  console.log(child);
+
+  FullElement = document.getElementsByName("[class^='star']")
+  console.log(FullElement);
+  for(let i = 0; i < 3; i++){
+    FullElement[i].remove()
+  };
+  console.log(FullElement);
+};
+
 
 
 
