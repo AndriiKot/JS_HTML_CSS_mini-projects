@@ -161,14 +161,25 @@ let inputValue;
 console.log(FullElement);
 
 function clickDEMOButton(event) {
-  FullElement = document.querySelector('.wrapper').childNodes;
-  inputValue = document.querySelector("input[type='number']").value;
-  console.log(inputValue);
-
+  FullElement = Array.from(document.querySelector('.wrapper').childNodes);
+  inputValue = Number(document.querySelector("input[type='number']").value);
+  let wrapper = document.querySelector('.wrapper');
+  const lengthElement = FullElement.length;
   console.log(FullElement);
-  for(let i = 0; i < 3; i++){
-    FullElement[i].remove()
+  if(lengthElement === inputValue) { return };
+  if(lengthElement > inputValue){
+    const cycle = lengthElement - inputValue;
+    for(let i = 0; i < cycle; i++){
+      FullElement.shift();
+    };
+
+    console.log(wrapper);
+
+    for(let i = 0; lengthElement > i; i++) {
+      wrapper.appendChild(FullElement[i]);
+    };
   };
+  console.log(wrapper);
   console.log(FullElement);
 };
 
