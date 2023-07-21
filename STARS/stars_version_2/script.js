@@ -165,14 +165,18 @@ function clickDEMOButton(event) {
   inputValue = Number(document.querySelector("input[type='number']").value);
   const lengthElement = FullElement.length;
   if(lengthElement === inputValue) { return };
+  const cycle = lengthElement - inputValue;
   if(lengthElement > inputValue){
-    const cycle = lengthElement - inputValue;
-    cycleForNodeList(cycle,FullElement);
-    // for(let i = 0; i < cycle; i++){
-    //   FullElement[0].remove();
-    // };
-  
-  }
+    // cycleForNodeList(cycle,FullElement);   
+     for(let i = 0; i < cycle; i++){
+      let element = FullElement[0];
+      if(element.classList.contains('main-active-star')){
+        console.log('YES!!!');
+      };
+        // console.log(element.classList.c);
+        FullElement[0].remove();
+     };
+  };
   // console.log(FullElement);
 };
 
