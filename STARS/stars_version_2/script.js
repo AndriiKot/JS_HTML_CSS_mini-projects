@@ -165,14 +165,19 @@ function clickDEMOButton(event) {
   inputValue = Number(document.querySelector("input[type='number']").value);
   const lengthElement = FullElement.length;
   if(lengthElement === inputValue) { return };
+  const cycle = lengthElement - inputValue;
   if(lengthElement > inputValue){
-    const cycle = lengthElement - inputValue;
-    cycleForNodeList(cycle,FullElement);
-    // for(let i = 0; i < cycle; i++){
-    //   FullElement[0].remove();
-    // };
-  
-  }
+     let removeActivStar = false;
+    // cycleForNodeList(cycle,FullElement);   
+     for(let i = 0; i < cycle; i++){
+      let element = FullElement[0];
+      if(element.classList.contains('main-active-star')){
+         removeActivStar = true;
+      };
+        FullElement[0].remove();
+     };
+     if(removeActivStar){FullElement[0].classList.add('main-active-star')};
+  };
   // console.log(FullElement);
 };
 
