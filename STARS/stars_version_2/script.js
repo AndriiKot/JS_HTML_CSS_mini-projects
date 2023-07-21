@@ -3,13 +3,23 @@
 const body = document.body;
 
 const buttonRESET = document.querySelector(".reset");
+const buttonDEMO = document.querySelector('.demo');
 const main_active_star = "main-active-star";
 let quantityStarsDefault = 7;                        
 let is_main_active_star = false;
 
-console.log(buttonRESET);
-buttonRESET.addEventListener('click',clickedOnButtonReset);
+console.log(buttonDEMO);
 
+buttonRESET.addEventListener('click',clickedOnButtonReset);
+buttonDEMO.addEventListener('click',clickDEMOButton);
+
+function  clickedOnButtonReset() {
+  const active_star = document.querySelector('.main-active-star');
+
+  if (is_main_active_star === false){return};
+  active_star.classList.remove('main-active-star');
+  is_main_active_star = false;
+};
 
 const createStar = (starNumber = 3) => {
   const div = document.createElement('div');     
@@ -96,13 +106,6 @@ const clickedOnStar = (e) => {
   AddClassNameActiveStar(e);
 };
 
-function  clickedOnButtonReset() {
-  const active_star = document.querySelector('.main-active-star');
-
-  if (is_main_active_star === false){return};
-  active_star.classList.remove('main-active-star');
-  is_main_active_star = false;
-};
 
 createFullElement();
 
@@ -153,6 +156,26 @@ const quantityRangStars = (event) => {
 };
 
 addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
+let FullElement;
+let inputValue;
+console.log(FullElement);
+
+function clickDEMOButton(event) {
+  FullElement = document.querySelector('.wrapper').childNodes;
+  inputValue = Number(document.querySelector("input[type='number']").value);
+  const lengthElement = FullElement.length;
+  if(lengthElement === inputValue) { return };
+  if(lengthElement > inputValue){
+    const cycle = lengthElement - inputValue;
+    for(let i = 0; i < cycle; i++){
+      FullElement[0].remove();
+    };
+  
+  }
+  // console.log(FullElement);
+};
+
+
 
 
 
