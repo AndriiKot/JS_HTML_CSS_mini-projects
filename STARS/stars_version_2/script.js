@@ -167,15 +167,16 @@ function clickDEMOButton(event) {
   if(lengthElement === inputValue) { return };
   const cycle = lengthElement - inputValue;
   if(lengthElement > inputValue){
+     let removeActivStar = false;
     // cycleForNodeList(cycle,FullElement);   
      for(let i = 0; i < cycle; i++){
       let element = FullElement[0];
       if(element.classList.contains('main-active-star')){
-        console.log('YES!!!');
+         removeActivStar = true;
       };
-        // console.log(element.classList.c);
         FullElement[0].remove();
      };
+     if(removeActivStar){FullElement[0].classList.add('main-active-star')};
   };
   // console.log(FullElement);
 };
