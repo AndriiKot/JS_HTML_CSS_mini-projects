@@ -3,10 +3,12 @@
 const body = document.body;
 
 const buttonRESET = document.querySelector(".reset");
+const buttonDEMO = document.querySelector('.demo');
 const main_active_star = "main-active-star";
 let quantityStarsDefault = 7;                        
 let is_main_active_star = false;
 
+console.log(buttonDEMO);
 
 buttonRESET.addEventListener('click',clickedOnButtonReset);
 
@@ -155,6 +157,7 @@ const quantityRangStars = (event) => {
 addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
 let FullElement = document.querySelectorAll("[class^='star']");
 console.log(FullElement);
+
 
 
 
