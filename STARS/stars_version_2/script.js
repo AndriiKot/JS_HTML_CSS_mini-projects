@@ -167,15 +167,21 @@ function clickDEMOButton(event) {
   if(lengthElement === inputValue) { return };
   if(lengthElement > inputValue){
     const cycle = lengthElement - inputValue;
-    for(let i = 0; i < cycle; i++){
-      FullElement[0].remove();
-    };
+    cycleForNodeList(cycle,FullElement);
+    // for(let i = 0; i < cycle; i++){
+    //   FullElement[0].remove();
+    // };
   
   }
   // console.log(FullElement);
 };
 
 
+function cycleForNodeList(cycle = 0,element){
+  for(let i = 0; i < cycle; i++){
+    element[0].remove();
+  };
+}
 
 
 
