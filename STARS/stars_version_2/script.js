@@ -177,7 +177,10 @@ function clickDEMOButton(event) {
         FullElement[0].remove();
      };
      if(removeActivStar){FullElement[0].classList.add('main-active-star')};
+  } else {
+    console.log("ELSE HELLO!!!")
   };
+  
   // console.log(FullElement);
 };
 
