@@ -188,6 +188,7 @@ function clickDEMOButton(event) {
        wrapper.prepend(star);
     };
   };
+  addEventOnStars('click',clickedOnStar);
   
   // console.log(FullElement);
 };
