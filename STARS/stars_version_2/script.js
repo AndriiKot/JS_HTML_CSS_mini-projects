@@ -179,7 +179,14 @@ function clickDEMOButton(event) {
      };
      if(removeActivStar){FullElement[0].classList.add('main-active-star')};
   } else {
-    console.log("ELSE HELLO!!!")
+    console.log("ELSE HELLO!!!");
+    const wrapper = document.querySelector('.wrapper');
+
+    for(let i = 0; i < cycle; i++){
+      // console.log(wrapper);
+       const star = createStar(lengthElement + i + 1);
+       wrapper.prepend(star);
+    };
   };
   
   // console.log(FullElement);
