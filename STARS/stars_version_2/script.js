@@ -165,7 +165,8 @@ function clickDEMOButton(event) {
   inputValue = Number(document.querySelector("input[type='number']").value);
   const lengthElement = FullElement.length;
   if(lengthElement === inputValue) { return };
-  const cycle = lengthElement - inputValue;
+  const cycle = (lengthElement > inputValue) ? lengthElement - inputValue : inputValue - lengthElement;
+  console.log(cycle);
   if(lengthElement > inputValue){
      let removeActivStar = false;
     // cycleForNodeList(cycle,FullElement);   
