@@ -48,25 +48,23 @@ const createStars = (wrapper,numberOfelem) => {
   body.appendChild(wrapper);
 };
 
-const addEventOnStars = (event,fn) => {
-  const nodeList = document.querySelectorAll('[class^="star"]');
-  for(const item of nodeList){
-      item.addEventListener(event,fn);
-  };
-};
+// const addEventOnStars = (event,fn) => {
+//   const nodeList = document.querySelectorAll('[class^="star"]');
+//   for(const item of nodeList){
+//       item.addEventListener(event,fn);
+//   };
+// };
 
 const createFullElement = (quantityStars = quantityStarsDefault) => {
   const div = document.createElement('div');     
   div.className = 'wrapper';  
-  createStars(div,quantityStars);
-  const nodeListStars = document.querySelectorAll('[class^="star"]')
-  console.log(nodeListStars)
 
+  createStars(div,quantityStars);
+
+  const nodeListStars = document.querySelectorAll('[class^="star"]')
   for(const item of nodeListStars){
     item.addEventListener("click",clickedOnStar);
   };
-  
-  // addEventOnStars('click',clickedOnStar);
 };
 
 // const createNewFullElement = (oldElement,newSegmentsElement = 0) => {
@@ -74,18 +72,18 @@ const createFullElement = (quantityStars = quantityStarsDefault) => {
 //   createFullElement(newSegmentsElement);
 // };
 
-const addEvent = (event,fn,element) => {
-  const elem = document.querySelector(element);
-  elem.addEventListener(event,fn);
-};
+// const addEvent = (event,fn,element) => {
+//   const elem = document.querySelector(element);
+//   elem.addEventListener(event,fn);
+// };
 
-const addEventOnButtonReset = (event,fn,element) => {
-  addEvent(event,fn,element);
-};
+// const addEventOnButtonReset = (event,fn,element) => {
+//   addEvent(event,fn,element);
+// };
 
-const addEventSubmitQuantity = (event,fn,element) => {
-  addEvent(event,fn,element);
-};
+// const addEventSubmitQuantity = (event,fn,element) => {
+//   addEvent(event,fn,element);
+// };
 
 const AddClassNameActiveStar = (event) => {
   event.currentTarget.classList.add("main-active-star");
@@ -115,53 +113,53 @@ const clickedOnStar = (e) => {
 
 createFullElement();
 
-const quantityRangStars = (event) => {
-  event.preventDefault();
+// const quantityRangStars = (event) => {
+//   event.preventDefault();
 
-  const NewQuantityStars = Number(event.target.quantity.value);
-  const OldQuantityStars = document.querySelectorAll('[class^="star"]').length;
-  const OldElementOfStars = document.querySelector('.wrapper');;
+//   const NewQuantityStars = Number(event.target.quantity.value);
+//   const OldQuantityStars = document.querySelectorAll('[class^="star"]').length;
+//   const OldElementOfStars = document.querySelector('.wrapper');;
   
   
-  const NewFullElement = () => {
-    return createNewFullElement(OldElementOfStars,NewQuantityStars);
-  };
+//   const NewFullElement = () => {
+//     return createNewFullElement(OldElementOfStars,NewQuantityStars);
+//   };
   
-  if(OldQuantityStars === NewQuantityStars){ 
-    return;
-  };
+//   if(OldQuantityStars === NewQuantityStars){ 
+//     return;
+//   };
 
-  if(!is_main_active_star) {
-    NewFullElement();
-    return;
-  };
+//   if(!is_main_active_star) {
+//     NewFullElement();
+//     return;
+//   };
 
-  if(is_main_active_star) {
-     const active_star = document.querySelector(".main-active-star");
+//   if(is_main_active_star) {
+//      const active_star = document.querySelector(".main-active-star");
 
-     const re1 = /star-\d+/;
-     const re2 = /\d+/;
-     let numberOfMainStar = active_star.className.match(re1).at(0); 
-     numberOfMainStar = Number(numberOfMainStar.match(re2));
-     const EventsActiveSatars = (NewQuantityStars < numberOfMainStar);
+//      const re1 = /star-\d+/;
+//      const re2 = /\d+/;
+//      let numberOfMainStar = active_star.className.match(re1).at(0); 
+//      numberOfMainStar = Number(numberOfMainStar.match(re2));
+//      const EventsActiveSatars = (NewQuantityStars < numberOfMainStar);
 
    
-    if(!EventsActiveSatars) {
-      NewFullElement();
-      const nodeList = document.querySelectorAll('[class^="star"]');
-      nodeList[nodeList.length - numberOfMainStar].classList.add(main_active_star);
-      return;
-    };
-      if(EventsActiveSatars){
-      NewFullElement();
-      const nodeList = document.querySelectorAll('[class^="star"]');
-      nodeList[0].classList.add(main_active_star);  
-      return;
-    }; 
-  }; 
-};
+//     if(!EventsActiveSatars) {
+//       NewFullElement();
+//       const nodeList = document.querySelectorAll('[class^="star"]');
+//       nodeList[nodeList.length - numberOfMainStar].classList.add(main_active_star);
+//       return;
+//     };
+//       if(EventsActiveSatars){
+//       NewFullElement();
+//       const nodeList = document.querySelectorAll('[class^="star"]');
+//       nodeList[0].classList.add(main_active_star);  
+//       return;
+//     }; 
+//   }; 
+// };
 
-addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
+// addEventSubmitQuantity('submit',quantityRangStars,'.quantity-rang-stars');
 let FullElement;
 let inputValue;
 
