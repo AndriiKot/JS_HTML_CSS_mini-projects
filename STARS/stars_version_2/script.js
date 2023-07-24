@@ -1,9 +1,8 @@
 ﻿"use strict"
 
 const body = document.body;
-
 const buttonRESET = document.querySelector(".reset");
-const buttonDEMO = document.querySelector('.submit');
+const buttonSubmit = document.querySelector('.submit');
 let quantityStarsDefault = 7;                        
 let is_main_active_star = false;
 let FullElement;
@@ -12,13 +11,14 @@ let inputValue;
 
 
 buttonRESET.addEventListener('click',clickedOnButtonReset);
-buttonDEMO.addEventListener('click',clickDEMOButton);
+buttonSubmit.addEventListener('click',clickDEMOButton);
 
 
 function  clickedOnButtonReset() {
   const active_star = document.querySelector('.main-active-star');
 
   if (is_main_active_star === false){return};
+
   active_star.classList.remove('main-active-star');
   is_main_active_star = false;
 };
@@ -47,7 +47,6 @@ const createStars = (wrapper,numberOfelem) => {
     const star = createStar(i);
     wrapper.appendChild(star);
   };
-  body.appendChild(wrapper);
 };
 
 
@@ -56,6 +55,7 @@ const createFullElement = (quantityStars = quantityStarsDefault) => {
   div.className = 'wrapper';  
 
   createStars(div,quantityStars);
+  body.appendChild(div);
 
   const nodeListStars = document.querySelectorAll('[class^="star"]')
   for(const item of nodeListStars){
@@ -95,9 +95,13 @@ createFullElement();
 function clickDEMOButton(event) {
   FullElement = document.querySelector('.wrapper').childNodes;
   inputValue = Number(document.querySelector("input[type='number']").value);
+
   const lengthElement = FullElement.length;
+
   if(lengthElement === inputValue) { return };
+
   const cycle = (lengthElement > inputValue) ? lengthElement - inputValue : inputValue - lengthElement;
+  
   if(lengthElement > inputValue){
      let removeActivStar = false;
      for(let i = 0; i < cycle; i++){
