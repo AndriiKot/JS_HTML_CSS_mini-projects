@@ -82,5 +82,9 @@ div.wrapper {
     cursor: not-allowed;
 }
 
+.preserve {
+    white-space-collapse: preserve;
+}
+
 
 
