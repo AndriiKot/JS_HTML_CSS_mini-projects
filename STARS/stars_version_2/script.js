@@ -11,21 +11,21 @@ let inputValue;
 
 
 buttonRESET.addEventListener('click',clickedOnButtonReset);
-buttonSubmit.addEventListener('click',clickDEMOButton);
+buttonSubmit.addEventListener('click',clickSubmitButton);
 
 
 function  clickedOnButtonReset() {
-  const active_star = document.querySelector('.main-active-star');
 
   if (is_main_active_star === false){return};
 
+  const active_star = document.querySelector('.main-active-star');
   active_star.classList.remove('main-active-star');
   is_main_active_star = false;
 };
 
-const createStar = (starNumber = 3) => {
+const createStar = (starNumberMin = 3) => {
   const div = document.createElement('div');     
-  div.className = `star-${starNumber}`;
+  div.className = `star-${starNumberMin}`;
   div.innerHTML = `
   <a href="#">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 59.93">
@@ -57,7 +57,7 @@ const createFullElement = (quantityStars = quantityStarsDefault) => {
   createStars(div,quantityStars);
   body.appendChild(div);
 
-  const nodeListStars = document.querySelectorAll('[class^="star"]')
+  const nodeListStars = document.querySelectorAll('[class^="star"]');
   for(const item of nodeListStars){
     item.addEventListener("click",clickedOnStar);
   };
@@ -73,17 +73,18 @@ const firstClickOnStar = (e) => {
 };
 
 const clickedOnStar = (e) => {
-  const active_star = document.querySelector('.main-active-star');
-  const className = e.currentTarget.className;
-  if (className.includes("main-active-star")){
-    return;
-  };
-
   if (is_main_active_star === false){
     firstClickOnStar(e);
     return;
   };
 
+  const className = e.currentTarget.className;
+  if (className.includes("main-active-star")){
+    return;
+  };
+
+
+  const active_star = document.querySelector('.main-active-star');
   active_star.classList.remove('main-active-star');
   AddClassNameActiveStar(e);
 };
@@ -92,7 +93,7 @@ const clickedOnStar = (e) => {
 createFullElement();
 
 
-function clickDEMOButton(event) {
+function clickSubmitButton(event) {
   FullElement = document.querySelector('.wrapper').childNodes;
   inputValue = Number(document.querySelector("input[type='number']").value);
 
