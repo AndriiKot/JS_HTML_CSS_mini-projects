@@ -149,7 +149,7 @@ function getNodeListDivColors(){
 function createGridElement(number = 0) {
     const gridElement = `
       <div class="color-${number}">
-        <h3>Text ${number}</h3>
+        <h3 class="preserve">Text ${number}</h3>
         <button class="lock">
             <i class="fa-solid fa-lock-open"></i>
         </button>
@@ -403,15 +403,15 @@ function isRemainderOfTheDivisionTwo(result){
 
 function evenNumberConcatString(result = 2,str = ''){
     const divTwo = result / 2;
-    const concatStr = '_'.repeat(divTwo);
+    const concatStr = ' '.repeat(divTwo);
     str = concatStr + str + concatStr;
     return str;
 };
 
 function oddNumberConcatString(result = 2,str = ''){
     const divTwo = Math.floor(result / 2);
-    const concatStr = '_'.repeat(divTwo);
-    str = concatStr + str + concatStr + '_';
+    const concatStr = ' '.repeat(divTwo);
+    str = concatStr + str + concatStr + ' ';
     return str;
 };
 
