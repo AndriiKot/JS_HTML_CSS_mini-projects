@@ -1,7 +1,5 @@
 ﻿Project: Stars
   srars_version_1: ready
   diagrams: добавить легенду и описание
-  colors: 1. добавить кнопку рандом
-          2. создать функции для строки colorModel
-          3. создать кнопку которая открывает все закрытые замки
+  colors: ready
  
