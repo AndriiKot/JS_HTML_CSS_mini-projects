@@ -1,11 +1,17 @@
+const body = document.body;
 const buttonStart = document.querySelector('.start');
+const container = document.querySelector('.container')
+console.log(container);
+
+
+
 
 
 buttonStart.addEventListener('click',createGridElements);
 
 function createGridElement(number = 0) {
   const gridElement = `
-  <div class="container-${number}">
+  <div class="wrapper-${number}">
       <div class="box-animation"></div>
   </div>
   `;  
@@ -14,23 +20,35 @@ function createGridElement(number = 0) {
 
 function createGridElements(numberOfElements = 0) {
  const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
- console.log(x,y);
- console.log(x * y);
-//  const numberOfElements = x * y;
- let fullElements = '';  
+ numberOfElements = x * y;
+//  (Object.assign(document.documentElement, {
+//   style: `
+//     --size-container: ${window.innerWidth / Number(gridAxisX.value)};
+//   `
+// }));
+
+ let fullElements = ``;  
  for(let i = 1; i <= numberOfElements; i++){
-  const element = createGridElement(i);
+  const element = createGridElement(i)
+  // element.style.width = `${window.innerWidth / Number(gridAxisX.value)}`;
+  // element.style.height = `${window.innerWidth / Number(gridAxisX.value)}`;
   fullElements += element;
  };
- return fullElements;
+ container.innerHTML = fullElements;
+ const NodeList = document.querySelectorAll('[class^="wrapper"]');
+ console.log(NodeList)
+//  console.log(NodeList)
+ for(let i = 0; NodeList.length > i; i++){
+  // console.dir(NodeList[i].style.width)
+  // const el = document.querySelector(`.${NodeList[i].className}`)
+  // const st = getComputedStyle(el);
+  // console.log(st);
+     NodeList[i].style.width = `${(window.innerWidth / Number(gridAxisX.value))}`;
+     NodeList[i].style.minHeight = `${(window.innerWidth / Number(gridAxisX.value))}`;
+
+ }
 };
 
-
-
-function getNumberOfElements() {
-  const [x,y] = getNumberAsisXandY();
-  return (x * y);
-};
 
 // const deg = 20;
 // const color_start = '#00cc99';
