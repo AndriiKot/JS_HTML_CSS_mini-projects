@@ -1,4 +1,8 @@
-﻿*{
+﻿/* :root {
+  --size-container: 
+} */
+
+*{
   box-sizing: border-box;
 }
 
@@ -27,15 +31,17 @@ body {
 }
 
 .container {
+  min-width: 100vw;
+  min-height: 100vh;
   display: grid;
 }
 
 
-.box-animation{
-  --size: 80vh;
-  height: var(--size);
-  width: var(--size);
+[class='wrapper-1']{
+  /* min-height: var(--size-container); */
+  /* min-width: var(--size-container); */
    background-color: rgb(35, 35, 33);
+   background-color: red;
    -webkit-box-reflect: right -100% linear-gradient(transparent,rgba(0,0,0,.4));
    animation: animation_line 1s linear 0.1s  infinite reverse;
    border-radius: 50%;
