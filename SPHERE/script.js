@@ -12,7 +12,7 @@ buttonStart.addEventListener('click',createGridElements);
 function createGridElement(number = 0) {
   const gridElement = `
   <div class="wrapper-${number}">
-      <div class="box-animation"></div>
+      <div class="box-animation" data-size="${window.innerWidth / Number(gridAxisX.value)}"></div>
   </div>
   `;  
   return gridElement;

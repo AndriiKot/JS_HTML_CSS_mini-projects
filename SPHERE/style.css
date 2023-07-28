@@ -37,15 +37,27 @@ body {
 }
 
 
-[class='wrapper-1']{
+[class^='wrapper']{
+   background-color: rgb(35, 35, 33);
+   /* background-color: red; */
+   /* -webkit-box-reflect: right -100% linear-gradient(transparent,rgba(0,0,0,.4)); */
+   /* animation: animation_line 1s linear 0.1s  infinite reverse; */
+   /* border-radius: 50%; */
+}
+
+
+.box-animation{
   /* min-height: var(--size-container); */
   /* min-width: var(--size-container); */
-   background-color: rgb(35, 35, 33);
+   /* background-color: rgb(35, 35, 33); */
+   width: attr(data-size)px;
+   height: attr(data-size)px;
    background-color: red;
    -webkit-box-reflect: right -100% linear-gradient(transparent,rgba(0,0,0,.4));
    animation: animation_line 1s linear 0.1s  infinite reverse;
    border-radius: 50%;
 }
+
 
 @keyframes animation_line
 {
