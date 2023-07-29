@@ -24,7 +24,8 @@ function createGridElements(numberOfElements = 0) {
  (Object.assign(document.documentElement, {
   style: `
     --size-container: ${sizeConrainer}px;
-    --repeat-grid-vies: ${repeatGridView};
+    --repeat-grid-view: ${repeatGridView}px;
+    --rep: ${x};
   `
 }));
 
@@ -36,47 +37,49 @@ function createGridElements(numberOfElements = 0) {
  container.innerHTML = fullElements;
 };
 
-
-const deg = 20;
-const color_start = '#00cc99';
-const color_end  = 'transparent';
-let procent_width_line = 0;
-const max_procent_width_line = 100;
-const step_procent_width_line = 30;
-let str = '';
-
-let i = 0
-
-for (;procent_width_line <= max_procent_width_line;i++){
- const a = `${color_start} ${procent_width_line}%`
- const b = `${color_end} ${procent_width_line}%`
- const compon_str = (i % 2 == 0) ? a +','+ b : b + ',' + a;
+function animationLine() {
+  const deg = 20;
+  const color_start = '#00cc99';
+  const color_end  = 'transparent';
+  let procent_width_line = 0;
+  const max_procent_width_line = 100;
+  const step_procent_width_line = 30;
+  let str = '';
   
-  str += compon_str +','
-  procent_width_line += step_procent_width_line;
-}
-
-let final_str = `linear-gradient(${deg}deg,${str})`
-
-element.style.background = final_str
-
-
-    let nIntervId;
+  let i = 0
+  
+  for (;procent_width_line <= max_procent_width_line;i++){
+   const a = `${color_start} ${procent_width_line}%`
+   const b = `${color_end} ${procent_width_line}%`
+   const compon_str = (i % 2 == 0) ? a +','+ b : b + ',' + a;
     
-
-    function animation_rotate_interval() {
-      nIntervId = setInterval(calc_animation_rotate,100);
-    }
-
-    let int_1 = 0
-    let int_2 = 0
-
-    function calc_animation_rotate(){
-      final_str = `linear-gradient(${deg}deg,${str}`
-      final_str = final_str.slice(0,final_str.length-1)+')'
-
-      element.style.background = final_str
+    str += compon_str +','
+    procent_width_line += step_procent_width_line;
   }
+  
+  let final_str = `linear-gradient(${deg}deg,${str})`
+  
+  element.style.background = final_str
+  
+  
+      let nIntervId;
+      
+  
+      function animation_rotate_interval() {
+        nIntervId = setInterval(calc_animation_rotate,100);
+      }
+  
+      let int_1 = 0
+      let int_2 = 0
+  
+      function calc_animation_rotate(){
+        final_str = `linear-gradient(${deg}deg,${str}`
+        final_str = final_str.slice(0,final_str.length-1)+')'
+  
+        element.style.background = final_str
+    }
+};
+
 
 
   

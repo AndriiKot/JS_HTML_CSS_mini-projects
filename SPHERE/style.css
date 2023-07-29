@@ -19,18 +19,24 @@ body {
     text-align: center;
 }
 
-.wrapper-forms * {
+.forms * {
     margin: 1%;
     font-size: 1.3rem;
     border-radius: 8px;
     border:none;
+    color:azure;
+}
+
+.start,
+input[type="number"] {
+  color:black;
 }
 
 .container {
   min-width: 100vw;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: repeat(var(--repeat-grid-vies), 1fr)
+  grid-template-columns: repeat(var(--rep),var(--repeat-grid-view));
 }
 
 
