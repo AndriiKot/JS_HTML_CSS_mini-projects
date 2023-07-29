@@ -3,19 +3,6 @@
 const body = document.body;
 const buttonStart = document.querySelector('.start');
 const container = document.querySelector('.container')
-console.log(container);
-
-
-Object.assign(document.documentElement,{
-  style: `
-    --size-demo: ${window.innerWidth / Number(gridAxisX.value)}px;
-  `
-});
-function demo(){op9i989oio99o99999o-0
-  console.log(window.innerWidth / Number(gridAxisX.value))
-}
-
-
 
 
 buttonStart.addEventListener('click',createGridElements);
@@ -41,8 +28,6 @@ function createGridElements(numberOfElements = 0) {
  let fullElements = ``;  
  for(let i = 1; i <= numberOfElements; i++){
   const element = createGridElement(i)
-  // element.style.width = `${window.innerWidth / Number(gridAxisX.value)}`;
-  // element.style.height = `${window.innerWidth / Number(gridAxisX.value)}`;
   fullElements += element;
  };
  container.innerHTML = fullElements;
