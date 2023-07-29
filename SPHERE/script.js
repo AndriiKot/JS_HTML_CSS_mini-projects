@@ -20,7 +20,7 @@ function createGridElements(numberOfElements = 0) {
  const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
  numberOfElements = x * y;
  const sizeConrainer = window.innerWidth / Number(gridAxisX.value);
- const repeatGridView = Math.floor(sizeConrainer);
+ const repeatGridView = Math.floor(sizeConrainer - 20);
  (Object.assign(document.documentElement, {
   style: `
     --size-container: ${sizeConrainer}px;
