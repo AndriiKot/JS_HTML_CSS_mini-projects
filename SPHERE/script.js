@@ -24,6 +24,7 @@ function createGridElements(numberOfElements = 0) {
  (Object.assign(document.documentElement, {
   style: `
     --size-container: ${sizeConrainer}px;
+    --repeat-grid-vies: ${repeatGridView};
   `
 }));
 
