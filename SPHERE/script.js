@@ -4,6 +4,12 @@ const container = document.querySelector('.container')
 console.log(container);
 
 
+Object.assign(document.documentElement,{
+  style: `
+    --size-demo: 300px;
+  `
+})
+
 
 
 
