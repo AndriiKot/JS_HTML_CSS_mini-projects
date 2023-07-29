@@ -19,9 +19,11 @@ function createGridElement(number = 0) {
 function createGridElements(numberOfElements = 0) {
  const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
  numberOfElements = x * y;
+ const sizeConrainer = window.innerWidth / Number(gridAxisX.value);
+ const repeatGridView = Math.floor(sizeConrainer);
  (Object.assign(document.documentElement, {
   style: `
-    --size-container: ${window.innerWidth / Number(gridAxisX.value)}px;
+    --size-container: ${sizeConrainer}px;
   `
 }));
 
@@ -31,18 +33,6 @@ function createGridElements(numberOfElements = 0) {
   fullElements += element;
  };
  container.innerHTML = fullElements;
- const NodeList = document.querySelectorAll('[class^="wrapper"]');
- console.log(NodeList)
-//  console.log(NodeList)
- for(let i = 0; NodeList.length > i; i++){
-  // console.dir(NodeList[i].style.width)
-  // const el = document.querySelector(`.${NodeList[i].className}`)
-  // const st = getComputedStyle(el);
-  // console.log(st);
-     NodeList[i].style.width = `${(window.innerWidth / Number(gridAxisX.value))}`;
-     NodeList[i].style.minHeight = `${(window.innerWidth / Number(gridAxisX.value))}`;
-
- }
 };
 
 
