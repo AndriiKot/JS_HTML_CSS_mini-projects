@@ -1,3 +1,5 @@
+"use strict"
+
 const body = document.body;
 const buttonStart = document.querySelector('.start');
 const container = document.querySelector('.container')
@@ -9,7 +11,7 @@ Object.assign(document.documentElement,{
     --size-demo: ${window.innerWidth / Number(gridAxisX.value)}px;
   `
 });
-function demo(){
+function demo(){op9i989oio99o99999o-0
   console.log(window.innerWidth / Number(gridAxisX.value))
 }
 
@@ -30,11 +32,11 @@ function createGridElement(number = 0) {
 function createGridElements(numberOfElements = 0) {
  const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
  numberOfElements = x * y;
-//  (Object.assign(document.documentElement, {
-//   style: `
-//     --size-container: ${window.innerWidth / Number(gridAxisX.value)};
-//   `
-// }));
+ (Object.assign(document.documentElement, {
+  style: `
+    --size-container: ${window.innerWidth / Number(gridAxisX.value)}px;
+  `
+}));
 
  let fullElements = ``;  
  for(let i = 1; i <= numberOfElements; i++){
