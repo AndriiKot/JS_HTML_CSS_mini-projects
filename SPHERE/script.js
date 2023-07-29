@@ -6,9 +6,12 @@ console.log(container);
 
 Object.assign(document.documentElement,{
   style: `
-    --size-demo: 300px;
+    --size-demo: ${window.innerWidth / Number(gridAxisX.value)}px;
   `
-})
+});
+function demo(){
+  console.log(window.innerWidth / Number(gridAxisX.value))
+}
 
 
 

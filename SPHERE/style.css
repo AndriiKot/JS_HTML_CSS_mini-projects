@@ -74,5 +74,5 @@ body {
 .demo{
   background-color: blue;
   width: 300px;
-  height: var(--size-demo);
+  height: var(--size-demo,100px);
 }
