@@ -41,7 +41,9 @@ input[type="number"] {
 }
 
 
-[class^='wrapper']{
+/* [class^='wrapper']{ */
+
+.box-animation{
    background-color: rgb(111, 0, 255);
    width: var(--size-container);
    height: var(--size-container);
