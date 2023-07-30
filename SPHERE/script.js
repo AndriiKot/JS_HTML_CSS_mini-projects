@@ -10,7 +10,7 @@ buttonStart.addEventListener('click',createGridElements);
 function createGridElement(number = 0) {
   const gridElement = `
   <div class="wrapper-${number}">
-      <div class="box-animation"}"></div>
+      <div class="box-animation"></div>
   </div>
   `;  
   return gridElement;
@@ -32,12 +32,26 @@ function createGridElements(numberOfElements = 0) {
  let fullElements = ``;  
  for(let i = 1; i <= numberOfElements; i++){
   const element = createGridElement(i)
+
   fullElements += element;
  };
  container.innerHTML = fullElements;
+ addAmination();
 };
 
-function animationLine() {
+function addAmination(){
+  const NodeList = document.querySelectorAll('.box-animation');
+  for(let i = 0; i < NodeList.length; i++){
+    // console.log(NodeList)
+    // console.log(NodeList[i])
+    animationLine(NodeList[i]);
+  }
+}
+
+function animationLine(element) {
+  console.log(element)
+  console.log(element.style.background)
+
   const deg = 20;
   const color_start = '#00cc99';
   const color_end  = 'transparent';
@@ -53,31 +67,33 @@ function animationLine() {
    const b = `${color_end} ${procent_width_line}%`
    const compon_str = (i % 2 == 0) ? a +','+ b : b + ',' + a;
     
+   
     str += compon_str +','
     procent_width_line += step_procent_width_line;
   }
   
   let final_str = `linear-gradient(${deg}deg,${str})`
   
-  element.style.background = final_str
+  element.style.setProperty("background",final_str)
+  console.log(window.getComputedStyle(element).background)
   
   
-      let nIntervId;
+      // let nIntervId;
       
   
-      function animation_rotate_interval() {
-        nIntervId = setInterval(calc_animation_rotate,100);
-      }
+      // function animation_rotate_interval() {
+      //   nIntervId = setInterval(calc_animation_rotate,100);
+      // }
   
-      let int_1 = 0
-      let int_2 = 0
+    //   let int_1 = 0
+    //   let int_2 = 0
   
-      function calc_animation_rotate(){
-        final_str = `linear-gradient(${deg}deg,${str}`
-        final_str = final_str.slice(0,final_str.length-1)+')'
+    //   function calc_animation_rotate(){
+    //     final_str = `linear-gradient(${deg}deg,${str}`
+    //     final_str = final_str.slice(0,final_str.length-1)+')'
   
-        element.style.background = final_str
-    }
+    //     element.style.background = final_str
+    // }
 };
 
 
