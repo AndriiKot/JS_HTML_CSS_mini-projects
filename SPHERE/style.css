@@ -37,7 +37,7 @@ input[type="number"] {
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(var(--rep),var(--repeat-grid-view));
-  gap: 2%;
+  gap: 8%;
 }
 
 
@@ -61,6 +61,28 @@ input[type="number"] {
   100%
   {
     background-position: var(--size-container);
+  }
+}
+
+.box_copy{
+  --size: 80vh;
+  height: var(--size);
+  width: var(--size);
+   background-color: rgb(35, 35, 33);
+   -webkit-box-reflect: right -100% linear-gradient(transparent,rgba(0,0,0,.4));
+   animation: animation_line_copy 1s linear 0.1s  infinite reverse;
+   border-radius: 50%;
+}
+
+@keyframes animation_line_copy
+{
+  0%
+  {
+    background-position: 0% ;
+  }
+  100%
+  {
+    background-position: var(--size);
   }
 }
 
