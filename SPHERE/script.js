@@ -61,25 +61,26 @@ for (;procent_width_line <= max_procent_width_line;i++){
 }
 
 let final_str = `linear-gradient(${deg}deg,${str})`
+let nIntervId;
+    
+function animation_rotate_interval() {
+  nIntervId = setInterval(calc_animation_rotate,100);
+}
+
+function calc_animation_rotate(element){
+  final_str = `linear-gradient(${deg}deg,${str}`
+  final_str = final_str.slice(0,final_str.length-1)+')'
+  console.log(element)
+  console.log("HI!!")
+  element.style.background = final_str;
+}
 
 
 
   for(let i = 0; elements.length > i; i++){
-    let nIntervId;
     const el = elements[i];
-    
-    function animation_rotate_interval() {
-      nIntervId = setInterval(calc_animation_rotate,100);
-    }
-
-    function calc_animation_rotate(element = el){
-      final_str = `linear-gradient(${deg}deg,${str}`
-      final_str = final_str.slice(0,final_str.length-1)+')'
-      console.log(element)
-      console.log("HI!!")
-      element.style.background = final_str;
-    }
-
+    console.log(el)
+    calc_animation_rotate(el)
   }
 }
 
