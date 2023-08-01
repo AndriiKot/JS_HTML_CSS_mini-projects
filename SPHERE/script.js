@@ -138,26 +138,7 @@ element.style.background = final_str
       final_str = `linear-gradient(${deg}deg,${str}`
       final_str = final_str.slice(0,final_str.length-1)+')'
 
-      element.style.background = final_str
-
-      // int_2 = int_1 + 0.1
-      // element.style.transform = element.style.transform == `rotate(${int_1}deg)` ? `rotate(${int_2}deg)` : `rotate(${int_1}deg)`;
-      
-      // if(int_2 > 360 || int_1 > 360){
-      //   int_1 = 0
-      // }
-      // int_1 += 0.001
-
-      // if(deg > 340){
-      //   deg = 20
-      // }
-      // if (deg > 50 && deg < 130){
-      //      deg = 130
-      // }
-      // if (deg < 310 && deg > 230 ){
-      //   deg = 340
-      // }
-      // deg += 1
+      element.style.background = final_str;
   }
 
 
