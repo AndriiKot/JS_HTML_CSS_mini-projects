@@ -61,17 +61,10 @@ for (;procent_width_line <= max_procent_width_line;i++){
 }
 
 let final_str = `linear-gradient(${deg}deg,${str})`
-let nIntervId;
-    
-function animation_rotate_interval() {
-  nIntervId = setInterval(calc_animation_rotate,100);
-}
 
 function calc_animation_rotate(element){
   final_str = `linear-gradient(${deg}deg,${str}`
   final_str = final_str.slice(0,final_str.length-1)+')'
-  console.log(element)
-  console.log("HI!!")
   element.style.background = final_str;
 }
 
@@ -79,48 +72,9 @@ function calc_animation_rotate(element){
 
   for(let i = 0; elements.length > i; i++){
     const el = elements[i];
-    console.log(el)
     calc_animation_rotate(el)
   }
 }
-
-
-const element = document.querySelector('.box_copy');
-
-
-const deg = 20;
-const color_start = '#00cc99';
-const color_end  = 'transparent';
-let procent_width_line = 0;
-const max_procent_width_line = 100;
-const step_procent_width_line = 30;
-let str = '';
-
-let i = 0
-
-for (;procent_width_line <= max_procent_width_line;i++){
- const a = `${color_start} ${procent_width_line}%`
- const b = `${color_end} ${procent_width_line}%`
- const compon_str = (i % 2 == 0) ? a +','+ b : b + ',' + a;
-  
-  str += compon_str +','
-  procent_width_line += step_procent_width_line;
-}
-
-let final_str = `linear-gradient(${deg}deg,${str})`
-
-    let nIntervId;
-    
-    function animation_rotate_interval() {
-      nIntervId = setInterval(calc_animation_rotate,100);
-    }
-
-    function calc_animation_rotate(){
-      final_str = `linear-gradient(${deg}deg,${str}`
-      final_str = final_str.slice(0,final_str.length-1)+')'
-
-      element.style.background = final_str;
-    }
 
 
   
