@@ -42,15 +42,11 @@ function createGridElements(numberOfElements = 0) {
 function addAmination(){
   const NodeList = document.querySelectorAll('.box-animation');
   for(let i = 0; i < NodeList.length; i++){
-    // console.log(NodeList)
-    // console.log(NodeList[i])
     animationLine(NodeList[i]);
   }
 }
 
 function animationLine(element) {
-  console.log(element)
-  console.log(element.style.background)
 
   const deg = 20;
   const color_start = '#00cc99';
@@ -75,29 +71,9 @@ function animationLine(element) {
   let final_str = `linear-gradient(${deg}deg,${str})`
   
   element.style.setProperty("background",final_str)
-  console.log(window.getComputedStyle(element).background)
-  
-  
-      // let nIntervId;
-      
-  
-      // function animation_rotate_interval() {
-      //   nIntervId = setInterval(calc_animation_rotate,100);
-      // }
-  
-    //   let int_1 = 0
-    //   let int_2 = 0
-  
-    //   function calc_animation_rotate(){
-    //     final_str = `linear-gradient(${deg}deg,${str}`
-    //     final_str = final_str.slice(0,final_str.length-1)+')'
-  
-    //     element.style.background = final_str
-    // }
 };
 
 const element = document.querySelector('.box_copy');
-console.log(element)
 
 
 const deg = 20;
