@@ -70,7 +70,7 @@ input[type="number"] {
   --size: 80vh;
   height: var(--size);
   width: var(--size);
-   background-color: rgb(35, 35, 33);
+   /* background-color: rgb(35, 35, 33); */
    -webkit-box-reflect: right -100% linear-gradient(transparent,rgba(0,0,0,.4));
    animation: animation_line_copy 1s linear 0.1s  infinite reverse;
    border-radius: 50%;
