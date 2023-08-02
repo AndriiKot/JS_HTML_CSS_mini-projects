@@ -41,6 +41,9 @@ function createGridElements(numberOfElements = 0) {
  container.innerHTML = fullElements;
  const elements = document.querySelectorAll('.box-animation');
  console.log(elements);
+ for(let i=0; elements.length > i; i++){
+  console.log(elements[i])
+ }
  addAmination();
 };
 
