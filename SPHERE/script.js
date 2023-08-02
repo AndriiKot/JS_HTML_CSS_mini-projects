@@ -3,6 +3,8 @@
 const body = document.body;
 const buttonStart = document.querySelector('.start');
 const container = document.querySelector('.container');
+let nIntervId;
+
 
 
 buttonStart.addEventListener('click',createGridElements);
@@ -33,57 +35,82 @@ function createGridElements(numberOfElements = 0) {
 }));
 
  let fullElements = ``;  
+
  for(let i = 1; i <= numberOfElements; i++){
   const element = createGridElement(i);
 
   fullElements += element;
  };
+
  container.innerHTML = fullElements;
- addAmination();
+
+ const elements = document.querySelectorAll('.box-animation');
+
+ for(let i=0; elements.length > i; i++){
+  animation_rotate_interval(elements[i]);
+ };
+
 };
 
-function addAmination() {
-const elements = document.querySelectorAll('.box-animation');
-const deg = 20;
-const color_start = '#00cc99';
-const color_end  = 'transparent';
-let procent_width_line = 0;
-const max_procent_width_line = 100;
-const step_procent_width_line = 30;
-let str = '';
-
-let i = 0;
-
-for (;procent_width_line <= max_procent_width_line;i++){
- const a = `${color_start} ${procent_width_line}%`;
- const b = `${color_end} ${procent_width_line}%`;
- const compon_str = (i % 2 == 0) ? a +','+ b : b + ',' + a;
-  
-  str += compon_str +',';
-  procent_width_line += step_procent_width_line;
+function randomInteger(min,max){
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
 };
 
-let final_str = `linear-gradient(${deg}deg,${str})`;
 
-let nIntervId;
-    
-function animation_rotate_interval(element) {
-  nIntervId = setInterval(() =>{calc_animation_rotate(element)},100);
+function randomValueRange(){
+   return randomInteger(0,255);
 };
 
-function calc_animation_rotate(element){
+function getRandomColros(){
+    const r = randomValueRange();
+    const g = randomValueRange();
+    const b = randomValueRange();
+    return [r,g,b];
+};
+
+function color() {
+  const [r,g,b] = getRandomColros();
+  return `rgb(${r},${g},${b})`
+};
+
+function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
+  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str)},100);
+};
+
+function calc_animation_rotate(element,deg,str,final_str = ''){
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
 };
 
-
-
-  for(let i = 0; elements.length > i; i++){
-    const el = elements[i];
-    animation_rotate_interval(el);
-  };
+function getDEG(int = 20){
+  return int;
 };
+
+
+function getSTR(color_end ='transparent',
+                max_procent_width_line = 100,
+                step_procent_width_line = 30) {
+                  
+  const color_start = color();
+  let procent_width_line = 0;
+  let str = '';
+  
+  
+  let i = 0;
+  
+  for (;procent_width_line <= max_procent_width_line;i++){
+   const a = `${color_start} ${procent_width_line}%`;
+   const b = `${color_end} ${procent_width_line}%`;
+   const compon_str = (i % 2 == 0) ? a +','+ b : b + ',' + a;
+    
+    str += compon_str +',';
+    procent_width_line += step_procent_width_line;
+  };
+  return str;
+};
+
 
 
   
