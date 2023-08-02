@@ -42,10 +42,32 @@ function createGridElements(numberOfElements = 0) {
  addAmination();
 };
 
+function randomInteger(min,max){
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
+};
+
+
+function randomValueRange(){
+   return randomInteger(0,255);
+};
+
+function getRandomColros(){
+    const r = randomValueRange();
+    const g = randomValueRange();
+    const b = randomValueRange();
+    return [r,g,b];
+};
+
+
 function addAmination() {
 const elements = document.querySelectorAll('.box-animation');
 const deg = 20;
+const [r,g,b] = getRandomColros();
+// console.log(r,g,b)
 const color_start = '#00cc99';
+const color_demo = `rgb(${r},${g},${b})`
+console.log(color_demo)
 const color_end  = 'transparent';
 let procent_width_line = 0;
 const max_procent_width_line = 100;
