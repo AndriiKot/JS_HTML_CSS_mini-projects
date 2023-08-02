@@ -40,10 +40,8 @@ function createGridElements(numberOfElements = 0) {
  };
  container.innerHTML = fullElements;
  const elements = document.querySelectorAll('.box-animation');
- console.log(elements)
- for(let i = 0; elements.length > 0; i++){
-  addAmination(elements[i]);
- }
+ console.log(elements);
+ addAmination();
 };
 
 function randomInteger(min,max){
@@ -64,7 +62,8 @@ function getRandomColros(){
 };
 
 
-function addAmination(elem) {
+function addAmination() {
+const elements = document.querySelectorAll('.box-animation');
 
 function color() {
   const [r,g,b] = getRandomColros();
@@ -104,7 +103,13 @@ function calc_animation_rotate(element){
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
 };
-animation_rotate_interval(elem);
+
+
+
+  for(let i = 0; elements.length > i; i++){
+    const el = elements[i];
+    animation_rotate_interval(el);
+  };
 };
 
 
