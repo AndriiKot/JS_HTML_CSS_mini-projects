@@ -75,23 +75,18 @@ function animation_rotate_interval(element) {
   nIntervId = setInterval(() =>{calc_animation_rotate(element)},100);
 };
 
-function calc_animation_rotate(element,deg,str,final_str){
+function calc_animation_rotate(element,deg,str,final_str = ''){
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
 };
 
-function setDEG(int = 20){
+function getDEG(int = 20){
   return int;
 };
 
-function createLineAnimation(){
 
-}
-
-
-
-function addAmination(color_end ='transparent',max_procent_width_line = 100,step_procent_width_line = 30) {
+function getSTR(color_end ='transparent',max_procent_width_line = 100,step_procent_width_line = 30) {
   const color_start = color();
   let procent_width_line = 0;
   let str = '';
@@ -107,16 +102,17 @@ function addAmination(color_end ='transparent',max_procent_width_line = 100,step
     str += compon_str +',';
     procent_width_line += step_procent_width_line;
 };
-
+  console.log(str);
+  return str;
 }
 
 
 
-  for(let i = 0; elements.length > i; i++){
-    const el = elements[i];
-    animation_rotate_interval(el);
-  };
-};
+  // for(let i = 0; elements.length > i; i++){
+  //   const el = elements[i];
+  //   animation_rotate_interval(el);
+  // };
+
 
 
   
