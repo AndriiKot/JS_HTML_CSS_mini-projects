@@ -35,17 +35,21 @@ function createGridElements(numberOfElements = 0) {
 }));
 
  let fullElements = ``;  
+
  for(let i = 1; i <= numberOfElements; i++){
   const element = createGridElement(i);
 
   fullElements += element;
  };
+
  container.innerHTML = fullElements;
+
  const elements = document.querySelectorAll('.box-animation');
- console.log(elements);
+
  for(let i=0; elements.length > i; i++){
   animation_rotate_interval(elements[i]);
- }
+ };
+
 };
 
 function randomInteger(min,max){
@@ -85,7 +89,10 @@ function getDEG(int = 20){
 };
 
 
-function getSTR(color_end ='transparent',max_procent_width_line = 100,step_procent_width_line = 30) {
+function getSTR(color_end ='transparent',
+                max_procent_width_line = 100,
+                step_procent_width_line = 30) {
+                  
   const color_start = color();
   let procent_width_line = 0;
   let str = '';
@@ -100,9 +107,9 @@ function getSTR(color_end ='transparent',max_procent_width_line = 100,step_proce
     
     str += compon_str +',';
     procent_width_line += step_procent_width_line;
-};
+  };
   return str;
-}
+};
 
 
 
