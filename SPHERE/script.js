@@ -39,7 +39,11 @@ function createGridElements(numberOfElements = 0) {
   fullElements += element;
  };
  container.innerHTML = fullElements;
- addAmination();
+ const elements = document.querySelectorAll('.box-animation');
+ console.log(elements)
+ for(let i = 0; elements.length > 0; i++){
+  addAmination(elements[i]);
+ }
 };
 
 function randomInteger(min,max){
@@ -60,8 +64,7 @@ function getRandomColros(){
 };
 
 
-function addAmination() {
-const elements = document.querySelectorAll('.box-animation');
+function addAmination(elem) {
 
 function color() {
   const [r,g,b] = getRandomColros();
@@ -69,12 +72,12 @@ function color() {
 };
 
 const deg = 20;
+const color_start = color();
 const color_end  = 'transparent';
 let procent_width_line = 0;
 const max_procent_width_line = 100;
 const step_procent_width_line = 30;
 let str = '';
-const color_start = color();
 
 
 let i = 0;
@@ -101,13 +104,7 @@ function calc_animation_rotate(element){
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
 };
-
-
-
-  for(let i = 0; elements.length > i; i++){
-    const el = elements[i];
-    animation_rotate_interval(el);
-  };
+animation_rotate_interval(elem);
 };
 
 
