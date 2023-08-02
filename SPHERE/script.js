@@ -62,11 +62,13 @@ function getRandomColros(){
 
 function addAmination() {
 const elements = document.querySelectorAll('.box-animation');
-const deg = 20;
+
 function color() {
   const [r,g,b] = getRandomColros();
   return `rgb(${r},${g},${b})`
-}
+};
+
+const deg = 20;
 const color_end  = 'transparent';
 let procent_width_line = 0;
 const max_procent_width_line = 100;
