@@ -44,9 +44,8 @@ function createGridElements(numberOfElements = 0) {
  const elements = document.querySelectorAll('.box-animation');
  console.log(elements);
  for(let i=0; elements.length > i; i++){
-  console.log(elements[i])
+  animation_rotate_interval(elements[i]);
  }
-//  addAmination();
 };
 
 function randomInteger(min,max){
@@ -71,8 +70,8 @@ function color() {
   return `rgb(${r},${g},${b})`
 };
 
-function animation_rotate_interval(element) {
-  nIntervId = setInterval(() =>{calc_animation_rotate(element)},100);
+function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
+  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str)},100);
 };
 
 function calc_animation_rotate(element,deg,str,final_str = ''){
@@ -102,16 +101,8 @@ function getSTR(color_end ='transparent',max_procent_width_line = 100,step_proce
     str += compon_str +',';
     procent_width_line += step_procent_width_line;
 };
-  console.log(str);
   return str;
 }
-
-
-
-  // for(let i = 0; elements.length > i; i++){
-  //   const el = elements[i];
-  //   animation_rotate_interval(el);
-  // };
 
 
 
