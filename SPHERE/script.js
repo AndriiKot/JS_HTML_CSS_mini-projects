@@ -67,7 +67,7 @@ const [r,g,b] = getRandomColros();
 // console.log(r,g,b)
 const color_start = '#00cc99';
 const color_demo = `rgb(${r},${g},${b})`
-console.log(color_demo)
+// console.log(color_demo)
 const color_end  = 'transparent';
 let procent_width_line = 0;
 const max_procent_width_line = 100;
@@ -77,7 +77,7 @@ let str = '';
 let i = 0;
 
 for (;procent_width_line <= max_procent_width_line;i++){
- const a = `${color_start} ${procent_width_line}%`;
+ const a = `${color_demo} ${procent_width_line}%`;
  const b = `${color_end} ${procent_width_line}%`;
  const compon_str = (i % 2 == 0) ? a +','+ b : b + ',' + a;
   
