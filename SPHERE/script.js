@@ -85,6 +85,7 @@ function calc_animation_rotate(element,deg,str,final_str = ''){
 };
 
 function getDEG(int = 20){
+  int = randomInteger(0,360);
   return int;
 };
 
