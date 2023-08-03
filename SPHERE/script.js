@@ -89,11 +89,17 @@ function getDEG(int = 20){
   return int;
 };
 
+function getWidthLine(int = 30){
+  int = randomInteger(1,100);
+  return int;
+}
+
 
 function getSTR(color_end ='transparent',
                 max_procent_width_line = 100,
                 step_procent_width_line = 30) {
                   
+  step_procent_width_line = getWidthLine();               
   const color_start = color();
   let procent_width_line = 0;
   let str = '';
