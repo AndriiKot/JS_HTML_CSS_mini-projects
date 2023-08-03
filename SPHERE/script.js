@@ -85,6 +85,12 @@ function calc_animation_rotate(element,deg,str,final_str = ''){
 };
 
 function getDEG(int = 20){
+  int = randomInteger(0,360);
+  return int;
+};
+
+function getWidthLine(int = 30){
+  int = randomInteger(1,80);
   return int;
 };
 
@@ -92,7 +98,8 @@ function getDEG(int = 20){
 function getSTR(color_end ='transparent',
                 max_procent_width_line = 100,
                 step_procent_width_line = 30) {
-                  
+
+  step_procent_width_line = getWidthLine();               
   const color_start = color();
   let procent_width_line = 0;
   let str = '';
