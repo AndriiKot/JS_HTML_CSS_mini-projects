@@ -24,13 +24,15 @@ function createGridElements(numberOfElements = 0) {
  numberOfElements = x * y;
 
  const sizeConrainer = window.innerWidth / Number(gridAxisX.value);
- const repeatGridView = Math.floor(sizeConrainer * 0.8);
+ const repeatGridView = Math.floor(sizeConrainer);
+ const sizeGap = Math.floor(sizeConrainer - repeatGridView);
+ console.log(sizeGap);
 
  (Object.assign(document.documentElement, {
   style: `
     --size-container: ${sizeConrainer}px;
     --repeat-grid-view: ${repeatGridView}px;
-    --gap: ${repeatGridView * 0.33}px;
+    --gap: ${sizeGap}px;
     --rep: ${x};
   `
 }));
