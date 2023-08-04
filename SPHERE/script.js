@@ -18,7 +18,8 @@ function createGridElement(number = 0) {
   return gridElement;
 };
 
-function createGridElements(numberOfElements = 0) {
+function createGridElements(event,numberOfElements = 0) {
+  event.preventDefault();
 
  const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
  numberOfElements = x * y;
