@@ -24,7 +24,7 @@ function createGridElements(numberOfElements = 0) {
  numberOfElements = x * y;
 
  const sizeConrainer = window.innerWidth / Number(gridAxisX.value);
- const repeatGridView = Math.floor(sizeConrainer * 0.2);
+ const repeatGridView = Math.floor(sizeConrainer * 0.8);
 
  (Object.assign(document.documentElement, {
   style: `
