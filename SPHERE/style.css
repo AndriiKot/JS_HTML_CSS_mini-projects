@@ -9,6 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  overflow-x: hidden;
 }
 
 .wrapper-forms {
@@ -33,11 +34,11 @@ input[type="number"] {
 }
 
 .container {
-  min-width: 100vw;
+  max-width: 100vw;
   min-height: 100vh;
   display: grid;
   grid-template-columns: repeat(var(--rep), var(--repeat-grid-view));
-  gap: var(--gap);
+  column-gap: var(--gap);
 }
 
 .box-animation {
