@@ -30,6 +30,7 @@ function createGridElements(numberOfElements = 0) {
   style: `
     --size-container: ${sizeConrainer}px;
     --repeat-grid-view: ${repeatGridView}px;
+    --gap: ${repeatGridView * 0.33}px;
     --rep: ${x};
   `
 }));
