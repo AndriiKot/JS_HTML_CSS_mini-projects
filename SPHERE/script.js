@@ -79,7 +79,7 @@ function color() {
 };
 
 function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
-  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str,int)},100);
+  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str,int)},1);
 };
 
 function calc_animation_rotate(element,deg,str,final_str = '',d){
@@ -87,8 +87,8 @@ function calc_animation_rotate(element,deg,str,final_str = '',d){
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
-  element.style.transform = element.style.transform == `rotate(${d}deg)`;
-  int += 1;
+  element.style.transform = `rotate(${d}deg)`;
+  int += 0.005;
   console.log(d)
 };
 
