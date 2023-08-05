@@ -4,6 +4,7 @@ const body = document.body;
 const buttonStart = document.querySelector('.start');
 const container = document.querySelector('.container');
 let nIntervId;
+let int = 0;
 
 
 
@@ -78,16 +79,16 @@ function color() {
 };
 
 function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
-  let int = 0;
   nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str,int)},100);
 };
 
 function calc_animation_rotate(element,deg,str,final_str = '',d){
+  d = int;
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
   element.style.transform = element.style.transform == `rotate(${d}deg)`;
-  // d += 1;
+  int += 1;
   console.log(d)
 };
 
