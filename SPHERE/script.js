@@ -8,6 +8,7 @@ let int = 0;
 
 
 
+
 buttonStart.addEventListener('click',createGridElements);
 
 function createGridElement(number = 0) {
@@ -51,7 +52,7 @@ function createGridElements(event,numberOfElements = 0) {
  const elements = document.querySelectorAll('.box-animation');
 
  for(let i=0; elements.length > i; i++){
-  animation_rotate_interval(elements[i]);
+  animation_rotate_interval(elements[i],(randomInteger(1,20) * 0.001),int);
  };
 
 };
@@ -78,17 +79,20 @@ function color() {
   return `rgb(${r},${g},${b})`
 };
 
-function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
-  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str,int)},1);
+function animation_rotate_interval(element,randInt,startInt,deg = getDEG(),str = getSTR()) {
+  let i;
+  nIntervId = setInterval(() =>{calc_animation_rotate(element,randInt,startInt,deg,str,i)},1);
 };
 
-function calc_animation_rotate(element,deg,str,final_str = '',animRotate){
-  animRotate = int;
+function calc_animation_rotate(element,randInt,startInt,deg,str,final_str = '',t){
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
-  element.style.transform = `rotate(${animRotate}deg)`;
-  int += 0.005;
+
+  t = startInt ;
+  t += randInt;
+  element.style.transform = `rotate(${t}deg)`;
+  console.log(t);
 };
 
 function getDEG(int = 20){
