@@ -4,6 +4,7 @@ const body = document.body;
 const buttonStart = document.querySelector('.start');
 const container = document.querySelector('.container');
 let nIntervId;
+let int = 0;
 
 
 
@@ -18,7 +19,8 @@ function createGridElement(number = 0) {
   return gridElement;
 };
 
-function createGridElements(numberOfElements = 0) {
+function createGridElements(event,numberOfElements = 0) {
+  event.preventDefault();
 
  const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
  numberOfElements = x * y;
@@ -26,9 +28,6 @@ function createGridElements(numberOfElements = 0) {
  const sizeConrainer = window.innerWidth / Number(gridAxisX.value);
  const repeatGridView = (sizeConrainer * 0.9);
  const sizeGap = ((sizeConrainer - repeatGridView));
- console.log(sizeConrainer);
- console.log(repeatGridView)
- console.log(sizeGap);
 
  (Object.assign(document.documentElement, {
   style: `
@@ -80,13 +79,17 @@ function color() {
 };
 
 function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
-  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str)},100);
+  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str,int)},1);
 };
 
-function calc_animation_rotate(element,deg,str,final_str = ''){
+function calc_animation_rotate(element,deg,str,final_str = '',d){
+  d = int;
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
+  element.style.transform = `rotate(${d}deg)`;
+  int += 0.005;
+  console.log(d)
 };
 
 function getDEG(int = 20){
