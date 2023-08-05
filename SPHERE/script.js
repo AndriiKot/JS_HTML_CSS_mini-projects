@@ -82,15 +82,13 @@ function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
   nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str,int)},1);
 };
 
-function calc_animation_rotate(element,deg,str,final_str = '',randIntDeg = (randomInteger(1,10) * 0.001) ){
-  console.log(randIntDeg);
-  let animRotate = int;
+function calc_animation_rotate(element,deg,str,final_str = '',animRotate){
+  animRotate = int;
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
-  int += randIntDeg;
   element.style.transform = `rotate(${animRotate}deg)`;
-  // int += (randomInteger(1,20) * 0.001);
+  int += 0.005;
 };
 
 function getDEG(int = 20){
