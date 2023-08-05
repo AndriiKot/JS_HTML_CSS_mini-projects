@@ -27,9 +27,6 @@ function createGridElements(event,numberOfElements = 0) {
  const sizeConrainer = window.innerWidth / Number(gridAxisX.value);
  const repeatGridView = (sizeConrainer * 0.9);
  const sizeGap = ((sizeConrainer - repeatGridView));
- console.log(sizeConrainer);
- console.log(repeatGridView)
- console.log(sizeGap);
 
  (Object.assign(document.documentElement, {
   style: `
@@ -81,13 +78,17 @@ function color() {
 };
 
 function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
-  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str)},100);
+  let int = 0;
+  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str,int)},100);
 };
 
-function calc_animation_rotate(element,deg,str,final_str = ''){
+function calc_animation_rotate(element,deg,str,final_str = '',d){
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
+  element.style.transform = element.style.transform == `rotate(${d}deg)`;
+  // d += 1;
+  console.log(d)
 };
 
 function getDEG(int = 20){
