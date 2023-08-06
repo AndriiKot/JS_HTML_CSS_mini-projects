@@ -93,7 +93,7 @@ function getDEG(int = 20){
 };
 
 function getWidthLine(int = 30){
-  int = randomInteger(1,100);
+  int = randomInteger(1,80);
   return int;
 };
 
