@@ -19,7 +19,8 @@ function createGridElement(number = 0) {
 function createGridElements(event,numberOfElements = 0) {
 
  const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
- validValues(x,y)();
+ 
+ if(validValues(x,y)) { console.log("Hello!"); return; };
 
  numberOfElements = x * y;
 
@@ -122,9 +123,9 @@ function getSTR(color_end ='transparent',
 
 function validValues(x,y){
   if((x > 10 || y > 10) || (x < 1 || y < 1)) { 
-  return (function() {console.log("HI!!");});
+  return true;
  };
-}
+};
 
 
   
