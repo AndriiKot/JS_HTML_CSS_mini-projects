@@ -4,9 +4,6 @@ const body = document.body;
 const buttonStart = document.querySelector('.start');
 const container = document.querySelector('.container');
 let nIntervId;
-let int = 0;
-
-
 
 buttonStart.addEventListener('click',createGridElements);
 
@@ -20,9 +17,11 @@ function createGridElement(number = 0) {
 };
 
 function createGridElements(event,numberOfElements = 0) {
-  event.preventDefault();
 
  const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
+ 
+ if(validValues(x,y)) { console.log("Hello!"); return; };
+
  numberOfElements = x * y;
 
  const sizeConrainer = window.innerWidth / Number(gridAxisX.value);
@@ -75,22 +74,17 @@ function getRandomColros(){
 
 function color() {
   const [r,g,b] = getRandomColros();
-  return `rgb(${r},${g},${b})`
+  return `rgb(${r},${g},${b})`;
 };
 
 function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
-  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str,int)},1);
+  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str)},100);
 };
 
-function calc_animation_rotate(element,deg,str,final_str = '',randIntDeg = (randomInteger(1,10) * 0.001) ){
-  console.log(randIntDeg);
-  let animRotate = int;
+function calc_animation_rotate(element,deg,str,final_str = ''){
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
-  int += randIntDeg;
-  element.style.transform = `rotate(${animRotate}deg)`;
-  // int += (randomInteger(1,20) * 0.001);
 };
 
 function getDEG(int = 20){
@@ -127,14 +121,11 @@ function getSTR(color_end ='transparent',
   return str;
 };
 
+function validValues(x,y){
+  if((x > 10 || y > 10) || (x < 1 || y < 1)) { 
+  return true;
+ };
+};
 
 
   
-
- 
-
-
-
-  
-
- 
