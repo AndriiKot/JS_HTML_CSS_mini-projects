@@ -230,7 +230,7 @@ function unionColors(r,g,b){
     const nodeListColors = document.querySelectorAll('[class^="color"]');
     // console.log(nodeListColors);
     for(let i = 0; i < nodeListColors.length; i++){
-        console.log(nodeListColors[i])
+        console.log(nodeListColors[i].style.color)
     }
 };
 
