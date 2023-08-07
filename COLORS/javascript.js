@@ -222,16 +222,35 @@ function getRandomColros(){
     const r = randomValueRange();
     const g = randomValueRange();
     const b = randomValueRange();
-    unionColors();
+    unionColors(r,g,b);
     return [r,g,b];
 };
 
 function unionColors(r,g,b){
     const nodeListColors = document.querySelectorAll('[class^="color"]');
+    const str = `rgb(${r},${g},${b})`;
+
     // console.log(nodeListColors);
     for(let i = 0; i < nodeListColors.length; i++){
-        console.log(nodeListColors[i].style.color)
-    }
+        // console.log(nodeListColors[i].style.color)
+        if(nodeListColors[i].style.color === str){
+            console.log("EVRIKA!!!");
+        };
+    };
+    // console.log(`DEMO: ${str}`);
+};
+
+function test(r,g,b){
+    const nodeListColors = document.querySelectorAll('[class^="color"]');
+    const str = `rgb(${r},${g},${b})`;
+
+    // console.log(nodeListColors);
+    for(let i = 0; i < nodeListColors.length; i++){
+        // console.log(nodeListColors[i].style.color)
+        if(nodeListColors[i].style.color === str){
+            console.log("EVRIKA!!!");
+        };
+    };
 };
 
 function setRandomColors(){
