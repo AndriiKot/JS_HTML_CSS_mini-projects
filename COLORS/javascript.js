@@ -242,15 +242,17 @@ function unionColors(r,g,b){
 
 function test(r,g,b){
     const nodeListColors = document.querySelectorAll('[class^="color"]');
-    const str = `rgb(${r},${g},${b})`;
+    const str = `rgb(${r}, ${g}, ${b})`;
 
     // console.log(nodeListColors);
     for(let i = 0; i < nodeListColors.length; i++){
-        // console.log(nodeListColors[i].style.color)
-        if(nodeListColors[i].style.color === str){
+        console.log(nodeListColors[i].style.background)
+        if(nodeListColors[i].style.background === str){
             console.log("EVRIKA!!!");
         };
+        console.log(nodeListColors[i].style.background === str)
     };
+    console.log(str)
 };
 
 function setRandomColors(){
