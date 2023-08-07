@@ -222,7 +222,13 @@ function getRandomColros(){
     const r = randomValueRange();
     const g = randomValueRange();
     const b = randomValueRange();
+    unionColors();
     return [r,g,b];
+};
+
+function unionColors(r,g,b){
+    const nodeListColors = document.querySelectorAll('[class^="color"]');
+    console.log(nodeListColors);
 };
 
 function setRandomColors(){
