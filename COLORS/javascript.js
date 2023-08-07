@@ -222,7 +222,20 @@ function getRandomColros(){
     const r = randomValueRange();
     const g = randomValueRange();
     const b = randomValueRange();
+    unionColors(r,g,b);
     return [r,g,b];
+};
+
+function unionColors(r,g,b){
+    const nodeListColors = document.querySelectorAll('[class^="color"]');
+    const str = `rgb(${r}, ${g}, ${b})`;
+
+    for(let i = 0; i < nodeListColors.length; i++){
+        if(nodeListColors[i].style.background === str){
+            console.log("EVRIKA!!!");
+            getRandomColros();
+        };
+    };
 };
 
 function setRandomColors(){
