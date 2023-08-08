@@ -226,8 +226,14 @@ function getRandomColros(){
     // b = randomValueRange();
     g = 0;
     b = 0;
-    isUnionColor(r,g,b);
     array = [r,g,b];
+    if(isUnionColor(r,g,b)){
+        console.log("HI!!!");
+        console.log(array);
+        array = getRandomColros();
+        console.log(array);
+        console.log('Hello!!!')
+    };
     return array;
 };
 
@@ -255,18 +261,15 @@ function isUnionColor(r,g,b){
     let str = `rgb(${r}, ${g}, ${b})`;
     let boolean;
     for(let i = 0; i < nodeListColors.length; i++){
-        console.log(i)
         if(nodeListColors[i].style.background === str){
             console.log("EVRIKA!!!");
             boolean = true;
             break;
         } else {
             boolean = false;
-        }
-        console.log(i)
+        };
     };
-    console.log(boolean)
-    return boolean
+    return boolean;
 };
 
 function test(a = 1,b = 2,c = 3){
