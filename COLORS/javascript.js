@@ -10,6 +10,8 @@ let saveNodeListLock = null;
 let saveValues = null;
 let returnCallSubmit = false;
 let isdisabled = false;
+const maxValueColorInt = 255;
+const minValueColorInt = 0;
 
 
 forms.addEventListener('submit',callsubmit);
@@ -215,45 +217,20 @@ function randomInteger(min,max){
 };
 
 function randomValueRange(){
-   return randomInteger(0,1);
+   return randomInteger(minValueColorInt,maxValueColorInt);
 };
 
-function getRandomColros(){
+function getRandomColroUnion(){
     let r,g,b;
     let array;
     r = randomValueRange();
-    // g = randomValueRange();
-    // b = randomValueRange();
-    g = 0;
-    b = 0;
+    g = randomValueRange();
+    b = randomValueRange();
     array = [r,g,b];
-    if(isUnionColor(r,g,b)){
-        console.log("HI!!!");
-        console.log(array);
-        array = getRandomColros();
-        console.log(array);
-        console.log('Hello!!!')
+    if(!isUnionColor(r,g,b)){
+        array = getRandomColroUnion();
     };
     return array;
-};
-
-function test3(){
-    let a = randomInteger(0,1);
-    console.log(`a: ${a}`);
-    if(test4(a)){
-        a = test3();
-    }
-    return a;
-};
-
-function test4(a) {
-   let boolean;
-   if(a == 1) {
-    boolean = true ;
-   } else {
-    boolean = false;
-   }
-   return boolean;
 };
 
 function isUnionColor(r,g,b){
@@ -262,33 +239,21 @@ function isUnionColor(r,g,b){
     let boolean;
     for(let i = 0; i < nodeListColors.length; i++){
         if(nodeListColors[i].style.background === str){
-            console.log("EVRIKA!!!");
-            boolean = true;
+            console.log("not uNion")
+            boolean = false;
             break;
         } else {
-            boolean = false;
+            boolean = true;
         };
     };
     return boolean;
-};
-
-function test(a = 1,b = 2,c = 3){
-  function test2(){
-      if([a,b,c].toString() === `1,2,3`){
-          console.log([a,b,c].toString());
-          console.log("HI!!!");
-          return test(a = 2, b = 3, c = 4);
-      };
-  };
-    test2();
-    return [a,b,c];
 };
 
 function setRandomColors(){
     const nodeList = getNodeListDivColors();
     if(saveNodeListLock.length === 0) {
         for(let i = 0;i < nodeList.length; i++) {
-            const [r,g,b] = getRandomColros();
+            const [r,g,b] = getRandomColroUnion();
             const col = nodeList[i];
             const valueTextRGB = col.querySelector('h3');
             setColorModel(null,valueTextRGB,r,g,b);
@@ -310,13 +275,13 @@ function setRandomColors(){
                 colorText(col,r,g,b);
                 colLock.className = 'fa-solid fa-lock';
             } else {
-                const [r,g,b] = getRandomColros();
+                const [r,g,b] = getRandomColroUnion();
                 setColorModel(null,valueTextRGB,r,g,b);
                 col.style.background = `rgb(${r},${g},${b})`;
                 colorText(col,r,g,b);
             };
         }  else {
-            const [r,g,b] = getRandomColros();
+            const [r,g,b] = getRandomColroUnion();
             setColorModel(null,valueTextRGB,r,g,b);
             col.style.background = `rgb(${r},${g},${b})`;
             colorText(col,r,g,b);
