@@ -238,6 +238,10 @@ function unionColors(r,g,b){
     };
 };
 
+function test(a = 1,b = 2,c = 3){
+    return [a,b,c]
+};
+
 function setRandomColors(){
     const nodeList = getNodeListDivColors();
     if(saveNodeListLock.length === 0) {
