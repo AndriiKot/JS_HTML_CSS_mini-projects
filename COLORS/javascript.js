@@ -229,7 +229,14 @@ function getRandomColros(){
 function test3(){
     const a = randomInteger(0,2);
     console.log(`a: ${a}`);
+    // test4(a);
     return a;
+};
+
+function test4(a) {
+   if(a == 2) {
+    return test3();
+   };
 };
 
 function unionColors(r,g,b){
