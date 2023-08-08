@@ -215,22 +215,27 @@ function randomInteger(min,max){
 };
 
 function randomValueRange(){
-   return randomInteger(0,255);
+   return randomInteger(0,1);
 };
 
 function getRandomColros(){
-    const r = randomValueRange();
-    const g = randomValueRange();
-    const b = randomValueRange();
-    unionColors(r,g,b);
-    return [r,g,b];
+    let r,g,b;
+    let array;
+    r = randomValueRange();
+    // g = randomValueRange();
+    // b = randomValueRange();
+    g = 0;
+    b = 0;
+    isUnionColor(r,g,b);
+    array = [r,g,b];
+    return array;
 };
 
 function test3(){
     let a = randomInteger(0,1);
     console.log(`a: ${a}`);
     if(test4(a)){
-        a = test3()
+        a = test3();
     }
     return a;
 };
@@ -240,21 +245,28 @@ function test4(a) {
    if(a == 1) {
     boolean = true ;
    } else {
-     boolean = false;
+    boolean = false;
    }
    return boolean;
 };
 
-function unionColors(r,g,b){
+function isUnionColor(r,g,b){
     const nodeListColors = document.querySelectorAll('[class^="color"]');
-    const str = `rgb(${r}, ${g}, ${b})`;
-
+    let str = `rgb(${r}, ${g}, ${b})`;
+    let boolean;
     for(let i = 0; i < nodeListColors.length; i++){
+        console.log(i)
         if(nodeListColors[i].style.background === str){
             console.log("EVRIKA!!!");
-            getRandomColros();
-        };
+            boolean = true;
+            break;
+        } else {
+            boolean = false;
+        }
+        console.log(i)
     };
+    console.log(boolean)
+    return boolean
 };
 
 function test(a = 1,b = 2,c = 3){
