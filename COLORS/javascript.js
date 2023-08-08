@@ -227,7 +227,7 @@ function getRandomColros(){
 };
 
 function test3(){
-    const a = randomValueRange();
+    const a = randomInteger(0,2);
     console.log(`a: ${a}`);
 };
 
