@@ -229,7 +229,7 @@ function getRandomColros(){
 function test3(){
     const a = randomInteger(0,2);
     console.log(`a: ${a}`);
-    // test4(a);
+    test4(a);
     return a;
 };
 
