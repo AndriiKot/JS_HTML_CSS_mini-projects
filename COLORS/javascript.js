@@ -239,6 +239,9 @@ function unionColors(r,g,b){
 };
 
 function test(a = 1,b = 2,c = 3){
+    if([a,b,c].toString() === [1,2,3].toString()){
+        console.log("HI!!!")
+    }
     return [a,b,c]
 };
 
