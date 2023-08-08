@@ -239,9 +239,10 @@ function unionColors(r,g,b){
 };
 
 function test(a = 1,b = 2,c = 3){
-    if([a,b,c].toString() === [1,2,3].toString()){
+    if([a,b,c].toString() === `1,2,3`){
         console.log([a,b,c].toString())
         console.log("HI!!!")
+        return test(a = 2, b = 3, c = 4)
     }
     return [a,b,c]
 };
