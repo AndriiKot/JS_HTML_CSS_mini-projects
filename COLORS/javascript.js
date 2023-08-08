@@ -227,21 +227,24 @@ function getRandomColros(){
 };
 
 function test3(){
-    const a = randomInteger(0,1);
+    let a = randomInteger(0,1);
     console.log(`a: ${a}`);
     // console.log(`Array[0]: ${test4(a)[0]}`);
+    if(test4(a)[0]){
+        a = test3()
+    }
     return a;
 };
 
 function test4(a) {
    let array = [];
    if(a == 1) {
-    array = [true,test3()];
-    console.log(array);
+    array = [true];
+    // console.log(array);
    } else {
      array = [false];
    }
-   console.log(array)
+//    console.log(array)
    return array;
 };
 
