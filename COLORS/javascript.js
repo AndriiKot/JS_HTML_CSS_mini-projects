@@ -229,23 +229,20 @@ function getRandomColros(){
 function test3(){
     let a = randomInteger(0,1);
     console.log(`a: ${a}`);
-    // console.log(`Array[0]: ${test4(a)[0]}`);
-    if(test4(a)[0]){
+    if(test4(a)){
         a = test3()
     }
     return a;
 };
 
 function test4(a) {
-   let array = [];
+   let boolean;
    if(a == 1) {
-    array = [true];
-    // console.log(array);
+    boolean = true ;
    } else {
-     array = [false];
+     boolean = false;
    }
-//    console.log(array)
-   return array;
+   return boolean;
 };
 
 function unionColors(r,g,b){
