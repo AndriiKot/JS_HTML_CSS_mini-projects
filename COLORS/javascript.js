@@ -223,6 +223,7 @@ function randomValueRange(){
 function getRandomColroUnion(){
     let r,g,b;
     let array;
+    let boolean = false;
     r = randomValueRange();
     g = randomValueRange();
     b = randomValueRange();
@@ -230,8 +231,10 @@ function getRandomColroUnion(){
     if(!isUnionColor(r,g,b)){
         test();
         array = getRandomColroUnion();
+        boolean = true
     };
     // test();
+    if(boolean){console.log("test 2: "); test()};
     return array;
 }; 
 
@@ -257,7 +260,7 @@ function test(array,setArray){
    const nodeListLength = nodeList.length;
    array = Array(nodeListLength);
    for(let i = 0; i < nodeListLength; i++){
-    console.log(i);
+    // console.log(i);
     array[i] = nodeList[i].style.background;
    };
    setArray = new Set(array);
@@ -267,7 +270,7 @@ function test(array,setArray){
    console.log(`nodeLisr: ${nodeList.length}`);
    console.log(`arr: ${array.length}`);
    console.log(`setArray: ${setArray.size}`);
-   return [array,setArray];
+//    return [array,setArray];
 };
 
 function setRandomColors(){
