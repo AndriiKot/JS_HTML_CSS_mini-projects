@@ -253,11 +253,13 @@ function isUnionColor(r,g,b){
 };
 
 function test(arr,setArray){
-   const nodeList = document.querySelectorAll('[class^="color"]')
+   const nodeList = document.querySelectorAll('[class^="color"]');
+   let array = Array(nodeList.length);
    arr = Array.from(nodeList);
    setArray = new Set(arr);
 //    console.log(arr);
 //    console.log(setArray);
+   console.log(`nodeLisr: ${nodeList.length}`);
    console.log(`arr: ${arr.length}`);
    console.log(`setArray: ${setArray.size}`);
 };
