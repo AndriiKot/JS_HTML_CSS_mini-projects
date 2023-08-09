@@ -267,6 +267,7 @@ function test(array,setArray){
    console.log(`nodeLisr: ${nodeList.length}`);
    console.log(`arr: ${array.length}`);
    console.log(`setArray: ${setArray.size}`);
+   return [array,setArray];
 };
 
 function setRandomColors(){
