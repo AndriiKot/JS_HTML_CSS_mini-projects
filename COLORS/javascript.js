@@ -260,8 +260,7 @@ function test(array,setArray){
     console.log(i);
     array[i] = nodeList[i].style.background;
    };
-   arr = Array.from(nodeList);
-   setArray = new Set(arr);
+   setArray = new Set(array);
 //    console.log(arr);
 //    console.log(setArray);
    console.log(array);
