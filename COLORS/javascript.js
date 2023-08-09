@@ -10,7 +10,7 @@ let saveNodeListLock = null;
 let saveValues = null; 
 let returnCallSubmit = false;
 let isdisabled = false;
-const maxValueColorInt = 255;
+const maxValueColorInt = 50;
 const minValueColorInt = 0;
 
 
