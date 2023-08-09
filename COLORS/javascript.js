@@ -252,15 +252,21 @@ function isUnionColor(r,g,b){
     return boolean;
 };
 
-function test(arr,setArray){
+function test(array,setArray){
    const nodeList = document.querySelectorAll('[class^="color"]');
-   let array = Array(nodeList.length);
+   const nodeListLength = nodeList.length;
+   array = Array(nodeListLength);
+   for(let i = 0; i < nodeListLength; i++){
+    console.log(i);
+    array[i] = nodeList[i].style.background;
+   };
    arr = Array.from(nodeList);
    setArray = new Set(arr);
 //    console.log(arr);
 //    console.log(setArray);
+   console.log(array);
    console.log(`nodeLisr: ${nodeList.length}`);
-   console.log(`arr: ${arr.length}`);
+   console.log(`arr: ${array.length}`);
    console.log(`setArray: ${setArray.size}`);
 };
 
