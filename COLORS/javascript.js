@@ -10,7 +10,7 @@ let saveNodeListLock = null;
 let saveValues = null; 
 let returnCallSubmit = false;
 let isdisabled = false;
-const maxValueColorInt = 50;
+const maxValueColorInt = 255;
 const minValueColorInt = 0;
 
 
@@ -223,18 +223,13 @@ function randomValueRange(){
 function getRandomColroUnion(){
     let r,g,b;
     let array;
-    let boolean = false;
     r = randomValueRange();
     g = randomValueRange();
     b = randomValueRange();
     array = [r,g,b];
     if(!isUnionColor(r,g,b)){
-        test();
         array = getRandomColroUnion();
-        boolean = true
     };
-    // test();
-    if(boolean){console.log("test 2: "); test()};
     return array;
 }; 
 
@@ -245,7 +240,6 @@ function isUnionColor(r,g,b){
     const nodeListLength = nodeListColors.length;
     for(let i = 0; i < nodeListLength; i++){
         if(nodeListColors[i].style.background === str){
-            console.log("not uNion")
             boolean = false;
             break;
         } else {
@@ -253,24 +247,6 @@ function isUnionColor(r,g,b){
         };
     };
     return boolean;
-};
-
-function test(array,setArray){
-   const nodeList = document.querySelectorAll('[class^="color"]');
-   const nodeListLength = nodeList.length;
-   array = Array(nodeListLength);
-   for(let i = 0; i < nodeListLength; i++){
-    // console.log(i);
-    array[i] = nodeList[i].style.background;
-   };
-   setArray = new Set(array);
-//    console.log(arr);
-//    console.log(setArray);
-   console.log(array);
-   console.log(`nodeLisr: ${nodeList.length}`);
-   console.log(`arr: ${array.length}`);
-   console.log(`setArray: ${setArray.size}`);
-//    return [array,setArray];
 };
 
 function setRandomColors(){
