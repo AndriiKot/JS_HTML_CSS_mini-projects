@@ -228,9 +228,10 @@ function getRandomColroUnion(){
     b = randomValueRange();
     array = [r,g,b];
     if(!isUnionColor(r,g,b)){
+        test();
         array = getRandomColroUnion();
     };
-    test();
+    // test();
     return array;
 }; 
 
@@ -255,8 +256,8 @@ function test(arr,setArray){
    const nodeList = document.querySelectorAll('[class^="color"]')
    arr = Array.from(nodeList);
    setArray = new Set(arr);
-   console.log(arr);
-   console.log(setArray);
+//    console.log(arr);
+//    console.log(setArray);
    console.log(`arr: ${arr.length}`);
    console.log(`setArray: ${setArray.size}`);
 };
