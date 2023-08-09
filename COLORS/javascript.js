@@ -7,7 +7,7 @@ const startButton = document.querySelector('.start');
 const allOpenLockButton = document.querySelector('.all-open-lock');
 const select = colorModel;
 let saveNodeListLock = null;
-let saveValues = null;
+let saveValues = null; 
 let returnCallSubmit = false;
 let isdisabled = false;
 const maxValueColorInt = 255;
@@ -32,7 +32,7 @@ function allOpenLock(){
 };
 
 function getNodeListLock(){
-    const nodeList = document.querySelectorAll('.fa-solid')
+    const nodeList = document.querySelectorAll('.fa-solid');
     return nodeList;
 };
 
@@ -71,7 +71,7 @@ function clockEvent(){
      if(lock.className.includes('open')){
          lock.className = 'fa-solid fa-lock';
      } else {
-         lock.className = 'fa-solid fa-lock-open'
+         lock.className = 'fa-solid fa-lock-open';
      };
      isdisabledInput();
      isdisabledButtonStart();
@@ -231,15 +231,15 @@ function getRandomColroUnion(){
         array = getRandomColroUnion();
     };
     return array;
-};
+}; 
 
 function isUnionColor(r,g,b){
     const nodeListColors = document.querySelectorAll('[class^="color"]');
     let str = `rgb(${r}, ${g}, ${b})`;
     let boolean;
-    for(let i = 0; i < nodeListColors.length; i++){
+    const nodeListLength = nodeListColors.length;
+    for(let i = 0; i < nodeListLength; i++){
         if(nodeListColors[i].style.background === str){
-            console.log("not uNion")
             boolean = false;
             break;
         } else {
