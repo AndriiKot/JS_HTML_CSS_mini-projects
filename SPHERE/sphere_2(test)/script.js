@@ -3,7 +3,6 @@
 const body = document.body;
 const buttonStart = document.querySelector('.start');
 const container = document.querySelector('.container');
-let nIntervId;
 
 buttonStart.addEventListener('click',createGridElements);
 
@@ -16,11 +15,11 @@ function createGridElement(number = 0) {
   return gridElement;
 };
 
-function createGridElements(event,numberOfElements = 0) {
-
+function createGridElements(numberOfElements = 0) {
+ 
  const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
  
- if(validValues(x,y)) { console.log("Hello!"); return; };
+ if(validValues(x,y)) { return; };
 
  numberOfElements = x * y;
 
@@ -35,23 +34,23 @@ function createGridElements(event,numberOfElements = 0) {
     --rep: ${x};
     --gap: ${sizeGap}px;
   `
-}));
+  }));
 
- let fullElements = ``;  
+  let fullElements = ``;  
 
- for(let i = 1; i <= numberOfElements; i++){
-  const element = createGridElement(i);
+  for(let i = 1; i <= numberOfElements; i++){
+    const element = createGridElement(i);
 
-  fullElements += element;
- };
+    fullElements += element;
+  };
 
- container.innerHTML = fullElements;
-
- const elements = document.querySelectorAll('.box-animation');
-
- for(let i=0; elements.length > i; i++){
-  animation_rotate_interval(elements[i]);
- };
+  container.innerHTML = fullElements;
+  
+  const elements = document.querySelectorAll('.box-animation');
+  
+  for(let i=0; elements.length > i; i++){
+    calc_animation_rotate(elements[i]);
+  };
 
 };
 
@@ -59,7 +58,6 @@ function randomInteger(min,max){
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
 };
-
 
 function randomValueRange(){
    return randomInteger(0,255);
@@ -77,11 +75,9 @@ function color() {
   return `rgb(${r},${g},${b})`;
 };
 
-function animation_rotate_interval(element,deg = getDEG(),str = getSTR()) {
-  nIntervId = setInterval(() =>{calc_animation_rotate(element,deg,str)},100);
-};
-
 function calc_animation_rotate(element,deg,str,final_str = ''){
+  deg = getDEG();
+  str = getSTR();
   final_str = `linear-gradient(${deg}deg,${str}`;
   final_str = final_str.slice(0,final_str.length-1)+')';
   element.style.background = final_str;
@@ -107,7 +103,6 @@ function getSTR(color_end ='transparent',
   let procent_width_line = 0;
   let str = '';
   
-  
   let i = 0;
   
   for (;procent_width_line <= max_procent_width_line;i++){
@@ -126,6 +121,7 @@ function validValues(x,y){
   return true;
  };
 };
+
 
 
   
