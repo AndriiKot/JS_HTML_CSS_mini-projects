@@ -51,7 +51,10 @@ function createGridElements(numberOfElements = 0) {
   for(let i=0; elements.length > i; i++){
     calc_animation_rotate(elements[i]);
   };
-
+  // console.log("HELLO!!!")
+  while(true){
+    console.log("HI!!!")
+  };
 };
 
 function randomInteger(min,max){
