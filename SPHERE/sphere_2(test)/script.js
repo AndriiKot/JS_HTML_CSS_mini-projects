@@ -15,44 +15,45 @@ function createGridElement(number = 0) {
   return gridElement;
 };
 
+
 function createGridElements(numberOfElements = 0) {
- 
- const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
- 
- if(validValues(x,y)) { return; };
 
- numberOfElements = x * y;
-
- const sizeConrainer = window.innerWidth / Number(gridAxisX.value);
- const repeatGridView = (sizeConrainer * 0.9);
- const sizeGap = ((sizeConrainer - repeatGridView));
-
- (Object.assign(document.documentElement, {
-  style: `
-    --size-container: ${sizeConrainer}px;
-    --repeat-grid-view: ${repeatGridView}px;
-    --rep: ${x};
-    --gap: ${sizeGap}px;
-  `
-  }));
-
-  let fullElements = ``;  
-
-  for(let i = 1; i <= numberOfElements; i++){
-    const element = createGridElement(i);
-
-    fullElements += element;
-  };
-
-  container.innerHTML = fullElements;
-  
-  const elements = document.querySelectorAll('.box-animation');
-  
-  for(let i=0; elements.length > i; i++){
-    calc_animation_rotate(elements[i]);
-  };
-
-};
+    const [x,y] = [Number(gridAxisX.value),Number(gridAxisY.value)];
+    
+    if(validValues(x,y)) { return; };
+   
+    numberOfElements = x * y;
+   
+    const sizeConrainer = window.innerWidth / Number(gridAxisX.value);
+    const repeatGridView = (sizeConrainer * 0.9);
+    const sizeGap = ((sizeConrainer - repeatGridView));
+   
+    (Object.assign(document.documentElement, {
+     style: `
+       --size-container: ${sizeConrainer}px;
+       --repeat-grid-view: ${repeatGridView}px;
+       --rep: ${x};
+       --gap: ${sizeGap}px;
+     `
+     }));
+   
+     let fullElements = ``;  
+   
+     for(let i = 1; i <= numberOfElements; i++){
+       const element = createGridElement(i);
+   
+       fullElements += element;
+     };
+   
+     container.innerHTML = fullElements;
+     
+     const elements = document.querySelectorAll('.box-animation');
+     const sizeElements = elements.length;
+   
+     for(let i=0; sizeElements > i; i++){
+       calc_animation_rotate(elements[i]);
+     };
+}
 
 function randomInteger(min,max){
     let rand = min + Math.random() * (max + 1 - min);
@@ -120,8 +121,5 @@ function validValues(x,y){
   if((x > 10 || y > 10) || (x < 1 || y < 1)) { 
   return true;
  };
-};
-
-
-
+};  
   
