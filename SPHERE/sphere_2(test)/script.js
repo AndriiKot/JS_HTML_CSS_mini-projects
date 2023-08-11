@@ -1,7 +1,7 @@
-"use strict"
 
-document.addEventListener("DOMContentLoaded", function() {
-  
+function test3(){
+  "use strict"
+
   const body = document.body;
   const buttonStart = document.querySelector('.start');
   const container = document.querySelector('.container');
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
        };
       }
       if(firstckick){console.log(firstckick);firstckick = false; return test2}
-      return setTimeout(createGridElements,'200');
+      return setTimeout(createGridElements,'20000');
   
     };
   
@@ -144,6 +144,6 @@ document.addEventListener("DOMContentLoaded", function() {
     return true;
    };
   };  
-});
+};
 
   
