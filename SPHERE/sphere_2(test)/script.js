@@ -4,7 +4,6 @@ const body = document.body;
 const buttonStart = document.querySelector('.start');
 const container = document.querySelector('.container');
 
-buttonStart.addEventListener('click',createGridElements);
 
 function createGridElement(number = 0) {
   const gridElement = `
@@ -52,32 +51,19 @@ function createGridElements(numberOfElements = 0) {
   for(let i=0; sizeElements > i; i++){
     calc_animation_rotate(elements[i]);
   };
-  console.log("Hi!!!");
-  let int_1 = 0;
 
-
-  while(sizeElements > 0){
-    // for(let i=0; sizeElements > i; i++){
-    //   // console.log(elements[i]);
-    //   elements[i].style.transform = `rotate(${int_1}deg)`;
-    // };
-    console.log("GG")
-    console.log(sizeElements);
-  }
-  console.log("End ")
 };
 
-function test(){
-  let int_1 = 0;
-
-  while(true){
-    for(let i=0; elements.length > i; i++){
-      elements[i].style.transform = `rotate(${int_1}deg)`;
-      int_1 += 1;
-      console.log(int_1);
-      if(int_1 === 360){console.log("YO");int_1 = 0};
-    };  
-  };
+function test(int){
+    console.log(int)
+  // while(true){
+  //   for(let i=0; elements.length > i; i++){
+  //     elements[i].style.transform = `rotate(${int}deg)`;
+  //     int_1 += 1;
+  //     console.log(int_1);
+  //     if(int === 360){console.log("YO");int = 0};
+  //   };  
+  // };
 };
 
 function randomInteger(min,max){
@@ -147,6 +133,9 @@ function validValues(x,y){
   return true;
  };
 };
+
+buttonStart.addEventListener('click',createGridElements);
+
 
 
 
