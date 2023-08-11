@@ -52,21 +52,19 @@ function createGridElements(numberOfElements = 0) {
   for(let i=0; sizeElements > i; i++){
     calc_animation_rotate(elements[i]);
   };
+  console.log("Hi!!!");
   let int_1 = 0;
 
-  if(sizeElements > 0){
-    console.log("HI!!!");
-    while(true){ console.log("FFF")};
-    // while(true){
-    //   for(let i=0; elements.length > i; i++){
-    //     // elements[i].style.transform = `rotate(${int_1}deg)`;
-    //     int_1 += 1;
-    //     console.log(int_1);
-    //     if(int_1 === 360){console.log("YO");int_1 = 0};
-    //   };  
+
+  while(sizeElements > 0){
+    // for(let i=0; sizeElements > i; i++){
+    //   // console.log(elements[i]);
+    //   elements[i].style.transform = `rotate(${int_1}deg)`;
     // };
-  
+    console.log("GG")
+    console.log(sizeElements);
   }
+  console.log("End ")
 };
 
 function test(){
