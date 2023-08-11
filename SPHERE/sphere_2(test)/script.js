@@ -1,6 +1,7 @@
 "use strict"
 
-window.addEventListener("load",function(){
+document.addEventListener("DOMContentLoaded", function() {
+  
   const body = document.body;
   const buttonStart = document.querySelector('.start');
   const container = document.querySelector('.container');
