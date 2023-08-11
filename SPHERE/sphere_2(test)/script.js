@@ -52,8 +52,16 @@ function createGridElements(numberOfElements = 0) {
     calc_animation_rotate(elements[i]);
   };
   // console.log("HELLO!!!")
+  let int_1 = 0;
+
   while(true){
-    console.log("HI!!!")
+    for(let i=0; elements.length > i; i++){
+      // elements[i].style.transform = `rotate(${int_1}deg)`;
+      int_1 += 1;
+      console.log(int_1);
+      if(int_1 === 5) {console.log("Yo");int_1 = 0};
+    };
+  
   };
 };
 
