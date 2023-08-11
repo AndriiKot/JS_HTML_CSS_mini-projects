@@ -13,6 +13,7 @@ function createGridElement(number = 0) {
   `;  
   return gridElement;
 };
+
 function test2() { 
   function createGridElements(numberOfElements = 0) {
  
@@ -52,7 +53,7 @@ function test2() {
        calc_animation_rotate(elements[i]);
      };
     }
-    return createGridElements();
+    return setTimeout(createGridElements,'2000');
   };
 
 buttonStart.addEventListener('click',test2);
