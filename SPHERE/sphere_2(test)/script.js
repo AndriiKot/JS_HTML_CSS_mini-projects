@@ -47,21 +47,27 @@ function createGridElements(numberOfElements = 0) {
   container.innerHTML = fullElements;
   
   const elements = document.querySelectorAll('.box-animation');
-  
-  for(let i=0; elements.length > i; i++){
+  const sizeElements = elements.length;
+
+  for(let i=0; sizeElements > i; i++){
     calc_animation_rotate(elements[i]);
   };
+  if(sizeElements > 0){
+    console.log("HI!!!")
+  }
+};
+
+function test(){
   // console.log("HELLO!!!")
   let int_1 = 0;
 
   while(true){
     for(let i=0; elements.length > i; i++){
-      // elements[i].style.transform = `rotate(${int_1}deg)`;
+      elements[i].style.transform = `rotate(${int_1}deg)`;
       int_1 += 1;
       console.log(int_1);
-      if(int_1 === 5) {console.log("Yo");int_1 = 0};
-    };
-  
+      if(int_1 === 360){console.log("YO");int_1 = 0};
+    };  
   };
 };
 
