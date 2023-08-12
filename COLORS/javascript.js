@@ -24,7 +24,9 @@ function allOpenLock(){
     resetInputNumber();
 
     if(nodeList.length === 0) { return };
-    for(let i = 0; i < nodeList.length; i++){
+
+    const nodeListLength = nodeList.length;
+    for(let i = 0; i < nodeListLength; i++){
         if(nodeList[i].className === 'fa-solid fa-lock'){
             nodeList[i].className = 'fa-solid fa-lock-open';
         };
@@ -89,19 +91,23 @@ function getInputNumberNodeList(){
 
 function resetInputNumber(nodeList){
    nodeList = getInputNumberNodeList();
-   for(let i = 0; i < nodeList.length; i++){
+
+   const nodeListLength = nodeList.length;
+   for(let i = 0; i < nodeListLength; i++){
     nodeList[i].disabled = false;
    };
 };
 
 function isdisabledInput(){
     const lock = document.querySelectorAll('.fa-lock');
-    let disabled = getInputNumberNodeList();
+    const disabled = getInputNumberNodeList();
+    const nodeListLength = disabled.length;
+
     if(lock.length){ isdisabled = true; 
     } else {
         isdisabled = false;
     };
-    for(let i = 0; i < disabled.length; i++){
+    for(let i = 0; i < nodeListLength; i++){
         disabled[i].disabled = isdisabled;
     };
    return isdisabled = false;
@@ -196,9 +202,12 @@ function deleteDivWrapperToBody(){
 
 function createGridVIEW(){
     const nodelist = getNodeListDivColors();
+    const nodeListLength = nodelist.length;
+
     let statrIntRow = 1;
 
-    for(let i = 0; i < nodelist.length; i++){
+
+    for(let i = 0; i < nodeListLength; i++){
         const [column,row] = getNumberAsisXandY();
 
             nodelist[i].style.gridRowStart = `${statrIntRow}`;
@@ -251,8 +260,10 @@ function isUnionColor(r,g,b){
 
 function setRandomColors(){
     const nodeList = getNodeListDivColors();
+    const nodeListLength = nodeList.length;
+
     if(saveNodeListLock.length === 0) {
-        for(let i = 0;i < nodeList.length; i++) {
+        for(let i = 0;i < nodeListLength; i++) {
             const [r,g,b] = getRandomColroUnion();
             const col = nodeList[i];
             const valueTextRGB = col.querySelector('h3');
@@ -261,7 +272,7 @@ function setRandomColors(){
             colorText(col,r,g,b);
         };
     }  else {
-        for(let i = 0;i < nodeList.length; i++) {
+        for(let i = 0;i < nodeListLength; i++) {
             const oldElement =  saveNodeListLock[i];
             const col = nodeList[i];
             const valueTextRGB = col.querySelector('h3');
