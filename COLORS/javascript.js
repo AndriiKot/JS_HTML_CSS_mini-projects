@@ -71,7 +71,11 @@ function test(){
     console.log(colorBlocks);
     console.log(lengthNodeList);
     for(let i = 0; lengthNodeList > i; i++){
+        const block = colorBlocks[i];
         console.log(colorBlocks[i].style.background);
+        block.addEventListener('mousemove', (e) => {
+            console.log(e.clientX);
+        })
     }
 };
 
