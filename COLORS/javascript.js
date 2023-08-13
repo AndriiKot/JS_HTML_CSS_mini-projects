@@ -65,6 +65,11 @@ function build() {
     clockEvent();
 };
 
+function test(){
+    const colorBlocks = getNodeListColorElements();
+    console.log(colorBlocks);
+};
+
 function clockEvent(){
    const locks = document.querySelectorAll('.lock');
 
@@ -493,6 +498,8 @@ function rgbComponentsToHex(red,green,blue) {
 function rgbToHex(arrayColorsRGB) {
     return "" + arrayColorsRGB[0] + arrayColorsRGB[1] + arrayColorsRGB[2];
 };
+
+
 
 
 
