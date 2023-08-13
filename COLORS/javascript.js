@@ -67,7 +67,9 @@ function build() {
 
 function test(){
     const colorBlocks = getNodeListColorElements();
+    const lengthNodeList = colorBlocks.length;
     console.log(colorBlocks);
+    console.log(lengthNodeList);
 };
 
 function clockEvent(){
