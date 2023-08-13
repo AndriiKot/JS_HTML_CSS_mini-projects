@@ -65,6 +65,19 @@ function build() {
     clockEvent();
 };
 
+function test(){
+    const colorBlocks = getNodeListColorElements();
+    const lengthNodeList = colorBlocks.length;
+    for(let i = 0; lengthNodeList > i; i++){
+        const block = colorBlocks[i];
+        block.addEventListener('mousemove', (e) => {
+           const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
+           const [h,s,l] = (RGBToHSL(r,g,b));
+        block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`;
+        })
+    }
+};
+
 function clockEvent(){
    const locks = document.querySelectorAll('.lock');
 
@@ -400,7 +413,7 @@ function setColorModel(_,element,red,green,blue){
         h = Math.round(h);
         s = Math.round(s);
         l = Math.round(l);
-        return element.innerText = fixationDivColor(`hsl(${h},${s}%,${l}%)`) // `hsl(${h},${s}%,${l}%)`;
+        return element.innerText = fixationDivColor(`hsl(${h},${s}%,${l}%)`)
     };
 };
 
@@ -493,6 +506,8 @@ function rgbComponentsToHex(red,green,blue) {
 function rgbToHex(arrayColorsRGB) {
     return "" + arrayColorsRGB[0] + arrayColorsRGB[1] + arrayColorsRGB[2];
 };
+
+
 
 
 
