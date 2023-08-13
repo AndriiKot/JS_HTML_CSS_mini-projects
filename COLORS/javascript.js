@@ -74,7 +74,7 @@ function test(){
         const block = colorBlocks[i];
         console.log(colorBlocks[i].style.background);
         block.addEventListener('mousemove', (e) => {
-            console.log(e.clientX);
+           console.log(block.style.backgroundColor);
         })
     }
 };
@@ -337,11 +337,13 @@ function noRESTARBackground(fn){
 
 
 function getComponentsRGBColorsArray(element = ''){
+    // const array = new Array (3);
     const array = [];
     const reg = (/(-?\d+(\.\d+)?)/g) 
     const newString = element.match(reg);
     const [r,g,b] = [newString[0],newString[1],newString[2]];
     array.push(r,g,b);
+    console.log(array.length);
     return array;
 };
 
