@@ -76,14 +76,14 @@ function test(){
         block.addEventListener('mousemove', (e) => {
            console.log(block.style.backgroundColor);
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
-           console.log(r,g,b)
+        //    console.log(r,g,b)
            const [h,s,l] = (RGBToHSL(r,g,b));
-           console.log(h,s,l);
-           console.log(typeof h)
-           console.log(block.style.background = `hsl(${h}, ${s}%, ${l}%)`);
-           
-          console.log(block.style.background = `hsl(${h}, ${s * 1}%, ${l * 1}%)`)
-
+        //    console.log(h,s,l);
+        //    console.log(typeof h)
+        console.log("=".repeat(33))
+         console.log(block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`);
+        //  console.log(block.style.background = `hsl(${h}, ${s}%, ${l}%)`)
+         console.log("=".repeat(33))
         })
     }
 };
