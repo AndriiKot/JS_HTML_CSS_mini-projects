@@ -77,8 +77,13 @@ function test(){
            console.log(block.style.backgroundColor);
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
            console.log(r,g,b)
-           console.log(RGBToHSL(r,g,b))
+           const [h,s,l] = (RGBToHSL(r,g,b));
+           console.log(h,s,l);
+           console.log(typeof h)
+           console.log(block.style.background = `hsl(${h}, ${s}%, ${l}%)`);
            
+          console.log(block.style.background = `hsl(${h}, ${s * 1}%, ${l * 1}%)`)
+
         })
     }
 };
@@ -418,7 +423,7 @@ function setColorModel(_,element,red,green,blue){
         h = Math.round(h);
         s = Math.round(s);
         l = Math.round(l);
-        return element.innerText = fixationDivColor(`hsl(${h},${s}%,${l}%)`) // `hsl(${h},${s}%,${l}%)`;
+        return element.innerText = fixationDivColor(`hsl(${h},${s}%,${l}%)`)
     };
 };
 
