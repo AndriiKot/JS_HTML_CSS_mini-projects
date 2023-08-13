@@ -70,6 +70,9 @@ function test(){
     const lengthNodeList = colorBlocks.length;
     console.log(colorBlocks);
     console.log(lengthNodeList);
+    for(let i = 0; lengthNodeList > i; i++){
+        console.log('test')
+    }
 };
 
 function clockEvent(){
