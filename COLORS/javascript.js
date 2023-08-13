@@ -71,7 +71,7 @@ function test(){
     console.log(colorBlocks);
     console.log(lengthNodeList);
     for(let i = 0; lengthNodeList > i; i++){
-        console.log('test')
+        console.log(colorBlocks[i]);
     }
 };
 
