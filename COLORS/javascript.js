@@ -68,22 +68,12 @@ function build() {
 function test(){
     const colorBlocks = getNodeListColorElements();
     const lengthNodeList = colorBlocks.length;
-    // console.log(colorBlocks);
-    // console.log(lengthNodeList);
     for(let i = 0; lengthNodeList > i; i++){
         const block = colorBlocks[i];
-        // console.log(colorBlocks[i].style.background);
         block.addEventListener('mousemove', (e) => {
-           console.log(block.style.backgroundColor);
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
-        //    console.log(r,g,b)
            const [h,s,l] = (RGBToHSL(r,g,b));
-        //    console.log(h,s,l);
-        //    console.log(typeof h)
-        console.log("=".repeat(33))
-         console.log(block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`);
-        //  console.log(block.style.background = `hsl(${h}, ${s}%, ${l}%)`)
-         console.log("=".repeat(33))
+        block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`;
         })
     }
 };
