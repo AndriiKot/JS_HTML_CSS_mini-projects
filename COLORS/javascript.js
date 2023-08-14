@@ -75,13 +75,15 @@ function test(){
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
            const [h,s,l] = (RGBToHSL(r,g,b));
         block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`;
-        test2(e);
+        test2(e,r,g,b);
         })
     }
 };
 
 function test2(e,r,g,b){
     console.log(e.currentTarget);
+    console.log(r,g,b)
+    e.currentTarget.style.background = `rgb(${r}, ${g}, ${b})`
 };
 
 function clockEvent(){
