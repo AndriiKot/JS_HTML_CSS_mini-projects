@@ -72,17 +72,12 @@ function test(){
     for(let i = 0; lengthNodeList > i; i++){
         const block = colorBlocks[i];
         block.addEventListener('mouseover', (e) => {
-        e.currentTarget.addEventListener('mousemove', (e) => {
-           console.log(block.background);
 
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
-           const oldbackgorundstring = [`rgb(${r}, ${g}, ${b})`];
-           console.log(oldbackgorundstring);
            const [h,s,l] = (RGBToHSL(r,g,b));
         block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`;
         test2(e,oldbackgorundstring);
         })
-    })
     }
 };
 
