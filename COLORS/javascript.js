@@ -71,18 +71,26 @@ function test(){
     const lengthNodeList = colorBlocks.length;
     for(let i = 0; lengthNodeList > i; i++){
         const block = colorBlocks[i];
+        let callmethod = false;
+        let oldbackground;
         block.addEventListener('mouseover', (e) => {
+           if(!callmethod) { callmethod = true;
+          oldbackground = test2(e) };
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
            const [h,s,l] = (RGBToHSL(r,g,b));
-        block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`;
+        
+        block.style.background = `hsl(${h}, ${s*1.5}%, ${l}%)`;
+
+        })
+        block.addEventListener('mouseout', (e) => {
+            block.style.background = oldbackground;
         })
     }
 };
 
 function test2(e,olgvalue){
-    console.log(e.currentTarget);
-    console.log(olgvalue);
-    // e.currentTarget.style.background = `rgb(${r}, ${g}, ${b})`;
+    console.log("HI test2")
+    return e.currentTarget.style.background;
 };
 
 function clockEvent(){
