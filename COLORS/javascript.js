@@ -74,13 +74,19 @@ function test(){
         let callmethod = false;
         let oldbackground;
         block.addEventListener('mouseover', (e) => {
-           if(!callmethod) { oldbackground = test2(e) };
-           callmethod = true;
-           console.log(oldbackground)
+           if(!callmethod) { callmethod = true;
+          oldbackground = test2(e) };
+        //    console.log(oldbackground)
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
            const [h,s,l] = (RGBToHSL(r,g,b));
+        
         block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`;
+        //console.log(oldbackground)
+        // block.addEventListener('mouseout', (e) = {(console.log(e))})
 
+        })
+        block.addEventListener('mouseout', (e) => {
+            block.style.background = oldbackground;
         })
     }
 };
@@ -90,7 +96,7 @@ function test2(e,olgvalue){
     // console.log(e)
     // console.log(olgvalue)
     // return true;
-    console.log(e.currentTarget.style.background)
+    // console.log(e.currentTarget.style.background)
     return e.currentTarget.style.background;
 
     // console.log(e.currentTarget);
