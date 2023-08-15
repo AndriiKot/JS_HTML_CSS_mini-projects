@@ -76,13 +76,10 @@ function test(){
         block.addEventListener('mouseover', (e) => {
            if(!callmethod) { callmethod = true;
           oldbackground = test2(e) };
-        //    console.log(oldbackground)
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
            const [h,s,l] = (RGBToHSL(r,g,b));
         
-        block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`;
-        //console.log(oldbackground)
-        // block.addEventListener('mouseout', (e) = {(console.log(e))})
+        block.style.background = `hsl(${h}, ${s*1.5}%, ${l}%)`;
 
         })
         block.addEventListener('mouseout', (e) => {
@@ -93,16 +90,7 @@ function test(){
 
 function test2(e,olgvalue){
     console.log("HI test2")
-    // console.log(e)
-    // console.log(olgvalue)
-    // return true;
-    // console.log(e.currentTarget.style.background)
     return e.currentTarget.style.background;
-
-    // console.log(e.currentTarget);
-    // console.log(e.currentTarget.style.background)
-    // console.log(olgvalue);
-    // e.currentTarget.style.background = `rgb(${r}, ${g}, ${b})`;
 };
 
 function clockEvent(){
