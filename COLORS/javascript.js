@@ -86,6 +86,7 @@ function test(){
 function test2(e,olgvalue){
     console.log("HI test2")
     console.log(e.currentTarget);
+    console.log(e.currentTarget.style.background)
     // console.log(olgvalue);
     // e.currentTarget.style.background = `rgb(${r}, ${g}, ${b})`;
 };
