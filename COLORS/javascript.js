@@ -73,7 +73,7 @@ function test(){
         const block = colorBlocks[i];
         let callmethod = false
         block.addEventListener('mouseover', (e) => {
-           if(!callmethod) { test2()};
+           if(!callmethod) { test2(e)};
            callmethod = true;
 
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
@@ -85,7 +85,7 @@ function test(){
 
 function test2(e,olgvalue){
     console.log("HI test2")
-    // console.log(e.currentTarget);
+    console.log(e.currentTarget);
     // console.log(olgvalue);
     // e.currentTarget.style.background = `rgb(${r}, ${g}, ${b})`;
 };
