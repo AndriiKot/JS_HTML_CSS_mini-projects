@@ -71,17 +71,24 @@ function test(){
     const lengthNodeList = colorBlocks.length;
     for(let i = 0; lengthNodeList > i; i++){
         const block = colorBlocks[i];
+        let callmethod = false
         block.addEventListener('mouseover', (e) => {
+           if(callmethod) { test2()};
            const [r,g,b] = (getComponentsRGBColorsArray(getRGBColorString(block)));
            const [h,s,l] = (RGBToHSL(r,g,b));
         block.style.background = `hsl(${h*2}, ${s}%, ${l}%)`;
+        console.dir(block);
+        console.log(HTMLDivElement);
+        console.dir(HTMLDivElement)
+        
         })
     }
 };
 
 function test2(e,olgvalue){
-    console.log(e.currentTarget);
-    console.log(olgvalue);
+    console.log("HI test2")
+    // console.log(e.currentTarget);
+    // console.log(olgvalue);
     // e.currentTarget.style.background = `rgb(${r}, ${g}, ${b})`;
 };
 
