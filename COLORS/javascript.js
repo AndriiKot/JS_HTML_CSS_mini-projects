@@ -40,12 +40,13 @@ function allCloseLock() {
     const nodeListLength = nodeList.length;
 
     if(nodeListLength === 0) { console.log("allCloseLock!!!"); return };
-    const openLock = document.getElementsByClassName('fa-lock-open');
+    const openLock = [...document.getElementsByClassName('fa-lock-open')];
+    console.log(typeof(openLock))
     for(let i = 0; i < nodeListLength; i++){
-        // openLock[i].className = 'fa-solid fa-lock';
+        openLock[i].className = 'fa-solid fa-lock';
         console.log(openLock[i])
     }
-    startButton.disabled = true;
+    // startButton.disabled = true;
 };
 
 function getNodeListLock(){
