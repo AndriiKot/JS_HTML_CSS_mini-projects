@@ -19,7 +19,6 @@ forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
 allOpenLockButton.addEventListener('click', allOpenLock);
 allCloseLockButton.addEventListener('click', allCloseLock);
-console.log(allCloseLockButton);
 
 function allOpenLock(){
     const nodeList = getNodeListLock();
@@ -38,8 +37,11 @@ function allOpenLock(){
 
 function allCloseLock() {
     const nodeList = getNodeListLock();
-    if(nodeList.length === 0) { console.log("allCloseLock!!!"); return };
+    const nodeListLength = nodeList.length;
 
+    if(nodeListLength === 0) { console.log("allCloseLock!!!"); return };
+    const closeLock = document.getElementsByClassName('fa-lock');
+    console.log(closeLock);
     startButton.disabled = true;
 };
 
