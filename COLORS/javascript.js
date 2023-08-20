@@ -41,7 +41,9 @@ function allCloseLock() {
 
     if(nodeListLength === 0) { console.log("allCloseLock!!!"); return };
     const closeLock = document.getElementsByClassName('fa-lock');
-    console.log(closeLock);
+    for(let i = 0; i < nodeListLength; i++){
+        closeLock[i].className = 'fa-solid fa-lock';
+    }
     startButton.disabled = true;
 };
 
