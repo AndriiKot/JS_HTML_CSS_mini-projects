@@ -5,6 +5,7 @@ const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const startButton = document.querySelector('.start');
 const allOpenLockButton = document.querySelector('.all-open-lock');
+const allCloseLockButton = document.querySelector('.all-close-lock')
 const select = colorModel;
 let saveNodeListLock = null;
 let saveValues = null; 
@@ -12,11 +13,13 @@ let returnCallSubmit = false;
 let isdisabled = false;
 const maxValueColorInt = 255;
 const minValueColorInt = 0;
+let isAllLockClose = false
 
 
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
 allOpenLockButton.addEventListener('click', allOpenLock);
+allCloseLockButton.addEventListener('click', allCloseLock);
 
 function allOpenLock(){
     const nodeList = getNodeListLock();
@@ -31,6 +34,23 @@ function allOpenLock(){
             nodeList[i].className = 'fa-solid fa-lock-open';
         };
     };
+};
+
+function allCloseLock() {
+    if (isAllLockClose) { return };
+    const nodeList = getNodeListLock();
+    const nodeListLength = nodeList.length;
+
+    if(nodeListLength === 0) { return };
+    const openLock = [...document.getElementsByClassName('fa-lock-open')];
+    console.log(typeof(openLock))
+    for(let i = 0; i < nodeListLength; i++){
+        openLock[i].className = 'fa-solid fa-lock';
+    }
+    startButton.disabled = true;
+    gridAxisX.disabled = true;
+    gridAxisY.disabled = true;
+    isAllLockClose = true;
 };
 
 function getNodeListLock(){
