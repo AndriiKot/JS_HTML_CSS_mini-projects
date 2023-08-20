@@ -5,6 +5,7 @@ const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const startButton = document.querySelector('.start');
 const allOpenLockButton = document.querySelector('.all-open-lock');
+const allCloseLockButton = document.querySelector('.all-close-lock')
 const select = colorModel;
 let saveNodeListLock = null;
 let saveValues = null; 
@@ -17,6 +18,8 @@ const minValueColorInt = 0;
 forms.addEventListener('submit',callsubmit);
 resetButton.addEventListener('click',reset);
 allOpenLockButton.addEventListener('click', allOpenLock);
+allCloseLockButton.addEventListener('click', allCloseLock);
+console.log(allCloseLockButton);
 
 function allOpenLock(){
     const nodeList = getNodeListLock();
@@ -31,6 +34,13 @@ function allOpenLock(){
             nodeList[i].className = 'fa-solid fa-lock-open';
         };
     };
+};
+
+function allCloseLock() {
+    const nodeList = getNodeListLock();
+    if(nodeList.length === 0) { console.log("allCloseLock!!!"); return };
+
+    startButton.disabled = true;
 };
 
 function getNodeListLock(){
