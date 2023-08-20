@@ -13,6 +13,7 @@ let returnCallSubmit = false;
 let isdisabled = false;
 const maxValueColorInt = 255;
 const minValueColorInt = 0;
+let isAllLockClose = false
 
 
 forms.addEventListener('submit',callsubmit);
@@ -36,17 +37,20 @@ function allOpenLock(){
 };
 
 function allCloseLock() {
+    if (isAllLockClose) { return };
     const nodeList = getNodeListLock();
     const nodeListLength = nodeList.length;
 
-    if(nodeListLength === 0) { console.log("allCloseLock!!!"); return };
+    if(nodeListLength === 0) { return };
     const openLock = [...document.getElementsByClassName('fa-lock-open')];
     console.log(typeof(openLock))
     for(let i = 0; i < nodeListLength; i++){
         openLock[i].className = 'fa-solid fa-lock';
-        console.log(openLock[i])
     }
-    // startButton.disabled = true;
+    startButton.disabled = true;
+    gridAxisX.disabled = true;
+    gridAxisY.disabled = true;
+    isAllLockClose = true;
 };
 
 function getNodeListLock(){
