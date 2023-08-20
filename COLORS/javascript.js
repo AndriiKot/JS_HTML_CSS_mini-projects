@@ -13,7 +13,7 @@ let returnCallSubmit = false;
 let isdisabled = false;
 const maxValueColorInt = 255;
 const minValueColorInt = 0;
-let isAllLockClose = false
+let isAllLockClose = false;
 
 
 forms.addEventListener('submit',callsubmit);
@@ -34,6 +34,7 @@ function allOpenLock(){
             nodeList[i].className = 'fa-solid fa-lock-open';
         };
     };
+     isAllLockClose = false;
 };
 
 function allCloseLock() {
@@ -43,7 +44,6 @@ function allCloseLock() {
 
     if(nodeListLength === 0) { return };
     const openLock = [...document.getElementsByClassName('fa-lock-open')];
-    console.log(typeof(openLock))
     for(let i = 0; i < nodeListLength; i++){
         openLock[i].className = 'fa-solid fa-lock';
     }
@@ -109,7 +109,6 @@ function test(){
 };
 
 function test2(e,olgvalue){
-    console.log("HI test2")
     return e.currentTarget.style.background;
 };
 
@@ -172,7 +171,7 @@ function isdisabledButtonStart(){
         startButton.disabled = false;
     };
 
-    if(openLock.length === 0){startButton.disabled = true};
+    if(openLock.length === 0){isAllLockClose = true;startButton.disabled = true};
 };
 
 function getNumberAsisXandY(){
