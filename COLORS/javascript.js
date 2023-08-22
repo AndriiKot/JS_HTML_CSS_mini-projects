@@ -5,7 +5,7 @@ const forms = createRandomGridElements;
 const resetButton = document.querySelector('.reset');
 const startButton = document.querySelector('.start');
 const allOpenLockButton = document.querySelector('.all-open-lock');
-const allCloseLockButton = document.querySelector('.all-close-lock')
+const allCloseLockButton = document.querySelector('.all-close-lock');
 const select = colorModel;
 let saveNodeListLock = null;
 let saveValues = null; 
@@ -32,10 +32,10 @@ function allOpenLock(){
     for(let i = 0; i < nodeListLength; i++){
         if(nodeList[i].className === 'fa-solid fa-lock'){
             nodeList[i].className = 'fa-solid fa-lock-open';
-        };
-    };
+        }
+    }
      isAllLockClose = false;
-};
+}
 
 function allCloseLock() {
     if (isAllLockClose) { return };
@@ -51,12 +51,12 @@ function allCloseLock() {
     gridAxisX.disabled = true;
     gridAxisY.disabled = true;
     isAllLockClose = true;
-};
+}
 
 function getNodeListLock(){
     const nodeList = document.querySelectorAll('.fa-solid');
     return nodeList;
-};
+}
 
 function reset(){
     resetInputNumber();
@@ -64,7 +64,7 @@ function reset(){
     gridAxisX.value = '';
     gridAxisY.value = '';
     deleteDivWrapperToBody();
-};
+}
 
 function callsubmit(event){
     returnCallSubmit = false;
@@ -75,7 +75,7 @@ function callsubmit(event){
     saveNodeListLock = getNodeListColorElements();
     build();
     saveValues = saveAllValues();
-};
+}
 
 function build() {
     deleteDivWrapperToBody();
@@ -84,7 +84,7 @@ function build() {
     setRandomColors();
     clockEvent();
     test();
-};
+}
 
 function test(){
     const colorBlocks = getNodeListColorElements();
@@ -106,11 +106,11 @@ function test(){
             block.style.background = oldbackground;
         })
     }
-};
+}
 
 function test2(e,olgvalue){
     return e.currentTarget.style.background;
-};
+}
 
 function clockEvent(){
    const locks = document.querySelectorAll('.lock');
@@ -121,20 +121,20 @@ function clockEvent(){
          lock.className = 'fa-solid fa-lock';
      } else {
          lock.className = 'fa-solid fa-lock-open';
-     };
+     }
      isdisabledInput();
      isdisabledButtonStart();
-   };
+   }
 
     locks.forEach(lock => {
         lock.addEventListener('click', handleClick);
-    });
-};
+    })
+}
 
 function getInputNumberNodeList(){
     const input = document.querySelectorAll('input[type="number"]');
     return input;
-};
+}
 
 function resetInputNumber(nodeList){
    nodeList = getInputNumberNodeList();
@@ -142,8 +142,8 @@ function resetInputNumber(nodeList){
    const nodeListLength = nodeList.length;
    for(let i = 0; i < nodeListLength; i++){
     nodeList[i].disabled = false;
-   };
-};
+   }
+}
 
 function isdisabledInput(){
     const lock = document.querySelectorAll('.fa-lock');
@@ -153,12 +153,12 @@ function isdisabledInput(){
     if(lock.length){ isdisabled = true; 
     } else {
         isdisabled = false;
-    };
+    }
     for(let i = 0; i < nodeListLength; i++){
         disabled[i].disabled = isdisabled;
-    };
+    }
    return isdisabled = false;
-};
+}
 
 
 function isdisabledButtonStart(){
@@ -172,34 +172,33 @@ function isdisabledButtonStart(){
     };
 
     if(openLock.length === 0){isAllLockClose = true;startButton.disabled = true};
-};
+}
 
 function getNumberAsisXandY(){
     const x = Number(gridAxisX.value) || 0;
     const y = Number(gridAxisY.value) || 0;
     return [x,y];
-};
+}
 
 function getArrayStringAsisXandY(){
     const x = gridAxisX.value;
     const y = gridAxisY.value;
     return [x,y];
-};
+}
 
 function getNumberOfElements() {
     const [x,y] = getNumberAsisXandY();
     return (x * y);
-};
+}
 
 function getDivContainerWrapper(){
    return document.querySelector('.wrapper');
-};
+}
 
 function getNodeListDivColors(){
     const nodeListGridElements = document.querySelectorAll("[class^='color-']");
     return nodeListGridElements;
-};
-
+}
 
 function createGridElement(number = 0) {
     const gridElement = `
@@ -211,7 +210,7 @@ function createGridElement(number = 0) {
       </div>
     `;  
     return gridElement;
-};
+}
 
 function createGridElements(numberOfElements) {
    numberOfElements = getNumberOfElements();
@@ -219,33 +218,33 @@ function createGridElements(numberOfElements) {
    for(let i = 1; i <= numberOfElements; i++){
     const element = createGridElement(i);
     fullElements += element;
-   };
+   }
    return fullElements;
-};
+}
 
 function createDivWrapper(nameClass='wrapper'){
     const wrapper = document.createElement('div');
     wrapper.className = nameClass;
     return wrapper;
-};
+}
 
 
 function addFullElementsToContainer(){
      const div = createDivWrapper();
      div.innerHTML= createGridElements();
      return div;
-};
+}
 
 function addDivWrapperToBody() {
     body.append(addFullElementsToContainer());
-};
+}
 
 function deleteDivWrapperToBody(){
     const divWrapper = document.querySelector('.wrapper');
     if(!divWrapper){ return};
     const parent = divWrapper.parentNode;
     parent.removeChild(divWrapper);
-};
+}
 
 function createGridVIEW(){
     const nodelist = getNodeListDivColors();
@@ -263,18 +262,18 @@ function createGridVIEW(){
                 statrIntRow = 1;
             } else {
                 statrIntRow += 1
-            };
-    };
-};
+            }
+    }
+}
 
 function randomInteger(min,max){
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
-};
+}
 
 function randomValueRange(){
    return randomInteger(minValueColorInt,maxValueColorInt);
-};
+}
 
 function getRandomColroUnion(){
     let r,g,b;
@@ -287,7 +286,7 @@ function getRandomColroUnion(){
         array = getRandomColroUnion();
     };
     return array;
-}; 
+}
 
 function isUnionColor(r,g,b){
     const nodeListColors = document.querySelectorAll('[class^="color"]');
@@ -300,10 +299,10 @@ function isUnionColor(r,g,b){
             break;
         } else {
             boolean = true;
-        };
-    };
+        }
+    }
     return boolean;
-};
+}
 
 function setRandomColors(){
     const nodeList = getNodeListDivColors();
@@ -317,41 +316,41 @@ function setRandomColors(){
             setColorModel(null,valueTextRGB,r,g,b);
             col.style.background = `rgb(${r},${g},${b})`;
             colorText(col,r,g,b);
-        };
+        }
     }  else {
         for(let i = 0;i < nodeListLength; i++) {
             const oldElement =  saveNodeListLock[i];
             const col = nodeList[i];
             const valueTextRGB = col.querySelector('h3');
             
-        if (oldElement){
-            if(oldElement.querySelector('i').className == 'fa-solid fa-lock'){
-                const [r,g,b] = getComponentsRGBColorsArray(getRGBColorString(oldElement));
-                const colLock = col.querySelector('.fa-solid')
-                col.style.background =  saveNodeListLock[i].style.background;
-                setColorModel(null,valueTextRGB,r,g,b);
-                colorText(col,r,g,b);
-                colLock.className = 'fa-solid fa-lock';
-            } else {
-                const [r,g,b] = getRandomColroUnion();
-                setColorModel(null,valueTextRGB,r,g,b);
-                col.style.background = `rgb(${r},${g},${b})`;
-                colorText(col,r,g,b);
-            };
-        }  else {
-            const [r,g,b] = getRandomColroUnion();
-            setColorModel(null,valueTextRGB,r,g,b);
-            col.style.background = `rgb(${r},${g},${b})`;
-            colorText(col,r,g,b);
-        };
-        };
+          if (oldElement){
+              if(oldElement.querySelector('i').className == 'fa-solid fa-lock'){
+                  const [r,g,b] = getComponentsRGBColorsArray(getRGBColorString(oldElement));
+                  const colLock = col.querySelector('.fa-solid')
+                  col.style.background =  saveNodeListLock[i].style.background;
+                  setColorModel(null,valueTextRGB,r,g,b);
+                  colorText(col,r,g,b);
+                  colLock.className = 'fa-solid fa-lock';
+              } else {
+                  const [r,g,b] = getRandomColroUnion();
+                  setColorModel(null,valueTextRGB,r,g,b);
+                  col.style.background = `rgb(${r},${g},${b})`;
+                  colorText(col,r,g,b);
+              }
+          } else {
+              const [r,g,b] = getRandomColroUnion();
+              setColorModel(null,valueTextRGB,r,g,b);
+              col.style.background = `rgb(${r},${g},${b})`;
+              colorText(col,r,g,b);
+          }
+        }
     }
-};
+}
 
 function getRGBColorString(element) {
     const stringRGBValue = element.style.background;
     return stringRGBValue;
-};
+}
 
 function noRESTARBackground(fn){
     if(!fn) { return; };
@@ -360,13 +359,13 @@ function noRESTARBackground(fn){
     if(isOldValueSelectColorModelEqualsNew(oldColorModel)) { return; };
         if(!(isOldValueSelectColorModelEqualsNew(oldColorModel))){
             getRGBColorsToNodeListDivColors();     
-        };
+        }
 
         if(returnCallSubmit === true){
             returnCallSubmit = false;
-        };       
+        }      
         return returnCallSubmit;
-};
+}
 
 
 function getComponentsRGBColorsArray(element = ''){
@@ -376,15 +375,15 @@ function getComponentsRGBColorsArray(element = ''){
     const [r,g,b] = [newString[0],newString[1],newString[2]];
     array.push(r,g,b);
     return array;
-};
+}
 
 function getRGBColorsToNodeListDivColors(){
     getNodeListDivColors().forEach((element) => {
         const [red,green,blue] = getComponentsRGBColorsArray(getRGBColorString(element));
         const valueTextRGB = element.querySelector('h3');
         setColorModel(null,valueTextRGB,red,green,blue);
-    });
-};
+    })
+}
 
 function isDivWrapperContainer(){
   const boolean = getDivContainerWrapper();
@@ -392,23 +391,23 @@ function isDivWrapperContainer(){
     return false;
   } else {
     return true;
-  };
-};
+  }
+}
 
 function getIndexSelectColorModel(){
     const indexSelectColorModel = select.options.selectedIndex;
     return indexSelectColorModel;
-};
+}
 
 function isOldVauleAsisXandYeaylasNew(old = []){
     const newValue = getNumberAsisXandY();
     return (old.toString() === newValue.toString());
-};
+}
 
 function isOldValueSelectColorModelEqualsNew(old = 1){
     const newValue = getIndexSelectColorModel();
     return (old === newValue);
-};
+}
 
 function isValidValuesXandY(){
     const [validX,validY] = getArrayStringAsisXandY();
@@ -416,8 +415,8 @@ function isValidValuesXandY(){
         return true;
     } else {
         return false;
-    };
-};
+    }
+}
 
 function saveAllValues(){
     const arrAllValues = [];
@@ -425,31 +424,30 @@ function saveAllValues(){
     const saveArrStrXandY = getArrayStringAsisXandY();
     arrAllValues.push(saveIndexSelect,saveArrStrXandY);
     return arrAllValues;
-};
+}
 
 
 function getNodeListColorElements(){
     const nodeList = document.querySelectorAll('[class^="color"]');
     return nodeList;
-};
-
+}
 
 function setColorModel(_,element,red,green,blue){
     const value = select.options[getIndexSelectColorModel()].value;
     if(value === 'HEX') {
         return element.innerText = fixationDivColor((rgbToHex(rgbComponentsToHex(red,green,blue))));
-    };
+    }
     if(value === 'RGB') {
         return element.textContent = fixationDivColor(`rgb(${red},${green},${blue})`);
-    };
+    }
     if(value === 'HSL') {
         let [h,s,l] = RGBToHSL(red,green,blue);
         h = Math.round(h);
         s = Math.round(s);
         l = Math.round(l);
         return element.innerText = fixationDivColor(`hsl(${h},${s}%,${l}%)`)
-    };
-};
+    }
+}
 
 function fixationDivColor(str = ''){
     const length = str.length;
@@ -462,40 +460,39 @@ function fixationDivColor(str = ''){
         str =  evenNumberConcatString(maxMinusStrSize,str)
     } else {
         str = oddNumberConcatString(maxMinusStrSize,str);
-    };
-    
+    }  
     return str;
-};
+}
 
 function maxLengthMinusStrLength(max = maxLength,strLength = 0){
     const result = (max - strLength);
     return result;
-};
+}
 
 function resultDivModTwo(result = 2){
     return (result % 2);
-};
+}
 
 function isRemainderOfTheDivisionTwo(result){
     if(result === 0){
         return true;
     };
     return false;
-};
+}
 
 function evenNumberConcatString(result = 2,str = ''){
     const divTwo = result / 2;
     const concatStr = ' '.repeat(divTwo);
     str = concatStr + str + concatStr;
     return str;
-};
+}
 
 function oddNumberConcatString(result = 2,str = ''){
     const divTwo = Math.floor(result / 2);
     const concatStr = ' '.repeat(divTwo);
     str = concatStr + str + concatStr + ' ';
     return str;
-};
+}
 
 
 function colorText(element,r,g,b) {
@@ -505,7 +502,7 @@ function colorText(element,r,g,b) {
     const s = String(hsl[1]) + '%';
     const l = String(hsl[2]) + '%';
     element.style.color = `hsl(${h} ${s} ${l})`;
-};
+}
 
 function RGBToHSL(red, green, blue) {
     red /= 255; 
@@ -525,8 +522,8 @@ function RGBToHSL(red, green, blue) {
       60 * h < 0 ? 60 * h + 360 : 60 * h,
       100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
       (100 * (2 * l - s)) / 2,
-    ];
-};
+    ]
+}
 
 function rgbComponentsToHex(red,green,blue) {
     const r = Number(red).toString(16);
@@ -534,12 +531,12 @@ function rgbComponentsToHex(red,green,blue) {
     const b = Number(blue).toString(16);
     return [r.length == 1 ? "0" + r : r,
             g.length == 1 ? "0" + g : g,
-            b.length == 1 ? "0" + b : b];
-};
+            b.length == 1 ? "0" + b : b]
+}
 
 function rgbToHex(arrayColorsRGB) {
     return "" + arrayColorsRGB[0] + arrayColorsRGB[1] + arrayColorsRGB[2];
-};
+}
 
 
 
