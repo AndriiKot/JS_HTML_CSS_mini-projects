@@ -61,7 +61,7 @@ const createStars = (wrapper,numberOfelem) => {
 const addEventOnStars = (event,fn,nodeList) => {
   for(const item of nodeList){
       item.addEventListener(event,fn);
-  };
+  }
 };
 
 const getNodeListOfStars = () => {
@@ -109,7 +109,7 @@ const AddClassNameActiveStar = (event) => {
 const remove_class_name = (obj,class_name) => {
   for (const item of obj){
     item.classList.remove(class_name);
-  };
+  }
 };
 
 const removeClassNameActiveStar = () => {
@@ -125,12 +125,12 @@ const clickedOnStar = (e) => {
   const className = e.currentTarget.className;
   if (className.includes(main_active_star)){
     return;
-  };
+  }
 
   if (is_main_active_star === false){
     firstClickOnStar(e);
     return;
-  };
+  }
 
   removeClassNameActiveStar();
   AddClassNameActiveStar(e);
@@ -158,7 +158,7 @@ const quantityRangStars = (event) => {
   
   if(OldQuantityStars === NewQuantityStars){ 
     return;
-  };
+  }
 
   if(!is_main_active_star) {
     NewFullElement();
@@ -179,14 +179,14 @@ const quantityRangStars = (event) => {
       const nodeList = getNodeListOfStars();
       nodeList[nodeList.length - numberOfMainStar].classList.add(main_active_star);
       return;
-    };
+    }
       if(EventsActiveSatars){
       NewFullElement();
       const nodeList = getNodeListOfStars();
       nodeList[0].classList.add(main_active_star);  
       return;
-    }; 
-  }; 
+    } 
+  }
 };
 
 addEventOnButtonReset('click',clickedOnButtonReset,'.reset');

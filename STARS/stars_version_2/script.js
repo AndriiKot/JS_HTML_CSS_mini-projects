@@ -60,7 +60,7 @@ const createFullElement = (quantityStars = quantityStarsDefault) => {
   const nodeListStars = document.querySelectorAll('[class^="star"]');
   for(const item of nodeListStars){
     item.addEventListener("click",clickedOnStar);
-  };
+  }
 };
 
 const AddClassNameActiveStar = (event) => {
@@ -76,12 +76,12 @@ const clickedOnStar = (e) => {
   if (is_main_active_star === false){
     firstClickOnStar(e);
     return;
-  };
+  }
 
   const className = e.currentTarget.className;
   if (className.includes("main-active-star")){
     return;
-  };
+  }
 
 
   const active_star = document.querySelector('.main-active-star');
@@ -109,9 +109,9 @@ function clickSubmitButton(event) {
       let element = FullElement[0];
       if(element.classList.contains('main-active-star')){
          removeActivStar = true;
-      };
+      }
         FullElement[0].remove();
-     };
+     }
      if(removeActivStar){FullElement[0].classList.add('main-active-star')};
   } else {
     const wrapper = document.querySelector('.wrapper');
@@ -120,8 +120,8 @@ function clickSubmitButton(event) {
        const star = createStar(lengthElement + i + 1);
        wrapper.prepend(star);
        star.addEventListener("click",clickedOnStar);
-    };
-  };  
+    }
+  }  
 };
 
 
