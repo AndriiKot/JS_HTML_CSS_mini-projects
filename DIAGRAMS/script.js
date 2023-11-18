@@ -26,7 +26,7 @@ function defaultClockValue() {
   for(let i = 0; arrayButtonsColors.length > i; i++){
     arrayButtonsColors[i].children[1].style.display = 'none';
     arrayButtonsColors[i].children[0].style.display = 'inline-block';
-  };
+  }
 }
 
 
@@ -36,32 +36,32 @@ function closeAndOpenClock(e) {
   const clock = e.currentTarget.children[1];
   if(validInputColor() === false) {
     return;
-  };
+  }
 
   if (getComputedStyle(upclock).display == 'inline-block' || getComputedStyle(upclock).display == 'block' ) {
     upclock.style.display = 'none';
   } else {
    upclock.style.display = 'inline-block';
    arrayInputsVariables[arrayButtonsColors.indexOf(e.currentTarget)].disabled = false;
-  };
+  }
 
   if (getComputedStyle(clock).display == 'inline-block' || getComputedStyle(clock).display == 'block') {
     clock.style.display = 'none';
   } else {
     clock.style.display = 'inline-block';
-  };
-};
+  }
+}
 
 function randomValues(e) {
   randomValuesVALID();
-};
+}
 
 function randomValuesVALID() {
   for(let i = 0; i < arrayInputsVariables.length; i++){
     if(!arrayInputsVariables[i].disabled){ 
       arrayInputsVariables[i].value = randomInteger(0,255);
-    };
-  };
+    }
+  }
 };
 
 function resetValues() {
@@ -86,19 +86,19 @@ function buttonColorValueSave(buttonColor) {
   if(red.disabled === true && green.disabled === true && blue.disabled == true){
     buttonRandom.disabled = true;
     return;
-  };
+  }
 
   } else {
     return;
   }
- };
+ }
  return fn;
 };
 
 function validInputColor() {
   if(red.value == false && green.value == false && blue.value == false){
     return false;
-  };
+  }
   return true;
 }; 
 
@@ -151,7 +151,7 @@ const colorText = (element,r,g,b) => {
 const colorValid = (color) => {
   if(color >= 10 && color <= 255) {
     return color;
-  };
+  }
   return '0';
 };
 
@@ -250,8 +250,8 @@ class Diagram {
           );
           start_angle += slice_angle;
           color_index++;
-        };  
-    };
+        } 
+    }
 };
 
 const defaultColorValue = () => {

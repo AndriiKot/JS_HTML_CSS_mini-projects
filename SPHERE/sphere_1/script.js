@@ -43,7 +43,7 @@ function createGridElements(event,numberOfElements = 0) {
   const element = createGridElement(i);
 
   fullElements += element;
- };
+ }
 
  container.innerHTML = fullElements;
 
@@ -51,7 +51,7 @@ function createGridElements(event,numberOfElements = 0) {
 
  for(let i=0; elements.length > i; i++){
   animation_rotate_interval(elements[i]);
- };
+ }
 
 };
 
@@ -117,14 +117,14 @@ function getSTR(color_end ='transparent',
     
     str += compon_str +',';
     procent_width_line += step_procent_width_line;
-  };
+  }
   return str;
 };
 
 function validValues(x,y){
   if((x > 10 || y > 10) || (x < 1 || y < 1)) { 
   return true;
- };
+  }
 };
 
 
