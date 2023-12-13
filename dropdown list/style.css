@@ -1,1 +1,64 @@
-﻿
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: blueviolet;
+}
+
+.select-btn {
+    position: relative;
+    background-color: azure;
+    width: 400px;
+    margin: 130px auto 0;
+    border-radius: 8px;
+    height: 70px;
+    padding: 0 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    letter-spacing: 2px;
+    color:rgb(68, 11, 121);
+}
+
+span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.list-items {
+    display: none;
+    background-color: azure;
+    width: 400px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 30px auto 0;
+    color:rgb(68, 11, 121);
+}
+
+.item {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 13px 0 0 20px;
+    font-size: 1.2rem;
+    list-style-type: none;
+}
+
+.item div {
+    margin: 0 0 0 13px;
+}
+
+.item:last-child {
+    padding-bottom: 13px;
+}
+
+input {
+    transform:scale(1.5)
+}
+
+.open {
+    display: block;
+}
+
