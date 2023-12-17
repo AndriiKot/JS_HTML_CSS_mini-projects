@@ -9,7 +9,7 @@ const handleSelectButtonClick = (element, class_name) => {
 selectButton.addEventListener(
   "click",
   handleSelectButtonClick.bind(
-    handleSelectButtonClick,
+    this,
     dropDown,
     dropDownClassOpen
   )
