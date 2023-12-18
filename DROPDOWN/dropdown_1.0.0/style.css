@@ -57,17 +57,13 @@ path {
 .item {
     display: flex;
     flex-wrap: nowrap;
-    padding: 13px 0 0 20px;
+    padding: 13px 20px;
     font-size: 1.2rem;
     list-style-type: none;
 }
 
 .item div {
     margin: 0 0 0 13px;
-}
-
-.item:last-child {
-    padding-bottom: 13px;
 }
 
 input {
@@ -78,3 +74,6 @@ input {
     display: block;
 }
 
+li:hover {
+    background-color: rgba(20, 22, 22,0.2);
+}
