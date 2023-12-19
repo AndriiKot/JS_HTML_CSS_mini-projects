@@ -22,7 +22,20 @@ body {
     color:rgb(68, 11, 121);
 }
 
-span {
+.select-btn svg {
+    position: absolute;
+    top: 50%;
+    height: 40%;
+    transform: translateY(-50%);
+    right: 20px;
+    background-color: blueviolet;
+    border-radius: 50%;
+    padding: 5px;
+    transition: transform .25s linear;
+    fill: #fff;
+}
+
+.select-btn span {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -41,7 +54,7 @@ span {
 .item {
     display: flex;
     flex-wrap: nowrap;
-    padding: 13px 0 0 20px;
+    padding: 13px 20px;
     font-size: 1.2rem;
     list-style-type: none;
 }
@@ -50,15 +63,20 @@ span {
     margin: 0 0 0 13px;
 }
 
-.item:last-child {
-    padding-bottom: 13px;
-}
-
 input {
     transform:scale(1.5)
 }
 
-.open {
+
+.active {
     display: block;
+}
+
+.active svg {
+    transform: rotate(180deg) translateY(50%);
+}
+
+li:hover {
+    background-color: rgba(20, 22, 22,0.2);
 }
 

@@ -16,35 +16,6 @@ selectButton.addEventListener(
   handleSelectButtonClick(dropDown, dropDownClassOpen)
 );
 
-
-
-
-
-const newTextSelectButton = (el = selectButton.querySelector('.text-content')) => {
-  const nodeList = document.querySelectorAll(".item input");
-  const length = nodeList.length;
-  console.log(el)
-};
-
-const forEachNodeList = (list,fn) => {
-  let count = 0;
-  list.forEach((item) => {
-    fn(item);
-  })
-}
-
-const isFullStack = (list,length)  => {
-  forEachNodeList(list,(item) => { 
-  if (item.checked) {
-    count += 1
-  }})
-  
-};
-
-
-
-
-
 const toggleCheckbox = (e) => {
   const item_input = e.currentTarget.querySelector("input");
   if (e.target.nodeName === "INPUT") {
@@ -53,7 +24,6 @@ const toggleCheckbox = (e) => {
   if (item_input) {
     item_input.checked = !item_input.checked;
   }
-  newTextSelectButton();
 };
 
 liNodeList.forEach((li) => {
