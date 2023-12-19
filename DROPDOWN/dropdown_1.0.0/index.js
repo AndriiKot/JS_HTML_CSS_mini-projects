@@ -1,26 +1,34 @@
-﻿const selectButton = document.querySelector(".select-btn");
-const dropDown = document.querySelector(".list-items");
-const liNodeList = document.querySelectorAll(".item");
-const defaultButtonTextContent =
-  document.querySelector(".text-content").innerText;
-const selectButtonActive = "active";
-const dropDownExists = "exists";
+﻿const dropDownMainWrapper = document.querySelector(".wrapper");
 
-console.log(defaultButtonTextContent);
+const selectButton = dropDownMainWrapper.querySelector(".select-btn");
+const defaultButtonTextContent = selectButton.querySelector(".text-content").innerText;
+const selectButtonActiveClassName = "active";
 
-const handleSelectButtonClick = (element, addClass) => {
-  const fn = (event, el = element, c = addClass) => {
-    el.classList.toggle(c);
-    el.classList.toggle(dropDownExists);
-    event.currentTarget.classList.toggle(c);
-  };
-  return fn;
+const dropDown = dropDownMainWrapper.querySelector(".list-items");
+const liNodeList = dropDown.querySelectorAll(".item");
+const dropDownExistsClassName = "exists";
+
+const selectButtonActive = (
+  element = selectButton,
+  className = selectButtonActiveClassName
+) => {
+  element.classList.toggle(className);
 };
 
-selectButton.addEventListener(
-  "click",
-  handleSelectButtonClick(dropDown, selectButtonActive)
-);
+const dropDownExists = (
+  element = dropDown,
+  className = dropDownExistsClassName
+) => {
+  element.classList.toggle(className);
+};
+
+const handleSelectButtonClick = () => {
+    selectButtonActive();
+    dropDownExists();
+};
+
+
+selectButton.addEventListener("click", handleSelectButtonClick);
 
 const toggleCheckbox = (e) => {
   const item_input = e.currentTarget.querySelector("input");

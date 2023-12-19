@@ -71,10 +71,6 @@ input {
     transform:scale(1.5)
 }
 
-.active {
-    display: block;
-}
-
 .active svg {
     transform: rotate(180deg) translateY(50%);
 }
@@ -84,5 +80,5 @@ li:hover {
 }
 
 .exists{
-    background-color: red;
+    display: block;
 }
