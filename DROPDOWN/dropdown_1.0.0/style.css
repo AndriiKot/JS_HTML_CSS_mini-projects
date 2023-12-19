@@ -76,7 +76,7 @@ input {
 }
 
 .active svg {
-    transform: rotate(180deg) translateY(14px);
+    transform: rotate(180deg) translateY(50%);
 }
 
 li:hover {

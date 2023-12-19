@@ -20,22 +20,25 @@ selectButton.addEventListener(
 
 
 
-const newTextSelectButton = () => {
+const newTextSelectButton = (el = selectButton.querySelector('.text-content')) => {
   const nodeList = document.querySelectorAll(".item input");
   const length = nodeList.length;
-  nodeList.forEach((item_input) => {
-    console.log(item_input.value);
-  });
+  console.log(el)
 };
 
-const forEachNodeList = (list) => {
+const forEachNodeList = (list,fn) => {
+  let count = 0;
   list.forEach((item) => {
-
+    fn(item);
   })
 }
 
-const getTextFullStack = (list) => {
-
+const isFullStack = (list,length)  => {
+  forEachNodeList(list,(item) => { 
+  if (item.checked) {
+    count += 1
+  }})
+  
 };
 
 
@@ -43,12 +46,14 @@ const getTextFullStack = (list) => {
 
 
 const toggleCheckbox = (e) => {
-  if (e.target.nodeName === "INPUT") return;
   const item_input = e.currentTarget.querySelector("input");
+  if (e.target.nodeName === "INPUT") {
+    item_input.checked = !item_input.checked;
+  };
   if (item_input) {
     item_input.checked = !item_input.checked;
   }
-  newTextSelectButton(e);
+  newTextSelectButton();
 };
 
 liNodeList.forEach((li) => {
