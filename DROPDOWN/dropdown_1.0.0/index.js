@@ -8,27 +8,15 @@ const dropDown = dropDownMainWrapper.querySelector(".list-items");
 const liNodeList = dropDown.querySelectorAll(".item");
 const dropDownExistsClassName = "exists";
 
-const selectButtonActive = (
-  element = selectButton,
-  className = selectButtonActiveClassName
-) => {
+
+const handleSelectButtonClick = (element,className) => {
   element.classList.toggle(className);
 };
 
-const dropDownExists = (
-  element = dropDown,
-  className = dropDownExistsClassName
-) => {
-  element.classList.toggle(className);
-};
 
-const handleSelectButtonClick = () => {
-    selectButtonActive();
-    dropDownExists();
-};
+selectButton.addEventListener("click", handleSelectButtonClick.bind(this, selectButton, selectButtonActiveClassName));
+selectButton.addEventListener("click", handleSelectButtonClick.bind(this, dropDown, dropDownExistsClassName));
 
-
-selectButton.addEventListener("click", handleSelectButtonClick);
 
 const toggleCheckbox = (e) => {
   const item_input = e.currentTarget.querySelector("input");
