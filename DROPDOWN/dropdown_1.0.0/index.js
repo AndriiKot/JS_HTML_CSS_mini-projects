@@ -1,7 +1,10 @@
 ﻿const selectButton = document.querySelector(".select-btn");
 const dropDown = document.querySelector(".list-items");
 const liNodeList = document.querySelectorAll(".item");
+const defaultButtonTextContent = document.querySelector('.text-content').innerText;
 const dropDownClassOpen = "active";
+
+console.log(defaultButtonTextContent);
 
 const handleSelectButtonClick = (element, addClass) => {
   const fn = (event, el = element, c = addClass) => {
@@ -32,8 +35,11 @@ const toggleCheckbox = (e) => {
     }
   });
   const selectButtonTextContent = document.querySelector(".text-content");
-  if (item_input) {
+  if (count) {
+    console.log(count)
     selectButtonTextContent.textContent = `Selected ${count}`;
+  } else {
+    selectButtonTextContent.textContent = `${defaultButtonTextContent}`;
   }
 };
 
