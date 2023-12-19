@@ -83,3 +83,6 @@ li:hover {
     background-color: rgba(20, 22, 22,0.2);
 }
 
+.exists{
+    background-color: red;
+}
