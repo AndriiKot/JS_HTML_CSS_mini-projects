@@ -6,10 +6,12 @@ const highlight = document.createElement('span');
 highlight.classList.add("highlight");
 document.body.appendChild(highlight);
 
-const displayHighlight = () => {
+
+function displayHighlight() {
     console.log("Hi!!!")
+    console.log(this)
 }
 
 links.forEach((link) => {
-    link.addEventListener('mouseover',displayHighlight);
+    link.addEventListener('mouseover', displayHighlight);
 })
