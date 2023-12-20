@@ -18,30 +18,49 @@ selectButton.addEventListener("click", handleSelectButtonClick.bind(this, select
 selectButton.addEventListener("click", handleSelectButtonClick.bind(this, dropDown, dropDownExistsClassName));
 
 
+// const toggleCheckbox = (e) => {
+//   const item_input = e.currentTarget.querySelector("input");
+//   if (e.target.nodeName === "INPUT") {
+//     item_input.checked = !item_input.checked;
+//   }
+//   if (item_input) {
+//     item_input.checked = !item_input.checked;
+//   }
+//   const nodeListItems = document.querySelectorAll("input");
+//   let count = 0;
+//   nodeListItems.forEach((item) => {
+//     if (item.checked) {
+//       count++;
+//     }
+//   });
+//   const selectButtonTextContent = document.querySelector(".text-content");
+//   if (count) {
+//     console.log(count);
+//     selectButtonTextContent.textContent = `Selected ${count}`;
+//   } else {
+//     selectButtonTextContent.textContent = `${defaultButtonTextContent}`;
+//   }
+// };
+
 const toggleCheckbox = (e) => {
-  const item_input = e.currentTarget.querySelector("input");
-  if (e.target.nodeName === "INPUT") {
-    item_input.checked = !item_input.checked;
-  }
-  if (item_input) {
-    item_input.checked = !item_input.checked;
-  }
-  const nodeListItems = document.querySelectorAll("input");
-  let count = 0;
-  nodeListItems.forEach((item) => {
-    if (item.checked) {
-      count++;
-    }
-  });
-  const selectButtonTextContent = document.querySelector(".text-content");
-  if (count) {
-    console.log(count);
-    selectButtonTextContent.textContent = `Selected ${count}`;
-  } else {
-    selectButtonTextContent.textContent = `${defaultButtonTextContent}`;
-  }
+  e.preventDefault()
+  console.log(e)
+
+  console.log('toogleChtckbox')
 };
+
+
+const inputNodeList = document.querySelectorAll(".list-items__item__checkbox");
+
+console.log(inputNodeList)
+
+// inputNodeList.forEach((item) => {
+//   item.preventDefault();
+// })
 
 liNodeList.forEach((li) => {
   li.addEventListener("click", toggleCheckbox);
+  const input = li.querySelector(".list-items__item__checkbox");
+  console.log(input);
 });
+
