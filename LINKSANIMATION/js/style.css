@@ -1,3 +1,54 @@
-﻿* {
-    background-color: red;
+﻿:root {
+    --link-color: blue;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: aquamarine;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid var(--link-color);
+}
+
+li {
+    list-style: none;
+}
+
+.menu {
+    margin: 30px 30px 120px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu a {
+    font-size: 22px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 700px;
+    line-height: 2;
+    position: relative;
+}
+
+.wrapper p {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.highlight {
+    background-color: var(--link-color);
+    display:block;
+    z-index: -1;
+    transition: all .2s;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
