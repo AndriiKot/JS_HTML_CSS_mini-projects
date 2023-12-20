@@ -43,10 +43,9 @@ selectButton.addEventListener("click", handleSelectButtonClick.bind(this, dropDo
 // };
 
 const toggleCheckbox = (e) => {
-  e.preventDefault()
-  console.log(e)
-
-  console.log('toogleChtckbox')
+  e.preventDefault();
+  const checkbox = e.currentTarget.querySelector(".list-items__item__checkbox")
+  console.log(checkbox);
 };
 
 
@@ -61,6 +60,6 @@ console.log(inputNodeList)
 liNodeList.forEach((li) => {
   li.addEventListener("click", toggleCheckbox);
   const input = li.querySelector(".list-items__item__checkbox");
-  console.log(input);
+  console.dir(input);
 });
 
