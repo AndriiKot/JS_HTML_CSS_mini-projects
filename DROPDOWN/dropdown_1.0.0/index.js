@@ -13,16 +13,15 @@ const handleSelectButtonClick = (element,className) => {
   element.classList.toggle(className);
 };
 
-
 selectButton.addEventListener("click", handleSelectButtonClick.bind(this, selectButton, selectButtonActiveClassName));
 selectButton.addEventListener("click", handleSelectButtonClick.bind(this, dropDown, dropDownExistsClassName));
 
 
 const toggleCheckbox = (e) => {
+  if (e.target.tagName === 'INPUT') return;
+
   const item_input = e.currentTarget.querySelector("input");
-  if (item_input) {
-    item_input.checked = !item_input.checked;
-  }
+  item_input.checked = (item_input.checked) ? false : true
 };
 
 const newTextContentSelectButton = () => {
