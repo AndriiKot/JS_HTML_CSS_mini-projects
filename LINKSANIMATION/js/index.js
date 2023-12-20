@@ -9,9 +9,10 @@ document.body.appendChild(highlight);
 
 function displayHighlight() {
     const linkCoords = this.getBoundingClientRect();
-    console.log(linkCoords)
-    console.log("Hi!!!")
-    console.log(this)
+
+    highlight.style.width = `${linkCoords.width}px`;
+    highlight.style.height = `${linkCoords.height}px`;
+    highlight.style.transform = `translate(${linkCoords.left}px,${linkCoords.top}px)`
 }
 
 links.forEach((link) => {
