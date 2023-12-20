@@ -1,6 +1,6 @@
 ﻿
 ```ruby
-# arrayFront = ['css','js',html]
+# arrayFront = ['css','js','html']
 # arrayBackend = ['ruby','sql']
 
 # Если выбраны все элементы то текст кнопки  Full Stack 
