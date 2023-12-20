@@ -18,48 +18,38 @@ selectButton.addEventListener("click", handleSelectButtonClick.bind(this, select
 selectButton.addEventListener("click", handleSelectButtonClick.bind(this, dropDown, dropDownExistsClassName));
 
 
-// const toggleCheckbox = (e) => {
-//   const item_input = e.currentTarget.querySelector("input");
-//   if (e.target.nodeName === "INPUT") {
-//     item_input.checked = !item_input.checked;
-//   }
-//   if (item_input) {
-//     item_input.checked = !item_input.checked;
-//   }
-//   const nodeListItems = document.querySelectorAll("input");
-//   let count = 0;
-//   nodeListItems.forEach((item) => {
-//     if (item.checked) {
-//       count++;
-//     }
-//   });
-//   const selectButtonTextContent = document.querySelector(".text-content");
-//   if (count) {
-//     console.log(count);
-//     selectButtonTextContent.textContent = `Selected ${count}`;
-//   } else {
-//     selectButtonTextContent.textContent = `${defaultButtonTextContent}`;
-//   }
-// };
-
 const toggleCheckbox = (e) => {
-  e.preventDefault();
-  const checkbox = e.currentTarget.querySelector(".list-items__item__checkbox")
-  console.log(checkbox);
+  const item_input = e.currentTarget.querySelector("input");
+  if (item_input) {
+    item_input.checked = !item_input.checked;
+  }
 };
 
+const newTextContentSelectButton = () => {
+  console.log('TEXT content')
 
-const inputNodeList = document.querySelectorAll(".list-items__item__checkbox");
+  const nodeListItems = document.querySelectorAll("input");
+  let count = 0;
+  nodeListItems.forEach((item) => {
+    if (item.checked) {
+      count++;
+    }
+  });
+  const selectButtonTextContent = document.querySelector(".text-content");
+  if (count) {
+    console.log(count);
+    selectButtonTextContent.textContent = `Selected ${count}`;
+  } else {
+    selectButtonTextContent.textContent = `${defaultButtonTextContent}`;
+  }
 
-console.log(inputNodeList)
+}
 
-// inputNodeList.forEach((item) => {
-//   item.preventDefault();
-// })
 
-liNodeList.forEach((li) => {
-  li.addEventListener("click", toggleCheckbox);
-  const input = li.querySelector(".list-items__item__checkbox");
-  console.dir(input);
-});
+liNodeList.forEach((item) => {
+  item.addEventListener('click',toggleCheckbox)
+  item.addEventListener('click', newTextContentSelectButton)
+})
+
+
 
