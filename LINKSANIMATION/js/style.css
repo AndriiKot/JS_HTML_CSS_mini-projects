@@ -1,5 +1,5 @@
 ﻿:root {
-    --link-color: blue;
+    --link-color: #22A1E0;
 }
 * {
     box-sizing: border-box;
@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: aquamarine;
+    background-color: #22DDE0;
 }
 
 a {
