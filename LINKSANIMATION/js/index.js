@@ -8,6 +8,8 @@ document.body.appendChild(highlight);
 
 
 function displayHighlight() {
+    const linkCoords = this.getBoundingClientRect();
+    console.log(linkCoords)
     console.log("Hi!!!")
     console.log(this)
 }
