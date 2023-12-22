@@ -27,12 +27,12 @@ selectButton.addEventListener(
 const toggleCheckbox = (e) => {
   if (e.target.type === "checkbox") return;
 
-  const checkbox = e.currentTarget.querySelector("input");
+  const checkbox = e.currentTarget.querySelector("input[type='checkbox']");
   checkbox.checked = checkbox.checked ? false : true;
 };
 
 const newTextContentSelectButton = (element, oldValue, newValue) => {
-  const nodeListItems = document.querySelectorAll("input");
+  const nodeListItems = document.querySelectorAll('.list-items__item__checkbox');
   let count = 0;
   nodeListItems.forEach((item) => {
     if (item.checked) count++;
