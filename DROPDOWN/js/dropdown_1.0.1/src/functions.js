@@ -1,8 +1,14 @@
 ﻿"use strict";
 
-const key = "default export key 123";
+const handleClick = (element, className) => {
+  element.classList.toggle(className);
+};
 
-export default key;
+const toggleCheckbox = (e) => {
+  if (e.target.type === "checkbox") return;
 
+  const checkbox = e.currentTarget.querySelector("input[type='checkbox']");
+  checkbox.checked = !checkbox.checked;
+};
 
-
+export { handleClick, toggleCheckbox}

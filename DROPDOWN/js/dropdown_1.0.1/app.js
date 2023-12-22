@@ -1,39 +1,30 @@
 ﻿'use strict';
 
-import key from './src/functions.js';
-console.log(key);
+import { handleClick, toggleCheckbox } from './src/functions.js';
 
-const dropDownMainWrapper = document.querySelector('.wrapper');
-const selectButton = dropDownMainWrapper.querySelector('.select-btn');
+console.log(handleClick);
+console.log(toggleCheckbox);
+console.log("HI");
+
+const selectButton = document.querySelector('.select-btn');
 const defaultButtonTextContent =
   selectButton.querySelector('.text-content').innerText;
 const newButtonTextContent = 'Selected ';
 const selectButtonActiveClassName = 'active';
 
-const dropDown = dropDownMainWrapper.querySelector('.list-items');
+const dropDown = document.querySelector('.list-items');
 const liNodeList = dropDown.querySelectorAll('.item');
 const dropDownExistsClassName = 'exists';
 
-const handleSelectButtonClick = (element, className) => {
-  element.classList.toggle(className);
-};
-
 selectButton.addEventListener(
   'click',
-  handleSelectButtonClick.bind(this, selectButton, selectButtonActiveClassName)
+  handleClick.bind(this, selectButton, selectButtonActiveClassName)
 );
 
 selectButton.addEventListener(
   'click',
-  handleSelectButtonClick.bind(this, dropDown, dropDownExistsClassName)
+  handleClick.bind(this, dropDown, dropDownExistsClassName)
 );
-
-const toggleCheckbox = (e) => {
-  if (e.target.type === 'checkbox') return;
-
-  const checkbox = e.currentTarget.querySelector('input[type=\'checkbox\']');
-  checkbox.checked = !checkbox.checked;
-};
 
 const newTextContentSelectButton = (element, oldValue, newValue) => {
   const nodeListItems = document.querySelectorAll(
