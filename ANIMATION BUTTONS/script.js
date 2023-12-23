@@ -17,19 +17,22 @@ const getArrayRandomBorderRadius = (countElements = 8,fn = randomInteger0_100) =
   return [...new Array(countElements)].map(() => fn()); 
 }
 
-const getArrayDefaultBorderRadius = (countElements = 8, element = 100g) => {
+const getArrayDefaultBorderRadius = (countElements = 8, element = 100) => {
   return [...new Array(countElements)].map(() => element);
 } 
 
 const comparison_of_values = (el_1,el_2) => {
   el_1 = getArrayDefaultBorderRadius();
-  el_2 = getArrayRandomBorderRadius();
+  // el_2 = getArrayRandomBorderRadius();
+  el_2 = el_1;
   console.log(el_1,el_2)
   for(let i = 0; i < el_1.length ; i++) {
-    console.log(`I: ${i}`);
-    console.log(`El-1: ${el_1[i]}  El-2: ${el_2[i]}`)
-    el_1[i] > el_2[i] ? el_1[i] -= 1 : el_1[i] += 1
-    console.log(el_1)
+    if (el_1[i] === el_2[i]) {
+      console.log('el1 === el3')
+    } else {
+      console.log('el1 > or < el2')
+      el_1[i] > el_2[i] ? el_1[i] -= 1 : el_1[i] += 1
+    }
   }
 }
 
