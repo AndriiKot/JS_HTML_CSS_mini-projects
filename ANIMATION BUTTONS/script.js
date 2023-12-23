@@ -13,24 +13,20 @@ function myCrazyButton(){
    return crazy_button.style.borderRadius = b + ' / ' +  c;
 }
 
+const handleClick = (element, className) => {
+  element.classList.toggle(className);
+};
+
+const animationStart = () => {
+  console.log('Animation')
+}
 
 
 
-// setInterval(console.log("HEllo!!!",1000));
-
-crazy_button.addEventListener('click',fn);
-
+crazy_button.addEventListener('click',handleClick.bind(this,crazy_button,'start'));
+crazy_button.addEventListener('click',animationStart,)
 
 
-// function startAnimationButton(requestId) {
-//   requestId = window.requestAnimationFrame(animate)
- 
-// }
 
-// function animate() {
-//   while (true) {
-//     myCrazyButton()
-//   }
-// }
 
 
