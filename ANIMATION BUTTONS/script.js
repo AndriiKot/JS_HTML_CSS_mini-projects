@@ -12,13 +12,11 @@ function myCrazyButton(element, fn = randomInteger0_100){
   let el_2 = `${fn()}% ${fn()}% ${fn()}% ${fn()}%`;
    return element.style.borderRadius = el_1 + ' / ' +  el_2;
 }
-const randomBorderRadius = (countElements = 8,fn = randomInteger0_100) => { 
+
+const getArrayRandomBorderRadius = (countElements = 8,fn = randomInteger0_100) => { 
   return [...new Array(countElements)].map(() => fn()); 
 }
 
-const handleClick = (element, className) => {
-  element.classList.toggle(className);
-};
 
 const animationStart = (element) => {
   if (!element.style.borderRadius) {
@@ -27,13 +25,12 @@ const animationStart = (element) => {
   }
   myCrazyButton(element)
   console.log(element.style.borderRadius)
-  console.log(randomBorderRadius());
+  console.log(getArrayRandomBorderRadius());
 }
 
 
 
-crazy_button.addEventListener('click',handleClick.bind(this,crazy_button,'start'));
-crazy_button.addEventListener('click',animationStart.bind(this,crazy_button))
+crazy_button.addEventListener('click',animationStart.bind(this,crazy_button));
 
 
 
