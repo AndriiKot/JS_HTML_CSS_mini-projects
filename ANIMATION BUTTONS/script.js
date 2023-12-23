@@ -6,11 +6,11 @@ function randomInteger(min,max){
   return  Math.floor(rand);
 }
 
-function myCrazyButton(){ 
+function myCrazyButton(element){ 
   let a = randomInteger;
   let b = `${a()}% ${a()}% ${a()}% ${a()}%`;
   let c = `${a()}% ${a()}% ${a()}% ${a()}%`;
-   return crazy_button.style.borderRadius = b + ' / ' +  c;
+   return element.style.borderRadius = b + ' / ' +  c;
 }
 
 const handleClick = (element, className) => {
@@ -18,8 +18,7 @@ const handleClick = (element, className) => {
 };
 
 const animationStart = (element) => {
-  console.dir(element)
-  console.log("HI Animation!")
+  console.dir(element);
 }
 
 
