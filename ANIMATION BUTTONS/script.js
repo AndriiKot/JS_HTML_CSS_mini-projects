@@ -6,8 +6,6 @@ function randomInteger(min,max){
   return  Math.floor(rand);
 }
 
-
-
 function myCrazyButton(){ 
   let a = randomInteger;
   let b = `${a()}% ${a()}% ${a()}% ${a()}%`;
@@ -15,13 +13,7 @@ function myCrazyButton(){
    return crazy_button.style.borderRadius = b + ' / ' +  c;
 }
 
-fn1 = () => {
-  console.log("HEllo!!!");
-}
 
-const fn = () => {
-  setInterval(myCrazyButton,1000);
-}
 
 
 // setInterval(console.log("HEllo!!!",1000));
