@@ -16,8 +16,12 @@ const handleClick = (element, className) => {
 };
 
 const animationStart = (element) => {
-  console.dir(element);
+  if (!element.style.borderRadius) {
+    element.style.borderRadius = `0% 0% 0% 0% / 0% 0% 0% 0%`;
+    console.log("Empty")
+  }
   myCrazyButton(element)
+  console.log(element.style.borderRadius)
 }
 
 
