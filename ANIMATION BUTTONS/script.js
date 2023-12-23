@@ -17,14 +17,15 @@ const handleClick = (element, className) => {
   element.classList.toggle(className);
 };
 
-const animationStart = () => {
-  console.log('Animation')
+const animationStart = (element) => {
+  console.dir(element)
+  console.log("HI Animation!")
 }
 
 
 
 crazy_button.addEventListener('click',handleClick.bind(this,crazy_button,'start'));
-crazy_button.addEventListener('click',animationStart,)
+crazy_button.addEventListener('click',animationStart.bind(this,crazy_button))
 
 
 
