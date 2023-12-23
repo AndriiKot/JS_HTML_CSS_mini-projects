@@ -15,6 +15,21 @@ function myCrazyButton(){
    return crazy_button.style.borderRadius = b + ' / ' +  c;
 }
 
+fn1 = () => {
+  console.log("HEllo!!!");
+}
+
+const fn = () => {
+  setInterval(myCrazyButton,1000);
+}
+
+
+// setInterval(console.log("HEllo!!!",1000));
+
+crazy_button.addEventListener('click',fn);
+
+
+
 // function startAnimationButton(requestId) {
 //   requestId = window.requestAnimationFrame(animate)
  
@@ -26,5 +41,4 @@ function myCrazyButton(){
 //   }
 // }
 
-crazy_button.addEventListener('click',startAnimationButton);
 
