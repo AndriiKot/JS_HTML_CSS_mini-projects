@@ -17,6 +17,17 @@ const getArrayRandomBorderRadius = (countElements = 8,fn = randomInteger0_100) =
   return [...new Array(countElements)].map(() => fn()); 
 }
 
+const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
+  return [...new Array(countElements)].map(() => element);
+} 
+
+const comparison_of_values = (el_1,el_2) => {
+  el_1 = getArrayDefaultBorderRadius();
+  el_2 = getArrayRandomBorderRadius();
+  console.log(el_1,el_2)
+}
+
+comparison_of_values();
 
 const animationStart = (element) => {
   if (!element.style.borderRadius) {
@@ -26,8 +37,8 @@ const animationStart = (element) => {
   myCrazyButton(element)
   console.log(element.style.borderRadius)
   console.log(getArrayRandomBorderRadius());
+  console.log(getArrayDefaultBorderRadius())
 }
-
 
 
 crazy_button.addEventListener('click',animationStart.bind(this,crazy_button));
