@@ -23,16 +23,18 @@ const getArrayDefaultBorderRadius = (countElements = 8, element = 100) => {
 
 const comparison_of_values = (el_1,el_2) => {
   el_1 = getArrayDefaultBorderRadius();
-  // el_2 = getArrayRandomBorderRadius();
-  el_2 = el_1;
+  el_2 = getArrayRandomBorderRadius();
+  el_2 = [100,100,100,10,100,100,100,100]
   console.log(el_1,el_2)
   for(let i = 0; i < el_1.length ; i++) {
     if (el_1[i] === el_2[i]) {
       console.log('el1 === el3')
+      continue
     } else {
       console.log('el1 > or < el2')
       el_1[i] > el_2[i] ? el_1[i] -= 1 : el_1[i] += 1
     }
+    console.log("End")
   }
 }
 
