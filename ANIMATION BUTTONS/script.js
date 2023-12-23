@@ -25,6 +25,12 @@ const comparison_of_values = (el_1,el_2) => {
   el_1 = getArrayDefaultBorderRadius();
   el_2 = getArrayRandomBorderRadius();
   console.log(el_1,el_2)
+  for(let i = 0; i < el_1.length ; i++) {
+    console.log(`I: ${i}`);
+    console.log(`El-1: ${el_1[i]}  El-2: ${el_2[i]}`)
+    el_1[i] > el_2[i] ? el_1[i] -= 1 : el_1[i] += 1
+    console.log(el_1)
+  }
 }
 
 comparison_of_values();
