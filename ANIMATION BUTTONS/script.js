@@ -17,7 +17,7 @@ const getArrayRandomBorderRadius = (countElements = 8,fn = randomInteger0_100) =
   return [...new Array(countElements)].map(() => fn()); 
 }
 
-const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
+const getArrayDefaultBorderRadius = (countElements = 8, element = 100g) => {
   return [...new Array(countElements)].map(() => element);
 } 
 
