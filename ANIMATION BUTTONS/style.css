@@ -1,0 +1,13 @@
+﻿.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+button{
+  border: none;
+  background-color: #4013AF;
+  color: #FFD901;
+  font-size: 20px;
+  padding: 40px;
+}
