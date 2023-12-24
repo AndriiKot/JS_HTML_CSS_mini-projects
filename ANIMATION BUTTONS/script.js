@@ -20,7 +20,7 @@ const getArrayRandomBorderRadius = (
   return [...new Array(countElements)].map(() => fn());
 };
 
-const getArrayDefaultBorderRadius = (countElements = 8, element = 100) => {
+const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
   return [...new Array(countElements)].map(() => element);
 };
 
@@ -39,8 +39,10 @@ async function comparison_of_values(el_1,el_2,button) {
   if (typeof el_1 === 'string') {
     let new_string = el_1.replace(/[%/]/g,'')
     new_string = new_string.replace('  ',' ')
-    const new_values_array = new_string.split(' ')
+    let new_values_array = new_string.split(' ')
+    new_values_array = new_values_array.map((el) => el = +el)
     console.log(new_values_array)
+    
     el_1 = new_values_array
   } else {
     console.log('No String!')
@@ -63,10 +65,10 @@ async function comparison_of_values(el_1,el_2,button) {
           console.log("EL 2: " + el_2[i])
           el_1[i] > el_2[i] ? (el_1[i] -= 1) : (el_1[i] += 1);
           console.log("Resalt : " + el_1[i])
-          prompt()
+          // prompt()
         }
         crazy_button.style.borderRadius = `${el_1[0]}% ${el_1[1]}% ${el_1[2]}% ${el_1[3]}% / ${el_1[4]}% ${el_1[5]}% ${el_1[6]}% ${el_1[7]}%`;
-        await sleep(10);
+        await sleep(0);
         console.log(crazy_button.style.borderRadius)
         // prompt();
       }
