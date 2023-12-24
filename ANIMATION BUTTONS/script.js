@@ -28,21 +28,24 @@ async function comparison_of_values(el_1,el_2,button) {
   button = document.querySelector('button').style.borderRadius;
   console.log(!!button)
   // el_1 =  getArrayDefaultBorderRadius();
-  let el_1_string = !!button && button || getArrayDefaultBorderRadius();
-  el_1 = getArrayDefaultBorderRadius();
+  // el_1 = getArrayDefaultBorderRadius();
+  console.log(el_1)
   el_2 = getArrayRandomBorderRadius();
-  console.log(typeof el_1_string)
-  if (typeof el_1_string === 'string') {
-    console.log('Yes string!!!')
-    console.log(el_1_string.split(' '))
-    let new_string = el_1_string.replace(/[%/]/g,'')
+  const test_fun = () => {
+    return [...el_2].map((el) => el += 3)
+  }
+  el_1 = !!button && button || test_fun();                          //getArrayDefaultBorderRadius();
+  console.log(typeof el_1)
+  if (typeof el_1 === 'string') {
+    let new_string = el_1.replace(/[%/]/g,'')
     new_string = new_string.replace('  ',' ')
-    console.log(new_string)
     const new_values_array = new_string.split(' ')
     console.log(new_values_array)
+    el_1 = new_values_array
   } else {
     console.log('No String!')
   }
+  console.log(el_1)
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
@@ -50,15 +53,22 @@ async function comparison_of_values(el_1,el_2,button) {
     let count = 0;
     while (count < 8) {
       count = 0;
-      await sleep(50);
       for (let i = 0; i < el_1.length; i++) {
         if (el_1[i] === el_2[i]) {
           count++;
           continue;
+          console.log("Равны!!!")
         } else {
+          console.log("EL 1: " + el_1[i])
+          console.log("EL 2: " + el_2[i])
           el_1[i] > el_2[i] ? (el_1[i] -= 1) : (el_1[i] += 1);
+          console.log("Resalt : " + el_1[i])
+          prompt()
         }
         crazy_button.style.borderRadius = `${el_1[0]}% ${el_1[1]}% ${el_1[2]}% ${el_1[3]}% / ${el_1[4]}% ${el_1[5]}% ${el_1[6]}% ${el_1[7]}%`;
+        await sleep(10);
+        console.log(crazy_button.style.borderRadius)
+        // prompt();
       }
     }
   }
