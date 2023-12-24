@@ -30,12 +30,11 @@ const comparison_of_values = (el_1, el_2) => {
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
-  async function FF() {
+  (async function FF() {
     let count = 0;
     while (count < 8) {
       count = 0;
       await sleep(50);
-      console.log('test sleep')
       for (let i = 0; i < el_1.length; i++) {
         if (el_1[i] === el_2[i]) {
           count++;
@@ -43,12 +42,11 @@ const comparison_of_values = (el_1, el_2) => {
         } else {
           el_1[i] > el_2[i] ? (el_1[i] -= 1) : (el_1[i] += 1);
         }
-        console.log(crazy_button.style.borderRadius)
         crazy_button.style.borderRadius = `${el_1[0]}% ${el_1[1]}% ${el_1[2]}% ${el_1[3]}% / ${el_1[4]}% ${el_1[5]}% ${el_1[6]}% ${el_1[7]}%`;
       }
     }
-  }
-  FF();
+  })()
+  comparison_of_values()
 };
 
 // comparison_of_values();
