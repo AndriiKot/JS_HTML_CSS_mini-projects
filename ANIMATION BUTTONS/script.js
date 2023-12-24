@@ -27,11 +27,16 @@ const getArrayDefaultBorderRadius = (countElements = 8, element = 100) => {
 async function comparison_of_values(el_1,el_2,button) {
   button = document.querySelector('button').style.borderRadius;
   console.log(!!button)
-  el_1 =  getArrayDefaultBorderRadius();
-  el_3 = !!button && button || getArrayDefaultBorderRadius();
+  // el_1 =  getArrayDefaultBorderRadius();
+  let el_1_string = !!button && button || getArrayDefaultBorderRadius();
+  el_1 = getArrayDefaultBorderRadius();
   el_2 = getArrayRandomBorderRadius();
-  console.log(el_3)
-  // console.log(el_1)
+  console.log(typeof el_1_string)
+  if (typeof el_1_string === 'string') {
+    console.log('Yes string!!!')
+  } else {
+    console.log('No String!')
+  }
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
