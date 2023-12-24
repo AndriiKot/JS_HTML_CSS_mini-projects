@@ -24,13 +24,13 @@ const getArrayDefaultBorderRadius = (countElements = 8, element = 100) => {
   return [...new Array(countElements)].map(() => element);
 };
 
-const comparison_of_values = (el_1, el_2) => {
+async function comparison_of_values(el_1,el_2) {
   el_1 = getArrayDefaultBorderRadius();
   el_2 = getArrayRandomBorderRadius();
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
-  (async function FF() {
+  async function FF() {
     let count = 0;
     while (count < 8) {
       count = 0;
@@ -45,11 +45,11 @@ const comparison_of_values = (el_1, el_2) => {
         crazy_button.style.borderRadius = `${el_1[0]}% ${el_1[1]}% ${el_1[2]}% ${el_1[3]}% / ${el_1[4]}% ${el_1[5]}% ${el_1[6]}% ${el_1[7]}%`;
       }
     }
-  })()
-  comparison_of_values()
+  }
+  await FF()
+  await comparison_of_values()
 };
 
-// comparison_of_values();
 
 const animationStart = (element) => {
   if (!element.style.borderRadius) {
