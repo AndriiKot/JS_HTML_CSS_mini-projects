@@ -34,6 +34,9 @@ async function comparison_of_values(el_1,el_2,button) {
   console.log(typeof el_1_string)
   if (typeof el_1_string === 'string') {
     console.log('Yes string!!!')
+    console.log(el_1_string.split(' '))
+    let new_string = el_1_string.replace(/[%/]/g,'')
+    console.log(new_string)
   } else {
     console.log('No String!')
   }
