@@ -26,28 +26,20 @@ const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
 
 async function comparison_of_values(el_1,el_2,button) {
   button = document.querySelector('button').style.borderRadius;
-  console.log(!!button)
-  // el_1 =  getArrayDefaultBorderRadius();
-  // el_1 = getArrayDefaultBorderRadius();
-  console.log(el_1)
   el_2 = getArrayRandomBorderRadius();
   const test_fun = () => {
     return [...el_2].map((el) => el += 3)
   }
-  el_1 = !!button && button || test_fun();                          //getArrayDefaultBorderRadius();
-  console.log(typeof el_1)
+  el_1 = !!button && button || test_fun();              
   if (typeof el_1 === 'string') {
     let new_string = el_1.replace(/[%/]/g,'')
     new_string = new_string.replace('  ',' ')
     let new_values_array = new_string.split(' ')
     new_values_array = new_values_array.map((el) => el = +el)
-    console.log(new_values_array)
     
     el_1 = new_values_array
   } else {
-    console.log('No String!')
   }
-  console.log(el_1)
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
@@ -57,20 +49,14 @@ async function comparison_of_values(el_1,el_2,button) {
       count = 0;
       for (let i = 0; i < el_1.length; i++) {
         if (el_1[i] === el_2[i]) {
+          console.log("Равны!!!")
           count++;
           continue;
-          console.log("Равны!!!")
         } else {
-          console.log("EL 1: " + el_1[i])
-          console.log("EL 2: " + el_2[i])
           el_1[i] > el_2[i] ? (el_1[i] -= 1) : (el_1[i] += 1);
-          console.log("Resalt : " + el_1[i])
-          // prompt()
         }
         crazy_button.style.borderRadius = `${el_1[0]}% ${el_1[1]}% ${el_1[2]}% ${el_1[3]}% / ${el_1[4]}% ${el_1[5]}% ${el_1[6]}% ${el_1[7]}%`;
         await sleep(0);
-        console.log(crazy_button.style.borderRadius)
-        // prompt();
       }
     }
   }
