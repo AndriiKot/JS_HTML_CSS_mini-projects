@@ -51,15 +51,3 @@ async function comparison_of_values(el_1,el_2) {
 };
 
 
-const animationStart = (element) => {
-  if (!element.style.borderRadius) {
-    element.style.borderRadius = `0% 0% 0% 0% / 0% 0% 0% 0%`;
-    console.log("Empty");
-  }
-  myCrazyButton(element);
-  console.log(element.style.borderRadius);
-  console.log(getArrayRandomBorderRadius());
-  console.log(getArrayDefaultBorderRadius());
-};
-
-// crazy_button.addEventListener("click", animationStart.bind(this, crazy_button));
