@@ -24,9 +24,14 @@ const getArrayDefaultBorderRadius = (countElements = 8, element = 100) => {
   return [...new Array(countElements)].map(() => element);
 };
 
-async function comparison_of_values(el_1,el_2) {
-  el_1 = getArrayDefaultBorderRadius();
+async function comparison_of_values(el_1,el_2,button) {
+  button = document.querySelector('button').style.borderRadius;
+  console.log(!!button)
+  el_1 =  getArrayDefaultBorderRadius();
+  el_3 = !!button && button || getArrayDefaultBorderRadius();
   el_2 = getArrayRandomBorderRadius();
+  console.log(el_3)
+  // console.log(el_1)
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
@@ -51,3 +56,4 @@ async function comparison_of_values(el_1,el_2) {
 };
 
 
+crazy_button.addEventListener('click',comparison_of_values)
