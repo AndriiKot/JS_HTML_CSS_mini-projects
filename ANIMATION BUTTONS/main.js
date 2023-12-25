@@ -1,6 +1,14 @@
 ﻿"use strict";
 
 import randomInteger from "./functions/random_integer_fn";
+import isFunction from "./functions/isFunction.js";
+import testfn from "./functions/returnResultOfFunction.js";
+import testfn2 from "./functions/getArray.js";
+
+console.log(testfn())
+console.log(testfn2())
+console.log(isFunction())
+console.log(randomInteger())
 
 const crazy_button = document.querySelector("button");
 

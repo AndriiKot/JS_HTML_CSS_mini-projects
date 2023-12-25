@@ -1,7 +1,7 @@
-﻿'use strict';
+﻿"use strict";
 
 const isFunction = (element) => {
   return typeof element === "function";
 };
 
-export { isFunction };
+export default isFunction ;
