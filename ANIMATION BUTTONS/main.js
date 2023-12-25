@@ -2,11 +2,11 @@
 
 import randomInteger from "./functions/random_integer_fn";
 import isFunction from "./functions/isFunction.js";
-import testfn from "./functions/returnResultOfFunction.js";
-import testfn2 from "./functions/getArray.js";
+import returnResultOfFunction from "./functions/returnResultOfFunction.js";
+import createArray from "./functions/createArray.js";
 
-console.log(testfn())
-console.log(testfn2())
+console.log(returnResultOfFunction())
+console.log(createArray())
 console.log(isFunction())
 console.log(randomInteger())
 
@@ -21,9 +21,9 @@ const getArrayRandomBorderRadius = (
   return [...new Array(countElements)].map(() => fn());
 };
 
-const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
-  return [...new Array(countElements)].map(() => element);
-};
+// const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
+//   return [...new Array(countElements)].map(() => element);
+// };
 
 async function animationBorderRadius(element,oldValueBorderRadius) {
 

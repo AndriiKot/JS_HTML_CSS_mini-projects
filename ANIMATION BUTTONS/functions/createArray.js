@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-const getArrayRandomBorderRadius3 = (
+const createArray = (
   countElementsInArray = 2,
   elementOrFunction = undefined,
   fn = () => {}
@@ -10,4 +10,4 @@ const getArrayRandomBorderRadius3 = (
   });
 };
 
-export default getArrayRandomBorderRadius3;
+export default createArray;
