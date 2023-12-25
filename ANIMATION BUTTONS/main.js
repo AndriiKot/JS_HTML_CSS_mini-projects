@@ -2,18 +2,11 @@
 
 import randomInteger from "./random_integer_fn";
 
-console.log(randomInteger)
 let crazy_button = document.querySelector("button");
 
-function randomInteger0_100() {
-  const min = 0;
-  const max = 100;
-  let rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-}
 
-const testRandom = randomInteger0_100.bind(this, 0, 10);
-console.log(testRandom);
+const randomInteger0_100 = randomInteger.bind(this, 0, 100);
+console.log(randomInteger());
 
 // function myCrazyButton(element, fn = randomInteger0_100) {
 //   let el_1 = `${fn()}% ${fn()}% ${fn()}% ${fn()}%`;
