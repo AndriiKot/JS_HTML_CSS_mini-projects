@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-function randomInteger(min = 0, max = 0) {
+function randomInteger(min = 1, max = 1) {
   return Math.floor((Math.random() * max) + min);
 }
 
