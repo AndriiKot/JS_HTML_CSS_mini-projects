@@ -1,2 +1,2 @@
-(()=>{"use strict";console.log(((o=1,t=1)=>Math.floor(Math.random()*t+o))),document.querySelector("button");const o=function(){let o=0+101*Math.random();return Math.floor(o)}.bind(void 0,0,10);console.log(o)})();
+(()=>{"use strict";console.log((function(){let o=arguments.length>0&&void 0!==arguments[0]?arguments[0]:1,t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:1;return Math.floor(Math.random()*t+o)})),document.querySelector("button");const o=function(){let o=0+101*Math.random();return Math.floor(o)}.bind(void 0,0,10);console.log(o)})();
 //# sourceMappingURL=bundle.js.map
