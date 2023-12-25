@@ -5,14 +5,27 @@ import isFunction from "./functions/isFunction.js";
 import returnResultOfFunction from "./functions/returnResultOfFunction.js";
 import createArray from "./functions/createArray.js";
 
-console.log(returnResultOfFunction())
-console.log(createArray())
-console.log(isFunction())
-console.log(randomInteger())
-
 const crazy_button = document.querySelector("button");
 
 const randomInteger0_100 = randomInteger.bind(this, 0, 100);
+const elementsOfBorderRadius = 8;
+
+const createArrayDefaultBorderRadius = createArray.bind(
+  this,
+  elementsOfBorderRadius,
+  0,
+  returnResultOfFunction
+);
+
+const createArrayRandomBorderRadius = createArray.bind(
+  this,
+  elementsOfBorderRadius,
+  randomInteger,
+  returnResultOfFunction
+);
+
+console.log(createArrayRandomBorderRadius());
+console.log(createArrayDefaultBorderRadius());
 
 const getArrayRandomBorderRadius = (
   countElements = 8,
@@ -25,24 +38,22 @@ const getArrayRandomBorderRadius = (
 //   return [...new Array(countElements)].map(() => element);
 // };
 
-async function animationBorderRadius(element,oldValueBorderRadius) {
+async function animationBorderRadius(element, oldValueBorderRadius) {}
 
-}
-
-async function comparison_of_values(el_1,el_2,button) {
-  button = document.querySelector('button').style.borderRadius;
+async function comparison_of_values(el_1, el_2, button) {
+  button = document.querySelector("button").style.borderRadius;
   el_2 = getArrayRandomBorderRadius();
   const test_fun = () => {
-    return [...el_2].map((el) => el += 3)
-  }
-  el_1 = !!button && button || test_fun();
-  if (typeof el_1 === 'string') {
-    let new_string = el_1.replace(/[%/]/g,'')
-    new_string = new_string.replace('  ',' ')
-    let new_values_array = new_string.split(' ')
-    new_values_array = new_values_array.map((el) => el = +el)
+    return [...el_2].map((el) => (el += 3));
+  };
+  el_1 = (!!button && button) || test_fun();
+  if (typeof el_1 === "string") {
+    let new_string = el_1.replace(/[%/]/g, "");
+    new_string = new_string.replace("  ", " ");
+    let new_values_array = new_string.split(" ");
+    new_values_array = new_values_array.map((el) => (el = +el));
 
-    el_1 = new_values_array
+    el_1 = new_values_array;
   } else {
   }
   function sleep(ms) {
@@ -54,7 +65,7 @@ async function comparison_of_values(el_1,el_2,button) {
       count = 0;
       for (let i = 0; i < el_1.length; i++) {
         if (el_1[i] === el_2[i]) {
-          console.log("Равны!!!")
+          console.log("Равны!!!");
           count++;
           continue;
         } else {
@@ -65,8 +76,8 @@ async function comparison_of_values(el_1,el_2,button) {
       }
     }
   }
-  await FF()
-  await comparison_of_values()
-};
+  await FF();
+  await comparison_of_values();
+}
 
-crazy_button.addEventListener('click',comparison_of_values)
+crazy_button.addEventListener("click", comparison_of_values);
