@@ -2,11 +2,9 @@
 
 import randomInteger from "./random_integer_fn";
 
-let crazy_button = document.querySelector("button");
-
+const crazy_button = document.querySelector("button");
 
 const randomInteger0_100 = randomInteger.bind(this, 0, 100);
-console.log(randomInteger0_100());
 
 const getArrayRandomBorderRadius = (
   countElements = 8,
@@ -18,6 +16,10 @@ const getArrayRandomBorderRadius = (
 const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
   return [...new Array(countElements)].map(() => element);
 };
+
+async function animationBorderRadius(element,oldValueBorderRadius) {
+
+}
 
 async function comparison_of_values(el_1,el_2,button) {
   button = document.querySelector('button').style.borderRadius;
