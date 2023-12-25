@@ -4,14 +4,15 @@ const isFunction = (element) => {
   return typeof element === "function";
 };
 
-const returnElement = (element,fn = isFunction) => {
-    return ((fn(element) && element()) || element)
+const returnResultOfFunctionOrReturnElement = (element,isFn = isFunction) => {
+    return ((isFn(element) && element()) || element)
 };
 
 const getArrayRandomBorderRadius3 = (
     countElementsInArray = 2,
     elementOrFunction = undefined,
-    
+    returnElement = returnResultOfFunctionOrReturnElement
+
   ) => {
     return [...new Array(countElementsInArray)].map(() => {
        return returnElement(elementOrFunction);
