@@ -4,6 +4,22 @@ const isFunction = (element) => {
   return typeof element === "function";
 };
 
+const returnElement = (element,fn = isFunction) => {
+    return ((fn(element) && element()) || element)
+};
+
+const getArrayRandomBorderRadius3 = (
+    countElementsInArray = 2,
+    elementOrFunction = undefined,
+    
+  ) => {
+    return [...new Array(countElementsInArray)].map(() => {
+       return returnElement(elementOrFunction);
+    });
+  };
+  
+
+
 const getArrayRandomBorderRadius = (
   countElementsInArray = 2,
   elementOrFunction = undefined
@@ -28,6 +44,7 @@ const getArrayRandomBorderRadius2 = (
   });
 };
 
+
 console.log(getArrayRandomBorderRadius());
 console.log(getArrayRandomBorderRadius(3, 5));
 console.log(getArrayRandomBorderRadius(3, null));
@@ -44,6 +61,17 @@ console.log(getArrayRandomBorderRadius2(3, 5));
 console.log(getArrayRandomBorderRadius2(3, null));
 console.log(
   getArrayRandomBorderRadius2(3, () => {
+    return 8;
+  })
+);
+
+console.log('\nVersion 3: \n')
+
+console.log(getArrayRandomBorderRadius3());
+console.log(getArrayRandomBorderRadius3(3, 5));
+console.log(getArrayRandomBorderRadius3(3, null));
+console.log(
+  getArrayRandomBorderRadius3(3, () => {
     return 8;
   })
 );
