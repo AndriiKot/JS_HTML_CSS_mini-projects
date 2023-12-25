@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-import randomInteger from "./random_integer_fn";
+import randomInteger from "./functions/random_integer_fn";
 
 const crazy_button = document.querySelector("button");
 

@@ -1,5 +1,7 @@
 ﻿"use strict";
 
+// import { isFunction } from "./isFunction.js";
+
 const isFunction = (element) => {
   return typeof element === "function";
 };
