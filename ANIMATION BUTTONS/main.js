@@ -6,7 +6,7 @@ let crazy_button = document.querySelector("button");
 
 
 const randomInteger0_100 = randomInteger.bind(this, 0, 100);
-console.log(randomInteger());
+console.log(randomInteger0_100());
 
 // function myCrazyButton(element, fn = randomInteger0_100) {
 //   let el_1 = `${fn()}% ${fn()}% ${fn()}% ${fn()}%`;
