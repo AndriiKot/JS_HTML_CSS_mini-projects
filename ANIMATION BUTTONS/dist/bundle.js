@@ -1,0 +1,2 @@
+(()=>{"use strict";console.log(((o=1,t=1)=>Math.floor(Math.random()*t+o))),document.querySelector("button");const o=function(){let o=0+101*Math.random();return Math.floor(o)}.bind(void 0,0,10);console.log(o)})();
+//# sourceMappingURL=bundle.js.map

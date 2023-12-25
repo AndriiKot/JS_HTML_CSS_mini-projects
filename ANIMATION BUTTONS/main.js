@@ -1,4 +1,9 @@
-﻿let crazy_button = document.querySelector("button");
+﻿"use strict";
+
+import randomInteger from "./random_integer_fn";
+
+console.log(randomInteger)
+let crazy_button = document.querySelector("button");
 
 function randomInteger0_100() {
   const min = 0;
@@ -7,8 +12,8 @@ function randomInteger0_100() {
   return Math.floor(rand);
 }
 
-const testRandom = randomInteger0_100.bind(this,0,10)
-console.log(testRandom)
+const testRandom = randomInteger0_100.bind(this, 0, 10);
+console.log(testRandom);
 
 // function myCrazyButton(element, fn = randomInteger0_100) {
 //   let el_1 = `${fn()}% ${fn()}% ${fn()}% ${fn()}%`;
@@ -33,13 +38,13 @@ console.log(testRandom)
 //   const test_fun = () => {
 //     return [...el_2].map((el) => el += 3)
 //   }
-//   el_1 = !!button && button || test_fun();              
+//   el_1 = !!button && button || test_fun();
 //   if (typeof el_1 === 'string') {
 //     let new_string = el_1.replace(/[%/]/g,'')
 //     new_string = new_string.replace('  ',' ')
 //     let new_values_array = new_string.split(' ')
 //     new_values_array = new_values_array.map((el) => el = +el)
-    
+
 //     el_1 = new_values_array
 //   } else {
 //   }
@@ -66,6 +71,5 @@ console.log(testRandom)
 //   await FF()
 //   await comparison_of_values()
 // };
-
 
 // crazy_button.addEventListener('click',comparison_of_values)
