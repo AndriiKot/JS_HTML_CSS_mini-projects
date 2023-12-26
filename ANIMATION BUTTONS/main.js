@@ -1,7 +1,7 @@
 ﻿"use strict";
 
 import randomInteger from "./functions/random_integer_fn";
-import isFunction from "./functions/isFunction.js";
+// import isFunction from "./functions/isFunction.js";
 import returnResultOfFunction from "./functions/returnResultOfFunction.js";
 import createArray from "./functions/createArray.js";
 
@@ -20,12 +20,12 @@ const createArrayDefaultBorderRadius = createArray.bind(
 const createArrayRandomBorderRadius = createArray.bind(
   this,
   elementsOfBorderRadius,
-  randomInteger,
+  randomInteger0_100,
   returnResultOfFunction
 );
 
 console.log(createArrayRandomBorderRadius());
-console.log(createArrayDefaultBorderRadius());
+// console.log(createArrayDefaultBorderRadius());
 
 const getArrayRandomBorderRadius = (
   countElements = 8,

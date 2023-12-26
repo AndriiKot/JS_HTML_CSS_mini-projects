@@ -6,11 +6,11 @@ const createArray = (
   countElementsInArray = 0,
   element = undefined,
   fn1 = () => {},
-  el = returnResultOfFunctionOrReturnElement(element)
+  fn2 = returnResultOfFunctionOrReturnElement
 ) => {
   console.log(returnResultOfFunctionOrReturnElement())
   return [...new Array(countElementsInArray)].map(() => {
-    return fn1(el);
+    return fn1(fn2(element));
   });
 };
 
