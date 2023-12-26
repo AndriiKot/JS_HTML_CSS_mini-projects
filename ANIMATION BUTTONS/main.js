@@ -10,13 +10,9 @@ const fnRandomInteger0_100 = randomInteger.bind(this, 0, 100);
 const elementsOfBorderRadius = 8;
 const defaultValueOfElementBorderRadius = 0;
 
-const arrayDefaultBorderRadius = Array(8).fill(0)
-console.log(arrayDefaultBorderRadius)
-console.log(arrayDefaultBorderRadius)
-console.log(arrayDefaultBorderRadius)
-arrayDefaultBorderRadius[1] = 10
-console.log(arrayDefaultBorderRadius)
+const arrayDefaultBorderRadius = Array(elementsOfBorderRadius).fill(defaultValueOfElementBorderRadius)
 
+console.log(arrayDefaultBorderRadius)
 
 const fnCreateArrayRandomBorderRadius = createArray.bind(
   this,
