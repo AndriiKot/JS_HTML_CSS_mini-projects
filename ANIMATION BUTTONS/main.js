@@ -38,16 +38,16 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function loopAnimation() {
+async function loopAnimation() {
   while (true) {
     console.log("While true!!!");
     console.log("HI!!!");
-    break
-  }
-  if (document.querySelector('.animationGo')){
-    console.log("AnimationGo")
-  } else {
-    console.log("no Animation Go!")
+    if (document.querySelector('.animationGo')){
+      console.log("AnimationGo")
+    } else {
+      break;
+    }
+    await sleep(5000)
   }
   console.log("NO Animation")
 }
