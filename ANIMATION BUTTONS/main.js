@@ -37,8 +37,8 @@ const convertingValueBorderRadiusToArray = (
 
 async function animationBorderRadius(event, element, oldValueBorderRadius) {
   const self = event.currentTarget;
-  const defaultBorderRadius = (self.style.borderRadius = "50% 100% / 10% 10%");
-  convertingValueBorderRadiusToArray(defaultBorderRadius);
+  const oldValueBorderRadius = self.style.borderRadius
+  convertingValueBorderRadiusToArray(oldValueBorderRadius);
   const newBorderRadius = fnCreateArrayRandomBorderRadius();
   self.classList.contains(animationGoClassName)
     ? console.log("ON")
