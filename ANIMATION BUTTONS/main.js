@@ -26,24 +26,42 @@ const fnToggleAnimation = handleClick.bind(
   animationGoClassName
 );
 
-const convertStringToArrayInteger = (element) => {
-  element = element.replace(/[%/]/g, "");
-  element = element.replace("  "," ");
-  const arrayString = element.split(' ');
-  const arrayInteger = arrayString.map((el) => +el);
-  console.log(arrayInteger)
-  return arrayInteger;
-}
+const filterString = (string = "") => {
+  string = string.replace(/[%/]/g, "");
+  string = string.replace("  ", " ");
+  return string;
+};
 
-const convertingValueBorderRadiusToArray = (element,array = arrayDefaultBorderRadius) => {
-  console.log(element ? convertStringToArrayInteger(element) : array)
-}
+const convertStringToArrayString = (string = "") => {
+  const arrayString = string.split(" ");
+  return arrayString;
+};
+
+const convertArrayStringToArrayInteger = (arrayString) => {
+  const arrayInteger = arrayString.map((el) => +el);
+  return arrayInteger;
+};
+
+const convertStringToArrayInteger = (string = "") => {
+  string = filterString(string);
+  const arrayInteger = convertArrayStringToArrayInteger(
+    convertStringToArrayString(string)
+  );
+  return arrayInteger;
+};
+
+const convertingValueBorderRadiusToArray = (
+  element,
+  array = arrayDefaultBorderRadius
+) => {
+  console.log(element ? convertStringToArrayInteger(element) : array);
+};
 
 async function animationBorderRadius(event, element, oldValueBorderRadius) {
   const self = event.currentTarget;
-  const defaultBorderRadius = self.style.borderRadius = '50% 100% / 10% 10%'
-  convertingValueBorderRadiusToArray(defaultBorderRadius)
-  const newBorderRadius = fnCreateArrayRandomBorderRadius()
+  const defaultBorderRadius = (self.style.borderRadius = "50% 100% / 10% 10%");
+  convertingValueBorderRadiusToArray(defaultBorderRadius);
+  const newBorderRadius = fnCreateArrayRandomBorderRadius();
   self.classList.contains(animationGoClassName)
     ? console.log("ON")
     : console.log("OFF");
@@ -51,7 +69,6 @@ async function animationBorderRadius(event, element, oldValueBorderRadius) {
 
 crazy_button.addEventListener("click", fnToggleAnimation);
 crazy_button.addEventListener("click", animationBorderRadius);
-
 
 async function comparison_of_values(el_1, el_2, button) {
   button = document.querySelector("button").style.borderRadius;
