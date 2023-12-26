@@ -1,24 +1,21 @@
 ﻿"use strict";
 
-import randomInteger from "./functions/random_integer_fn";
-import createArray from "./functions/createArray.js";
+import randomInteger from "./src/random_integer_fn.js";
+import createArray from "./src/createArray/createArray.js";
 
 const crazy_button = document.querySelector("button");
 const randomInteger0_100 = randomInteger.bind(this, 0, 100);
 const elementsOfBorderRadius = 8;
 const defaultValueOfElementBorderRadius = 0
 
-const createArrayDefaultBorderRadius = createArray.bind(
-  this,
-  elementsOfBorderRadius,
-  defaultValueOfElementBorderRadius
-);
-
+const createArrayDefaultBorderRadius = createArray(elementsOfBorderRadius,0)
 const createArrayRandomBorderRadius = createArray.bind(
   this,
   elementsOfBorderRadius,
   randomInteger0_100
 );
+
+console.log(createArrayDefaultBorderRadius)
 
 const getArrayRandomBorderRadius = (
   countElements = 8,
