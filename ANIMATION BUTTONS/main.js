@@ -3,6 +3,7 @@
 import randomInteger from "./src/random_integer_fn.js";
 import createArray from "./src/createArray/createArray.js";
 import handleClick from "./src/toggleAnimation.js";
+import convertStringToArrayInteger from "./src/convertStringToArrayInteger/convertStringToArrayInteger.js"
 
 const crazy_button = document.querySelector("button");
 const animationGoClassName = "animationGo";
@@ -26,29 +27,6 @@ const fnToggleAnimation = handleClick.bind(
   animationGoClassName
 );
 
-const filterString = (string = "") => {
-  string = string.replace(/[%/]/g, "");
-  string = string.replace("  ", " ");
-  return string;
-};
-
-const convertStringToArrayString = (string = "") => {
-  const arrayString = string.split(" ");
-  return arrayString;
-};
-
-const convertArrayStringToArrayInteger = (arrayString) => {
-  const arrayInteger = arrayString.map((el) => +el);
-  return arrayInteger;
-};
-
-const convertStringToArrayInteger = (string = "") => {
-  string = filterString(string);
-  const arrayInteger = convertArrayStringToArrayInteger(
-    convertStringToArrayString(string)
-  );
-  return arrayInteger;
-};
 
 const convertingValueBorderRadiusToArray = (
   element,
