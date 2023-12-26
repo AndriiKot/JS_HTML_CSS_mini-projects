@@ -27,7 +27,6 @@ const fnToggleAnimation = handleClick.bind(
   animationGoClassName
 );
 
-console.log(arrayDefaultBorderRadius);
 
 async function animationBorderRadius(event,element, oldValueBorderRadius) {
   const self = event.currentTarget;
@@ -45,8 +44,9 @@ const getArrayRandomBorderRadius = (
 };
 
 const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
-  return [...new Array(countElements)].map(() => element);
+  return [...new Array(countElements)].fill(element);
 };
+console.log(getArrayDefaultBorderRadius());
 
 async function comparison_of_values(el_1, el_2, button) {
   button = document.querySelector("button").style.borderRadius;
