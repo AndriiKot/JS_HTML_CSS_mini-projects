@@ -10,9 +10,9 @@ const fnRandomInteger0_100 = randomInteger.bind(this, 0, 100);
 const elementsOfBorderRadius = 8;
 const defaultValueOfElementBorderRadius = 0;
 
-const arrayDefaultBorderRadius = Array(elementsOfBorderRadius).fill(defaultValueOfElementBorderRadius)
-
-console.log(arrayDefaultBorderRadius)
+const arrayDefaultBorderRadius = Array(elementsOfBorderRadius).fill(
+  defaultValueOfElementBorderRadius
+);
 
 const fnCreateArrayRandomBorderRadius = createArray.bind(
   this,
@@ -26,25 +26,16 @@ const fnToggleAnimation = handleClick.bind(
   animationGoClassName
 );
 
-
-async function animationBorderRadius(event,element, oldValueBorderRadius) {
+async function animationBorderRadius(event, element, oldValueBorderRadius) {
   const self = event.currentTarget;
-  self.classList.contains(animationGoClassName) ? console.log('ON') : console.log('OFF')
+  self.classList.contains(animationGoClassName)
+    ? console.log("ON")
+    : console.log("OFF");
 }
 
 crazy_button.addEventListener("click", fnToggleAnimation);
 crazy_button.addEventListener("click", animationBorderRadius);
 
-const getArrayRandomBorderRadius = (
-  countElements = 8,
-  fn = fnRandomInteger0_100
-) => {
-  return [...new Array(countElements)].map(() => fn());
-};
-
-const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
-  return [...new Array(countElements)].fill(element);
-};
 
 async function comparison_of_values(el_1, el_2, button) {
   button = document.querySelector("button").style.borderRadius;
