@@ -2,24 +2,44 @@
 
 import randomInteger from "./src/random_integer_fn.js";
 import createArray from "./src/createArray/createArray.js";
+import handleClick from "./src/toggleAnimation.js";
 
 const crazy_button = document.querySelector("button");
-const randomInteger0_100 = randomInteger.bind(this, 0, 100);
+const animationGoClassName = "animationGo";
+const fnRandomInteger0_100 = randomInteger.bind(this, 0, 100);
 const elementsOfBorderRadius = 8;
-const defaultValueOfElementBorderRadius = 0
+const defaultValueOfElementBorderRadius = 0;
 
-const createArrayDefaultBorderRadius = createArray(elementsOfBorderRadius,0)
-const createArrayRandomBorderRadius = createArray.bind(
-  this,
+const arrayDefaultBorderRadius = createArray(
   elementsOfBorderRadius,
-  randomInteger0_100
+  defaultValueOfElementBorderRadius
 );
 
-console.log(createArrayDefaultBorderRadius)
+const fnCreateArrayRandomBorderRadius = createArray.bind(
+  this,
+  elementsOfBorderRadius,
+  fnRandomInteger0_100
+);
+
+const fnToggleAnimation = handleClick.bind(
+  this,
+  crazy_button,
+  animationGoClassName
+);
+
+console.log(arrayDefaultBorderRadius);
+
+async function animationBorderRadius(event,element, oldValueBorderRadius) {
+  const self = event.currentTarget;
+  self.classList.contains(animationGoClassName) ? console.log('ON') : console.log('OFF')
+}
+
+crazy_button.addEventListener("click", fnToggleAnimation);
+crazy_button.addEventListener("click", animationBorderRadius);
 
 const getArrayRandomBorderRadius = (
   countElements = 8,
-  fn = randomInteger0_100
+  fn = fnRandomInteger0_100
 ) => {
   return [...new Array(countElements)].map(() => fn());
 };
@@ -28,12 +48,10 @@ const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
   return [...new Array(countElements)].map(() => element);
 };
 
-async function animationBorderRadius(element, oldValueBorderRadius) {}
-
 async function comparison_of_values(el_1, el_2, button) {
   button = document.querySelector("button").style.borderRadius;
   // el_2 = getArrayRandomBorderRadius();
-  el_2 = createArrayRandomBorderRadius();
+  el_2 = fnCreateArrayRandomBorderRadius();
   const test_fun = () => {
     return [...el_2].map((el) => (el += 3));
   };
@@ -71,4 +89,4 @@ async function comparison_of_values(el_1, el_2, button) {
   await comparison_of_values();
 }
 
-crazy_button.addEventListener("click", comparison_of_values);
+// crazy_button.addEventListener("click", comparison_of_values);
