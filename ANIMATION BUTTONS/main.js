@@ -10,10 +10,13 @@ const fnRandomInteger0_100 = randomInteger.bind(this, 0, 100);
 const elementsOfBorderRadius = 8;
 const defaultValueOfElementBorderRadius = 0;
 
-const arrayDefaultBorderRadius = createArray(
-  elementsOfBorderRadius,
-  defaultValueOfElementBorderRadius
-);
+const arrayDefaultBorderRadius = Array(8).fill(0)
+console.log(arrayDefaultBorderRadius)
+console.log(arrayDefaultBorderRadius)
+console.log(arrayDefaultBorderRadius)
+arrayDefaultBorderRadius[1] = 10
+console.log(arrayDefaultBorderRadius)
+
 
 const fnCreateArrayRandomBorderRadius = createArray.bind(
   this,
@@ -46,7 +49,6 @@ const getArrayRandomBorderRadius = (
 const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
   return [...new Array(countElements)].fill(element);
 };
-console.log(getArrayDefaultBorderRadius());
 
 async function comparison_of_values(el_1, el_2, button) {
   button = document.querySelector("button").style.borderRadius;
