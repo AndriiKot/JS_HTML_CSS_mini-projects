@@ -5,13 +5,13 @@ import returnResultOfFunctionOrReturnElement from "./returnResultOfFunction.js";
 const createArray = (
   countElementsInArray = 0,
   element = undefined,
-  fn1 = () => {},
-  fn2 = returnResultOfFunctionOrReturnElement
+  fn1 = returnResultOfFunctionOrReturnElement
 ) => {
-  console.log(returnResultOfFunctionOrReturnElement())
   return [...new Array(countElementsInArray)].map(() => {
-    return fn1(fn2(element));
+    return fn1(fn1(element));
   });
 };
+
+
 
 export default createArray;

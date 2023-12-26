@@ -1,31 +1,24 @@
 ﻿"use strict";
 
 import randomInteger from "./functions/random_integer_fn";
-// import isFunction from "./functions/isFunction.js";
-import returnResultOfFunction from "./functions/returnResultOfFunction.js";
 import createArray from "./functions/createArray.js";
 
 const crazy_button = document.querySelector("button");
-
 const randomInteger0_100 = randomInteger.bind(this, 0, 100);
 const elementsOfBorderRadius = 8;
+const defaultValueOfElementBorderRadius = 0
 
 const createArrayDefaultBorderRadius = createArray.bind(
   this,
   elementsOfBorderRadius,
-  0,
-  returnResultOfFunction
+  defaultValueOfElementBorderRadius
 );
 
 const createArrayRandomBorderRadius = createArray.bind(
   this,
   elementsOfBorderRadius,
-  randomInteger0_100,
-  returnResultOfFunction
+  randomInteger0_100
 );
-
-console.log(createArrayRandomBorderRadius());
-// console.log(createArrayDefaultBorderRadius());
 
 const getArrayRandomBorderRadius = (
   countElements = 8,
@@ -34,15 +27,16 @@ const getArrayRandomBorderRadius = (
   return [...new Array(countElements)].map(() => fn());
 };
 
-// const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
-//   return [...new Array(countElements)].map(() => element);
-// };
+const getArrayDefaultBorderRadius = (countElements = 8, element = 0) => {
+  return [...new Array(countElements)].map(() => element);
+};
 
 async function animationBorderRadius(element, oldValueBorderRadius) {}
 
 async function comparison_of_values(el_1, el_2, button) {
   button = document.querySelector("button").style.borderRadius;
-  el_2 = getArrayRandomBorderRadius();
+  // el_2 = getArrayRandomBorderRadius();
+  el_2 = createArrayRandomBorderRadius();
   const test_fun = () => {
     return [...el_2].map((el) => (el += 3));
   };
