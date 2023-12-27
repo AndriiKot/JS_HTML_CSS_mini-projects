@@ -39,14 +39,16 @@ function sleep(ms) {
 }
 
 async function animationBorderRadius(
-  element = crazy_button,
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius
 ) {
+    const element = document.querySelector('button')
     const oldValueBorderRadius = element.style.borderRadius;
     const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
     const arrayNewValueBorderRadius = fnNewArray();
-
+    console.log(`Old border radius: ${oldValueBorderRadius}`);
+    console.log(arrayOldValueBorderRadius);
+    console.log(arrayNewValueBorderRadius)
     async function planAnimation() {
       let count = 0;
       while (count < 8) {
@@ -60,7 +62,7 @@ async function animationBorderRadius(
               ? (arrayOldValueBorderRadius[i] -= 1)
               : (arrayOldValueBorderRadius[i] += 1);
           }
-          crazy_button.style.borderRadius = `${arrayOldValueBorderRadius[0]}% 
+          element.style.borderRadius = `${arrayOldValueBorderRadius[0]}% 
         ${arrayOldValueBorderRadius[1]}% 
         ${arrayOldValueBorderRadius[2]}%
         ${arrayOldValueBorderRadius[3]}% / 
@@ -90,7 +92,7 @@ async function animationBorderRadius(
 
 
 crazy_button.addEventListener("click", fnToggleAnimation);
-let interval = setInterval(animationBorderRadius,300)
+let interval = setInterval(animationBorderRadius,3000)
 
 // crazy_button.addEventListener("click", testSetInterval);
 
