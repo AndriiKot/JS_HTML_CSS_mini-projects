@@ -52,7 +52,7 @@ async function loopAnimation() {
   console.log("NO Animation");
 }
 
-async function animationBorderRadius(
+function animationBorderRadius(
   event,
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius
@@ -97,16 +97,22 @@ async function animationBorderRadius(
         ${arrayOldValueBorderRadius[5]}% 
         ${arrayOldValueBorderRadius[6]}% 
         ${arrayOldValueBorderRadius[7]}%`;
-        await sleep(10);
+        // await sleep(10);
       }
       console.log(count)
     }
   }
   planAnimation()
+  while (true) {
+    // await planAnimation()
+    animationBorderRadius();
+    // await sleep(1000);
+  }
 }
 
 crazy_button.addEventListener("click", fnToggleAnimation);
 crazy_button.addEventListener("click", animationBorderRadius);
+
 
 async function comparison_of_values(el_1, el_2, button) {
   button = document.querySelector("button").style.borderRadius;
