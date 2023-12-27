@@ -37,16 +37,27 @@ const convertingValueBorderRadiusToArray = (
 
 async function loopAnimation() {
   while (true) {
-    console.log("While true!!!");
-    console.log("HI!!!");
-    if (document.querySelector('.animationGo')){
-      console.log("AnimationGo")
+    if (document.querySelector(".animationGo")) {
+      console.log("AnimationGo");
+      const self = event.currentTarget;
+      const oldValueBorderRadius = self.style.borderRadius;
+      const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
+      const arrayNewValueBorderRadius = fnNewArray();
+      crazy_button.style.borderRadius = `${arrayNewValueBorderRadius[0]}% 
+      ${arrayNewValueBorderRadius[1]}% 
+      ${arrayNewValueBorderRadius[2]}%
+      ${arrayNewValueBorderRadius[3]}% / 
+      ${arrayNewValueBorderRadius[4]}% 
+      ${arrayNewValueBorderRadius[5]}% 
+      ${arrayNewValueBorderRadius[6]}% 
+      ${arrayNewValueBorderRadius[7]}%`;
     } else {
+      console.log("Stop Animation");
       break;
     }
-    await sleep(5000)
+    await sleep(5000);
   }
-  console.log("NO Animation")
+  console.log("NO Animation");
 }
 
 async function animationBorderRadius(
@@ -54,17 +65,40 @@ async function animationBorderRadius(
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius
 ) {
-  const self = event.currentTarget;
-  const oldValueBorderRadius = self.style.borderRadius;
-  const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
-  const arrayNewValueBorderRadius = fnNewArray();
-  if (self.classList.contains(animationGoClassName)) {
+(async function() {
+  while (true) {
+    if (document.querySelector(".animationGo")) {
+      console.log("AnimationGo");
+      const self = event.currentTarget;
+      console.log(event.currentTarget.style.borderRadius)
+      // const oldValueBorderRadius = self.style.borderRadius;
+      // const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
+      // const arrayNewValueBorderRadius = fnNewArray();
+      // crazy_button.style.borderRadius = `${arrayNewValueBorderRadius[0]}% 
+      // ${arrayNewValueBorderRadius[1]}% 
+      // ${arrayNewValueBorderRadius[2]}%
+      // ${arrayNewValueBorderRadius[3]}% / 
+      // ${arrayNewValueBorderRadius[4]}% 
+      // ${arrayNewValueBorderRadius[5]}% 
+      // ${arrayNewValueBorderRadius[6]}% 
+      // ${arrayNewValueBorderRadius[7]}%`;
+      await sleep(1000)
+    } else {
+      console.log("Stop Animation");
+      break;
+    }
+// TEST while true
+  // const self = event.currentTarget;
+  // const oldValueBorderRadius = self.style.borderRadius;
+  // const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
+  // const arrayNewValueBorderRadius = fnNewArray();
+  // if (self.classList.contains(animationGoClassName)) {
     // console.log("ON");
     // console.log(`RandomValue: ${arrayNewValueBorderRadius}`);
     // console.log(`OldVAlue: ${arrayOldValueBorderRadius}`);
     // console.log(document.querySelector(".animationGo"));
     // console.log(self.classList.contains(animationGoClassName));
-  } else {
+  // } else {
     // console.log("OFF");
     // console.log(`RandomValue: ${arrayNewValueBorderRadius}`);
     // console.log(`OldVAlue: ${arrayOldValueBorderRadius}`);
@@ -72,16 +106,16 @@ async function animationBorderRadius(
     // console.log(self.classList.contains(animationGoClassName));
     // return;
   }
-  crazy_button.style.borderRadius = `${arrayNewValueBorderRadius[0]}% 
-                                      ${arrayNewValueBorderRadius[1]}% 
-                                      ${arrayNewValueBorderRadius[2]}%
-                                      ${arrayNewValueBorderRadius[3]}% / 
-                                      ${arrayNewValueBorderRadius[4]}% 
-                                      ${arrayNewValueBorderRadius[5]}% 
-                                      ${arrayNewValueBorderRadius[6]}% 
-                                      ${arrayNewValueBorderRadius[7]}%`;
-   loopAnimation();
-}
+  // crazy_button.style.borderRadius = `${arrayNewValueBorderRadius[0]}% 
+  //                                     ${arrayNewValueBorderRadius[1]}% 
+  //                                     ${arrayNewValueBorderRadius[2]}%
+  //                                     ${arrayNewValueBorderRadius[3]}% / 
+  //                                     ${arrayNewValueBorderRadius[4]}% 
+  //                                     ${arrayNewValueBorderRadius[5]}% 
+  //                                     ${arrayNewValueBorderRadius[6]}% 
+  //                                     ${arrayNewValueBorderRadius[7]}%`;
+  //  loopAnimation();
+})()}
 
 crazy_button.addEventListener("click", fnToggleAnimation);
 crazy_button.addEventListener("click", animationBorderRadius);
