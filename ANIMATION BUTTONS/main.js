@@ -38,32 +38,30 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-
-
 async function animationBorderRadius(
   event,
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius
 ) {
-  const self = document.querySelector("button");
-  const oldValueBorderRadius = self.style.borderRadius;
-  const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
-  const arrayNewValueBorderRadius = fnNewArray();
+    const self = event.currentTarget;
+    const oldValueBorderRadius = self.style.borderRadius;
+    const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
+    const arrayNewValueBorderRadius = fnNewArray();
 
-  async function planAnimation() {
-    let count = 0;
-    while (count < 8) {
-      count = 0;
-      for (let i = 0; i < arrayOldValueBorderRadius.length; i++) {
-        if (arrayOldValueBorderRadius[i] === arrayNewValueBorderRadius[i]) {
-          count++;
-          continue;
-        } else {
-          arrayOldValueBorderRadius[i] > arrayNewValueBorderRadius[i]
-            ? (arrayOldValueBorderRadius[i] -= 1)
-            : (arrayOldValueBorderRadius[i] += 1);
-        }
-        crazy_button.style.borderRadius = `${arrayOldValueBorderRadius[0]}% 
+    async function planAnimation() {
+      let count = 0;
+      while (count < 8) {
+        count = 0;
+        for (let i = 0; i < arrayOldValueBorderRadius.length; i++) {
+          if (arrayOldValueBorderRadius[i] === arrayNewValueBorderRadius[i]) {
+            count++;
+            continue;
+          } else {
+            arrayOldValueBorderRadius[i] > arrayNewValueBorderRadius[i]
+              ? (arrayOldValueBorderRadius[i] -= 1)
+              : (arrayOldValueBorderRadius[i] += 1);
+          }
+          crazy_button.style.borderRadius = `${arrayOldValueBorderRadius[0]}% 
         ${arrayOldValueBorderRadius[1]}% 
         ${arrayOldValueBorderRadius[2]}%
         ${arrayOldValueBorderRadius[3]}% / 
@@ -71,22 +69,19 @@ async function animationBorderRadius(
         ${arrayOldValueBorderRadius[5]}% 
         ${arrayOldValueBorderRadius[6]}% 
         ${arrayOldValueBorderRadius[7]}%`;
-        await sleep(100);
+          await sleep(0);
+        }
       }
     }
-  }
-  planAnimation()
-}
-const testFnLoop = (e,fn = animationBorderRadius) => {
-  console.log(e)
-  console.log(fn)
-  for(;;) {
-    fn()
-  }
+    planAnimation();
+    // console.log("HI");
+    // console.log(self);
+    // console.log(event);
+    await sleep(10);
 }
 
 crazy_button.addEventListener("click", fnToggleAnimation);
-crazy_button.addEventListener("click", testFnLoop);
+crazy_button.addEventListener("click", animationBorderRadius);
 
 // crazy_button.addEventListener("click",(e) => console.log(e.currentTarget))
 
