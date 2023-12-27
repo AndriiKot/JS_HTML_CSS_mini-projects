@@ -1,8 +1,9 @@
 ﻿"use strict";
 
 import randomInteger from "./src/random_integer_fn.js";
+import sleep from "./src/sleepAsyncFn.js";
 import createArray from "./src/createArray/createArray.js";
-import handleClick from "./src/toggleAnimation.js";
+import handleClick from "./src/toggleHandleClick.js";
 import convertStringToArrayInteger from "./src/convertStringToArrayInteger/convertStringToArrayInteger.js";
 
 const crazy_button = document.querySelector("button");
@@ -33,10 +34,6 @@ const convertingValueBorderRadiusToArray = (
 ) => {
   return element ? convertStringToArrayInteger(element) : array;
 };
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 async function loopAnimation() {
   while (true) {
