@@ -38,50 +38,24 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function loopAnimation() {
-  while (true) {
-    console.log("While true!!!");
-    console.log("HI!!!");
-    if (document.querySelector(".animationGo")) {
-      console.log("AnimationGo");
-    } else {
-      break;
-    }
-    await sleep(5000);
-  }
-  console.log("NO Animation");
-}
 
-function animationBorderRadius(
+
+async function animationBorderRadius(
   event,
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius
 ) {
-  const self = event.currentTarget;
+  const self = document.querySelector("button");
   const oldValueBorderRadius = self.style.borderRadius;
   const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
   const arrayNewValueBorderRadius = fnNewArray();
-  if (self.classList.contains(animationGoClassName)) {
-    // console.log("ON");
-    // console.log(`RandomValue: ${arrayNewValueBorderRadius}`);
-    // console.log(`OldVAlue: ${arrayOldValueBorderRadius}`);
-    // console.log(document.querySelector(".animationGo"));
-    // console.log(self.classList.contains(animationGoClassName));
-  } else {
-    // console.log("OFF");
-    // console.log(`RandomValue: ${arrayNewValueBorderRadius}`);
-    // console.log(`OldVAlue: ${arrayOldValueBorderRadius}`);
-    // console.log(document.querySelector(".animationGo"));
-    // console.log(self.classList.contains(animationGoClassName));
-    // return;
-  }
+
   async function planAnimation() {
     let count = 0;
     while (count < 8) {
       count = 0;
       for (let i = 0; i < arrayOldValueBorderRadius.length; i++) {
         if (arrayOldValueBorderRadius[i] === arrayNewValueBorderRadius[i]) {
-          console.log("Равны!!!");
           count++;
           continue;
         } else {
@@ -97,22 +71,24 @@ function animationBorderRadius(
         ${arrayOldValueBorderRadius[5]}% 
         ${arrayOldValueBorderRadius[6]}% 
         ${arrayOldValueBorderRadius[7]}%`;
-        // await sleep(10);
+        await sleep(100);
       }
-      console.log(count)
     }
   }
   planAnimation()
-  while (true) {
-    // await planAnimation()
-    animationBorderRadius();
-    // await sleep(1000);
+}
+const testFnLoop = (e,fn = animationBorderRadius) => {
+  console.log(e)
+  console.log(fn)
+  for(;;) {
+    fn()
   }
 }
 
 crazy_button.addEventListener("click", fnToggleAnimation);
-crazy_button.addEventListener("click", animationBorderRadius);
+crazy_button.addEventListener("click", testFnLoop);
 
+// crazy_button.addEventListener("click",(e) => console.log(e.currentTarget))
 
 async function comparison_of_values(el_1, el_2, button) {
   button = document.querySelector("button").style.borderRadius;
