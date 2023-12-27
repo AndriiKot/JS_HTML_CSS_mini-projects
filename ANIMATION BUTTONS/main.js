@@ -39,12 +39,11 @@ function sleep(ms) {
 }
 
 async function animationBorderRadius(
-  event,
+  element = crazy_button,
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius
 ) {
-    const self = event.currentTarget;
-    const oldValueBorderRadius = self.style.borderRadius;
+    const oldValueBorderRadius = element.style.borderRadius;
     const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
     const arrayNewValueBorderRadius = fnNewArray();
 
@@ -73,15 +72,27 @@ async function animationBorderRadius(
         }
       }
     }
-    planAnimation();
+    // повторить с интервалом 2 секунды
+// let timerId = setInterval(() => alert('tick'), 2000);
+
+// остановить вывод через 5 секунд
+// setTimeout(() => { clearInterval(timerId); alert('stop'); }, 5000);
+    // let timer = setInterval(planAnimation,1000)
+    // planAnimation();
     // console.log("HI");
     // console.log(self);
     // console.log(event);
     await sleep(10);
+    console.log(element)
 }
 
+
+
+
 crazy_button.addEventListener("click", fnToggleAnimation);
-crazy_button.addEventListener("click", animationBorderRadius);
+let interval = setInterval(animationBorderRadius,300)
+
+// crazy_button.addEventListener("click", testSetInterval);
 
 // crazy_button.addEventListener("click",(e) => console.log(e.currentTarget))
 
