@@ -5,6 +5,7 @@ import createArray from "./src/createArray/createArray.js";
 import handleClick from "./src/toggleHandleClick.js";
 import convertStringToArrayInteger from "./src/convertStringToArrayInteger/convertStringToArrayInteger.js";
 import sleep from "./src/sleepAsyncFn.js";
+import convertArrayStringToArrayInteger from "./src/convertStringToArrayInteger/convertArrayStringToArrayInteger.js";
 
 const crazy_button = document.querySelector("button");
 const animationGoClassName = "animationGo";
@@ -38,17 +39,14 @@ const convertingValueBorderRadiusToArray = (
 
 async function animationBorderRadius(
   _event,
-  a = '',
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius,
   ms = 10
 ) {
-  // const self = document.querySelector('button')
-  console.log(_event?.currentTarget)
-  console.log(a)
-  a = a || _event.currentTarget;
   const self = document.querySelector('button')
-  const oldValueBorderRadius = self?.style.borderRadius || a
+  console.log(self.classList.contains('animationGo'))
+  console.log("HI!!")
+  const oldValueBorderRadius = self.style.borderRadius;
   const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
   const arrayNewValueBorderRadius = fnNewArray();
  async function planAnimation() {
@@ -83,8 +81,9 @@ async function animationBorderRadius(
     }
   }
   await planAnimation()
-  await animationBorderRadius(_event,)
+  await animationBorderRadius()
 }
 
+crazy_button.addEventListener("click", fnToggleAnimation)
 crazy_button.addEventListener("click", animationBorderRadius);
 
