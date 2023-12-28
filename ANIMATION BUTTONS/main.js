@@ -43,8 +43,6 @@ async function animationBorderRadius(
   ms = 10
 ) {
   const self = document.querySelector('button')
-  // console.log(self.classList.contains('animationGo'))
-  // console.log("HI!!")
   const oldValueBorderRadius = self.style.borderRadius;
   const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
   const arrayNewValueBorderRadius = fnNewArray();
@@ -60,32 +58,7 @@ async function animationBorderRadius(
           break
         }
         if (!self.classList.contains('animationGo')){ 
-          console.log("New test !!!")
-          let count = 0;
-          while(count < 8){
-            console.log(count)
-            console.log('')
-            await sleep(1000)
-            count = 0;
-            switch (0) {
-              case arrayOldValueBorderRadius[0]:
-                count++
-              case arrayOldValueBorderRadius[1]:
-                count++
-              case arrayOldValueBorderRadius[2]:
-                count++
-              case arrayOldValueBorderRadius[3]:
-                count++
-              case arrayOldValueBorderRadius[4]:
-                count++
-              case arrayOldValueBorderRadius[5]:
-                count++
-              case arrayOldValueBorderRadius[6]:
-                count++
-              case arrayOldValueBorderRadius[7]:
-                count++
-          }
-          console.log(count)
+          console.log("New test Stop animation!!!")
         }
         if (arrayOldValueBorderRadius[i] === arrayNewValueBorderRadius[i]) {
           count++;
@@ -108,9 +81,9 @@ async function animationBorderRadius(
     }
   }
   if (!self.classList.contains('animationGo')){ 
+    console.log("Stop animation");
     return
   }
-  console.log("Hi!!!")
   await planAnimation()
   await animationBorderRadius()
 }
