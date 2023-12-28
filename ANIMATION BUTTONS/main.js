@@ -4,6 +4,8 @@ import randomInteger from "./src/random_integer_fn.js";
 import createArray from "./src/createArray/createArray.js";
 import handleClick from "./src/toggleHandleClick.js";
 import convertStringToArrayInteger from "./src/convertStringToArrayInteger/convertStringToArrayInteger.js";
+import sleep from "./src/sleepAsyncFn.js"
+
 
 const crazy_button = document.querySelector("button");
 const animationGoClassName = "animationGo";
@@ -33,10 +35,6 @@ const convertingValueBorderRadiusToArray = (
 ) => {
   return element ? convertStringToArrayInteger(element) : array;
 };
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 function animationBorderRadius(
   fnConvertToArray = convertingValueBorderRadiusToArray,
