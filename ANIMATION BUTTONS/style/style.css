@@ -1,13 +1,14 @@
 ﻿.wrapper{
+  background-color: #A30CA3;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 button{
-  border: none;
-  background-color: #4013AF;
-  color: #FFD901;
+  border: 1.2px solid #BB44BB;
+  background-color: #FA25FA;
+  color: #f6e4f6;
   font-size: 20px;
   padding: 40px;
 }
