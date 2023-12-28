@@ -40,7 +40,7 @@ async function animationBorderRadius(
   _event,
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius,
-  ms = 0
+  ms = 10
 ) {
   const self = document.querySelector('button')
   const oldValueBorderRadius = self.style.borderRadius;
