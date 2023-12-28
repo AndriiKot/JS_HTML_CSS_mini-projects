@@ -37,6 +37,7 @@ const convertingValueBorderRadiusToArray = (
 };
 
 function animationBorderRadius(
+  event,
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius
 ) {
@@ -49,6 +50,9 @@ function animationBorderRadius(
   while (count < 8) {
     count = 0;
     for (let i = 0; i < arrayOldValueBorderRadius.length; i++) {
+      if (arrayOldValueBorderRadius.length !== arrayNewValueBorderRadius.length){
+        console.log("array1 !== array2")
+      }
       if (arrayOldValueBorderRadius[i] === arrayNewValueBorderRadius[i]) {
         count++;
         continue;
@@ -69,6 +73,8 @@ function animationBorderRadius(
     }
   }
 }
+
+crazy_button.addEventListener('click',animationBorderRadius)
 
 console.log("HI!")
 
