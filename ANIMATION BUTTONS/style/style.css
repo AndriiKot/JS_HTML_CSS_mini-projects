@@ -6,6 +6,7 @@
   height: 100vh;
 }
 button{
+  cursor: pointer;
   border: 1.2px solid #BB44BB;
   background-color: #FA25FA;
   color: #f6e4f6;
