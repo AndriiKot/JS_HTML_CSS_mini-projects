@@ -38,16 +38,17 @@ const convertingValueBorderRadiusToArray = (
 
 async function animationBorderRadius(
   _event,
-  element = null,
+  a = '',
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius,
   ms = 10
 ) {
+  // const self = document.querySelector('button')
+  console.log(_event?.currentTarget)
+  console.log(a)
+  a = a || _event.currentTarget;
   const self = document.querySelector('button')
-  // const self = _event.currentTarget
-  console.log(self)
-  console.log(element)
-  const oldValueBorderRadius = self.style.borderRadius;
+  const oldValueBorderRadius = self?.style.borderRadius || a
   const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
   const arrayNewValueBorderRadius = fnNewArray();
  async function planAnimation() {
@@ -82,7 +83,7 @@ async function animationBorderRadius(
     }
   }
   await planAnimation()
-  await animationBorderRadius(_event,self)
+  await animationBorderRadius(_event,)
 }
 
 crazy_button.addEventListener("click", animationBorderRadius);
