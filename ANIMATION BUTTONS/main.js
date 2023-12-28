@@ -70,8 +70,7 @@ function animationBorderRadius(
       // await sleep(0);
     }
   }
-  // }
-  // await sleep(0);
-  // planAnimation()
 }
+
+console.log("HI!")
 
