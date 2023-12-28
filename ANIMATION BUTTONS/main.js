@@ -4,7 +4,7 @@ import randomInteger from "./src/random_integer_fn.js";
 import createArray from "./src/createArray/createArray.js";
 import handleClick from "./src/toggleHandleClick.js";
 import convertStringToArrayInteger from "./src/convertStringToArrayInteger/convertStringToArrayInteger.js";
-// import sleep from "./src/sleepAsyncFn.js";
+import sleep from "./src/sleepAsyncFn.js";
 
 const crazy_button = document.querySelector("button");
 const animationGoClassName = "animationGo";
@@ -12,9 +12,6 @@ const fnRandomInteger0_100 = randomInteger.bind(this, 0, 100);
 const elementsOfBorderRadius = 8;
 const defaultValueOfElementBorderRadius = 0;
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 const arrayDefaultBorderRadius = Array(elementsOfBorderRadius).fill(
   defaultValueOfElementBorderRadius
@@ -78,13 +75,12 @@ async function animationBorderRadius(
         ${arrayOldValueBorderRadius[5]}% 
         ${arrayOldValueBorderRadius[6]}% 
         ${arrayOldValueBorderRadius[7]}%`;
-        await sleep(0);
+        await sleep(10)
       }
     }
   }
   await planAnimation()
   await animationBorderRadius()
-  await sleep(10)
 }
 
 crazy_button.addEventListener("click", animationBorderRadius);
