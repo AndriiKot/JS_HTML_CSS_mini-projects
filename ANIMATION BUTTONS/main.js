@@ -45,6 +45,7 @@ async function animationBorderRadius(
   const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
   const arrayNewValueBorderRadius = fnNewArray();
   async function planAnimation() {
+    console.log('Test fn planAnimation')
     let count = 0;
     while (count < 8) {
       count = 0;
@@ -76,6 +77,7 @@ async function animationBorderRadius(
       }
     }
   }
+  planAnimation()
   console.log('Test animationBorderRadius')
 }
 
