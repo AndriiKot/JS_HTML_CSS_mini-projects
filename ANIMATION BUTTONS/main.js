@@ -4,13 +4,17 @@ import randomInteger from "./src/random_integer_fn.js";
 import createArray from "./src/createArray/createArray.js";
 import handleClick from "./src/toggleHandleClick.js";
 import convertStringToArrayInteger from "./src/convertStringToArrayInteger/convertStringToArrayInteger.js";
-import sleep from "./src/sleepAsyncFn.js";
+// import sleep from "./src/sleepAsyncFn.js";
 
 const crazy_button = document.querySelector("button");
 const animationGoClassName = "animationGo";
 const fnRandomInteger0_100 = randomInteger.bind(this, 0, 100);
 const elementsOfBorderRadius = 8;
 const defaultValueOfElementBorderRadius = 0;
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 const arrayDefaultBorderRadius = Array(elementsOfBorderRadius).fill(
   defaultValueOfElementBorderRadius
@@ -36,20 +40,21 @@ const convertingValueBorderRadiusToArray = (
 };
 
 async function animationBorderRadius(
-  event,
+  _event,
   fnConvertToArray = convertingValueBorderRadiusToArray,
   fnNewArray = fnCreateArrayRandomBorderRadius
 ) {
-  const self = event.currentTarget;
+  const self = document.querySelector('button')
   const oldValueBorderRadius = self.style.borderRadius;
   const arrayOldValueBorderRadius = fnConvertToArray(oldValueBorderRadius);
   const arrayNewValueBorderRadius = fnNewArray();
-  async function planAnimation() {
+ async function planAnimation() {
     console.log('Test fn planAnimation')
     let count = 0;
     while (count < 8) {
       count = 0;
       for (let i = 0; i < arrayOldValueBorderRadius.length; i++) {
+        console.log('for: !!!')
         if (
           arrayOldValueBorderRadius.length !== arrayNewValueBorderRadius.length
         ) {
@@ -73,12 +78,13 @@ async function animationBorderRadius(
         ${arrayOldValueBorderRadius[5]}% 
         ${arrayOldValueBorderRadius[6]}% 
         ${arrayOldValueBorderRadius[7]}%`;
-        // await sleep(100);
+        await sleep(0);
       }
     }
   }
-  planAnimation()
-  console.log('Test animationBorderRadius')
+  await planAnimation()
+  await animationBorderRadius()
+  await sleep(10)
 }
 
 crazy_button.addEventListener("click", animationBorderRadius);
