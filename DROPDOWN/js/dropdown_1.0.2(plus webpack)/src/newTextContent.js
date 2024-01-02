@@ -8,4 +8,4 @@ const newTextContent = (element, oldValue, newValue, selectorNodeList = '') => {
   element.textContent = count ? newValue + String(count) : oldValue;
 };
 
-export { handleClick, toggleCheckbox, newTextContent };
+export default newTextContent;

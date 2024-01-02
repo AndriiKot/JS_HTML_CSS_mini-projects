@@ -1,8 +1,8 @@
 ﻿
 const toggleCheckbox = (e) => {
-  if (e.target.type === "checkbox") return;
+  if (e.target.type === 'checkbox') return;
 
-  const checkbox = e.currentTarget.querySelector("input[type='checkbox']");
+  const checkbox = e.currentTarget.querySelector('input[type=\'checkbox\']');
   checkbox.checked = !checkbox.checked;
 };
 
