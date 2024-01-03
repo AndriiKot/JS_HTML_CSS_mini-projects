@@ -1,4 +1,4 @@
-﻿import checkSubset from "./checkSubset";
+﻿import checkSubset from './checkSubset';
 
 
 const newTextContent = (element, oldValue, newValue, selectorNodeList = '') => {
