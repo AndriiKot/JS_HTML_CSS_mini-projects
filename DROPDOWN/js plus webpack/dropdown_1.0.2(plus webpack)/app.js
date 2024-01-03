@@ -28,7 +28,7 @@ selectButton.addEventListener(
   handleClick.bind(this, dropDown, dropDownExistsClassName)
 );
 
-liNodeList.forEach((item) => {
+liNodeList.forEach((item,_index,_nodeList,datasetKey = 'content') => {
   item.addEventListener('click', toggleCheckbox);
   item.addEventListener(
     'click',
@@ -40,4 +40,7 @@ liNodeList.forEach((item) => {
       checkboxClassName
     )
   );
+  console.log(item.dataset[datasetKey]);
+  // console.log(datasetKey)
+  // console.log(item.dataset.content);
 });
