@@ -9,7 +9,11 @@ setFullStack = setArrayFullStack,
 setBackend = setArrayBackend,
 setFrontend = setArrayFrontend
 ) => {
-  console.log(setFullStack,setArrayBackend,setFrontend) //setBackend,setFrontend);
+  console.log(setFullStack,setBackend,setFrontend);
+
+  const setAllNewValues  = new Set(['Full Stack', 'Frontend', 'Backend',
+  'Backend for Frontend', 'Frontend for Backend']);
+  console.log(setAllNewValues)
 };
 
 createNewValueTextContent();
