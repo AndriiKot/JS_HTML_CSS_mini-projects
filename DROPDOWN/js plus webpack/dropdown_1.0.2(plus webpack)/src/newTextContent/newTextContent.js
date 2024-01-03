@@ -1,13 +1,15 @@
-﻿import checkSubset from './checkSubset';
+﻿// Test code begin
+
+import checkSubset from './checkSubset';
 import setArrayBackend from './setArrayBackend';
 import setArrayFrontend from './setArrayFrontend';
 import setArrayFullStack from './setArrayFullStack';
 
-
 const createNewValueTextContent = (
 setFullStack = setArrayFullStack,
 setBackend = setArrayBackend,
-setFrontend = setArrayFrontend
+setFrontend = setArrayFrontend,
+fn = checkSubset
 ) => {
   console.log(setFullStack,setBackend,setFrontend);
 
@@ -17,6 +19,7 @@ setFrontend = setArrayFrontend
 };
 
 createNewValueTextContent();
+// test code finish
 
 const newTextContent = (element, oldValue, newValue, selectorNodeList = '',
 ) => {
