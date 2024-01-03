@@ -1,6 +1,6 @@
 ﻿
-const handleClick = (element, className) => {
-  element.classList.toggle(className);
-};
+// const handleClick = (element, className) => {
+//   element.classList.toggle(className);
+// };
 
-export default handleClick;
+// export default handleClick;

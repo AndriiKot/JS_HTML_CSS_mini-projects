@@ -1,14 +1,14 @@
 ﻿import arrayBackend from './arrayBackend';
 import arrayFrontend from './arrayFrontend';
 import arrayFullStack from './arrayFullStack';
-import checkSubset from './checkSubset';
+// import checkSubset from './checkSubset';
 
-console.log(checkSubset());
+// console.log(checkSubset());
 console.log(arrayBackend);
 console.log(arrayFrontend);
 console.log(arrayFullStack);
 console.log('TEST fn ChekSubset: ');
-console.log(checkSubset(arrayFullStack, arrayFrontend));
+// console.log(checkSubset(arrayFullStack, arrayFrontend));
 
 const newTextContent = (element, oldValue, newValue, selectorNodeList = '') => {
   const nodeListItems = document.querySelectorAll(selectorNodeList);
