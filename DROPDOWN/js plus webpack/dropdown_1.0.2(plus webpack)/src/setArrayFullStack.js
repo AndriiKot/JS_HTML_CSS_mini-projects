@@ -1,5 +1,5 @@
 ﻿import setArrayFrontend from "./setArrayFrontend";
-import setArrayBackend from "./setArrayBackend"
+import setArrayBackend from "./setArrayBackend";
 
 const setArrayFullStack = new Set([...setArrayBackend, ...setArrayFrontend]);
 
