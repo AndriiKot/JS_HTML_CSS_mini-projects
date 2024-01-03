@@ -1,6 +1,5 @@
 ﻿import checkSubset from "./checkSubset";
-console.log(checkSubset)
-console.log(checkSubset())
+
 
 const newTextContent = (element, oldValue, newValue, selectorNodeList = '') => {
   const nodeListItems = document.querySelectorAll(selectorNodeList);

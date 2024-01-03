@@ -2,6 +2,9 @@
 import handleClick from './src/handleClick.js';
 import toggleCheckbox from './src/toggleCheckbox.js';
 import newTextContent from './src/newTextContent.js';
+import checkSubset from './src/checkSubset.js';
+
+console.log(checkSubset())
 
 
 const selectButton = document.querySelector('.select-btn');
@@ -39,5 +42,5 @@ liNodeList.forEach((item, _index, _nodeList, datasetKey = 'content') => {
       checkboxClassName
     )
   );
-  console.log(item.dataset[datasetKey]);
+  // console.log(item.dataset[datasetKey]);
 });

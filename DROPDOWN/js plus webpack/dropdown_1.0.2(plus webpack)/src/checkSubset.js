@@ -1,6 +1,6 @@
 ﻿
 const checkSubset = (parentArray = [], subsetArray = []) => {
-  console.log("HI!!")
+  if (parentArray.length === 0) { console.log('Exit to fn'); return };
   return subsetArray.every((el) => parentArray.includes(el));
 };
 
