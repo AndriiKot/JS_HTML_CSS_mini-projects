@@ -4,3 +4,4 @@ dist/
 *.css
 *.json
 webpack.config.js
+checkSubset.js

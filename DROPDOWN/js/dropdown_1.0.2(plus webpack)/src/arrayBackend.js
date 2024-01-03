@@ -1,3 +1,3 @@
-﻿const arrayBackend = ['ruby', 'sql'];
+﻿const setArrayBackend = new Set(['ruby', 'sql']);
 
-export default arrayBackend;
+export default setArrayBackend;

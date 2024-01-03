@@ -1,6 +1,6 @@
 ﻿import arrayBackend from './arrayBackend';
 import arrayFrontend from './arrayFrontend';
 
-const arrayFullStack = [...arrayBackend, ...arrayFrontend];
+const setArrayFullStack = new Set([...arrayBackend, ...arrayFrontend]);
 
-export default arrayFullStack;
+export default setArrayFullStack;

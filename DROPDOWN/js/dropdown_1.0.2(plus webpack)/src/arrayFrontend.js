@@ -1,5 +1,5 @@
-﻿const arrayFrontend = ['css', 'js', 'html'];
+﻿const setArrayFrontend = new Set(['css', 'js', 'html']);
 
-export default arrayFrontend;
+export default setArrayFrontend;
 
 
