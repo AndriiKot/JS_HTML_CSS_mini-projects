@@ -1,8 +1,6 @@
 ﻿import setArrayFrontend from "./setArrayFrontend";
 import setArrayBackend from "./setArrayBackend"
 
-console.log(setArrayBackend,setArrayFrontend)
-
-const setArrayFullStack = new Set([]);
+const setArrayFullStack = new Set([...setArrayBackend, ...setArrayFrontend]);
 
 export default setArrayFullStack;

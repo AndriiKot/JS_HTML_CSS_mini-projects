@@ -2,9 +2,7 @@
 import handleClick from './src/handleClick.js';
 import toggleCheckbox from './src/toggleCheckbox.js';
 import newTextContent from './src/newTextContent.js';
-import setArrayFullStack from './src/setArrayFullStack.js';
 
-console.log(setArrayFullStack);
 
 const selectButton = document.querySelector('.select-btn');
 const defaultButtonTextContent =
