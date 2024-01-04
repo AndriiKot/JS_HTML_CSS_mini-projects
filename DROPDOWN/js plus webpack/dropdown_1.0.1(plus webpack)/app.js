@@ -1,9 +1,7 @@
 ﻿
-import { handleClick } from './src/functions.js';
-import {
-  toggleCheckbox,
-  newTextContent,
-} from './src/functions.js';
+import { handleClick } from './src/handleClick.js';
+import { toggleCheckbox } from './src/toggleCheckbox.js';
+import { newTextContent } from './src/newTextContent.js';
 
 const selectButton = document.querySelector('.select-btn');
 const defaultButtonTextContent =

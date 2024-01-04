@@ -1,13 +1,4 @@
 ﻿
-
-
-const toggleCheckbox = (e) => {
-  if (e.target.type === 'checkbox') return;
-
-  const checkbox = e.currentTarget.querySelector('input[type=\'checkbox\']');
-  checkbox.checked = !checkbox.checked;
-};
-
 const newTextContent = (element, oldValue, newValue, selectorNodeList = '') => {
   const nodeListItems = document.querySelectorAll(selectorNodeList);
   let count = 0;
@@ -18,4 +9,4 @@ const newTextContent = (element, oldValue, newValue, selectorNodeList = '') => {
 };
 
 
-export { toggleCheckbox, newTextContent };
+export { newTextContent };
