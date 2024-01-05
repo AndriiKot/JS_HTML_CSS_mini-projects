@@ -8,7 +8,6 @@ document.body.appendChild(highlight);
 
 let firstMouseover = true;
 
-
 function displayHighlight(currentElement, animationElement) {
   const linkCoords = currentElement.getBoundingClientRect();
 
