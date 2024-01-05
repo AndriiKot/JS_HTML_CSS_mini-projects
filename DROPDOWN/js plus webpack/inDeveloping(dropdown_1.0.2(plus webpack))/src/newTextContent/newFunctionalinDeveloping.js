@@ -11,12 +11,17 @@ const createNewValueTextContent = (
   setFrontend = setArrayFrontend,
 ) => {
   console.log(setFullStack, setBackend, setFrontend);
+  const arrayCheckedElements = [];
+  console.dir(arrayCheckedElements)
 
   nodeList.forEach(element => {
-    console.dir(element)
     const checkbox = element.querySelector('input[type=\'checkbox\']');
-    console.log(checkbox.checked)
+    if(checkbox.checked) {
+      arrayCheckedElements.push(element)
+    }
   });
+  console.dir(arrayCheckedElements)
+
   // console.log(arrayNodeList)
 
   const setAllNewValues = new Set([
