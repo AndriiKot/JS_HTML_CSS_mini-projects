@@ -17,7 +17,7 @@ const createNewValueTextContent = (
   nodeList.forEach(element => {
     const checkbox = element.querySelector('input[type=\'checkbox\']');
     if(checkbox.checked) {
-      arrayCheckedElements.push(element)
+      arrayCheckedElements.push(checkbox.value)
     }
   });
   console.dir(arrayCheckedElements)
