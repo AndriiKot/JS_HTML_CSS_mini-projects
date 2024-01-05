@@ -32,12 +32,12 @@ const createNewValueTextContent = (
 }
 
 const newTextContentCopy = (element, oldValue, newValue, selectorNodeList = 'input[type=\'checkbox\']') => {
-  // const nodeListItems = document.querySelectorAll(selectorNodeList);
-
+   const nodeListItems = document.querySelectorAll(selectorNodeList);
+  console.log(nodeListItems)
   // let count = 0;
-  // nodeListItems.forEach((item) => {
-  //   if (item.checked) count++;
-  // });
+  nodeListItems.forEach((item) => {
+    if (item.checked) console.log('Checked!!!');
+  });
   // element.textContent = count ? newValue + count : oldValue;
   console.log('newTextContentCopy!!!')
 };

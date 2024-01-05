@@ -41,15 +41,15 @@ liNodeList.forEach((item, _index,) => {
       checkboxClassName
     )
   );
-  // item.addEventListener(
-  //   'click',
-  //   newTextContentCopy.bind(
-  //     this,
-  //     selectButtonTextContent,
-  //     defaultButtonTextContent,
-  //     newButtonTextContent,
-  //   )
- // );
+  item.addEventListener(
+    'click', () => {
+      newTextContentCopy(
+        selectButtonTextContent,
+        defaultButtonTextContent,
+        newButtonTextContent
+      )
+    }
+ );
 
   // console.log(item.dataset[datasetKey]);
 });
