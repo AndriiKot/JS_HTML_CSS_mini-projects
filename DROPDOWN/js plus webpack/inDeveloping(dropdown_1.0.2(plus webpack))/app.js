@@ -2,7 +2,7 @@
 import handleClick from './src/handleClick.js';
 import toggleCheckbox from './src/toggleCheckbox.js';
 import newTextContent from './src/newTextContent/newTextContent.js';
-import {createNewValueTextContent, newTextContentCopy} from './src/newTextContent/newFunctionalinDeveloping.js'
+import {newTextContentCopy} from './src/newTextContent/newFunctionalinDeveloping.js'
 
 
 
@@ -51,12 +51,7 @@ liNodeList.forEach((item, _index,) => {
     }
  );
 
-  // console.log(item.dataset[datasetKey]);
 });
 
 
-// setInterval(() => {createNewValueTextContent(liNodeList)}, 3000);
 
-// createNewValueTextContent(liNodeList)
-
-console.log(newTextContentCopy())
