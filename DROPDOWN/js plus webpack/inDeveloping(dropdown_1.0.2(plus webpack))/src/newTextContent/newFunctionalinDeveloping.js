@@ -14,7 +14,7 @@ const createNewValueTextContent = (
 
   const arrayNodeList = Array.from(nodeList)
   nodeList.forEach(element => {
-    console.log(element)
+    console.log(element.checked)
   });
   console.log(arrayNodeList)
 

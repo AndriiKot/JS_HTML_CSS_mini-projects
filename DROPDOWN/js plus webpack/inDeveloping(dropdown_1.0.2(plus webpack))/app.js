@@ -45,5 +45,5 @@ liNodeList.forEach((item, _index,) => {
 });
 
 
-createNewValueTextContent(liNodeList);
+setInterval(() => {createNewValueTextContent(liNodeList)}, 5000);
 
