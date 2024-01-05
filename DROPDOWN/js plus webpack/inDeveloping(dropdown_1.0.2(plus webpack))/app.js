@@ -2,6 +2,9 @@
 import handleClick from './src/handleClick.js';
 import toggleCheckbox from './src/toggleCheckbox.js';
 import newTextContent from './src/newTextContent/newTextContent.js';
+import createNewValueTextContent from "./src/newTextContent/newFunctionalinDeveloping.js"
+
+
 
 const selectButton = document.querySelector('.select-btn');
 const defaultButtonTextContent =
@@ -26,7 +29,7 @@ selectButton.addEventListener(
   handleClick.bind(this, dropDown, dropDownExistsClassName)
 );
 
-liNodeList.forEach((item, _index, _nodeList, datasetKey = 'content') => {
+liNodeList.forEach((item, _index,) => {
   item.addEventListener('click', toggleCheckbox);
   item.addEventListener(
     'click',
@@ -40,3 +43,7 @@ liNodeList.forEach((item, _index, _nodeList, datasetKey = 'content') => {
   );
   // console.log(item.dataset[datasetKey]);
 });
+
+
+createNewValueTextContent(liNodeList);
+
