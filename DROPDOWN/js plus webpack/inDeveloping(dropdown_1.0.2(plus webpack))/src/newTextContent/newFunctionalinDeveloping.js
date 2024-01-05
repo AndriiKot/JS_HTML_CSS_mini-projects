@@ -12,11 +12,12 @@ const createNewValueTextContent = (
 ) => {
   console.log(setFullStack, setBackend, setFrontend);
 
-  const arrayNodeList = Array.from(nodeList)
   nodeList.forEach(element => {
-    console.log(element.checked)
+    console.dir(element)
+    const checkbox = element.querySelector('input[type=\'checkbox\']');
+    console.log(checkbox.checked)
   });
-  console.log(arrayNodeList)
+  // console.log(arrayNodeList)
 
   const setAllNewValues = new Set([
     "Full Stack",
@@ -25,7 +26,7 @@ const createNewValueTextContent = (
     "Backend for Frontend",
     "Frontend for Backend",
   ]);
-  console.log(setAllNewValues);
+  // console.log(setAllNewValues);
 }
 
 export default createNewValueTextContent ;
