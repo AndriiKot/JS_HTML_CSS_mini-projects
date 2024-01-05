@@ -31,4 +31,16 @@ const createNewValueTextContent = (
 
 }
 
-export default createNewValueTextContent ;
+const newTextContentCopy = (element, oldValue, newValue, selectorNodeList = 'input[type=\'checkbox\']') => {
+  // const nodeListItems = document.querySelectorAll(selectorNodeList);
+
+  // let count = 0;
+  // nodeListItems.forEach((item) => {
+  //   if (item.checked) count++;
+  // });
+  // element.textContent = count ? newValue + count : oldValue;
+  console.log('newTextContentCopy!!!')
+};
+
+
+export {createNewValueTextContent, newTextContentCopy};
