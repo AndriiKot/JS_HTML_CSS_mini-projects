@@ -34,11 +34,15 @@ const createNewValueTextContent = (
 const newTextContentCopy = (element, oldValue, newValue, selectorNodeList = 'input[type=\'checkbox\']') => {
    const nodeListItems = document.querySelectorAll(selectorNodeList);
   console.log(nodeListItems)
+  const arrayCheckedElements = [];
+
   // let count = 0;
   nodeListItems.forEach((item) => {
-    if (item.checked) console.log('Checked!!!');
+    if (item.checked) arrayCheckedElements.push(item.value);
   });
-  // element.textContent = count ? newValue + count : oldValue;
+  
+  console.log(arrayCheckedElements)
+  element.textContent = (arrayCheckedElements.length === nodeListItems.length) ? 'Full Stack' : oldValue;
   console.log('newTextContentCopy!!!')
 };
 
