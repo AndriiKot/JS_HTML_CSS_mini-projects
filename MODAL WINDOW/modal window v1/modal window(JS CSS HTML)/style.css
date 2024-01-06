@@ -1,4 +1,8 @@
-﻿
+﻿*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 body {
   background-color: #00ffff;
   font-family: 'Noto Sans', sans-serif;
@@ -19,6 +23,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    display: none;
 }
 
 .modal-window {
@@ -34,9 +39,32 @@ body {
     text-align: center;
 }
 
+.modal-window__btn-close {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    opacity: .5;
+}
 
+.modal-window__btn-close:hover{
+    opacity: .7;
+}
 
-
+.btn-show__modal_widow {
+    background-color: #98b6c3;
+    color: #fff;
+    cursor: pointer;
+    /* color: white; */
+    border: none;
+    padding: 8px 16px;
+    font-size: 18px;
+    margin: 5px;
+}
+  
+  
 .modal .overlay{
     background-color: #000;
     opacity: .4;
