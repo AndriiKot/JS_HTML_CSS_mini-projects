@@ -30,6 +30,10 @@ body {
     box-shadow: 0 10px 15px rgba(0,0,0, .4);
     background-color: #98b6c3;
 }
+.modal-window__title {
+    text-align: center;
+}
+
 
 
 
