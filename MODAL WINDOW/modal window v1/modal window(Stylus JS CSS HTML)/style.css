@@ -1,15 +1,15 @@
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 body {
-  background-color: #e85fc3;
+  background-color: #cc8ffa;
   font-family: 'Arial';
   font-size: 16px;
   color: #fff;
   min-width: 320px;
   overflow-x: hidden;
   height: 700vh;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 .modal {
   position: fixed;
@@ -24,16 +24,15 @@ body {
 .modal-window {
   z-index: 1;
   border-radius: 20px;
-  border: 1px solid #000;
   width: 550px;
   box-shadow: 0 10px 15px rgba(0,0,0,0.4);
-  background-color: #f00;
+  background-color: #916fde;
 }
 .modal-window__title {
   text-align: center;
 }
 .overlay {
-  background-color: #008000;
+  background-color: #fff;
   opacity: 0.4;
   position: absolute;
   left: 50%;
@@ -44,7 +43,7 @@ body {
   z-index: 0;
 }
 .btn-show__modal_widow {
-  background-color: #98b6c3;
+  background-color: #916fde;
   color: #fff;
   cursor: pointer;
   border: none;
