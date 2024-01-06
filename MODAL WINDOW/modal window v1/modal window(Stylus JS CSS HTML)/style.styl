@@ -1,55 +1,9 @@
 ﻿@require "stylus_css/*"
 
 box-sizing-normal()
-
-    
-.modal
-    position-center(fixed)
-    display none
-    
-.modal-show 
-    display flex
-
-.modal-window 
-    z-index 1
-    border-radius 20px
-    width: 550px
-    box-shadow 0 10px 15px rgba(0,0,0, .4)
-    background-color #916fde
-
-.modal-window__title 
-    text-align center
-
- 
-.overlay
-        background-color #fff
-        opacity .4
-        position-center(absolute)
-        width 1000vh
-        height 1000vh
-        z-index: 0;
+body_style()
+modal_style()
+overlay_style()
 
 
-.btn-show__modal_widow {
-    background-color #916fde;
-    color #fff
-    cursor pointer
-    border none
-    padding 8px 16px
-    font-size 18px
-    margin 5px
-}
-
-.modal-window__btn-close {
-    position absolute 
-    right 14px
-    top  14px
-    border none
-    cursor pointer
-    background-color transparent
-    opacity .5
-}
-
-.modal-window__btn-close:hover
-    opacity .7
 
