@@ -17,7 +17,7 @@
     },
     watch: {
       styles: {
-        files: ["less_css/*.less"], 
+        files: ["less_css/**/*.less"], 
         tasks: ["less"],
         options: {
           nospawn: true,
