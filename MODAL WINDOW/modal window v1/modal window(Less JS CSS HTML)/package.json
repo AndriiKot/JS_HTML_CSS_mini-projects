@@ -1,5 +1,5 @@
 {
-  "name": "modal-window(less-js-css-html)",
+  "name": "modal window(less js css html)",
   "version": "0.0.1",
   "description": "Modal Window",
   "scripts": {
@@ -9,6 +9,7 @@
   "author": "AndriiKot",
   "license": "ISC",
   "devDependencies": {
+    "grunt": "^1.6.1",
     "grunt-contrib-less": "^3.0.0",
     "grunt-contrib-watch": "^1.1.0"
   }
