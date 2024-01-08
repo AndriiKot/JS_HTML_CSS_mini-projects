@@ -1,10 +1,15 @@
-﻿@require '../mixins/mixins.styl'
+﻿@import '../mixins/mixins.less';
+
+.overlay_style(){
+    .overlay {
+        position: center(absolute);
+        background-color: #fff;
+        opacity: 0.4;
+        max-width: 100svh;
+        max-height: 100s`vh;
+        z-index: 0;
+    }
     
-overlay_style()
-    .overlay
-        position-center(absolute)
-        background-color #fff
-        opacity .4
-        width 1000vh
-        height 1000vh
-        z-index: 0
+}
+  
+  
