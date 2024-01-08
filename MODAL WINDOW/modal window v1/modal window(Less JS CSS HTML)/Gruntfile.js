@@ -1,5 +1,6 @@
 ﻿module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-contrib-less");
+  grunt.loadNpmTasks("grunt-contrib-watch");
 
   grunt.initConfig({
     less: {
@@ -10,22 +11,20 @@
          optimization: 2,
         },
         files: {
-          "style.css": "style.less",
+          "./main.css": "./less_css/main.less",
         },
       },
     },
-    // watch: {
-    //   styles: {
-    //     files: ["less/**/*.less"], // which files to watch
-    //     tasks: ["less"],
-    //     options: {
-    //       nospawn: true,
-    //     },
-    //   },
-    // },
+    watch: {
+      styles: {
+        files: ["less_css/*.less"], 
+        tasks: ["less"],
+        options: {
+          nospawn: true,
+        },
+      },
+    },
   });
 
-  // grunt.loadNpmTasks("grunt-contrib-watch");
-
-  // grunt.registerTask("default", ["watch"]);
+  grunt.registerTask("default", ["watch"]);
 };
