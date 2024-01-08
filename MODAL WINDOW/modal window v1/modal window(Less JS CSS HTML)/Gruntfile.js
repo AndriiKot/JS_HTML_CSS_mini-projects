@@ -1,41 +1,31 @@
 ﻿module.exports = function(grunt) {
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-exec');
-
     grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-
-    watch: {
-        files: ['**/*.ts'],
-        tasks: ['exec:run_tsc']
+       less: {
+          development: {
+             options: {
+                compress: true,
+                yuicompress: true,
+                optimization: 2
+             },
+             files: {
+                // target.css file: source.less file
+                "css/main.css": "less/main.less"
+             }
+         }
     },
-    exec: {
-        run_tsc: {cmd: 'tsc'}
+    watch: {
+       styles: {
+          files: ['less/**/*.less'], // which files to watch
+          tasks: ['less'],
+          options: {
+             nospawn: true
+          }
+       }
     }
-    });
-
-    grunt.registerTask('default', ['watch']);
-    
-};
-
-module.exports = function(grunt) {
-    grunt.initConfig({
-        less: {
-            development: {
-                options: {
-                    paths: ["./assets/stylesheets/less"],
-                    yuicompress: true
-                },
-                files: {
-                    "./assets/stylesheets/css/style.css": "./assets/stylesheets/less/style.less"
-                }
-            }
-        },
-        watch: {
-            files: "./assets/stylesheets/less/*",
-            tasks: ["less"]
-        }
-    });
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-};
+ });
+ 
+ grunt.loadNpmTasks('grunt-contrib-less');
+ grunt.loadNpmTasks('grunt-contrib-watch');
+ 
+ grunt.registerTask('default', ['watch']);
+ };
