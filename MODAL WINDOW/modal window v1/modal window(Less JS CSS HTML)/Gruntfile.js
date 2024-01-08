@@ -1,14 +1,15 @@
 ﻿module.exports = function (grunt) {
+  grunt.loadNpmTasks("grunt-contrib-less");
+
   grunt.initConfig({
     less: {
       development: {
         options: {
           compress: true,
           yuicompress: true,
-          optimization: 2,
+         optimization: 2,
         },
         files: {
-          // target.css file: source.less file
           "style.css": "style.less",
         },
       },
@@ -24,7 +25,6 @@
     // },
   });
 
-  grunt.loadNpmTasks("grunt-contrib-less");
   // grunt.loadNpmTasks("grunt-contrib-watch");
 
   // grunt.registerTask("default", ["watch"]);
