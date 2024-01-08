@@ -3,6 +3,7 @@
   grunt.loadNpmTasks("grunt-contrib-watch");
 
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     less: {
       development: {
         options: {
