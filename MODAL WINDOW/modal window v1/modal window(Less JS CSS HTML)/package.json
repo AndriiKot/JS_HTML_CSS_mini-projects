@@ -1,18 +1,11 @@
 {
-  "name": "grunt-playlist-copy3",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "modal-window(less-js-css-html)",
+  "version": "0.0.1",
+  "description": "Modal Window",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "AndriiKot",
-  "license": "ISC",
-  "devDependencies": {
-    "grunt": "^1.6.1",
-    "grunt-contrib-less": "^3.0.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-exec": "^3.0.0"
-  }
+  "license": "ISC"
 }
