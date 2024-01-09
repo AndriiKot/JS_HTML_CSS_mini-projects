@@ -1,4 +1,4 @@
-﻿.button_close_modal_window() {
+﻿@mixin button_close_modal_window() {
     .modal-window__btn-close {
         position: absolute;
         right: 14px;

@@ -1,11 +1,11 @@
-﻿// @import "./modal_window_style.less";
-// @import "./button_close_modal_window.less";
-// @import "./overlay.less";
+﻿@import "./modal_window_style.scss",
+         "./button_close_modal_window.scss",
+        "./overlay.scss";
 
-// .modal_window_constructor() {
-//     .modal_style();
-//     .button_close_modal_window();
-//     .overlay_style();
-// }
+@mixin modal_window_constructor() {
+    @include modal_style();
+    @include button_close_modal_window();
+    @include overlay_style();
+}
 
 

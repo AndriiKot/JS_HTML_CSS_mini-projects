@@ -1,8 +1,9 @@
-﻿@import "../variables.less";
+﻿@import "../variables.scss",
+        "./mixin_position_center.scss";
 
-.modal_style() {
+@mixin modal_style() {
     .modal {
-        .position-center(fixed);
+        @include position-center(fixed);
         display: none;
     }
     .modal-show {
@@ -13,7 +14,7 @@
         border-radius: 20px;
         width: 550px;
         box-shadow: 0 10px 15px rgba(0,0,0, .4);
-        background-color: @button_color-background;
+        background-color: $button_color-background;
         padding: 25px 0 25px 0;
     }
     .modal-window__title {

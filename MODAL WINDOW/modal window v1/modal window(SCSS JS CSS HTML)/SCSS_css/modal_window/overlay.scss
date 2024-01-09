@@ -1,21 +1,14 @@
-﻿@import '../mixins/mixins.less';
+﻿@import './mixin_position_center.scss';
 
-.overlay_style(){
+@mixin overlay_style(){
     .overlay {
-        position: center(absolute);
-        background-color: #fff;
+        @include position-center(fixed);   
         opacity: 0.4;
         max-width: 100svh;
-        max-height: 100s`vh;
+        max-height: 100svh;
         z-index: 0;
     }
-    
+  
 }
   
   
-// .position-center(@arg) {
-//     position: @arg;
-//     left: 50%;
-//     top: 50%;
-//     transform: translateX(-50%) translateY(-50%);
-// }
