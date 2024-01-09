@@ -1,4 +1,8 @@
 ﻿
 @mixin input-text-style() {
     padding: 0;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    appearance: 0;
 }
