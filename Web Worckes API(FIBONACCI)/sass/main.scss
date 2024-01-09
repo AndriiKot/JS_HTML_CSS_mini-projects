@@ -10,8 +10,10 @@ body {
     @include body-style;
     background-color: aqua; /* test */
 }
+
 .wrapper__fibonacci {
     @include flex-center;
+    text-align: center;
 }
 
 .text-number__fibonacci {
