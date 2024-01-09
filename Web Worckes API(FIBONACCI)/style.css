@@ -115,6 +115,9 @@ body {
   font-family: Arial,Verdana, Helvetica, sans-serif;
   background-color: aqua;
   /* test */ }
+  @media (max-width: 360px) {
+    body h1 {
+      text-align: center; } }
 
 .wrapper__fibonacci {
   display: flex;
