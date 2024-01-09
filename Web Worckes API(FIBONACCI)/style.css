@@ -160,7 +160,8 @@ body {
   border-radius: 0;
   outline: none;
   appearance: 0;
-  border-bottom: 1px solid #9f9f9f; }
+  border-bottom: 1px solid #9f9f9f;
+  transition: border-color .2s; }
   .text-number__fibonacci:focus {
     border-color: #5353d8; }
 
