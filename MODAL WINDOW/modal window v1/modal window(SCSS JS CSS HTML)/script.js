@@ -12,6 +12,14 @@ const hiddenModalWindow = (element,method) => {
     element.classList[method]('modal-show')
 };
 
+const addOrRemoveClass = (element,method,className) => {
+    element.classList[method](className)
+}
+
 buttonModalWindow.addEventListener('click', () => {showModalWindow(modalWindow,'add')});
 buttonCloseModalWindow.addEventListener('click', () => {hiddenModalWindow(modalWindow,'remove')});
+
+
+const newFunction = addOrRemoveClass(modalWindow,'add','modal-show');
+console.dir({newFunction})
 
