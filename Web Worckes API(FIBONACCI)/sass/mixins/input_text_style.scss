@@ -1,9 +1,12 @@
 ﻿
 @mixin input-text-style() {
-    padding: 0;
+    padding: 10px 0;
     border: 0;
     border-radius: 0;
     outline: none;
     appearance: 0;
     border-bottom: 1px solid rgb(159, 159, 159);
+    &:focus {
+        border-color: rgb(83, 83, 216);
+    }
 }

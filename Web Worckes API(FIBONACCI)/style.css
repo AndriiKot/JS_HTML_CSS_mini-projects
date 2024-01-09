@@ -155,11 +155,13 @@ body {
   text-align: center; }
 
 .text-number__fibonacci {
-  padding: 0;
+  padding: 10px 0;
   border: 0;
   border-radius: 0;
   outline: none;
   appearance: 0;
   border-bottom: 1px solid #9f9f9f; }
+  .text-number__fibonacci:focus {
+    border-color: #5353d8; }
 
 /*# sourceMappingURL=style.css.map */
