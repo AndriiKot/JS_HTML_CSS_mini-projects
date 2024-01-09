@@ -1,9 +1,4 @@
 ﻿
 @mixin body-style() {
     font-family: Arial,Verdana, Helvetica, sans-serif;
-    @media (max-width: 360px) {
-       h1 {
-        text-align: center;
-       }
-    }
 }
