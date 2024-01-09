@@ -4,14 +4,14 @@ const buttonCloseModalWindow = document.querySelector('.modal-window__btn-close'
 const modalWindow = document.querySelector('.modal')
 
 
-const showModalWindow = (_event,element = modalWindow) => {
-    element.classList.add('modal-show')
+const showModalWindow = (element,method) => {
+    element.classList[method]('modal-show')
 };
 
 const hiddenModalWindow = (_event,element = modalWindow) => {
     element.classList.remove('modal-show')
 };
 
-buttonModalWindow.addEventListener('click', showModalWindow)
+buttonModalWindow.addEventListener('click', () => {showModalWindow(modalWindow,'add')});
 buttonCloseModalWindow.addEventListener('click', hiddenModalWindow)
 
