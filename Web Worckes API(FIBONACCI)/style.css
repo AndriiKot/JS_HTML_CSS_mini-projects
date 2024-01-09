@@ -112,12 +112,21 @@
   display: list-item; }
 
 body {
-  font-family: Arial,Verdana, Helvetica, sans-serif; }
+  font-family: Arial,Verdana, Helvetica, sans-serif;
+  background-color: aqua;
+  /* test */ }
 
 .wrapper__fibonacci {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column; }
+
+.text-number__fibonacci {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: 0; }
 
 /*# sourceMappingURL=style.css.map */

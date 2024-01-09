@@ -1,5 +1,6 @@
 ﻿@import "normalize.scss",
         "./body/body_style.scss",
+        "./mixins/input_text_style.scss",
         "./mixins/flex-center.scss";
 
 :root {
@@ -7,7 +8,13 @@
 }
 body {
     @include body-style;
+    background-color: aqua; /* test */
 }
 .wrapper__fibonacci {
     @include flex-center;
 }
+
+.text-number__fibonacci {
+    @include input-text-style;
+}
+
