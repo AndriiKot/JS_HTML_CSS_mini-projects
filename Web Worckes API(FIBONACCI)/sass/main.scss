@@ -1,5 +1,9 @@
-﻿@import "normalize.scss";
+﻿@import "normalize.scss","./mixins/flex-center.scss";
 
 :root {
     @include normalize_css;
+}
+
+.wrapper__fibonacci {
+    @include flex-center;
 }

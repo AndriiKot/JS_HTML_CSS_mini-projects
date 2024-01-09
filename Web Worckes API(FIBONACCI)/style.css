@@ -111,4 +111,10 @@
 :root summary {
   display: list-item; }
 
+.wrapper__fibonacci {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; }
+
 /*# sourceMappingURL=style.css.map */
