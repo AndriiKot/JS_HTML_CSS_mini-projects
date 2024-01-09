@@ -1,3 +1,114 @@
-﻿body {
-    background-color: red; /* test !!! */
-}
+:root html {
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.15; }
+:root body {
+  margin: 0; }
+:root main {
+  display: block; }
+:root h1 {
+  margin: 0.67em 0;
+  font-size: 2em; }
+:root a {
+  background-color: transparent; }
+:root pre {
+  font-size: 1em;
+  font-family: monospace, monospace; }
+:root hr {
+  height: 0;
+  box-sizing: content-box;
+  overflow: visible; }
+:root abbr[title] {
+  border-bottom: none;
+  text-decoration: underline dotted;
+  text-decoration: underline; }
+:root b,
+:root strong {
+  font-weight: bolder; }
+:root code,
+:root kbd,
+:root samp {
+  font-size: 1em;
+  font-family: monospace, monospace; }
+:root small {
+  font-size: 80%; }
+:root sub,
+:root sup {
+  position: relative;
+  line-height: 0;
+  vertical-align: baseline;
+  font-size: 75%; }
+:root sub {
+  bottom: -0.25em; }
+:root sup {
+  top: -0.5em; }
+:root img {
+  border-style: none; }
+:root button,
+:root input,
+:root optgroup,
+:root select,
+:root textarea {
+  line-height: 1.15;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0; }
+:root button,
+:root select {
+  text-transform: none; }
+:root button,
+:root input {
+  overflow: visible; }
+:root button,
+:root [type="button"],
+:root [type="reset"],
+:root [type="submit"] {
+  -webkit-appearance: button; }
+:root button::-moz-focus-inner,
+:root [type="button"]::-moz-focus-inner,
+:root [type="reset"]::-moz-focus-inner,
+:root [type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+:root button:-moz-focusring,
+:root [type="button"]:-moz-focusring,
+:root [type="reset"]:-moz-focusring,
+:root [type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+:root fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+:root legend {
+  white-space: normal;
+  display: table;
+  box-sizing: border-box;
+  color: inherit;
+  padding: 0;
+  max-width: 100%; }
+:root progress {
+  vertical-align: baseline; }
+:root textarea {
+  overflow: auto; }
+:root [type="checkbox"],
+:root [type="radio"] {
+  padding: 0;
+  box-sizing: border-box; }
+:root [type="number"]::-webkit-inner-spin-button,
+:root [type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+:root ::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button; }
+:root [type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+:root details {
+  display: block; }
+:root [type="search"] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield; }
+:root template {
+  display: none; }
+:root [hidden] {
+  display: none; }
+:root summary {
+  display: list-item; }
+
+/*# sourceMappingURL=style.css.map */
