@@ -3,12 +3,10 @@
         "./mixins/input_text_style.scss",
         "./mixins/flex-center.scss";
 
-
 @include normalize_css;
 
 body {
     @include body-style;
-    background-color: aqua; /* test */
 }
 
 .wrapper__fibonacci {
