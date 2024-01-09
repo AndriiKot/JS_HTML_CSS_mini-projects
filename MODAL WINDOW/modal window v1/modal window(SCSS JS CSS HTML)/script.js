@@ -16,10 +16,17 @@ const addOrRemoveClass = (element,method,className) => {
     element.classList[method](className)
 }
 
-buttonModalWindow.addEventListener('click', () => {showModalWindow(modalWindow,'add')});
-buttonCloseModalWindow.addEventListener('click', () => {hiddenModalWindow(modalWindow,'remove')});
+// buttonModalWindow.addEventListener('click', () => {showModalWindow(modalWindow,'add')});
+// buttonCloseModalWindow.addEventListener('click', () => {hiddenModalWindow(modalWindow,'remove')});
 
+buttonModalWindow.addEventListener('click', () => {
+    const showModalWindow = addOrRemoveClass(modalWindow,'add','modal-show')
+});
 
-const newFunction = addOrRemoveClass(modalWindow,'add','modal-show');
-console.dir({newFunction})
+buttonCloseModalWindow.addEventListener('click', () => {
+    const hiddenModalWindow = addOrRemoveClass(modalWindow,'remove','modal-show')
+});
+
+// const newFunction = addOrRemoveClass(modalWindow,'add','modal-show');
+// console.dir({newFunction})
 
