@@ -111,6 +111,9 @@
 :root summary {
   display: list-item; }
 
+body {
+  font-family: Arial,Verdana, Helvetica, sans-serif; }
+
 .wrapper__fibonacci {
   display: flex;
   align-items: center;
