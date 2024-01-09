@@ -8,10 +8,10 @@ const showModalWindow = (element,method) => {
     element.classList[method]('modal-show')
 };
 
-const hiddenModalWindow = (_event,element = modalWindow) => {
-    element.classList.remove('modal-show')
+const hiddenModalWindow = (element,method) => {
+    element.classList[method]('modal-show')
 };
 
 buttonModalWindow.addEventListener('click', () => {showModalWindow(modalWindow,'add')});
-buttonCloseModalWindow.addEventListener('click', hiddenModalWindow)
+buttonCloseModalWindow.addEventListener('click', () => {hiddenModalWindow(modalWindow,'remove')});
 
