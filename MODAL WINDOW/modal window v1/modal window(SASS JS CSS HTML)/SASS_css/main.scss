@@ -1,17 +1,16 @@
-﻿// @import "./variables.scss",
-//         "./body/body_style.scss",
+﻿@import "./variables.scss",
+        "./body/body_style.scss",
 //         "./buttons/button.scss",
-//         "./normalize/normalize.scss",
+        "./normalize/normalize.scss";
 //         "./modal_window/_main_modal_window.scss";
 
-@import "./normalize/normalize.scss";
 
 @include normalize_css;
 
 
-// body {
-//  @include body_style;
-// }
+body {
+ @include body_style;
+}
 
 // .btn-show__modal_widow {
 //   background-color: black;
