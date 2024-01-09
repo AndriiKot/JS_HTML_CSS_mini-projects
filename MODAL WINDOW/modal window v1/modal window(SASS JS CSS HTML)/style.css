@@ -153,4 +153,13 @@ body {
   height: 700svh;
   overflow-x: hidden; }
 
+.btn-show__modal_widow {
+  background-color: #916fde;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 8px 16px;
+  font-size: 18px;
+  margin: 15px; }
+
 /*# sourceMappingURL=style.css.map */
