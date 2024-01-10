@@ -9,13 +9,13 @@
     background: linear-gradient(#{$deg_i}deg,
     $color1,
     $color2,
-    $color3);
+    $color1);
     @include webkit-gradient;
-   
 };
 
-@mixin line-gradient-body($deg_i: 90) {
+@mixin line-gradient-body($deg_i: -90) {
     background: linear-gradient(#{$deg_i}deg,
-    $color4,
-    $color5);
+    #262626,
+    #3e0c51,
+    #262626);
 }
