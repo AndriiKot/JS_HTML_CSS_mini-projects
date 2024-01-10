@@ -3,6 +3,7 @@
         "./fibonacci_style/block_input_fibonacci.scss",
         "./fibonacci_style/input_style.scss",
         "./fibonacci_style/placeholder_style.scss",
+        "./fibonacci_style/header_style.scss",
         "./mixins/flex-center.scss";
 
 @include normalize_css;
@@ -24,5 +25,9 @@ body {
 
 .text-number__fibonacci-placeholder {
     @include placeholder-style;
+}
+
+.header__fiboacci{
+    @include header_style;
 }
 
