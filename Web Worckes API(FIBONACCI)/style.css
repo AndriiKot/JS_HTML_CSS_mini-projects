@@ -145,8 +145,7 @@ summary {
   display: list-item; }
 
 body {
-  font-family: Arial,Verdana, Helvetica, sans-serif;
-  background-color: red; }
+  font-family: Arial,Verdana, Helvetica, sans-serif; }
 
 .wrapper__fibonacci {
   display: flex;
@@ -155,7 +154,7 @@ body {
   flex-direction: column;
   text-align: center; }
 
-.text-number__fibonacci {
+.text-number__fibonacci-input {
   padding: 10px 0;
   border: 0;
   border-radius: 0;
@@ -163,7 +162,7 @@ body {
   appearance: 0;
   border-bottom: 1px solid #9f9f9f;
   transition: border-color .2s; }
-  .text-number__fibonacci:focus {
+  .text-number__fibonacci-input:focus {
     border-color: #5353d8; }
 
 /*# sourceMappingURL=style.css.map */
