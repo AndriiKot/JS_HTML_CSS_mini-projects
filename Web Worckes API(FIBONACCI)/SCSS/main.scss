@@ -1,6 +1,7 @@
 ﻿@import "normalize.scss",
         "./body/body_style.scss",
-        "./mixins/input_text_style.scss",
+        "./fibonacci_input/block_input_fibonacci.scss",
+        "./fibonacci_input/input_text_style.scss",
         "./mixins/flex-center.scss";
 
 @include normalize_css;
@@ -9,11 +10,14 @@ body {
     @include body-style;
 }
 
+
 .wrapper__fibonacci {
     @include flex-center;
     text-align: center;
 }
-
+.text-number__fibonacci-wrapper{
+    @include block_style
+}
 .text-number__fibonacci-input {
     @include input-text-style;
 }
