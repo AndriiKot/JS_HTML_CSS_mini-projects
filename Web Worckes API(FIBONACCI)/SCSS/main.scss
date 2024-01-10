@@ -1,9 +1,6 @@
 ﻿@import "normalize.scss",
         "./body/body_style.scss",
-        "./fibonacci_style/block_input_fibonacci.scss",
-        "./fibonacci_style/input_style.scss",
-        "./fibonacci_style/placeholder_style.scss",
-        "./fibonacci_style/header_style.scss",
+        "./fibonacci_style/_main_allMixins_wrapperFibonacci",
         "./mixins/flex-center.scss";
 
 @include normalize_css;
