@@ -1,4 +1,5 @@
-﻿
+﻿@import "../../mixins/text-shadow.scss";
+
 @mixin header_style_shadow() {
-    text-shadow: 4px 1px 7px #000;
+    @include text-shadow;
 }
