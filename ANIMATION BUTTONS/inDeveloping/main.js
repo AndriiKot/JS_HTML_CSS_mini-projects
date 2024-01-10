@@ -8,6 +8,7 @@ import sleep from "./src/sleepAsyncFn.js";
 
 const crazy_button = document.querySelector("button");
 const animationGoClassName = "animationGo";
+const animationBackToNormal = "animationBackToNormal";
 const fnRandomInteger0_100 = randomInteger.bind(this, 0, 100);
 const elementsOfBorderRadius = 8;
 const defaultValueOfElementBorderRadius = 0;
@@ -22,6 +23,7 @@ const fnCreateArrayRandomBorderRadius = createArray.bind(
   elementsOfBorderRadius,
   fnRandomInteger0_100
 );
+
 
 const fnToggleAnimation = handleClick.bind(
   this,
