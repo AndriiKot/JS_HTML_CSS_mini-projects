@@ -1,7 +1,6 @@
 ﻿@import "../mixins/line-gradient.scss";
 
 @mixin header_style(){
-    background-color: red;
     @include line-gradient;
 }
 
