@@ -183,6 +183,7 @@ body {
   -webkit-background-clip: text; }
 
 .header-shadow__fibonacci {
-  text-shadow: 8px 2px 5px #000; }
+  text-shadow: 8px 2px 5px #000;
+  z-index: -1; }
 
 /*# sourceMappingURL=style.css.map */
