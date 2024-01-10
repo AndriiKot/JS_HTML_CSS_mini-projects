@@ -178,7 +178,7 @@ body {
 
 .header-text__fibonacci {
   position: absolute;
-  background: linear-gradient(90deg, #c13cf2, #ff3ca5, #ff9386, #ffe697, #fffbb6);
+  background: linear-gradient(90deg);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text; }
 
