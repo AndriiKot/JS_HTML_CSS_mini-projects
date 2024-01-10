@@ -145,7 +145,8 @@ summary {
   display: list-item; }
 
 body {
-  font-family: Arial,Verdana, Helvetica, sans-serif; }
+  font-family: Arial,Verdana, Helvetica, sans-serif;
+  background-color: red; }
 
 .wrapper__fibonacci {
   display: flex;
