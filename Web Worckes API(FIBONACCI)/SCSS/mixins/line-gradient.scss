@@ -7,7 +7,7 @@
 
 @mixin line-gradient-header($deg_i: 90){
     background: linear-gradient(#{$deg_i}deg,
-     $color1,
+    $color1,
     $color2,
     $color3);
     @include webkit-gradient;

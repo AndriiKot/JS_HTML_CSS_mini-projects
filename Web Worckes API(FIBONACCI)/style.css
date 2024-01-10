@@ -146,7 +146,8 @@ summary {
 
 body {
   font-family: Arial,Verdana, Helvetica, sans-serif;
-  background-color: #262626; }
+  background-color: #262626;
+  background: linear-gradient(90deg, #ffe697, #fffbb6); }
 
 .wrapper__fibonacci {
   display: flex;
