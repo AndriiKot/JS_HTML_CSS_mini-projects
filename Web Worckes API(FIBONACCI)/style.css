@@ -175,7 +175,10 @@ body {
   position: absolute;
   top: 10px; }
 
-.header__fibonacci {
-  background-color: red; }
+.header-text__fibonacci {
+  position: absolute;
+  background: linear-gradient(90deg, #c13cf2, #ff3ca5, #ff9386, #ffe697, #fffbb6);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; }
 
 /*# sourceMappingURL=style.css.map */
