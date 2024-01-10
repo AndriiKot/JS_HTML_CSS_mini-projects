@@ -25,6 +25,7 @@ body {
 }
 
 .header__fibonacci{
-    @include header_style;
+    background-color: blue;
+    // @include header_style;
 }
 

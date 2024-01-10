@@ -1,0 +1,13 @@
+﻿@import "../variables.scss";
+
+@mixin line-gradient(){
+    background: linear-gradient(90deg,
+    $color1,
+    $color2,
+    $color3,
+    $color4,
+    $color5
+);
+    // -webkit-text-fill-color: transparent;
+    // -webkit-background-clip: text;
+}
