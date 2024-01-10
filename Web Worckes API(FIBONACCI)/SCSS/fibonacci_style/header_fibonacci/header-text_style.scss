@@ -2,6 +2,6 @@
 
 @mixin header_style(){
     position: absolute;
-    @include line-gradient;
+    @include line-gradient-header;
 }
 

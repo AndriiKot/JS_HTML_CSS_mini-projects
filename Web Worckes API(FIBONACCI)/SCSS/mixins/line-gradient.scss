@@ -2,24 +2,13 @@
 
 $colors: $color1,$color2,$color3,$color4,$color5;
 
-@mixin generate-color() {
-    $str: '';
-    @each $color in $colors {
-        $str: ($str + $color +  ',');
-    };
-    $str: $str;
-}
 
-@mixin line-gradient($deg_i: 90,$colors_array: []){
-    $d: #{@include: generate-color};
-    background: linear-gradient(#{$deg_i}deg);
-  
-    // $color1,
-    // $color2,
-    // $color3,
-    // $color4
-    // $color5
-
+@mixin line-gradient-header($deg_i: 90,$colors_array: []){
+    background: linear-gradient(#{$deg_i}deg,
+     $color1,
+    $color2,
+    $color3);
+   
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 };
