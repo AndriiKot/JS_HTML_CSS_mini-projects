@@ -1,14 +1,21 @@
 ﻿@import "../variables.scss";
 
-$colors: $color1,$color2,$color3,$color4,$color5;
+@mixin webkit-gradient() {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
 
-
-@mixin line-gradient-header($deg_i: 90,$colors_array: []){
+@mixin line-gradient-header($deg_i: 90){
     background: linear-gradient(#{$deg_i}deg,
      $color1,
     $color2,
     $color3);
+    @include webkit-gradient;
    
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
 };
+
+@mixin line-gradient-body($deg_i: 90) {
+    background: linear-gradient(#{$deg_i}deg,
+    $color4,
+    $color5);
+}
