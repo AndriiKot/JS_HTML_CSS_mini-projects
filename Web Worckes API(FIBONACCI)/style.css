@@ -172,6 +172,7 @@ body {
 
 .text-number__fibonacci-placeholder {
   display: block;
-  background-color: red; }
+  position: absolute;
+  top: 10px; }
 
 /*# sourceMappingURL=style.css.map */
