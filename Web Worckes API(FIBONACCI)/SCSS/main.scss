@@ -14,7 +14,7 @@ body {
     text-align: center;
 }
 .text-number__fibonacci-wrapper{
-    @include block_style
+    @include block_style;
 }
 .text-number__fibonacci-input {
     @include input-text-style;

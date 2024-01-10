@@ -1,14 +1,17 @@
 ﻿
 @mixin input-text-style() {
+    background-color: transparent;
+    caret-color: red; // test !!!!
     width: 100%;
     padding: 10px 0;
     border: 0;
     border-radius: 0;
     outline: none;
     appearance: 0;
-    border-bottom: 1px solid rgb(159, 159, 159);
-    transition: border-color .2s;
+    border-bottom: 1px solid rgb(159, 159, 159); // test !!!!
+    transition: border-color, border-bottom 4s; // test  !!!
     &:focus {
-        border-color: rgb(83, 83, 216);
+        border-color: rgb(227, 108, 11); // test !!!
+        border-bottom-width: 3px;
     }
 }

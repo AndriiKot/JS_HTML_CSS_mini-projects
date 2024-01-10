@@ -2,6 +2,5 @@
 
 @mixin body-style() {
     font-family: Arial,Verdana, Helvetica, sans-serif;
-    background-color: #262626;
     @include line-gradient-body;
 }
