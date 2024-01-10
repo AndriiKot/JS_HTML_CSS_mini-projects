@@ -28,3 +28,7 @@ body {
     @include header_style;
 }
 
+.header-shadow__fibonacci {
+    @include header_style_shadow;
+}
+
