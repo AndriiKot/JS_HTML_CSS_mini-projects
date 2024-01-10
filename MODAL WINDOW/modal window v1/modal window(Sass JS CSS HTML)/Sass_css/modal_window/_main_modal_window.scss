@@ -1,0 +1,11 @@
+﻿@import "./modal_window_style.scss",
+         "./button_close_modal_window.scss",
+        "./overlay.scss";
+
+@mixin modal_window_constructor() {
+    @include modal_style();
+    @include button_close_modal_window();
+    @include overlay_style();
+}
+
+
