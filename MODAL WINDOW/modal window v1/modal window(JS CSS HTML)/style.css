@@ -37,6 +37,12 @@ body {
     border: 1px solid black;
     box-shadow: 0 10px 15px rgba(0,0,0, .4);
     background-color: #98b6c3;
+    animation-name: move-down-modal-window;
+    animation-duration: 2s;
+}
+
+@keyframes move-down-modal-window {
+    100% {background-color: red;}
 }
 
 .modal-window__title {
