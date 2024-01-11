@@ -6,6 +6,7 @@ import handleClick from "./src/toggleHandleClick.js";
 import convertStringToArrayInteger from "./src/convertStringToArrayInteger/convertStringToArrayInteger.js";
 import sleep from "./src/sleepAsyncFn.js";
 
+
 const crazy_button = document.querySelector("button");
 const animationGoClassName = "animationGo";
 const animationBackToNormal = "animationBackToNormal";
