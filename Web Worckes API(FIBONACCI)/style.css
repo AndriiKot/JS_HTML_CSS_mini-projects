@@ -178,8 +178,6 @@ body {
     border-bottom-width: 3px; }
   .text-number__fibonacci-input:focus + .text-number__fibonacci-placeholder {
     top: -15px; }
-  .text-number__fibonacci-input:hover + .text-number__fibonacci-placeholder {
-    top: -15px; }
 
 .text-number__fibonacci-placeholder {
   display: block;
