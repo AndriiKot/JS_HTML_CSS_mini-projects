@@ -10,10 +10,8 @@ form_fibonacci.addEventListener('mouseover', (e) => {
 
 
 input_number_fibonacci.addEventListener('focus', (e) => {
-    console.log('Focus!!!')
-    console.log(e.target)
-    console.log(e.currentTarget.contains(form_fibonacci))
     document.addEventListener('keypress', (e) => {
+      if (!e.target.value) { return }
         if (e.key === "Enter" ) {
             e.preventDefault();
             console.log("Enter!!!!")
