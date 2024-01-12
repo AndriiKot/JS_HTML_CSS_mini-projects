@@ -169,19 +169,24 @@ body {
   outline: none;
   appearance: 0;
   border-bottom: 1px solid #9f9f9f;
-  transition: border-color, border-bottom .2s; }
-  .text-number__fibonacci-input:focus {
-    border-color: #e36c0b;
-    border-bottom-width: 3px; }
+  transition: border-color, border-bottom 2s; }
   .text-number__fibonacci-input:hover {
     border-color: #e36c0b;
     border-bottom-width: 30px; }
+  .text-number__fibonacci-input:focus {
+    border-color: #e36c0b;
+    border-bottom-width: 3px; }
+  .text-number__fibonacci-input:focus + .text-number__fibonacci-placeholder {
+    top: -15px; }
+  .text-number__fibonacci-input:hover + .text-number__fibonacci-placeholder {
+    top: -15px; }
 
 .text-number__fibonacci-placeholder {
   display: block;
   position: absolute;
   top: 10px;
-  color: white; }
+  color: white;
+  pointer-events: none; }
 
 .header-text__fibonacci {
   position: absolute;

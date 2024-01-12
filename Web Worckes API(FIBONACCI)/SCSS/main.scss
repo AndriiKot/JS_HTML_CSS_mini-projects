@@ -18,6 +18,12 @@ body {
 }
 .text-number__fibonacci-input {
     @include input-text-style;
+    &:focus + .text-number__fibonacci-placeholder {
+        top: -15px;
+    }
+    &:hover + .text-number__fibonacci-placeholder {
+        top: -15px;
+    }
 }
 
 .text-number__fibonacci-placeholder {
