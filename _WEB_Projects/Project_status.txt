@@ -1,6 +1,0 @@
-﻿Project: Stars
-  stars_version_1: ready
-  stars_version_2: ready
-  diagrams: добавить легенду и описание
-  colors: ready
- 
