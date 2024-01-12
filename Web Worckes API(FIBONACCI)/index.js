@@ -9,6 +9,11 @@ form_fibonacci.addEventListener('mouseover', (e) => {
 
 input_fibonacci.addEventListener('focus', (e) => {
     console.log('Focus!!!')
+    console.log(e.keyCode)
+})
+
+input_fibonacci.addEventListener('Enter', (e) => {
+    console.log("Enter!!")
 })
 
 // document.onkeyup = function (e) {
