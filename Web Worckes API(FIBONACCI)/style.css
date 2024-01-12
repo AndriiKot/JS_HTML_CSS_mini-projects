@@ -169,7 +169,7 @@ body {
   outline: none;
   appearance: 0;
   border-bottom: 1px solid #9f9f9f;
-  transition: border-color, border-bottom 4s; }
+  transition: border-color, border-bottom .2s; }
   .text-number__fibonacci-input:focus {
     border-color: #e36c0b;
     border-bottom-width: 3px; }
