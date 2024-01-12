@@ -11,14 +11,12 @@ form_fibonacci.addEventListener('mouseover', (e) => {
 
 input_number_fibonacci.addEventListener('focus', (e) => {
     document.addEventListener('keypress', (e) => {
-      if (!e.target.validity.valid) { 
-        setInterval(() => {e.target.value = null}, 3000);
-        return 
-    }
+        if (!e.target.value) { return }
         if (e.key === "Enter" ) {
-            // e.preventDefault();
-            console.log("Enter!!!!")
-            // document.getElementById("myBtn").click();
+            document.querySelector('.wrapper__fibonacci__input-submit').click();
+            console.log('Click')
+            
+            e.target.value = 'Идёт вычесление!!'
           }
       
     })
