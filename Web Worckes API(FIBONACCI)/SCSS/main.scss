@@ -20,7 +20,7 @@ body {
     @include input-text-style;
     &:focus + .text-number__fibonacci-placeholder {
         top: -15px;
-        
+        transform: scale(.7);
     }
 }
 
