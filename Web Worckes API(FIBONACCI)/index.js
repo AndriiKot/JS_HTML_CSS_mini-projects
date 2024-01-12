@@ -15,7 +15,7 @@ input_number_fibonacci.addEventListener('focus', (e) => {
         if (e.key === "Enter" ) {
             document.querySelector('.wrapper__fibonacci__input-submit').click();
             console.log('Click')
-            
+            console.dir(e.target.type)
             e.target.value = 'Идёт вычесление!!'
           }
       
