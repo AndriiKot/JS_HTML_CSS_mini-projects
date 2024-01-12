@@ -173,6 +173,9 @@ body {
   .text-number__fibonacci-input:focus {
     border-color: #e36c0b;
     border-bottom-width: 3px; }
+  .text-number__fibonacci-input:hover {
+    border-color: #e36c0b;
+    border-bottom-width: 30px; }
 
 .text-number__fibonacci-placeholder {
   display: block;
