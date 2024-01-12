@@ -1,9 +1,12 @@
 ﻿@import "normalize.scss",
         "./body/body_style.scss",
         "./fibonacci_style/_main_allMixins_wrapperFibonacci",
-        "./mixins/flex-center.scss";
+        "./mixins/flex-center.scss",
+        "./mixins/input-number-arrows-none.scss";
 
 @include normalize_css;
+@include input-number-arrows-none('.text-number__fibonacci-input');
+
 
 body {
     @include body-style;
@@ -17,22 +20,11 @@ body {
     @include block_style;
 }
 .text-number__fibonacci-input {
-    @include input-text-style;
+    @include input-text-style();
     &:focus + .text-number__fibonacci-placeholder {
         top: -15px;
         transform: scale(.7);
     }
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
- 
-/* Firefox */
-input[type=number] {
-  -moz-appearance:textfield;
 }
 
 .text-number__fibonacci-placeholder {

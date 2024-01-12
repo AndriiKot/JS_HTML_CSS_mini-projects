@@ -144,6 +144,15 @@ template {
 summary {
   display: list-item; }
 
+.text-number__fibonacci-input::-webkit-outer-spin-button,
+.text-number__fibonacci-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+/* Firefox */
+.text-number__fibonacci-input[type="number"] {
+  -moz-appearance: textfield; }
+
 body {
   font-family: Arial,Verdana, Helvetica, sans-serif;
   background: linear-gradient(-90deg, #262626, #3e0c51, #262626); }
@@ -179,15 +188,6 @@ body {
   .text-number__fibonacci-input:focus + .text-number__fibonacci-placeholder {
     top: -15px;
     transform: scale(0.7); }
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0; }
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield; }
 
 .text-number__fibonacci-placeholder {
   display: block;
