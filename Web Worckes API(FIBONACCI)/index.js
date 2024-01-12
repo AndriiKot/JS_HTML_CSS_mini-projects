@@ -8,17 +8,19 @@ form_fibonacci.addEventListener('mouseover', (e) => {
     e.target.focus()
 })
 
-console.log(input_submit_fibonacci)
 
-// input_number_fibonacci.addEventListener('focus', (e) => {
-//     console.log('Focus!!!')
-//     document.addEventListener('keypress' (e) => {
-//         if (e.key === "Enter") {
-//             e.preventDefault();
-//             document.getElementById("myBtn").click();
-//           }
+input_number_fibonacci.addEventListener('focus', (e) => {
+    console.log('Focus!!!')
+    console.log(e.target)
+    console.log(e.currentTarget.contains(form_fibonacci))
+    document.addEventListener('keypress', (e) => {
+        if (e.key === "Enter" ) {
+            e.preventDefault();
+            console.log("Enter!!!!")
+            // document.getElementById("myBtn").click();
+          }
       
-//     })
-// })
+    })
+})
 
 
