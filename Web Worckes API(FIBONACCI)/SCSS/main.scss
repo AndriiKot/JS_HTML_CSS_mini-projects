@@ -40,3 +40,6 @@ body {
     @include header_style_shadow;
 }
 
+input[type='submit'] {
+    background-color: red;
+}

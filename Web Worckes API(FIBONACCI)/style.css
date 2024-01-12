@@ -207,4 +207,7 @@ body {
   text-shadow: 8px 2px 5px #000;
   z-index: -1; }
 
+input[type='submit'] {
+  background-color: red; }
+
 /*# sourceMappingURL=style.css.map */
