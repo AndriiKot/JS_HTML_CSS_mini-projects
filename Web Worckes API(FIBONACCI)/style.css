@@ -208,6 +208,7 @@ body {
   z-index: -1; }
 
 input[type='submit'] {
-  background-color: red; }
+  background-color: red;
+  display: none; }
 
 /*# sourceMappingURL=style.css.map */
