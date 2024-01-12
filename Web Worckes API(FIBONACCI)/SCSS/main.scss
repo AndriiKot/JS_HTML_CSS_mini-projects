@@ -22,6 +22,7 @@ body {
 
 .text-number__fibonacci-placeholder {
     @include placeholder-style;
+    pointer-events: none;
 }
 
 .header-text__fibonacci{

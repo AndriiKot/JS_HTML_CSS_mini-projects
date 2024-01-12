@@ -9,14 +9,14 @@
     outline: none;
     appearance: 0;
     border-bottom: 1px solid rgb(159, 159, 159); // test !!!!
-    transition: border-color, border-bottom .2s; // test  !!!
-    &:focus {
-        border-color: rgb(227, 108, 11); // test !!!
-        border-bottom-width: 3px;
-    }
+    transition: border-color, border-bottom 2s; // test  !!!
     &:hover {
         border-color: rgb(227, 108, 11); // test !!!
         border-bottom-width: 30px;
+    }
+    &:focus {
+        border-color: rgb(227, 108, 11); // test !!!
+        border-bottom-width: 3px;
     }
 
 }
