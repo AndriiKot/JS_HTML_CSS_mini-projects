@@ -180,6 +180,15 @@ body {
     top: -15px;
     transform: scale(0.7); }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield; }
+
 .text-number__fibonacci-placeholder {
   display: block;
   position: absolute;
