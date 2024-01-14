@@ -8,6 +8,5 @@ const fibonacci = (n) => {
 
 this.addEventListener('message', (message) => {
     const { data } = message;
-    console.log(data)
     this.postMessage(fibonacci(data));
 })

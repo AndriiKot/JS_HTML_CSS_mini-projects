@@ -22,10 +22,10 @@ input_number_fibonacci.addEventListener('focus', (e) => {
 
 if(window.Worker) {
     const worker_fibonacci = new Worker("./worker_fibonacci.js");
-    worker_fibonacci.postMessage('12');
+    worker_fibonacci.postMessage('45');
 
     worker_fibonacci.onmessage = (message) => {
-        console.log(message);
+        console.log(message.data)
     }
 }
 
