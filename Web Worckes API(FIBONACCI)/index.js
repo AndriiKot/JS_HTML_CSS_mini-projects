@@ -9,6 +9,7 @@ console.log(form_fibonacci_placeholder_text);
 
 form_fibonacci.addEventListener('mouseover', (e) => { 
     e.target.focus()
+    form_fibonacci_placeholder_text.style.opacity = '0.8';
 })
 
 
