@@ -21,9 +21,7 @@ input_number_fibonacci.addEventListener('focus', (e) => {
 })
 
 if(window.Worker) {
-    console.log('Worker test block if')
-    // const worker_fibonacci = new Worker("./worker_fibonacci.js");
-    const worker_test = new Worker("./test.js");
+    const worker_fibonacci = new Worker("./worker_fibonacci.js");
     // worker_fibonacci.postMessage('HI!/n I am worker!');
 
     // worker_fibonacci.onmessage = (message) => {
