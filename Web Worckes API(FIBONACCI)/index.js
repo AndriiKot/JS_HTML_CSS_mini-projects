@@ -15,14 +15,18 @@ input_number_fibonacci.addEventListener('focus', (e) => {
         if (!e.target.value) { return }
         if (e.key === "Enter" ) {
             document.querySelector('.wrapper__fibonacci__input-submit').click();
-            e.target.value = '';
+            e.target.style.type = 'text';
+            console.log(e.target.style)
+            e.target.value = ``;
+            e.target.value = `Resalt: `;
+            console.log(e.target.style);
           }   
     })
 })
 
 if(window.Worker) {
     const worker_fibonacci = new Worker("./worker_fibonacci.js");
-    worker_fibonacci.postMessage('45');
+    worker_fibonacci.postMessage('5');
 
     worker_fibonacci.onmessage = (message) => {
         console.log(message.data)
