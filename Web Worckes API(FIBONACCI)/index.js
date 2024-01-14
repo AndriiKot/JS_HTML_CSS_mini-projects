@@ -15,11 +15,9 @@ input_number_fibonacci.addEventListener('focus', (e) => {
         if (!e.target.value) { return }
         if (e.key === "Enter" ) {
             document.querySelector('.wrapper__fibonacci__input-submit').click();
-            e.target.style.type = 'text';
-            console.log(e.target.style)
-            e.target.value = ``;
-            e.target.value = `Resalt: `;
-            console.log(e.target.style);
+            e.target.setAttribute('type', 'text');
+            e.target.value = 'Resalt: ';
+            console.dir(e.target.value);
           }   
     })
 })
