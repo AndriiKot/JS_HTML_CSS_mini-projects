@@ -1,4 +1,4 @@
 ﻿
-this.addEventListener('message', (message) => {
-    console.log('Message from worker:  ${message}!')
-})
+// this.addEventListener('message', (message) => {
+//     console.log('Message from worker:  ${message}!')
+// })
