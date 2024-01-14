@@ -1,18 +1,18 @@
 ﻿
 @mixin input-text-style() {
     background-color: transparent;
-    color: white; // test !!!!
-    caret-color: white; // test !!!!
+    color: white; 
+    caret-color: white; 
     width: 100%;
     padding: 10px 0;
     border: 0;
     border-radius: 0;
     outline: none;
     appearance: 0;
-    border-bottom: 1px solid rgb(159, 159, 159); // test !!!!
+    border-bottom: 1px solid rgb(159, 159, 159); 
     transition: .3s; 
     &:focus {
-        border-color: white; // test !!!
+        border-color: white; 
         border-bottom-width: 1.5px;
     }
 
