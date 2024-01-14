@@ -14,9 +14,11 @@ input_number_fibonacci.addEventListener('focus', (e) => {
         if (!e.target.value) { return }
         if (e.key === "Enter" ) {
             document.querySelector('.wrapper__fibonacci__input-submit').click();
+            e.target.type = 'text'
             console.log('Click')
             console.dir(e.target.type)
-            e.target.value = 'Идёт вычесление!!'
+            e.target.value = 'Идёт вычисление!!'
+            
           }
       
     })

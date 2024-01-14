@@ -40,7 +40,6 @@ body {
     @include header_style_shadow;
 }
 
-input[type='submit'] {
-    background-color: red;
+.wrapper__fibonacci__input-submit { // button input='submit' 
     display: none;
 }

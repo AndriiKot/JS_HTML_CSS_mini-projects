@@ -170,6 +170,7 @@ body {
 
 .text-number__fibonacci-input {
   background-color: transparent;
+  color: white;
   caret-color: red;
   width: 100%;
   padding: 10px 0;
@@ -179,9 +180,6 @@ body {
   appearance: 0;
   border-bottom: 1px solid #9f9f9f;
   transition: border-color, border-bottom 2s; }
-  .text-number__fibonacci-input:hover {
-    border-color: #e36c0b;
-    border-bottom-width: 30px; }
   .text-number__fibonacci-input:focus {
     border-color: #e36c0b;
     border-bottom-width: 3px; }
@@ -207,8 +205,7 @@ body {
   text-shadow: 8px 2px 5px #000;
   z-index: -1; }
 
-input[type='submit'] {
-  background-color: red;
+.wrapper__fibonacci__input-submit {
   display: none; }
 
 /*# sourceMappingURL=style.css.map */
