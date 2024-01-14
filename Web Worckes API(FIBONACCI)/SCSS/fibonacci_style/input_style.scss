@@ -2,7 +2,7 @@
 @mixin input-text-style() {
     background-color: transparent;
     color: white; // test !!!!
-    caret-color: red; // test !!!!
+    caret-color: white; // test !!!!
     width: 100%;
     padding: 10px 0;
     border: 0;
@@ -10,9 +10,9 @@
     outline: none;
     appearance: 0;
     border-bottom: 1px solid rgb(159, 159, 159); // test !!!!
-    transition: .3s; // border-color, border-bottom 2s; // test  !!!
+    transition: .3s; 
     &:focus {
-        border-color: rgb(227, 108, 11); // test !!!
+        border-color: white; // test !!!
         border-bottom-width: 1.5px;
     }
 

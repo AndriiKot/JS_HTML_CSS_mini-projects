@@ -171,7 +171,7 @@ body {
 .text-number__fibonacci-input {
   background-color: transparent;
   color: white;
-  caret-color: red;
+  caret-color: white;
   width: 100%;
   padding: 10px 0;
   border: 0;
@@ -181,7 +181,7 @@ body {
   border-bottom: 1px solid #9f9f9f;
   transition: .3s; }
   .text-number__fibonacci-input:focus {
-    border-color: #e36c0b;
+    border-color: white;
     border-bottom-width: 1.5px; }
   .text-number__fibonacci-input:focus + .text-number__fibonacci-placeholder {
     top: -15px;
