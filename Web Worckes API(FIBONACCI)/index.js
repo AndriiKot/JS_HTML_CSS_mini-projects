@@ -24,11 +24,13 @@ form_fibonacci.addEventListener("mouseover", (e) => {
 
 const worker = (argMessage) => {
   if (window.Worker) {
+    console.log("Worker!!!")
     const worker_fibonacci = new Worker("./worker_fibonacci.js");
     worker_fibonacci.postMessage(argMessage);
 
     worker_fibonacci.onmessage = (message) => {
       console.log(message.data);
+      console.log("HI !!!")
       p_fibonacci_result.textContent += message.data;
     };
   }
@@ -36,15 +38,11 @@ const worker = (argMessage) => {
 
 input_number_fibonacci.addEventListener("focus", (e) => {
   document.addEventListener("keypress", (e) => {
-    if (!e.target.validity.valid) {
-      p_fibonacci_result.textContent = ``;
-      e.target.value = '';
-    }
-    if (!e.target.value) {
-      return;
-    }
     const number = e.target.value;
-    if (e.key === "Enter" && e.target.validity.valid) {
+    const valid = e.target.validity.valid;
+    console.log(number);
+    console.log(valid)
+    if (e.key === "Enter") {
       if (!e.target.validity.valid) {
         return;
       }
