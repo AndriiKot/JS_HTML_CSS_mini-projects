@@ -42,7 +42,7 @@ input_number_fibonacci.addEventListener("focus", (e) => {
       document.querySelector(".wrapper__fibonacci__input-submit").click();
       e.preventDefault();
       e.target.value = '';
-      p_fibonacci_result.textContent = `Resalt: ${'test!'}`
+      p_fibonacci_result.textContent = `Fibonacci(${number}): `;
     }
   });
 });
