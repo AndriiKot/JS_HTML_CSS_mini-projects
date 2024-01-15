@@ -13,7 +13,9 @@ const input_submit_fibonacci = document.querySelector(
   ".wrapper__fibonacci__input-submit"
 );
 
-const p_fibonacci_result = document.querySelector(".wrapper__fibonacci__result-fibonacci");
+const p_fibonacci_result = document.querySelector(
+  ".wrapper__fibonacci__result-fibonacci"
+);
 
 form_fibonacci.addEventListener("mouseover", (e) => {
   e.target.focus();
@@ -27,21 +29,28 @@ const worker = (argMessage) => {
 
     worker_fibonacci.onmessage = (message) => {
       console.log(message.data);
+      p_fibonacci_result.textContent += message.data;
     };
   }
 };
 
 input_number_fibonacci.addEventListener("focus", (e) => {
   document.addEventListener("keypress", (e) => {
+    if (!e.target.validity.valid) {
+      p_fibonacci_result.textContent = ``;
+      e.target.value = '';
+    }
     if (!e.target.value) {
       return;
     }
     const number = e.target.value;
-    worker(number)
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && e.target.validity.valid) {
+      if (!e.target.validity.valid) {
+        return;
+      }
       document.querySelector(".wrapper__fibonacci__input-submit").click();
       e.preventDefault();
-      e.target.value = '';
+      e.target.value = "";
       p_fibonacci_result.textContent = `Fibonacci(${number}): `;
     }
   });
