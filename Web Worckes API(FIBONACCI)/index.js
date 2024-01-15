@@ -14,8 +14,11 @@ const input_submit_fibonacci = document.querySelector(
 );
 
 const p_fibonacci_result = document.querySelector(
-  ".wrapper__fibonacci__result-fibonacci"
+  ".wrapper__fibonacci__result-fibonacci__text"
 );
+
+const span_fibonacci_result_number = document.querySelector('wrapper__fibonacci__result-fibonacci__number');
+console.log(span_fibonacci_result_number);
 
 form_fibonacci.addEventListener("mouseover", (e) => {
   e.target.focus();
@@ -24,13 +27,11 @@ form_fibonacci.addEventListener("mouseover", (e) => {
 
 const worker = (argMessage) => {
   if (window.Worker) {
-    console.log("Worker!!!")
     const worker_fibonacci = new Worker("./worker_fibonacci.js");
     worker_fibonacci.postMessage(argMessage);
 
     worker_fibonacci.onmessage = (message) => {
-      console.log(message.data);
-      console.log("HI !!!")
+      // p_fibonacci_result.textContent += message.data;
       p_fibonacci_result.textContent += message.data;
     };
   }
