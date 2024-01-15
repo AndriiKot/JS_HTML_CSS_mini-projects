@@ -17,7 +17,7 @@ const p_fibonacci_result = document.querySelector(
   ".wrapper__fibonacci__result-fibonacci__text"
 );
 
-const span_fibonacci_result_number = document.querySelector('wrapper__fibonacci__result-fibonacci__number');
+const span_fibonacci_result_number = document.querySelector('.wrapper__fibonacci__result-fibonacci__number');
 console.log(span_fibonacci_result_number);
 
 form_fibonacci.addEventListener("mouseover", (e) => {
