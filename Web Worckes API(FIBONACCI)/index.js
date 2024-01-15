@@ -37,6 +37,7 @@ input_number_fibonacci.addEventListener("focus", (e) => {
       return;
     }
     const number = e.target.value;
+    worker(number)
     if (e.key === "Enter") {
       document.querySelector(".wrapper__fibonacci__input-submit").click();
       e.preventDefault();
