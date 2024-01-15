@@ -37,8 +37,9 @@ input_number_fibonacci.addEventListener("focus", (e) => {
     const number = e.target.value;
     if (e.key === "Enter") {
       document.querySelector(".wrapper__fibonacci__input-submit").click();
-      e.target.setAttribute("type", "text");
-      e.target.value = "Resalt: " + worker(number);
+      e.preventDefault();
+      e.target.value = '';
+      
     }
   });
 });
