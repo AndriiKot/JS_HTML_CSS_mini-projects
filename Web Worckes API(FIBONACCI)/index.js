@@ -47,6 +47,7 @@ input_number_fibonacci.addEventListener("focus", (e) => {
       if (!valid) {
         console.log("No valid!!!")
         e.target.value = ''
+        e.preventDefault();
         return;
       }
     //   document.querySelector(".wrapper__fibonacci__input-submit").click();
