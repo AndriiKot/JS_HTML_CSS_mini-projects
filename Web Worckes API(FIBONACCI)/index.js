@@ -17,8 +17,7 @@ const p_fibonacci_result = document.querySelector(
   ".wrapper__fibonacci__result-fibonacci__text"
 );
 
-const span_fibonacci_result_number = document.querySelector('.wrapper__fibonacci__result-fibonacci__number');
-console.log(span_fibonacci_result_number);
+const span_fibonacci_result_number = 'wrapper__fibonacci__result-fibonacci__number';
 
 form_fibonacci.addEventListener("mouseover", (e) => {
   e.target.focus();
@@ -31,8 +30,7 @@ const worker = (argMessage) => {
     worker_fibonacci.postMessage(argMessage);
 
     worker_fibonacci.onmessage = (message) => {
-      // p_fibonacci_result.textContent += message.data;
-      p_fibonacci_result.textContent += message.data;
+      p_fibonacci_result.innerHTML += `<span class="${span_fibonacci_result_number}">${message.data}</span>`;
     };
   }
 };
@@ -47,7 +45,7 @@ input_number_fibonacci.addEventListener("focus", (e) => {
         document.querySelector(".wrapper__fibonacci__input-submit").click();
         e.preventDefault();
         e.target.value = "";
-        p_fibonacci_result.textContent = `Fibonacci(${number}): `;  
+        p_fibonacci_result.innerHTML = `Fibonacci(${number}): `;  
       }
     }
   });
