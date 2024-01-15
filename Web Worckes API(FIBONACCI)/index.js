@@ -42,6 +42,7 @@ input_number_fibonacci.addEventListener("focus", (e) => {
       const valid = e.target.validity.valid;
       if (valid) {
         const number = e.target.value;
+        worker(number);
         document.querySelector(".wrapper__fibonacci__input-submit").click();
         e.preventDefault();
         e.target.value = "";
