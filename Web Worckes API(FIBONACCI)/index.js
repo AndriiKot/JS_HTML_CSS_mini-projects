@@ -14,7 +14,6 @@ const input_submit_fibonacci = document.querySelector(
 );
 
 const p_fibonacci_result = document.querySelector(".wrapper__fibonacci__result-fibonacci");
-console.log(p_fibonacci_result)
 
 form_fibonacci.addEventListener("mouseover", (e) => {
   e.target.focus();
@@ -42,7 +41,7 @@ input_number_fibonacci.addEventListener("focus", (e) => {
       document.querySelector(".wrapper__fibonacci__input-submit").click();
       e.preventDefault();
       e.target.value = '';
-      
+      p_fibonacci_result.textContent = `Resalt: ${'test!'}`
     }
   });
 });
