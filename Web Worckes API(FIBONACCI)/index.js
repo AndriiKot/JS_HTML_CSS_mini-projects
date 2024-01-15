@@ -38,18 +38,21 @@ const worker = (argMessage) => {
 
 input_number_fibonacci.addEventListener("focus", (e) => {
   document.addEventListener("keypress", (e) => {
-    const number = e.target.value;
-    const valid = e.target.validity.valid;
-    console.log(number);
-    console.log(valid)
     if (e.key === "Enter") {
-      if (!e.target.validity.valid) {
+      const number = e.target.value;
+      const valid = e.target.validity.valid;
+      console.log(number);
+      // console.log(valid)
+  
+      if (!valid) {
+        console.log("No valid!!!")
+        e.target.value = ''
         return;
       }
-      document.querySelector(".wrapper__fibonacci__input-submit").click();
-      e.preventDefault();
-      e.target.value = "";
-      p_fibonacci_result.textContent = `Fibonacci(${number}): `;
+    //   document.querySelector(".wrapper__fibonacci__input-submit").click();
+    //   e.preventDefault();
+    //   e.target.value = "";
+    //   p_fibonacci_result.textContent = `Fibonacci(${number}): `;
     }
   });
 });
