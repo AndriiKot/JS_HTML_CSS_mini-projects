@@ -39,21 +39,15 @@ const worker = (argMessage) => {
 input_number_fibonacci.addEventListener("focus", (e) => {
   document.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
-      const number = e.target.value;
       const valid = e.target.validity.valid;
-      console.log(number);
-      // console.log(valid)
-  
-      if (!valid) {
-        console.log("No valid!!!")
-        e.target.value = ''
+      if (valid) {
+        const number = e.target.value;
+        document.querySelector(".wrapper__fibonacci__input-submit").click();
         e.preventDefault();
-        return;
+        e.target.value = "";
+        p_fibonacci_result.textContent = `Fibonacci(${number}): `;  
       }
-    //   document.querySelector(".wrapper__fibonacci__input-submit").click();
-    //   e.preventDefault();
-    //   e.target.value = "";
-    //   p_fibonacci_result.textContent = `Fibonacci(${number}): `;
     }
   });
 });
+
