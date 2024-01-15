@@ -13,6 +13,9 @@ const input_submit_fibonacci = document.querySelector(
   ".wrapper__fibonacci__input-submit"
 );
 
+const p_fibonacci_result = document.querySelector(".wrapper__fibonacci__result-fibonacci");
+console.log(p_fibonacci_result)
+
 form_fibonacci.addEventListener("mouseover", (e) => {
   e.target.focus();
   form_fibonacci_placeholder_text.style.opacity = "0.8";
