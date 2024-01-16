@@ -209,7 +209,7 @@ body {
   display: none; }
 
 .wrapper__fibonacci__result-fibonacci__number {
-  color: red;
-  background-color: red; }
+  color: #85f46f;
+  font-size: 1.3rem; }
 
 /*# sourceMappingURL=style.css.map */
