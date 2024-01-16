@@ -17,3 +17,9 @@ this.addEventListener("message", (message) => {
   const { data } = message;
   this.postMessage(old_fibonacci(data));
 });
+
+const valid_result_fibonacci = (fn) => {
+  while(true) {
+    console.log("HI!")
+  }
+}
