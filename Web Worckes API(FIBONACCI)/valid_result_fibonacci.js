@@ -24,4 +24,3 @@ const max_integer_fibonacci = (fn) => {
   }
 };
 
-console.log(max_integer_fibonacci(old_fibonacci));
