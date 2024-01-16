@@ -13,9 +13,17 @@ const memoize = (fn_fibonacci) => {
 
 const fibonacci = memoize(old_fibonacci);
 
-this.addEventListener("message", (message) => {
-  const { data } = message;
-  this.postMessage(old_fibonacci(data));
-});
+const valid_result_fibonacci = (fn) => {
+  let i = 1000;
+  while (true) {
+    i += 1;
+    const result = fn(i);
+    const valid = i - 1;
+    console.log(result)
+    if (result === Infinity) {
+      return valid;
+    }
+  }
+};
 
-
+console.log(valid_result_fibonacci(old_fibonacci));
