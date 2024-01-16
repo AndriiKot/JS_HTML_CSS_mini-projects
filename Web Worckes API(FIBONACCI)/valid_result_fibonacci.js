@@ -13,17 +13,15 @@ const memoize = (fn_fibonacci) => {
 
 const fibonacci = memoize(old_fibonacci);
 
-const valid_result_fibonacci = (fn) => {
+const max_integer_fibonacci = (fn) => {
   let i = 1000;
   while (true) {
     i += 1;
     const result = fn(i);
-    const valid = i - 1;
-    console.log(result)
     if (result === Infinity) {
-      return valid;
+      return i - 1;
     }
   }
 };
 
-console.log(valid_result_fibonacci(old_fibonacci));
+console.log(max_integer_fibonacci(old_fibonacci));
