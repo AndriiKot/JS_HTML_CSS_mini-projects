@@ -12,4 +12,5 @@ const max_integer_fibonacci = (fn) => {
 };
 
 console.log("HI!")
+console.log(fib)
 // console.log(max_integer_fibonacci(fibonacci));
