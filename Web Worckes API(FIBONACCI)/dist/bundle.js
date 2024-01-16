@@ -1,2 +1,0 @@
-(()=>{"use strict";const s=s=>s<=1?s:t(s-1)+t(s-2),t=(s=>{const t={};return e=>t[e]||(t[e]=s(e))})(s);(void 0).addEventListener("message",(t=>{const{data:e}=t;(void 0).postMessage(s(e))}))})();
-//# sourceMappingURL=bundle.js.map

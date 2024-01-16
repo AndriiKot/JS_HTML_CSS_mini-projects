@@ -14,6 +14,6 @@ const memoize = (fn_fibonacci) => {
 const fibonacci = memoize(old_fibonacci);
 
 
-export { old_fibonacci };
-export { memoize };
-export { fibonacci };
+exports.old_fibonacci = old_fibonacci;
+exports.memoize = memoize;
+exports.fibonacci = fibonacci;
