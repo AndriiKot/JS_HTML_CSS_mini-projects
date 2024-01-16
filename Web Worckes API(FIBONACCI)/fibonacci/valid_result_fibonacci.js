@@ -1,5 +1,4 @@
-﻿const fibonacci = require('./formula_fibonacci_with_cache');
-
+﻿import { fibonacci } from "./formula_fibonacci_with_cache";
 const max_integer_fibonacci = (fn) => {
   let i = 1000;
   while (true) {
@@ -12,5 +11,3 @@ const max_integer_fibonacci = (fn) => {
 };
 
 console.log(max_integer_fibonacci(fibonacci));
-
-

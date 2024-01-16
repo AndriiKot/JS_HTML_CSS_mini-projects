@@ -1,5 +1,4 @@
-﻿const  fib = require('./fibonacci/formula_fibonacci_with_cache');
-const { fibonacci, memoize, old_fibonacci} = fib;
+﻿import { fibonacci, memoize, old_fibonacci} from "./fibonacci/formula_fibonacci_with_cache";
 
 // const old_fibonacci = (n) => {
 //   if (n <= 1) {
