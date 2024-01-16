@@ -1,4 +1,5 @@
-﻿const old_fibonacci = (n) => {
+﻿
+const old_fibonacci = (n) => {
   if (n <= 1) {
     return n;
   } else {
