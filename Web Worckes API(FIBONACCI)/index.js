@@ -21,7 +21,6 @@ const span_fibonacci_result_number = 'wrapper__fibonacci__result-fibonacci__numb
 
 form_fibonacci.addEventListener("mouseover", (e) => {
   e.target.focus();
-  form_fibonacci_placeholder_text.style.opacity = "0.8";
 });
 
 const worker = (argMessage) => {

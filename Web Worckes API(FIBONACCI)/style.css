@@ -185,7 +185,8 @@ body {
     border-bottom-width: 1.5px; }
   .text-number__fibonacci-input:focus + .text-number__fibonacci-placeholder {
     top: -15px;
-    transform: scale(0.7); }
+    transform: scale(0.7);
+    opacity: .8; }
 
 .text-number__fibonacci-placeholder {
   display: block;
