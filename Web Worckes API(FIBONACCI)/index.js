@@ -18,9 +18,13 @@ const span_fibonacci_result_number = 'wrapper__fibonacci__result-fibonacci__numb
 
 document.addEventListener( 'click', (e) => {
 	const withinBoundaries = e.composedPath().includes(form_fibonacci);
- 
+  const form =document.getElementById("text-number__fibonacci-wrapper")
+  const input = form.elements['text-number__fibonacci-input']
+  console.dir(form)
+  console.dir(input)
 	if ( ! withinBoundaries ) {
-    console.log("HI!!!!")
+    console.dir(input.value)
+    // input.value = ''
 	}
 })
 
