@@ -27,9 +27,6 @@ body {
         transform: scale(.7);
         opacity: .8;
     }
-    // &:valid:focus{
-    //     background-color: red;
-    // }
     &:valid:not(:focus){
         // background-color: blue;
         color: transparent;
