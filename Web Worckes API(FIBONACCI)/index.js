@@ -16,6 +16,14 @@ const p_fibonacci_result = document.querySelector(
 
 const span_fibonacci_result_number = 'wrapper__fibonacci__result-fibonacci__number';
 
+document.addEventListener( 'click', (e) => {
+	const withinBoundaries = e.composedPath().includes(form_fibonacci);
+ 
+	if ( ! withinBoundaries ) {
+    console.log("HI!!!!")
+	}
+})
+
 form_fibonacci.addEventListener("mouseover", (e) => {
   e.target.focus();
 });
