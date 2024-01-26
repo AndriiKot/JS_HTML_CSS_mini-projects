@@ -3,9 +3,6 @@
 const form_fibonacci = document.querySelector(
   ".text-number__fibonacci-wrapper"
 );
-const form_fibonacci_placeholder_text = document.querySelector(
-  ".text-number__fibonacci-placeholder"
-);
 const input_number_fibonacci = document.querySelector(
   ".text-number__fibonacci-input"
 );
