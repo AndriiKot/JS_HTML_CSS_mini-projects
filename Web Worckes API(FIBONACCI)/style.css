@@ -164,6 +164,8 @@ body {
   flex-direction: column;
   text-align: center;
   color: white; }
+  .wrapper__fibonacci:has(.text-number__fibonacci-input:valid:not(:focus)) .wrapper__fibonacci__result-fibonacci__text {
+    background-color: red; }
 
 .text-number__fibonacci-wrapper {
   width: 350px;
@@ -186,8 +188,9 @@ body {
   .text-number__fibonacci-input:focus + .text-number__fibonacci-placeholder {
     top: -15px;
     transform: scale(0.7);
-    opacity: .8; }
+    opacity: 0.8; }
   .text-number__fibonacci-input:valid:not(:focus) {
+    background-color: blue;
     color: transparent; }
 
 .text-number__fibonacci-placeholder {
