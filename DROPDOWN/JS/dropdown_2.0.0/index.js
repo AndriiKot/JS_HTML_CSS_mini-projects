@@ -1,28 +1,19 @@
 ﻿const dropDownMainWrapper = document.querySelector(".wrapper");
 
+// Select Button
 const selectButton = dropDownMainWrapper.querySelector(".select-btn");
+const selectButtonActiveClassName = "active";
+selectButton.addEventListener("click", (e) => {
+  e.currentTarget.classList.toggle(selectButtonActiveClassName);
+});
+
+// DropDown
+const dropDown = dropDownMainWrapper.querySelector(".list-items");
+const liNodeList = dropDown.querySelectorAll(".item");
+
 const defaultButtonTextContent =
   selectButton.querySelector(".text-content").innerText;
 const newButtonTextContent = "Selected ";
-const selectButtonActiveClassName = "active";
-
-const dropDown = dropDownMainWrapper.querySelector(".list-items");
-const liNodeList = dropDown.querySelectorAll(".item");
-const dropDownExistsClassName = "exists";
-
-const handleSelectButtonClick = (element, className) => {
-  element.classList.toggle(className);
-};
-
-selectButton.addEventListener(
-  "click",
-  handleSelectButtonClick.bind(this, selectButton, selectButtonActiveClassName)
-);
-
-selectButton.addEventListener(
-  "click",
-  handleSelectButtonClick.bind(this, dropDown, dropDownExistsClassName)
-);
 
 const toggleCheckbox = (e) => {
   if (e.target.type === "checkbox") return;
@@ -32,7 +23,9 @@ const toggleCheckbox = (e) => {
 };
 
 const newTextContentSelectButton = (element, oldValue, newValue) => {
-  const nodeListItems = document.querySelectorAll('.list-items__item__checkbox');
+  const nodeListItems = document.querySelectorAll(
+    ".list-items__item__checkbox"
+  );
   let count = 0;
   nodeListItems.forEach((item) => {
     if (item.checked) count++;
@@ -50,6 +43,7 @@ liNodeList.forEach((item) => {
       this,
       selectButtonTextContent,
       defaultButtonTextContent,
-      newButtonTextContent    )
+      newButtonTextContent
+    )
   );
 });
