@@ -1,0 +1,7 @@
+﻿@import "../../mixins/line-gradient.scss";
+
+@mixin header_style(){
+    position: absolute;
+    @include line-gradient-header;
+}
+

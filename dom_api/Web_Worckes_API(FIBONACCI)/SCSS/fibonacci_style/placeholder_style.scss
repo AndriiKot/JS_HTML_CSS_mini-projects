@@ -1,0 +1,8 @@
+﻿
+@mixin placeholder-style(){
+    display: block;
+    position: absolute;
+    top: 10px;
+    color: white;
+    transform-origin: left;
+}

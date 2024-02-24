@@ -1,0 +1,25 @@
+﻿
+```ruby
+# arrayFront = ['css','js','html']
+# arrayBackend = ['ruby','sql']
+
+# Если выбраны все элементы то текст кнопки  Full Stack 
+
+# Если не выбран ни одни элемент то текст кнопки Select Area
+
+# Если выбраны не все элементы из массива arrayFront и не все 
+
+#     элементы из массива arrayBackend то текст кнопки Select N 
+   #(где N - количество выбранных элементов)
+
+# Если выбраны только все элементы из arrayFront то текст кнопки Frontend 
+
+# Если выбраны только все элементы из arrayBackend то текст кнопки Backend 
+
+# Если выбраны все элементы из arrayFront и одни элемент из массива arrayBackend 
+#     то вывести текст кнопки Frontend for Backend
+
+# Если выбраны все элементы из arrayBackend и одни элемент или два из массива arrayFront
+#     то вывести текст кнопки Backend for Frontend
+
+```

@@ -1,0 +1,56 @@
+﻿@import "normalize.scss",
+        "./body/body_style.scss",
+        "./fibonacci_style/_main_allMixins_wrapperFibonacci",
+        "./mixins/flex-center.scss",
+        "./mixins/input-number-arrows-none.scss";
+
+@include normalize_css;
+@include input-number-arrows-none('.text-number__fibonacci-input');
+
+
+body {
+    @include body-style;
+}
+
+.wrapper__fibonacci {
+    @include flex-center;
+    text-align: center;
+    color: white;
+}
+.text-number__fibonacci-wrapper{
+    @include block_style;
+}
+.text-number__fibonacci-input {
+    @include input-text-style();
+    &:focus + .text-number__fibonacci-placeholder {
+        top: -15px;
+        transform: scale(.7);
+        opacity: .8;
+    }
+    &:valid:not(:focus){
+        // background-color: blue;
+        color: transparent;
+    }
+}
+
+.text-number__fibonacci-placeholder {
+    @include placeholder-style;
+    pointer-events: none;
+}
+
+.header-text__fibonacci{
+    @include header_style;
+}
+
+.header-shadow__fibonacci {
+    @include header_style_shadow;
+}
+
+.wrapper__fibonacci__input-submit { 
+    display: none;
+}
+
+.wrapper__fibonacci__result-fibonacci__number {
+    color: #85f46f;
+    font-size: 1.3em;
+}

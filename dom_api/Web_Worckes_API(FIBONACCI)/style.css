@@ -1,0 +1,218 @@
+html {
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.15; }
+
+body {
+  margin: 0; }
+
+main {
+  display: block; }
+
+h1 {
+  margin: 0.67em 0;
+  font-size: 2em; }
+
+a {
+  background-color: transparent; }
+
+pre {
+  font-size: 1em;
+  font-family: monospace, monospace; }
+
+hr {
+  height: 0;
+  box-sizing: content-box;
+  overflow: visible; }
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline dotted;
+  text-decoration: underline; }
+
+b,
+strong {
+  font-weight: bolder; }
+
+code,
+kbd,
+samp {
+  font-size: 1em;
+  font-family: monospace, monospace; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  position: relative;
+  line-height: 0;
+  vertical-align: baseline;
+  font-size: 75%; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+img {
+  border-style: none; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  line-height: 1.15;
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+input {
+  overflow: visible; }
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+legend {
+  white-space: normal;
+  display: table;
+  box-sizing: border-box;
+  color: inherit;
+  padding: 0;
+  max-width: 100%; }
+
+progress {
+  vertical-align: baseline; }
+
+textarea {
+  overflow: auto; }
+
+[type="checkbox"],
+[type="radio"] {
+  padding: 0;
+  box-sizing: border-box; }
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button; }
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+details {
+  display: block; }
+
+[type="search"] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield; }
+
+template {
+  display: none; }
+
+[hidden] {
+  display: none; }
+
+summary {
+  display: list-item; }
+
+.text-number__fibonacci-input::-webkit-outer-spin-button,
+.text-number__fibonacci-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+/* Firefox */
+.text-number__fibonacci-input[type="number"] {
+  -moz-appearance: textfield; }
+
+body {
+  font-family: Arial,Verdana, Helvetica, sans-serif;
+  background: linear-gradient(-90deg, #262626, #3e0c51, #262626); }
+
+.wrapper__fibonacci {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white; }
+
+.text-number__fibonacci-wrapper {
+  width: 350px;
+  position: relative; }
+
+.text-number__fibonacci-input {
+  background-color: transparent;
+  color: inherit;
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  appearance: 0;
+  border-bottom: 1px solid #9f9f9f;
+  transition: .3s; }
+  .text-number__fibonacci-input:focus {
+    border-color: inherit;
+    border-bottom-width: 1.5px; }
+  .text-number__fibonacci-input:focus + .text-number__fibonacci-placeholder {
+    top: -15px;
+    transform: scale(0.7);
+    opacity: .8; }
+  .text-number__fibonacci-input:valid:not(:focus) {
+    color: transparent; }
+
+.text-number__fibonacci-placeholder {
+  display: block;
+  position: absolute;
+  top: 10px;
+  color: white;
+  transform-origin: left;
+  pointer-events: none; }
+
+.header-text__fibonacci {
+  position: absolute;
+  background: linear-gradient(90deg, #c13cf2, #ff3ca5, #c13cf2);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; }
+
+.header-shadow__fibonacci {
+  text-shadow: 8px 2px 5px #000;
+  z-index: -1; }
+
+.wrapper__fibonacci__input-submit {
+  display: none; }
+
+.wrapper__fibonacci__result-fibonacci__number {
+  color: #85f46f;
+  font-size: 1.3em; }
+
+/*# sourceMappingURL=style.css.map */
