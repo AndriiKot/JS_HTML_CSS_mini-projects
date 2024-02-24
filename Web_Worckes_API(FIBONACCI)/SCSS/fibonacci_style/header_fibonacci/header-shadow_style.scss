@@ -1,6 +1,0 @@
-﻿@import "../../mixins/text-shadow.scss";
-
-@mixin header_style_shadow() {
-    @include text-shadow;
-    z-index: -1;
-}
