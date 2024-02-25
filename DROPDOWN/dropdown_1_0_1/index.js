@@ -1,8 +1,8 @@
 const dropDownMainWrapper = document.querySelector(".wrapper");
 const selectButton = dropDownMainWrapper.querySelector(".select-btn");
 
-dropDownMainWrapper.addEventListener("click", (e) => {
-  e.currentTarget.classList.toggle("active_test");
+selectButton.addEventListener("click", (e) => {
+  e.currentTarget.classList.toggle("active");
 });
 
 // const defaultButtonTextContent =
