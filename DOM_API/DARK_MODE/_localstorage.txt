@@ -1,0 +1,2 @@
+﻿DOM API:
+LocalStorage
