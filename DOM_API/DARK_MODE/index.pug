@@ -1,0 +1,32 @@
+﻿mixin start(title = 'Some Text', script='script', link_style='style.css')
+    doctype html    
+    html(lang="en")
+        +head-constructor(title,script,link_style)
+        +body-constructor()
+
+mixin head-constructor(title,script,link_style)
+       head
+            meta(charset="UTF-8")
+            meta(name="viewport",content="width=device-width, initial-scale=1.0")
+            link(rel="stylesheet", href= './' + link_style)
+            script(src='./'+ script + '.js', async='', defer='')
+            title #{title}
+
+mixin body-constructor()
+    body
+        +container-text__split-string('Dark Mode')
+
+
+mixin container-text__split-string(text='string',classNameContainer = 'container-text',nowrapText = true)
+    div(class= classNameContainer)
+        each chr in text.split('')
+            if chr == ' ' && nowrapText
+                div(style='visibility: hidden;') X
+            else 
+               div #{chr}
+
+  
++start() 
+
+
+    
